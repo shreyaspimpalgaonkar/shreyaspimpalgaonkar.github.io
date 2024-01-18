@@ -2,16 +2,16 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: <a href='cs.nyu.edu'>New York University</a>.
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: shreyas_pimpalgaonkar_20240114.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>555 your office number</p>
-    <p>123 your address street</p>
-    <p>Your City, State 12345</p>
+    <p>Courant Institute of Mathematical Sciences</p>
+    <p>251 Mercer Street</p>
+    <p>New York, New York 10002</p>
 
 news: true # includes a list of news items
 latest_posts: true # includes a list of the newest posts
