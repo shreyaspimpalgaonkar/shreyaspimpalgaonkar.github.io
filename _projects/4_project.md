@@ -1,80 +1,69 @@
 ---
 layout: page
-title: project 4
-description: another without an image
-img:
-importance: 3
-category: fun
+title: FBSDE
+description: Portfolio Optimization using Deep Learning with propagator transaction cost model
+importance: 4
+category: Finance
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+In this project, we optimally replicate an option portfolio in the presence of transaction costs using a deep learning framework. We use a propagator transaction cost model to account for transaction costs. Finally, we compare the performance of the replicating portfolio with the performance of the option portfolio.
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+We model this as a stochastic control problem, and we aim to minimize or maximize the functional
+\begin{equation}
+\tilde{J}(c)=E\left(\int_0^T \tilde{\mathrm{rc}}\left(s, \tilde{X}_s, c_s\right) d s+\tilde{\mathrm{fc}}\left(\tilde{X}_T\right)\right)
+\end{equation}
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+with respect to the control function $$c_t$$, where the underlying stochastic evolving factors $$\tilde{X}_t$$ satisfy
+\begin{equation}
+d \tilde{X}_t=\tilde{\mu}\left(t, \tilde{X}_t ; c_t\right) d t+\tilde{\sigma}\left(t, \tilde{X}_t ; c_t\right) d W_t,
+\end{equation}
 
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/1.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/3.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    Caption photos easily. On the left, a road goes through a tunnel. Middle, leaves artistically fall in a hipster photoshoot. Right, in another hipster photoshoot, a lumberjack grasps a handful of pine needles.
-</div>
-<div class="row">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/5.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    This image can also have a caption. It's like magic.
-</div>
+where $$X_t = [S_t, Y_t]$$ which follows the following processes, 
 
-You can also put regular text between your rows of images.
-Say you wanted to write a little bit about your project before you posted the rest of the images.
-You describe how you toiled, sweated, _bled_ for your project, and then... you reveal its glory in the next row of images.
+\begin{equation}
+d S_t=\mu\left(t, S_t\right) d t+\sigma\left(t, S_t\right) d W_t
+\end{equation}
+\begin{equation}
+d Y_t=-f\left(t, S_t, Y_t, Q_t\right) d t+ Q_t^T \sigma\left(t, S_t\right) d W_t
+\end{equation}
 
-<div class="row justify-content-sm-center">
-    <div class="col-sm-8 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-    <div class="col-sm-4 mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-    </div>
-</div>
-<div class="caption">
-    You can also have artistically styled 2/3 + 1/3 images, like these.
-</div>
+We model running costs $$\tilde{rc}$$ using a propogator model, and final cost is given by 
+\begin{equation}
+\tilde{fc} = \|\|{Y_T - g(S_T)}\|\|^2
+\end{equation}
 
-The code is simple.
-Just wrap your images with `<div class="col-sm">` and place them inside `<div class="row">` (read more about the <a href="https://getbootstrap.com/docs/4.4/layout/grid/">Bootstrap Grid</a> system).
-To make images responsive, add `img-fluid` class to each; for rounded corners and shadows use `rounded` and `z-depth-1` classes.
-Here's the code for the last row of images above:
+Finally, we model transaction costs using (1) linear permanent impact and quadratic temporary impact, and (2) markov impact process as follows:
+\begin{equation}
+    I_{t + 1}^Q = e^{-\lambda} I_{t}^Q + \gamma v_{t}
+\end{equation}
 
-{% raw %}
+\begin{equation}
+    v_{t} = Q_{t + 1} - Q_{t}
+\end{equation}
 
-```html
-<div class="row justify-content-sm-center">
-  <div class="col-sm-8 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/6.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-  <div class="col-sm-4 mt-3 mt-md-0">
-    {% include figure.liquid path="assets/img/11.jpg" title="example image" class="img-fluid rounded z-depth-1" %}
-  </div>
-</div>
-```
+Using this, we obtain new underlier processes for $$S_t$$ and $$Y_t$$ (not shown here). Finally, we optimize the total PnL using a risk averse optimization using a simple neural network and gradient descent on the following objective function:
 
-{% endraw %}
+\begin{equation}
+\mathcal{L}(w_T) = \frac{\kappa}{2} V\left[w_T\right]-E\left[w_T\right] \\
+\end{equation}
+
+where $$w_T = w_0 + \sum_{t=1}^T \delta w_t,$$ and $$\delta w_t= \delta\left(P_t-Y_t\right)$$
+
+
+
+- $$S_t$$ denotes the prices of the underlying assets at time t
+- $$Y_t$$ denotes the value of the options replication portfolio at time t
+- $$\tilde{X}_t$$ is the concatenation of $$S_t$$ and $$Y_t$$
+- $$Q_t$$ is the value of holdings in the underlying stocks at time t
+- $$\tilde{rc}$$ and $$\tilde{fc}$$ denote the running cost and final cost respectively
+- $$Q_t$$ is the value of holdings in the underlying assets at time t, with unit in dollars
+- $$h_t$$ denotes the value of holdings in the underlying assets at time t, with unit in number of shares
+- $$\delta t$$ denotes the length of rebalancing interval in discrete time
+- $$\tau$$ denotes the length of the time interval for each rebalancing (trade)
+- $$v_t$$ denotes (1) the average rate of trading at time t in shares for the linear and KO model (2) the turnover in dollar in propagator model 
+- $$g$$ denotes the payoff function 
+- $$X_t$$ denotes the value of the cash account at time t, with unit in dollars
+- $$I_{t}^Q$$ is the impact process for the propagator model, with unit in basis points
+- $$c_t$$ denotes the instantaneous cost when rebalancing positon at time t
+- $$\lambda$$ denotes the exponential decay; $$\frac{\ln 2}{\lambda}$$ represents the half-life in the Markov propagator model
+- $$\gamma$$ denotes trades loading, i.e. the push in propagator model
