@@ -19,8 +19,8 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+Update: I'm currently on the job market. If you have any opportunities that you think I might be interested in, please feel free to reach out to me at shreyas.pgkr@gmail.com
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+Hi! I'm Shreyas Pimpalgaonkar. I'm a graduate student at the Courant Institute of Mathematical Sciences at New York University. I'm interested in Machine Learning and Robotics. Currently, I'm working with [Prof. Lerrel Pinto](lerrelpinto.com) on developing world models to scale and speed up robot learning. I'm also working with [Prof. He He](https://hhexiy.github.io/) on improving the mathematical capabilities of large language models. In the past, I have worked with amazing professors [Prof. Pushpak Bhattacharyya](https://www.cse.iitb.ac.in/~pb/), [Prof. Ajit Rajwade](https://www.cse.iitb.ac.in/~ajitvr/) and [Prof. Bhaskaran Raman](https://www.cse.iitb.ac.in/~br/). 
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+I have also been interested in the financial markets and have worked as a quantitative research intern at [Citadel](https://www.citadel.com/). Before my Masters, I worked as a quantitative researcher and developer at [Goldman Sachs](https://www.goldmansachs.com/), where I worked with [Jiantao Wang](https://www.linkedin.com/in/jiantao-wang-2127333/) and [Bhargav Srirangam](https://www.linkedin.com/in/bhargav-srirangam-a33a683/).
