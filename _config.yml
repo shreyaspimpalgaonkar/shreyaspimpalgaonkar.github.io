@@ -198,7 +198,7 @@ kramdown:
       start_line: 1
 
 # Includes & excludes
-include: ["_pages"]
+include: ["_pages", "benchmark-registry/_next"]
 exclude:
   - bin
   - Gemfile
