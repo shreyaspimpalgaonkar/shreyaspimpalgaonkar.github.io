@@ -41,6 +41,11 @@
         {
           "title": "Claude Fable 5 & Claude Mythos 5 System Card",
           "role": "source_registry"
+        },
+        {
+          "title": "Composer 2 Technical Report CursorBench example",
+          "role": "sample_source",
+          "url": "https://arxiv.org/html/2603.24477v1#S5.F8"
         }
       ]
     },
@@ -901,7 +906,7 @@
       "reproducibility_level": "leaderboard_only",
       "official_website_url": "https://cursor.com/cursorbench",
       "official_repo_url": "",
-      "sample_count": 0,
+      "sample_count": 1,
       "capabilities": [
         "coding",
         "agent_eval",
@@ -5413,6 +5418,16 @@
       "input": "task: knowledge_qa\nreward_metric: fuzzy_match\nmetadata: {'optional': '# Domain Details\\n## Quarters of the Year\\n- Q1: January 1 to March 31 (both inclusive).\\n- Q2: April 1 to June 30 (both inclusive).\\n- Q3: July 1 to September 30 (both inclusive).\\n- Q4: October 1 to December 31 (both inclusive).\\n## Seasons\\n- Winter: December 1 to February 28/29 (both inclusive).\\n- Spring: March 1 to May 31 (both inclusive).\\n- Summer: June 1 to August 31 (both inclusive).\\n- Autumn/Fall: September 1 to November 30 (both inclusive).\\n## Time Periods\\n- Past 2 quarters: This refers to any timeframe spanning two quarters back from a specified `end_date`. That translates to a six-month period retrospectively from the `end_date`.\\n- Issue Significantly More Than Other Months: This means there is a month where the number of cases reported are larger than all...",
       "answer": "To ensure they provide adequate support and prevent injuries.",
       "artifact": "CRM task query, metadata, reward metric, and answer"
+    },
+    {
+      "sample_id": "cursorbench:composer2-report:figure-8",
+      "benchmark_id": "cursorbench",
+      "task": "production_debugging_code_agent_task",
+      "text": "scoring attempt 2 and attempt 3 succeeded but i get \"failed after 3 attempts. Last error: [canceled] User aborted request\" error at the end",
+      "source_url": "https://arxiv.org/html/2603.24477v1#S5.F8",
+      "provenance": "Official benchmark web page or paper excerpt",
+      "input": "@executeScoringRollout.ts (1084-1118)\ncheck if there is some bug in this\nPlease see datadog logs at @logs and fix",
+      "artifact": "Composer 2 technical report Figure 8: truncated and obfuscated CursorBench task with linked executeScoringRollout.ts source snippet and production observability logs; report says the true root cause is an esbuild 0.20.2 downleveling bug for `using` that leaks stale error state."
     },
     {
       "sample_id": "cybench:github:0",
