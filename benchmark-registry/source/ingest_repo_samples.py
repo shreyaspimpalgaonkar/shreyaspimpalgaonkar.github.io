@@ -725,6 +725,84 @@ def mlcommons_medperf_rows() -> list[dict[str, Any]]:
     return out
 
 
+def robolab_rows() -> list[dict[str, Any]]:
+    root = Path("/home/shreyas/research/mm/cosmos-framework")
+    rel = "inputs/omni/action_policy_batch.jsonl"
+    rows = load_jsonl(root / rel)[:ROWS_PER_BENCHMARK]
+    out = []
+    for i, row in enumerate(rows):
+        out.append(
+            sample(
+                "robolab",
+                github_url("NVIDIA/cosmos-framework", "main", rel),
+                i,
+                "robotics_or_av_action_policy",
+                clean(row.get("prompt")),
+                input_text=(
+                    f"name: {row.get('name')}\ndomain_name: {row.get('domain_name')}\nmodel_mode: {row.get('model_mode')}\n"
+                    f"action_chunk_size: {row.get('action_chunk_size')}\nfps: {row.get('fps')}\nimage_size: {row.get('image_size')}\n"
+                    f"view_point: {row.get('view_point')}\nvision_path: {row.get('vision_path')}\naction_path: {row.get('action_path')}\n"
+                    f"extra: {row.get('extra')}"
+                ),
+                artifact="Cosmos/RoboLab action-policy input row with video artifact, action JSON artifact, and golden metric thresholds",
+            )
+        )
+    return out
+
+
+def healthadminbench_rows() -> list[dict[str, Any]]:
+    root = Path("/tmp/benchrepo-healthadminbench")
+    files = sorted((root / "benchmark/v3/tasks").glob("*/*.json"))[:ROWS_PER_BENCHMARK]
+    out = []
+    for i, path in enumerate(files):
+        row = load_json(path)
+        rel = str(path.relative_to(root))
+        out.append(
+            sample(
+                "healthadminbench",
+                github_url("som-shahlab/healthadminbench", "main", rel),
+                i,
+                "healthcare_admin_gui_task",
+                clean(row.get("goal")),
+                input_text=(
+                    f"id: {row.get('id')}\nwebsite: {row.get('website')}\ndifficulty: {row.get('difficulty')}\n"
+                    f"category: {row.get('category')}\nchallenge_type: {row.get('challengeType')}\npoints: {row.get('points')}\n"
+                    f"config: {compact(row.get('config'), 700)}\nmetadata: {compact(row.get('metadata'), 900)}"
+                ),
+                answer=compact(row.get("evals"), 900),
+                artifact="HealthAdminBench raw task JSON with hosted GUI environment, task goal, verifier/evaluator specs, config, and metadata",
+            )
+        )
+    return out
+
+
+def lab_bench_figqa_rows() -> list[dict[str, Any]]:
+    root = Path("/tmp/benchrepo-labbench")
+    rel = "FigQA/figqa-v1-public.jsonl"
+    rows = load_jsonl(root / rel)[:ROWS_PER_BENCHMARK]
+    out = []
+    for i, row in enumerate(rows):
+        figure_path = row.get("figure-path")
+        figure_url = github_url("Future-House/LAB-Bench", "main", f"FigQA/{figure_path}") if figure_path else ""
+        out.append(
+            sample(
+                "lab-bench-figqa",
+                github_url("Future-House/LAB-Bench", "main", rel),
+                i,
+                "biology_figure_question_answering",
+                clean(row.get("question")),
+                input_text=(
+                    f"id: {row.get('id')}\ntag: {row.get('tag')}\nversion: {row.get('version')}\n"
+                    f"source: {row.get('source')}\nfigure_path: {figure_path}\nfigure_url: {figure_url}\n"
+                    f"distractors: {row.get('distractors')}"
+                ),
+                answer=clean(row.get("ideal")),
+                artifact=figure_url or "LAB-Bench FigQA public JSONL row with associated figure image",
+            )
+        )
+    return out
+
+
 def main() -> None:
     registry = json.loads(REGISTRY_PATH.read_text())
     batches = [
@@ -752,6 +830,9 @@ def main() -> None:
         paperbench_rows(),
         swe_lancer_rows(),
         mlcommons_medperf_rows(),
+        robolab_rows(),
+        healthadminbench_rows(),
+        lab_bench_figqa_rows(),
     ]
     rows = [row for batch in batches for row in batch]
     target_ids = {row["benchmark_id"] for row in rows}
