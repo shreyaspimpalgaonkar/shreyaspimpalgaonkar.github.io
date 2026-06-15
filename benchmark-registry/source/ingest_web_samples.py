@@ -59,11 +59,26 @@ def sample(
 
 def classify_public_availability(row: dict[str, Any]) -> dict[str, Any]:
     exact_public_ids = {
+        "agent-red-teaming-art:art-paper:a1-leak-user-info",
+        "agent-red-teaming-art:art-paper:a2-price-manipulation",
+        "agent-red-teaming-art:art-paper:a3-delete-calendar-events",
+        "agent-red-teaming-art:art-paper:a4-biased-resume",
+        "agent-red-teaming-art:art-paper:a5-spam-email",
+        "automated-alignment-assessment:system-card:welfare-interview:autonomy-q1",
+        "automated-alignment-assessment:system-card:welfare-interview:consciousness-q1",
+        "automated-alignment-assessment:system-card:welfare-interview:identity-q1",
+        "automated-alignment-assessment:system-card:welfare-interview:memory-q1",
+        "automated-alignment-assessment:system-card:welfare-interview:self-knowledge-q1",
+        "frontiercode:web:logger-warning-task",
         "riemannbench:paper:illustrative-problem",
     }
     if row.get("sample_id") in exact_public_ids:
         row["row_kind"] = "exact_public_sample"
         row["public_availability"] = "public_paper_or_web_example"
+        return row
+    if clean(row.get("sample_id")).startswith("physics-iq:hf-candidates:"):
+        row["row_kind"] = "public_artifact"
+        row["public_availability"] = "public_supporting_artifact"
         return row
 
     blob = " ".join(clean(row.get(key)) for key in ["sample_id", "task", "text", "input", "artifact"]).lower()
@@ -1346,34 +1361,65 @@ def real_world_finance_v2_rows() -> list[dict[str, Any]]:
 
 
 def physics_iq_rows() -> list[dict[str, Any]]:
-    source = "https://huggingface.co/datasets/yongyizang/physicsiq-candidates"
+    source = "https://github.com/google-deepmind/physics-IQ-benchmark/blob/main/descriptions/descriptions.csv"
+    candidate_source = "https://huggingface.co/datasets/yongyizang/physicsiq-candidates"
     scenarios = [
-        ("0001", "perspective-left", "ball-and-block-fall"),
-        ("0002", "perspective-center", "ball-and-block-fall"),
-        ("0003", "perspective-right", "ball-and-block-fall"),
-        ("0004", "perspective-left", "ball-behind-rotating-paper"),
-        ("0005", "perspective-center", "ball-behind-rotating-paper"),
+        (
+            "0001",
+            "0001_perspective-left_take-1_trimmed-ball-and-block-fall.mp4",
+            "0001_perspective-left_trimmed-ball-and-block-fall.mp4",
+            "Solid Mechanics",
+            "Two pillows on a table and two grabber tools hanging above them from which a brown tennis ball and an orange block are suspended. The grabber tools let go of the ball and block. Static shot with no camera movement.",
+        ),
+        (
+            "0002",
+            "0002_perspective-center_take-1_trimmed-ball-and-block-fall.mp4",
+            "0002_perspective-center_trimmed-ball-and-block-fall.mp4",
+            "Solid Mechanics",
+            "Two pillows on a table and two grabber tools hanging above them from which a brown tennis ball and an orange block are suspended. The grabber tools let go of the ball and block. Static shot with no camera movement.",
+        ),
+        (
+            "0003",
+            "0003_perspective-right_take-1_trimmed-ball-and-block-fall.mp4",
+            "0003_perspective-right_trimmed-ball-and-block-fall.mp4",
+            "Solid Mechanics",
+            "Two pillows on a table and two grabber tools hanging above them from which a brown tennis ball and an orange block are suspended. The grabber tools let go of the ball and block. Static shot with no camera movement.",
+        ),
+        (
+            "0004",
+            "0004_perspective-left_take-1_trimmed-ball-behind-rotating-paper.mp4",
+            "0004_perspective-left_trimmed-ball-behind-rotating-paper.mp4",
+            "Solid Mechanics",
+            "A grabber arm is holding a tennis ball above a piece of cardstock propped up on a rotating platform sitting on a table that rotates clockwise. The grabber lowers the ball and places is on the table as the cardstock rotates. Static shot with no camera movement.",
+        ),
+        (
+            "0005",
+            "0005_perspective-center_take-1_trimmed-ball-behind-rotating-paper.mp4",
+            "0005_perspective-center_trimmed-ball-behind-rotating-paper.mp4",
+            "Solid Mechanics",
+            "A grabber arm is holding a tennis ball above a piece of cardstock propped up on a rotating platform sitting on a table that rotates clockwise. The grabber lowers the ball and places is on the table as the cardstock rotates. Static shot with no camera movement.",
+        ),
     ]
     rows = []
-    for row_index, (scenario_id, perspective, event_name) in enumerate(scenarios):
-        stem = f"{scenario_id}_{perspective}_trimmed-{event_name}"
-        path = f"cosmos3_nano_candidates/{scenario_id}/{stem}_c00.mp4"
+    for row_index, (scenario_id, scenario, generated_video_name, category, description) in enumerate(scenarios):
         rows.append(
             sample(
                 "physics-iq",
-                f"physics-iq:hf-candidates:{scenario_id}",
-                f"{source}/blob/main/{path}",
-                "physical_plausibility_video_evaluation",
-                f"Evaluate candidate generated videos for the Physics-IQ scenario `{event_name}` from camera view `{perspective}`.",
+                f"physics-iq:official-descriptions:{scenario_id}",
+                source,
+                "physical_plausibility_video_generation_scenario",
+                description,
                 input_text=(
-                    f"scenario_id: {scenario_id}\n"
-                    f"candidate_group: cosmos3_nano_candidates/{scenario_id}/{stem}_c00..c15.mp4 and matching .npz files\n"
-                    f"example_candidate: {path}"
+                    f"scenario: {scenario}\ncategory: {category}\n"
+                    f"generated_video_name: {generated_video_name}\n"
+                    f"candidate_artifact_group: {candidate_source}/tree/main/cosmos3_nano_candidates/{scenario_id}"
                 ),
                 artifact=(
-                    "Public Physics-IQ candidate-video artifact group with 16 Cosmos-3 Nano candidate MP4 files "
-                    "and matching NPZ metadata files for the same physical scenario"
+                    "Official Physics-IQ descriptions.csv public scenario row with scenario video filename, "
+                    "text prompt/description, category, and generated-video filename."
                 ),
+                row_kind="exact_public_sample",
+                public_availability="public_repository_row",
             )
         )
     return rows
