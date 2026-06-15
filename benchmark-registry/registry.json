@@ -90,6 +90,11 @@
         {
           "title": "Claude Fable 5 & Claude Mythos 5 System Card",
           "role": "source_registry"
+        },
+        {
+          "title": "SuperAnnotate Databricks OfficeQA case study",
+          "role": "sample_source",
+          "url": "https://www.superannotate.com/blog/superannotate-databricks-case-study-officeqa-benchmark"
         }
       ]
     },
@@ -2556,7 +2561,7 @@
       "reproducibility_level": "approximate",
       "official_website_url": "https://www.databricks.com/blog/officeqa",
       "official_repo_url": "",
-      "sample_count": 2,
+      "sample_count": 3,
       "capabilities": [
         "professional",
         "agent_eval"
@@ -8623,6 +8628,16 @@
       "provenance": "Official benchmark web page or paper excerpt",
       "input": "Official Databricks blog labels this a Hard OfficeQA example and asks for slope, y-intercept, and predicted value with specified rounding.",
       "artifact": "Official Databricks OfficeQA blog example question"
+    },
+    {
+      "sample_id": "officeqa:web:visual-understanding-example",
+      "benchmark_id": "officeqa",
+      "task": "document_grounded_visual_reasoning",
+      "text": "On report page 5 of the September 1990 US Treasury Monthly Bulletin, how many local maxima are there on the line plots on that page?",
+      "source_url": "https://www.superannotate.com/blog/superannotate-databricks-case-study-officeqa-benchmark",
+      "provenance": "Official benchmark web page or paper excerpt",
+      "input": "SuperAnnotate case study describes this as a visual-understanding OfficeQA question that all agents currently fail; it requires reading chart/figure content rather than simple text extraction.",
+      "artifact": "SuperAnnotate Databricks OfficeQA case-study example question"
     },
     {
       "sample_id": "officeqa-pro:paper:uid0005",

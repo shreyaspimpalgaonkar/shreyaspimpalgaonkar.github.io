@@ -141,6 +141,7 @@ def vending_bench_2_rows() -> list[dict[str, Any]]:
 
 def officeqa_rows() -> list[dict[str, Any]]:
     source = "https://www.databricks.com/blog/introducing-officeqa-benchmark-end-to-end-grounded-reasoning"
+    superannotate_source = "https://www.superannotate.com/blog/superannotate-databricks-case-study-officeqa-benchmark"
     return [
         sample(
             "officeqa",
@@ -169,6 +170,21 @@ def officeqa_rows() -> list[dict[str, Any]]:
                 "and predicted value with specified rounding."
             ),
             artifact="Official Databricks OfficeQA blog example question",
+        ),
+        sample(
+            "officeqa",
+            "officeqa:web:visual-understanding-example",
+            superannotate_source,
+            "document_grounded_visual_reasoning",
+            (
+                "On report page 5 of the September 1990 US Treasury Monthly Bulletin, how many local maxima are "
+                "there on the line plots on that page?"
+            ),
+            input_text=(
+                "SuperAnnotate case study describes this as a visual-understanding OfficeQA question that all "
+                "agents currently fail; it requires reading chart/figure content rather than simple text extraction."
+            ),
+            artifact="SuperAnnotate Databricks OfficeQA case-study example question",
         ),
     ]
 
