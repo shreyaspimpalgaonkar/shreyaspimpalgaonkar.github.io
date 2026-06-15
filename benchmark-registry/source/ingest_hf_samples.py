@@ -892,6 +892,82 @@ def toolathlon_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, me
     )
 
 
+def usamo_2026_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "olympiad_math_problem",
+        clean(row.get("problem")),
+        input_text=f"problem_idx: {row.get('problem_idx')}\npoints: {row.get('points')}\ngrading_scheme: {compact(row.get('grading_scheme'), 1200)}",
+        answer=compact(row.get("sample_solution"), 1200),
+        artifact="MathArena USAMO 2026 row with problem statement, grading scheme, point value, and sample solution",
+    )
+
+
+def gdp_pdf_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    criteria = []
+    for i in range(1, 31):
+        criterion = clean(row.get(f"rubric - {i}. criterion"))
+        if criterion and criterion != "None":
+            criteria.append(criterion)
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "pdf_grounded_document_question_answering",
+        clean(row.get("prompt")),
+        input_text=(
+            f"task_id: {row.get('task_id')}\ntask_response_id: {row.get('task_response_id')}\n"
+            f"domain: {row.get('domain')}\npdf_path: {row.get('pdf_path')}\n"
+            f"rubric_criteria: {compact(criteria, 1500)}"
+        ),
+        answer=compact(criteria[:8], 900),
+        artifact="GDP.pdf row with PDF path, document-grounded prompt, and detailed rubric criteria",
+    )
+
+
+def artificial_analysis_mapper(
+    benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]
+) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "domain_knowledge_question_answering",
+        clean(row.get("question")),
+        input_text=f"domain: {row.get('domain')}\ntopic: {row.get('topic')}\nquestion_id: {row.get('question_id')}",
+        answer=clean(row.get("answer")),
+        artifact="Artificial Analysis AA-Omniscience public row with domain, topic, question, and answer",
+    )
+
+
+def programbench_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "binary_program_understanding",
+        clean(row.get("readme") or row.get("docs") or row.get("task_id")),
+        input_text=(
+            f"task_id: {row.get('task_id')}\nlanguage: {row.get('language')}\ndifficulty: {row.get('difficulty')}\n"
+            f"docs: {compact(row.get('docs'), 700)}\nfile_type: {row.get('file_type')}\nbinary_size: {row.get('binary_size')}\n"
+            f"binary_hf_repo: {row.get('binary_hf_repo')}\nbinary_hf_filename: {row.get('binary_hf_filename')}\n"
+            f"compile_hint: {row.get('compile_hint')}\ntest_branches: {compact(row.get('test_branches'), 700)}"
+        ),
+        answer=compact(row.get("example_io"), 900),
+        artifact="ProgramBench processed row with repository README/docs, language, binary/test metadata, compile hint, and example I/O",
+    )
+
+
 def biomysterybench_rows() -> list[dict[str, Any]]:
     dataset = "Anthropic/BioMysteryBench-preview"
     path = Path(hf_hub_download(dataset, "problems.csv", repo_type="dataset"))
@@ -1367,6 +1443,34 @@ CONFIGS: list[dict[str, Any]] = [
         "config": "default",
         "split": "train",
         "mapper": toolathlon_mapper,
+    },
+    {
+        "benchmark_id": "usamo-2026",
+        "dataset": "MathArena/usamo_2026",
+        "config": "default",
+        "split": "train",
+        "mapper": usamo_2026_mapper,
+    },
+    {
+        "benchmark_id": "gdp-pdf",
+        "dataset": "surgeai/GDP.pdf",
+        "config": "default",
+        "split": "test",
+        "mapper": gdp_pdf_mapper,
+    },
+    {
+        "benchmark_id": "artificial-analysis",
+        "dataset": "ArtificialAnalysis/AA-Omniscience-Public",
+        "config": "default",
+        "split": "train",
+        "mapper": artificial_analysis_mapper,
+    },
+    {
+        "benchmark_id": "programbench",
+        "dataset": "milkkarten/programbench-processed",
+        "config": "default",
+        "split": "train",
+        "mapper": programbench_mapper,
     },
 ]
 
