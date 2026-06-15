@@ -193,6 +193,92 @@ def scicode_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta:
     )
 
 
+def benchcad_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "cad_code_editing",
+        clean(row.get("instruction")),
+        input_text=(
+            f"record_id: {row.get('record_id')}\nfamily: {row.get('family')}\nedit_type: {row.get('edit_type')}\n"
+            f"category: {row.get('category')} / {row.get('category_label')}\norig_code:\n{compact(row.get('orig_code'), 900)}"
+        ),
+        answer=compact(row.get("gt_code"), 900),
+        artifact="CADQuery source code plus original and target STEP artifacts embedded in dataset row",
+    )
+
+
+def evoeval_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "evolved_code_generation",
+        clean(row.get("prompt")),
+        input_text=f"task_id: {row.get('task_id')}\nentry_point: {row.get('entry_point')}",
+        answer=clean(row.get("canonical_solution")),
+        artifact="EvoEval prompt, canonical solution, and tests",
+    )
+
+
+def mlrbench_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "machine_learning_research_task",
+        clean(row.get("task_description")),
+        input_text=f"task_id: {row.get('task_id')}\ntask_name: {row.get('task_name')}",
+        artifact="Machine-learning research task description",
+    )
+
+
+def scienceagentbench_mapper(
+    benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]
+) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "scientific_agent_task",
+        clean(row.get("task_inst")),
+        input_text=(
+            f"instance_id: {row.get('instance_id')}\ndomain: {row.get('domain')}\nsubtasks: {row.get('subtask_categories')}\n"
+            f"github: {row.get('github_name')}\ndataset_tree:\n{row.get('dataset_folder_tree')}\npreview:\n{compact(row.get('dataset_preview'), 900)}"
+        ),
+        answer=f"gold_program: {row.get('gold_program_name')}; output: {row.get('output_fname')}; eval: {row.get('eval_script_name')}",
+        artifact="Scientific coding task with dataset preview and expected output/evaluation file names",
+    )
+
+
+def usaco_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "competitive_programming",
+        clean(row.get("description")),
+        input_text=(
+            f"problem_id: {row.get('problem_id')}\nlevel: {row.get('problem_level')}\n"
+            f"runtime_limit: {row.get('runtime_limit')}\nmemory_limit: {row.get('memory_limit')}\n"
+            f"sample_inputs: {compact(row.get('input'), 700)}"
+        ),
+        answer=compact(row.get("output"), 700),
+        artifact="USACO problem statement with public test input/output mapping",
+    )
+
+
 def charxiv_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
     question = clean(row.get("reasoning_q") or row.get("descriptive_q1"))
     answer = clean(row.get("reasoning_a") or row.get("descriptive_a1"))
@@ -683,6 +769,41 @@ CONFIGS: list[dict[str, Any]] = [
         "config": "default",
         "split": "train",
         "mapper": scicode_mapper,
+    },
+    {
+        "benchmark_id": "benchcad",
+        "dataset": "BenchCAD/BenchCAD",
+        "config": "edit-bench",
+        "split": "edit_bench",
+        "mapper": benchcad_mapper,
+    },
+    {
+        "benchmark_id": "evoeval",
+        "dataset": "evoeval/EvoEval_difficult",
+        "config": "default",
+        "split": "test",
+        "mapper": evoeval_mapper,
+    },
+    {
+        "benchmark_id": "mlr-bench",
+        "dataset": "chchenhui/mlrbench-tasks",
+        "config": "default",
+        "split": "all_tasks",
+        "mapper": mlrbench_mapper,
+    },
+    {
+        "benchmark_id": "scienceagentbench",
+        "dataset": "osunlp/ScienceAgentBench",
+        "config": "default",
+        "split": "verified",
+        "mapper": scienceagentbench_mapper,
+    },
+    {
+        "benchmark_id": "usaco",
+        "dataset": "dapumptu/usaco_benchmark",
+        "config": "default",
+        "split": "train",
+        "mapper": usaco_mapper,
     },
     {
         "benchmark_id": "charxiv-reasoning",

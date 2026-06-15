@@ -70,6 +70,12 @@ def load_jsonl(path: Path) -> list[dict[str, Any]]:
     return [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
 
 
+def read_optional(path: Path, limit: int = 1200) -> str:
+    if not path.exists():
+        return ""
+    return compact(path.read_text(errors="ignore"), limit)
+
+
 def webarena_rows() -> list[dict[str, Any]]:
     path = Path("/tmp/benchrepo-webarena/config_files/test.raw.json")
     rows = load_json(path)[:ROWS_PER_BENCHMARK]
@@ -193,6 +199,241 @@ def mle_bench_rows() -> list[dict[str, Any]]:
     return out
 
 
+def visualwebarena_rows() -> list[dict[str, Any]]:
+    repo_root = Path("/tmp/benchrepo-vwa")
+    rels = [
+        "config_files/vwa/test_reddit.raw.json",
+        "config_files/vwa/test_shopping.raw.json",
+        "config_files/vwa/test_classifieds.raw.json",
+    ]
+    rows: list[tuple[str, dict[str, Any]]] = []
+    for rel in rels:
+        for row in load_json(repo_root / rel):
+            rows.append((rel, row))
+    out = []
+    for i, (rel, row) in enumerate(rows[:ROWS_PER_BENCHMARK]):
+        url = github_url("web-arena-x/visualwebarena", "main", rel)
+        eval_spec = row.get("eval", {})
+        image = clean(row.get("image"))
+        out.append(
+            sample(
+                "visualwebarena",
+                url,
+                i,
+                "visual_web_navigation",
+                clean(row.get("intent")),
+                input_text=(
+                    f"task_id: {row.get('task_id')}\nsites: {row.get('sites')}\nstart_url: {row.get('start_url')}\n"
+                    f"image: {image or 'none'}\nrequire_login: {row.get('require_login')}\neval_types: {eval_spec.get('eval_types')}"
+                ),
+                answer=compact(eval_spec.get("reference_answers") or eval_spec.get("reference_url") or eval_spec.get("program_html")),
+                artifact=image or "VisualWebArena browser task config",
+            )
+        )
+    return out
+
+
+def intercode_rows() -> list[dict[str, Any]]:
+    rel = "data/nl2bash/test_queries.json"
+    rows = load_json(Path("/tmp/benchrepo-intercode") / rel)[:ROWS_PER_BENCHMARK]
+    url = github_url("princeton-nlp/intercode", "master", rel)
+    return [
+        sample(
+            "intercode",
+            url,
+            i,
+            "nl_to_bash_interactive_task",
+            clean(row.get("query")),
+            answer=clean(row.get("gold")),
+            artifact="InterCode Bash test query with gold command",
+        )
+        for i, row in enumerate(rows)
+    ]
+
+
+def terminal_bench_3_rows() -> list[dict[str, Any]]:
+    root = Path("/tmp/benchrepo-terminal3/tasks")
+    task_dirs = [p for p in sorted(root.iterdir()) if p.is_dir() and (p / "instruction.md").exists()]
+    out = []
+    for i, task_dir in enumerate(task_dirs[:ROWS_PER_BENCHMARK]):
+        rel = f"tasks/{task_dir.name}/instruction.md"
+        meta = toml_load(task_dir / "task.toml")
+        metadata = meta.get("metadata", {})
+        out.append(
+            sample(
+                "terminal-bench-3",
+                github_url("scaleapi/terminal-bench-3-public", "main", rel),
+                i,
+                "terminal_environment_task",
+                clean((task_dir / "instruction.md").read_text()),
+                input_text=(
+                    f"task: {task_dir.name}\ncategory: {metadata.get('category')}\ndifficulty: {metadata.get('difficulty')}\n"
+                    f"tags: {metadata.get('tags')}\nexpert_time_estimate_hours: {metadata.get('expert_time_estimate_hours')}"
+                ),
+                artifact="Terminal-Bench 3 task folder with instruction, Dockerfile, tests, and solution",
+            )
+        )
+    return out
+
+
+def toml_load(path: Path) -> dict[str, Any]:
+    import tomllib
+
+    return tomllib.loads(path.read_text())
+
+
+def re_bench_rows() -> list[dict[str, Any]]:
+    root = Path("/tmp/benchrepo-rebench")
+    manifests = sorted(root.glob("*/manifest.yaml"))[:ROWS_PER_BENCHMARK]
+    out = []
+    for i, manifest in enumerate(manifests):
+        rel = str(manifest.relative_to(root))
+        cfg = yaml.safe_load(manifest.read_text())
+        meta = cfg.get("meta", {})
+        task_meta = next(iter(cfg.get("tasks", {}).values())).get("meta", {})
+        readme = read_optional(manifest.parent / "README.md", 900)
+        out.append(
+            sample(
+                "re-bench",
+                github_url("METR/RE-Bench", "main", rel),
+                i,
+                "ai_rd_engineering_task",
+                clean(task_meta.get("task_description") or meta.get("name")),
+                input_text=(
+                    f"name: {meta.get('name')}\nexpertise: {meta.get('expertise')}\nversion: {cfg.get('version')}\n"
+                    f"readme_excerpt: {readme}"
+                ),
+                artifact="RE-Bench task manifest and README",
+            )
+        )
+    return out
+
+
+def theagentcompany_rows() -> list[dict[str, Any]]:
+    root = Path("/tmp/benchrepo-tac/workspaces/tasks")
+    task_dirs = [p for p in sorted(root.iterdir()) if p.is_dir() and (p / "task.md").exists()]
+    out = []
+    for i, task_dir in enumerate(task_dirs[:ROWS_PER_BENCHMARK]):
+        rel = f"workspaces/tasks/{task_dir.name}/task.md"
+        checkpoints = read_optional(task_dir / "checkpoints.md", 900)
+        out.append(
+            sample(
+                "theagentcompany",
+                github_url("TheAgentCompany/TheAgentCompany", "main", rel),
+                i,
+                "enterprise_workspace_agent_task",
+                clean((task_dir / "task.md").read_text()),
+                input_text=f"task: {task_dir.name}\ncheckpoints_excerpt: {checkpoints}",
+                artifact="TheAgentCompany task folder with task.md, evaluator, checkpoints, and environment dependencies",
+            )
+        )
+    return out
+
+
+def windowsagentarena_rows() -> list[dict[str, Any]]:
+    root = Path("/tmp/benchrepo-waa/src/win-arena-container/client/evaluation_examples_windows/examples")
+    files = sorted(root.glob("*/*.json"))[:ROWS_PER_BENCHMARK]
+    out = []
+    for i, path in enumerate(files):
+        row = load_json(path)
+        rel = str(path.relative_to(Path("/tmp/benchrepo-waa")))
+        out.append(
+            sample(
+                "windowsagentarena",
+                github_url("microsoft/WindowsAgentArena", "main", rel),
+                i,
+                "windows_desktop_agent_task",
+                clean(row.get("instruction")),
+                input_text=(
+                    f"id: {row.get('id')}\nsnapshot: {row.get('snapshot')}\nrelated_apps: {row.get('related_apps')}\n"
+                    f"source: {row.get('source')}\nevaluator: {compact(row.get('evaluator'), 500)}"
+                ),
+                artifact="WindowsAgentArena task JSON with VM setup config and evaluator",
+            )
+        )
+    return out
+
+
+def cybench_rows() -> list[dict[str, Any]]:
+    root = Path("/tmp/benchrepo-cybench")
+    files = sorted((root / "benchmark").glob("**/metadata/metadata.json"))[:ROWS_PER_BENCHMARK]
+    out = []
+    for i, path in enumerate(files):
+        row = load_json(path)
+        rel = str(path.relative_to(root))
+        challenge_dir = path.parents[1]
+        out.append(
+            sample(
+                "cybench",
+                github_url("andyzorigin/cybench", "main", rel),
+                i,
+                "cybersecurity_ctf_task",
+                clean(row.get("hard_prompt") or row.get("easy_prompt")),
+                input_text=(
+                    f"challenge: {challenge_dir.name}\ncategories: {row.get('categories')}\ndifficulty: {row.get('difficulty')}\n"
+                    f"target_host: {row.get('target_host')}\ntools: {row.get('tools')}\nstateful_shell: {row.get('stateful_shell')}"
+                ),
+                answer=compact([sub.get("question") for sub in row.get("subtasks", [])[:3]]),
+                artifact="CyBench challenge metadata with prompts, tool constraints, and subtasks",
+            )
+        )
+    return out
+
+
+def aider_polyglot_rows() -> list[dict[str, Any]]:
+    root = Path("/tmp/benchrepo-aider")
+    docs = sorted(root.glob("go/exercises/practice/*/.docs/instructions.md"))[:ROWS_PER_BENCHMARK]
+    out = []
+    for i, doc in enumerate(docs):
+        exercise = doc.parents[1]
+        rel = str(doc.relative_to(root))
+        cfg_path = exercise / ".meta" / "config.json"
+        cfg = load_json(cfg_path) if cfg_path.exists() else {}
+        out.append(
+            sample(
+                "aider-polyglot",
+                github_url("Aider-AI/polyglot-benchmark", "main", rel),
+                i,
+                "polyglot_code_editing_exercise",
+                clean(doc.read_text()),
+                input_text=(
+                    f"language: go\nexercise: {exercise.name}\nblurb: {cfg.get('blurb')}\n"
+                    f"solution_files: {cfg.get('files', {}).get('solution')}\ntest_files: {cfg.get('files', {}).get('test')}"
+                ),
+                artifact="Aider Polyglot exercise instructions with source/test file references",
+            )
+        )
+    return out
+
+
+def devbench_like_rows(benchmark_id: str, repo: str, repo_dir: str) -> list[dict[str, Any]]:
+    root = Path(repo_dir)
+    configs = sorted(root.glob("benchmark_data/*/*/repo_config.json"))[:ROWS_PER_BENCHMARK]
+    out = []
+    for i, cfg_path in enumerate(configs):
+        cfg = load_json(cfg_path)
+        project_dir = cfg_path.parent
+        rel = str(cfg_path.relative_to(root))
+        prd_rel = cfg.get("PRD", "")
+        prd = read_optional(project_dir / prd_rel, 1000) if prd_rel else ""
+        out.append(
+            sample(
+                benchmark_id,
+                github_url(repo, "main", rel),
+                i,
+                "software_development_project_task",
+                prd or f"Implement and test the {project_dir.name} project.",
+                input_text=(
+                    f"project: {project_dir.name}\nlanguage: {cfg.get('language')}\nunit_tests: {cfg.get('unit_tests')}\n"
+                    f"acceptance_tests: {cfg.get('acceptance_tests')}\nrequired_files: {cfg.get('required_files')}\n"
+                    f"unit_test_script: {cfg.get('unit_test_script')}\nacceptance_test_script: {cfg.get('acceptance_test_script')}"
+                ),
+                artifact="DevBench/DevEval repo_config plus project PRD, tests, and required files",
+            )
+        )
+    return out
+
+
 def main() -> None:
     registry = json.loads(REGISTRY_PATH.read_text())
     batches = [
@@ -201,6 +442,16 @@ def main() -> None:
         tau_bench_rows(),
         toolbench_rows(),
         mle_bench_rows(),
+        visualwebarena_rows(),
+        intercode_rows(),
+        terminal_bench_3_rows(),
+        re_bench_rows(),
+        theagentcompany_rows(),
+        windowsagentarena_rows(),
+        cybench_rows(),
+        aider_polyglot_rows(),
+        devbench_like_rows("devbench", "open-compass/DevBench", "/tmp/benchrepo-devbench"),
+        devbench_like_rows("deveval", "open-compass/DevEval", "/tmp/benchrepo-deveval"),
     ]
     rows = [row for batch in batches for row in batch]
     target_ids = {row["benchmark_id"] for row in rows}

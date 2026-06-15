@@ -8,17 +8,519 @@ b:I[4431,[],"MetadataBoundary"]
 c:"$Sreact.suspense"
 e:I[7150,[],""]
 :HL["/benchmark-registry/_next/static/css/de5dc80d7b62ac72.css","style"]
-0:{"P":null,"b":"7gNYaTvm4vUw6GEon-hT3","p":"/benchmark-registry","c":["","benchmarks","aider-polyglot",""],"i":false,"f":[[["",{"children":["benchmarks",{"children":[["id","aider-polyglot","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/benchmark-registry/_next/static/css/de5dc80d7b62ac72.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":["benchmarks",["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["id","aider-polyglot","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L4",null,["$","$L5",null,{"children":["$L6",["$","$L7",null,{"promise":"$@8"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$L9",null,{"children":"$La"}],null],["$","$Lb",null,{"children":["$","div",null,{"hidden":true,"children":["$","$c",null,{"fallback":null,"children":"$Ld"}]}]}]]}],false]],"m":"$undefined","G":["$e",[]],"s":false,"S":true}
+0:{"P":null,"b":"_oGr9AEXkNcnp03rI1YQy","p":"/benchmark-registry","c":["","benchmarks","aider-polyglot",""],"i":false,"f":[[["",{"children":["benchmarks",{"children":[["id","aider-polyglot","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/benchmark-registry/_next/static/css/de5dc80d7b62ac72.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":["benchmarks",["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["id","aider-polyglot","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L4",null,["$","$L5",null,{"children":["$L6",["$","$L7",null,{"promise":"$@8"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$L9",null,{"children":"$La"}],null],["$","$Lb",null,{"children":["$","div",null,{"hidden":true,"children":["$","$c",null,{"fallback":null,"children":"$Ld"}]}]}]]}],false]],"m":"$undefined","G":["$e",[]],"s":false,"S":true}
 f:I[2619,["619","static/chunks/619-ba102abea3e3d0e4.js","651","static/chunks/app/benchmarks/%5Bid%5D/page-a84de58d962f3a46.js"],""]
-4:["$","main",null,{"className":"profile-page","children":[["$","div",null,{"className":"profile-topbar","children":[["$","$Lf",null,{"href":"/","className":"back-link","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":16,"height":16,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Registry"]}],["$","div",null,{"className":"profile-source-actions","children":[["$","a",null,{"href":"https://github.com/Aider-AI/polyglot-benchmark","target":"_blank","rel":"noreferrer","children":["Official source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a",null,{"href":"https://github.com/Aider-AI/polyglot-benchmark","target":"_blank","rel":"noreferrer","children":["Repository ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}]]}]]}],["$","header",null,{"className":"profile-hero","children":[["$","div",null,{"children":[["$","div",null,{"className":"eyebrow","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":16,"height":16,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-database","children":[["$","ellipse","msslwz",{"cx":"12","cy":"5","rx":"9","ry":"3"}],["$","path","1wlel7",{"d":"M3 5V19A9 3 0 0 0 21 19V5"}],["$","path","mv7ke4",{"d":"M3 12A9 3 0 0 0 21 12"}],"$undefined"]}],"Benchmark profile"]}],["$","h1",null,{"children":"Aider Polyglot"}],["$","p",null,{"children":"Benchmark record pending curated summary. Domain: language; type: dataset_eval."}],["$","div",null,{"className":"tags","children":[["$","span","language-undefined",{"className":"tag language","children":"language"}],["$","span","dataset_eval-undefined",{"className":"tag dataset_eval","children":"dataset eval"}],["$","span","public-public",{"className":"tag public","children":"public"}],["$","span","exact-undefined",{"className":"tag exact","children":"exact"}]]}]]}],["$","div",null,{"className":"profile-status-card","children":[["$","span",null,{"className":"status incomplete","children":"sample incomplete"}],["$","b",null,{"children":[0,"/5 public samples"]}],["$","p",null,{"children":"This registry treats five public, source-linked samples as the minimum for a complete benchmark profile."}]]}]]}],["$","section",null,{"className":"profile-grid","children":[["$","div",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Definition"}],["$","dl",null,{"className":"definition-list","children":[["$","div",null,{"children":[["$","dt",null,{"children":"Benchmark ID"}],["$","dd",null,{"children":"aider-polyglot"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Primary Task"}],["$","dd",null,{"children":"unknown"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Primary Metric"}],["$","dd",null,{"children":"benchmark-specific"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Harness"}],["$","dd",null,{"children":"unknown"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Versions"}],["$","dd",null,{"children":"0"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Citations"}],["$","dd",null,{"children":"0"}]]}]]}]]}],["$","div",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Trust Signals"}],["$","div",null,{"className":"trust-stack","children":[["$","div",null,{"className":"trust-row","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield-check","children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],["$","path","dzmm74",{"d":"m9 12 2 2 4-4"}],"$undefined"]}],"$L10","$L11"]}],"$L12","$L13","$L14"]}]]}]]}],"$L15","$L16","$L17"]}]
+4:["$","main",null,{"className":"profile-page","children":[["$","div",null,{"className":"profile-topbar","children":[["$","$Lf",null,{"href":"/","className":"back-link","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":16,"height":16,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Registry"]}],["$","div",null,{"className":"profile-source-actions","children":[["$","a",null,{"href":"https://github.com/Aider-AI/polyglot-benchmark","target":"_blank","rel":"noreferrer","children":["Official source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a",null,{"href":"https://github.com/Aider-AI/polyglot-benchmark","target":"_blank","rel":"noreferrer","children":["Repository ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}]]}]]}],["$","header",null,{"className":"profile-hero","children":[["$","div",null,{"children":[["$","div",null,{"className":"eyebrow","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":16,"height":16,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-database","children":[["$","ellipse","msslwz",{"cx":"12","cy":"5","rx":"9","ry":"3"}],["$","path","1wlel7",{"d":"M3 5V19A9 3 0 0 0 21 19V5"}],["$","path","mv7ke4",{"d":"M3 12A9 3 0 0 0 21 12"}],"$undefined"]}],"Benchmark profile"]}],["$","h1",null,{"children":"Aider Polyglot"}],["$","p",null,{"children":"Benchmark record pending curated summary. Domain: language; type: dataset_eval."}],["$","div",null,{"className":"tags","children":[["$","span","language-undefined",{"className":"tag language","children":"language"}],["$","span","dataset_eval-undefined",{"className":"tag dataset_eval","children":"dataset eval"}],["$","span","public-public",{"className":"tag public","children":"public"}],["$","span","exact-undefined",{"className":"tag exact","children":"exact"}]]}]]}],["$","div",null,{"className":"profile-status-card","children":[["$","span",null,{"className":"status complete","children":"sample complete"}],["$","b",null,{"children":[5,"/5 public samples"]}],["$","p",null,{"children":"This registry treats five public, source-linked samples as the minimum for a complete benchmark profile."}]]}]]}],["$","section",null,{"className":"profile-grid","children":[["$","div",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Definition"}],["$","dl",null,{"className":"definition-list","children":[["$","div",null,{"children":[["$","dt",null,{"children":"Benchmark ID"}],["$","dd",null,{"children":"aider-polyglot"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Primary Task"}],["$","dd",null,{"children":"unknown"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Primary Metric"}],["$","dd",null,{"children":"benchmark-specific"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Harness"}],["$","dd",null,{"children":"unknown"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Versions"}],["$","dd",null,{"children":"0"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Citations"}],["$","dd",null,{"children":"0"}]]}]]}]]}],["$","div",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Trust Signals"}],["$","div",null,{"className":"trust-stack","children":[["$","div",null,{"className":"trust-row","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield-check","children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],["$","path","dzmm74",{"d":"m9 12 2 2 4-4"}],"$undefined"]}],"$L10","$L11"]}],"$L12","$L13","$L14"]}]]}]]}],"$L15","$L16","$L17"]}]
 10:["$","span",null,{"children":"Official source"}]
 11:["$","b",null,{"className":"ok","children":"yes"}]
-12:["$","div",null,{"className":"trust-row","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield-check","children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],["$","path","dzmm74",{"d":"m9 12 2 2 4-4"}],"$undefined"]}],["$","span",null,{"children":"Public sample rows"}],["$","b",null,{"className":"missing","children":"missing"}]]}]
+12:["$","div",null,{"className":"trust-row","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield-check","children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],["$","path","dzmm74",{"d":"m9 12 2 2 4-4"}],"$undefined"]}],["$","span",null,{"children":"Public sample rows"}],["$","b",null,{"className":"ok","children":"yes"}]]}]
 13:["$","div",null,{"className":"trust-row","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield-check","children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],["$","path","dzmm74",{"d":"m9 12 2 2 4-4"}],"$undefined"]}],["$","span",null,{"children":"Public access"}],["$","b",null,{"className":"ok","children":"yes"}]]}]
 14:["$","div",null,{"className":"trust-row","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield-check","children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],["$","path","dzmm74",{"d":"m9 12 2 2 4-4"}],"$undefined"]}],["$","span",null,{"children":"Reproducible protocol"}],["$","b",null,{"className":"ok","children":"yes"}]]}]
-15:["$","section",null,{"className":"profile-panel sample-explorer","children":[["$","div",null,{"className":"section-head","children":["$","div",null,{"children":[["$","h2",null,{"children":"Dataset Sample Explorer"}],["$","p",null,{"children":"Samples are the center of the benchmark profile. Missing rows are shown explicitly instead of hidden."}]]}]}],["$","div",null,{"className":"sample-explorer-grid","children":[[],[["$","article","missing-0",{"className":"sample-record missing","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":["Missing public sample ",1]}]]}],["$","p",null,{"children":"Add an official public row with prompt/question, input artifact link, task, and source URL."}]]}],["$","article","missing-1",{"className":"sample-record missing","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":["Missing public sample ",2]}]]}],["$","p",null,{"children":"Add an official public row with prompt/question, input artifact link, task, and source URL."}]]}],["$","article","missing-2",{"className":"sample-record missing","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":["Missing public sample ",3]}]]}],["$","p",null,{"children":"Add an official public row with prompt/question, input artifact link, task, and source URL."}]]}],["$","article","missing-3",{"className":"sample-record missing","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":["Missing public sample ",4]}]]}],["$","p",null,{"children":"Add an official public row with prompt/question, input artifact link, task, and source URL."}]]}],["$","article","missing-4",{"className":"sample-record missing","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":["Missing public sample ",5]}]]}],["$","p",null,{"children":"Add an official public row with prompt/question, input artifact link, task, and source URL."}]]}]]]}]]}]
-16:["$","section",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Artifacts"}],["$","div",null,{"className":"artifact-list profile-artifacts","children":[[["$","a","site-https://github.com/Aider-AI/polyglot-benchmark",{"href":"https://github.com/Aider-AI/polyglot-benchmark","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"site"}],["$","b",null,{"children":"Official benchmark page"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a","repo-https://github.com/Aider-AI/polyglot-benchmark",{"href":"https://github.com/Aider-AI/polyglot-benchmark","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"repo"}],["$","b",null,{"children":"Code or dataset repository"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}]],false]}]]}]
+18:T315f,# Instructions
+
+Recite the lyrics to that beloved classic, that field-trip favorite: 99 Bottles of Beer on the Wall.
+
+Note that not all verses are identical.
+
+```text
+99 bottles of beer on the wall, 99 bottles of beer.
+Take one down and pass it around, 98 bottles of beer on the wall.
+
+98 bottles of beer on the wall, 98 bottles of beer.
+Take one down and pass it around, 97 bottles of beer on the wall.
+
+97 bottles of beer on the wall, 97 bottles of beer.
+Take one down and pass it around, 96 bottles of beer on the wall.
+
+96 bottles of beer on the wall, 96 bottles of beer.
+Take one down and pass it around, 95 bottles of beer on the wall.
+
+95 bottles of beer on the wall, 95 bottles of beer.
+Take one down and pass it around, 94 bottles of beer on the wall.
+
+94 bottles of beer on the wall, 94 bottles of beer.
+Take one down and pass it around, 93 bottles of beer on the wall.
+
+93 bottles of beer on the wall, 93 bottles of beer.
+Take one down and pass it around, 92 bottles of beer on the wall.
+
+92 bottles of beer on the wall, 92 bottles of beer.
+Take one down and pass it around, 91 bottles of beer on the wall.
+
+91 bottles of beer on the wall, 91 bottles of beer.
+Take one down and pass it around, 90 bottles of beer on the wall.
+
+90 bottles of beer on the wall, 90 bottles of beer.
+Take one down and pass it around, 89 bottles of beer on the wall.
+
+89 bottles of beer on the wall, 89 bottles of beer.
+Take one down and pass it around, 88 bottles of beer on the wall.
+
+88 bottles of beer on the wall, 88 bottles of beer.
+Take one down and pass it around, 87 bottles of beer on the wall.
+
+87 bottles of beer on the wall, 87 bottles of beer.
+Take one down and pass it around, 86 bottles of beer on the wall.
+
+86 bottles of beer on the wall, 86 bottles of beer.
+Take one down and pass it around, 85 bottles of beer on the wall.
+
+85 bottles of beer on the wall, 85 bottles of beer.
+Take one down and pass it around, 84 bottles of beer on the wall.
+
+84 bottles of beer on the wall, 84 bottles of beer.
+Take one down and pass it around, 83 bottles of beer on the wall.
+
+83 bottles of beer on the wall, 83 bottles of beer.
+Take one down and pass it around, 82 bottles of beer on the wall.
+
+82 bottles of beer on the wall, 82 bottles of beer.
+Take one down and pass it around, 81 bottles of beer on the wall.
+
+81 bottles of beer on the wall, 81 bottles of beer.
+Take one down and pass it around, 80 bottles of beer on the wall.
+
+80 bottles of beer on the wall, 80 bottles of beer.
+Take one down and pass it around, 79 bottles of beer on the wall.
+
+79 bottles of beer on the wall, 79 bottles of beer.
+Take one down and pass it around, 78 bottles of beer on the wall.
+
+78 bottles of beer on the wall, 78 bottles of beer.
+Take one down and pass it around, 77 bottles of beer on the wall.
+
+77 bottles of beer on the wall, 77 bottles of beer.
+Take one down and pass it around, 76 bottles of beer on the wall.
+
+76 bottles of beer on the wall, 76 bottles of beer.
+Take one down and pass it around, 75 bottles of beer on the wall.
+
+75 bottles of beer on the wall, 75 bottles of beer.
+Take one down and pass it around, 74 bottles of beer on the wall.
+
+74 bottles of beer on the wall, 74 bottles of beer.
+Take one down and pass it around, 73 bottles of beer on the wall.
+
+73 bottles of beer on the wall, 73 bottles of beer.
+Take one down and pass it around, 72 bottles of beer on the wall.
+
+72 bottles of beer on the wall, 72 bottles of beer.
+Take one down and pass it around, 71 bottles of beer on the wall.
+
+71 bottles of beer on the wall, 71 bottles of beer.
+Take one down and pass it around, 70 bottles of beer on the wall.
+
+70 bottles of beer on the wall, 70 bottles of beer.
+Take one down and pass it around, 69 bottles of beer on the wall.
+
+69 bottles of beer on the wall, 69 bottles of beer.
+Take one down and pass it around, 68 bottles of beer on the wall.
+
+68 bottles of beer on the wall, 68 bottles of beer.
+Take one down and pass it around, 67 bottles of beer on the wall.
+
+67 bottles of beer on the wall, 67 bottles of beer.
+Take one down and pass it around, 66 bottles of beer on the wall.
+
+66 bottles of beer on the wall, 66 bottles of beer.
+Take one down and pass it around, 65 bottles of beer on the wall.
+
+65 bottles of beer on the wall, 65 bottles of beer.
+Take one down and pass it around, 64 bottles of beer on the wall.
+
+64 bottles of beer on the wall, 64 bottles of beer.
+Take one down and pass it around, 63 bottles of beer on the wall.
+
+63 bottles of beer on the wall, 63 bottles of beer.
+Take one down and pass it around, 62 bottles of beer on the wall.
+
+62 bottles of beer on the wall, 62 bottles of beer.
+Take one down and pass it around, 61 bottles of beer on the wall.
+
+61 bottles of beer on the wall, 61 bottles of beer.
+Take one down and pass it around, 60 bottles of beer on the wall.
+
+60 bottles of beer on the wall, 60 bottles of beer.
+Take one down and pass it around, 59 bottles of beer on the wall.
+
+59 bottles of beer on the wall, 59 bottles of beer.
+Take one down and pass it around, 58 bottles of beer on the wall.
+
+58 bottles of beer on the wall, 58 bottles of beer.
+Take one down and pass it around, 57 bottles of beer on the wall.
+
+57 bottles of beer on the wall, 57 bottles of beer.
+Take one down and pass it around, 56 bottles of beer on the wall.
+
+56 bottles of beer on the wall, 56 bottles of beer.
+Take one down and pass it around, 55 bottles of beer on the wall.
+
+55 bottles of beer on the wall, 55 bottles of beer.
+Take one down and pass it around, 54 bottles of beer on the wall.
+
+54 bottles of beer on the wall, 54 bottles of beer.
+Take one down and pass it around, 53 bottles of beer on the wall.
+
+53 bottles of beer on the wall, 53 bottles of beer.
+Take one down and pass it around, 52 bottles of beer on the wall.
+
+52 bottles of beer on the wall, 52 bottles of beer.
+Take one down and pass it around, 51 bottles of beer on the wall.
+
+51 bottles of beer on the wall, 51 bottles of beer.
+Take one down and pass it around, 50 bottles of beer on the wall.
+
+50 bottles of beer on the wall, 50 bottles of beer.
+Take one down and pass it around, 49 bottles of beer on the wall.
+
+49 bottles of beer on the wall, 49 bottles of beer.
+Take one down and pass it around, 48 bottles of beer on the wall.
+
+48 bottles of beer on the wall, 48 bottles of beer.
+Take one down and pass it around, 47 bottles of beer on the wall.
+
+47 bottles of beer on the wall, 47 bottles of beer.
+Take one down and pass it around, 46 bottles of beer on the wall.
+
+46 bottles of beer on the wall, 46 bottles of beer.
+Take one down and pass it around, 45 bottles of beer on the wall.
+
+45 bottles of beer on the wall, 45 bottles of beer.
+Take one down and pass it around, 44 bottles of beer on the wall.
+
+44 bottles of beer on the wall, 44 bottles of beer.
+Take one down and pass it around, 43 bottles of beer on the wall.
+
+43 bottles of beer on the wall, 43 bottles of beer.
+Take one down and pass it around, 42 bottles of beer on the wall.
+
+42 bottles of beer on the wall, 42 bottles of beer.
+Take one down and pass it around, 41 bottles of beer on the wall.
+
+41 bottles of beer on the wall, 41 bottles of beer.
+Take one down and pass it around, 40 bottles of beer on the wall.
+
+40 bottles of beer on the wall, 40 bottles of beer.
+Take one down and pass it around, 39 bottles of beer on the wall.
+
+39 bottles of beer on the wall, 39 bottles of beer.
+Take one down and pass it around, 38 bottles of beer on the wall.
+
+38 bottles of beer on the wall, 38 bottles of beer.
+Take one down and pass it around, 37 bottles of beer on the wall.
+
+37 bottles of beer on the wall, 37 bottles of beer.
+Take one down and pass it around, 36 bottles of beer on the wall.
+
+36 bottles of beer on the wall, 36 bottles of beer.
+Take one down and pass it around, 35 bottles of beer on the wall.
+
+35 bottles of beer on the wall, 35 bottles of beer.
+Take one down and pass it around, 34 bottles of beer on the wall.
+
+34 bottles of beer on the wall, 34 bottles of beer.
+Take one down and pass it around, 33 bottles of beer on the wall.
+
+33 bottles of beer on the wall, 33 bottles of beer.
+Take one down and pass it around, 32 bottles of beer on the wall.
+
+32 bottles of beer on the wall, 32 bottles of beer.
+Take one down and pass it around, 31 bottles of beer on the wall.
+
+31 bottles of beer on the wall, 31 bottles of beer.
+Take one down and pass it around, 30 bottles of beer on the wall.
+
+30 bottles of beer on the wall, 30 bottles of beer.
+Take one down and pass it around, 29 bottles of beer on the wall.
+
+29 bottles of beer on the wall, 29 bottles of beer.
+Take one down and pass it around, 28 bottles of beer on the wall.
+
+28 bottles of beer on the wall, 28 bottles of beer.
+Take one down and pass it around, 27 bottles of beer on the wall.
+
+27 bottles of beer on the wall, 27 bottles of beer.
+Take one down and pass it around, 26 bottles of beer on the wall.
+
+26 bottles of beer on the wall, 26 bottles of beer.
+Take one down and pass it around, 25 bottles of beer on the wall.
+
+25 bottles of beer on the wall, 25 bottles of beer.
+Take one down and pass it around, 24 bottles of beer on the wall.
+
+24 bottles of beer on the wall, 24 bottles of beer.
+Take one down and pass it around, 23 bottles of beer on the wall.
+
+23 bottles of beer on the wall, 23 bottles of beer.
+Take one down and pass it around, 22 bottles of beer on the wall.
+
+22 bottles of beer on the wall, 22 bottles of beer.
+Take one down and pass it around, 21 bottles of beer on the wall.
+
+21 bottles of beer on the wall, 21 bottles of beer.
+Take one down and pass it around, 20 bottles of beer on the wall.
+
+20 bottles of beer on the wall, 20 bottles of beer.
+Take one down and pass it around, 19 bottles of beer on the wall.
+
+19 bottles of beer on the wall, 19 bottles of beer.
+Take one down and pass it around, 18 bottles of beer on the wall.
+
+18 bottles of beer on the wall, 18 bottles of beer.
+Take one down and pass it around, 17 bottles of beer on the wall.
+
+17 bottles of beer on the wall, 17 bottles of beer.
+Take one down and pass it around, 16 bottles of beer on the wall.
+
+16 bottles of beer on the wall, 16 bottles of beer.
+Take one down and pass it around, 15 bottles of beer on the wall.
+
+15 bottles of beer on the wall, 15 bottles of beer.
+Take one down and pass it around, 14 bottles of beer on the wall.
+
+14 bottles of beer on the wall, 14 bottles of beer.
+Take one down and pass it around, 13 bottles of beer on the wall.
+
+13 bottles of beer on the wall, 13 bottles of beer.
+Take one down and pass it around, 12 bottles of beer on the wall.
+
+12 bottles of beer on the wall, 12 bottles of beer.
+Take one down and pass it around, 11 bottles of beer on the wall.
+
+11 bottles of beer on the wall, 11 bottles of beer.
+Take one down and pass it around, 10 bottles of beer on the wall.
+
+10 bottles of beer on the wall, 10 bottles of beer.
+Take one down and pass it around, 9 bottles of beer on the wall.
+
+9 bottles of beer on the wall, 9 bottles of beer.
+Take one down and pass it around, 8 bottles of beer on the wall.
+
+8 bottles of beer on the wall, 8 bottles of beer.
+Take one down and pass it around, 7 bottles of beer on the wall.
+
+7 bottles of beer on the wall, 7 bottles of beer.
+Take one down and pass it around, 6 bottles of beer on the wall.
+
+6 bottles of beer on the wall, 6 bottles of beer.
+Take one down and pass it around, 5 bottles of beer on the wall.
+
+5 bottles of beer on the wall, 5 bottles of beer.
+Take one down and pass it around, 4 bottles of beer on the wall.
+
+4 bottles of beer on the wall, 4 bottles of beer.
+Take one down and pass it around, 3 bottles of beer on the wall.
+
+3 bottles of beer on the wall, 3 bottles of beer.
+Take one down and pass it around, 2 bottles of beer on the wall.
+
+2 bottles of beer on the wall, 2 bottles of beer.
+Take one down and pass it around, 1 bottle of beer on the wall.
+
+1 bottle of beer on the wall, 1 bottle of beer.
+Take it down and pass it around, no more bottles of beer on the wall.
+
+No more bottles of beer on the wall, no more bottles of beer.
+Go to the store and buy some more, 99 bottles of beer on the wall.
+```
+
+## For bonus points
+
+Did you get the tests passing and the code clean? If you want to, these
+are some additional things you could try:
+
+* Remove as much duplication as you possibly can.
+* Optimize for readability, even if it means introducing duplication.
+* If you've removed all the duplication, do you have a lot of
+  conditionals? Try replacing the conditionals with polymorphism, if it
+  applies in this language. How readable is it?
+
+Then please share your thoughts in a comment on the submission. Did this
+experiment make the code better? Worse? Did you learn anything from it?15:["$","section",null,{"className":"profile-panel sample-explorer","children":[["$","div",null,{"className":"section-head","children":["$","div",null,{"children":[["$","h2",null,{"children":"Dataset Sample Explorer"}],["$","p",null,{"children":"Samples are the center of the benchmark profile. Missing rows are shown explicitly instead of hidden."}]]}]}],["$","div",null,{"className":"sample-explorer-grid","children":[[["$","article","aider-polyglot:github:0",{"className":"sample-record","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":"polyglot code editing exercise"}]]}],["$","p",null,{"children":"# Instructions\n\nWrite a function to solve alphametics puzzles.\n\n[Alphametics][alphametics] is a puzzle where letters in words are replaced with numbers.\n\nFor example `SEND + MORE = MONEY`:\n\n```text\n  S E N D\n  M O R E +\n-----------\nM O N E Y\n```\n\nReplacing these with valid numbers gives:\n\n```text\n  9 5 6 7\n  1 0 8 5 +\n-----------\n1 0 6 5 2\n```\n\nThis is correct because every letter is replaced by a different number and the words, translated into numbers, then make a valid sum.\n\nEach letter must represent a different digit, and the leading digit of a multi-digit number must not be zero.\n\nWrite a function to solve alphametics puzzles.\n\n[alphametics]: https://en.wikipedia.org/wiki/Alphametics"}],["$","p",null,{"className":"sample-input","children":"language: go\nexercise: alphametics\nblurb: Write a function to solve alphametics puzzles.\nsolution_files: ['alphametics.go']\ntest_files: ['alphametics_test.go']"}],null,"$undefined",["$","span",null,{"children":"Aider Polyglot exercise instructions with source/test file references"}],"$undefined",["$","a",null,{"href":"https://github.com/Aider-AI/polyglot-benchmark/blob/main/go/exercises/practice/alphametics/.docs/instructions.md","target":"_blank","rel":"noreferrer","children":["Sample source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],"$undefined"]}],["$","article","aider-polyglot:github:1",{"className":"sample-record","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":"polyglot code editing exercise"}]]}],["$","p",null,{"children":"$18"}],"$L19",null,"$undefined","$L1a","$undefined","$L1b","$undefined"]}],"$L1c","$L1d","$L1e"],[]]}]]}]
+16:["$","section",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Artifacts"}],["$","div",null,{"className":"artifact-list profile-artifacts","children":[[["$","a","site-https://github.com/Aider-AI/polyglot-benchmark",{"href":"https://github.com/Aider-AI/polyglot-benchmark","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"site"}],["$","b",null,{"children":"Official benchmark page"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a","repo-https://github.com/Aider-AI/polyglot-benchmark",{"href":"https://github.com/Aider-AI/polyglot-benchmark","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"repo"}],["$","b",null,{"children":"Code or dataset repository"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a","sample-https://github.com/Aider-AI/polyglot-benchmark/blob/main/go/exercises/practice/alphametics/.docs/instructions.md",{"href":"https://github.com/Aider-AI/polyglot-benchmark/blob/main/go/exercises/practice/alphametics/.docs/instructions.md","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"sample"}],["$","b",null,{"children":"aider-polyglot:github:0"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a","sample-https://github.com/Aider-AI/polyglot-benchmark/blob/main/go/exercises/practice/beer-song/.docs/instructions.md",{"href":"https://github.com/Aider-AI/polyglot-benchmark/blob/main/go/exercises/practice/beer-song/.docs/instructions.md","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"sample"}],["$","b",null,{"children":"aider-polyglot:github:1"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a","sample-https://github.com/Aider-AI/polyglot-benchmark/blob/main/go/exercises/practice/book-store/.docs/instructions.md",{"href":"https://github.com/Aider-AI/polyglot-benchmark/blob/main/go/exercises/practice/book-store/.docs/instructions.md","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"sample"}],["$","b",null,{"children":"aider-polyglot:github:2"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a","sample-https://github.com/Aider-AI/polyglot-benchmark/blob/main/go/exercises/practice/bottle-song/.docs/instructions.md",{"href":"https://github.com/Aider-AI/polyglot-benchmark/blob/main/go/exercises/practice/bottle-song/.docs/instructions.md","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"sample"}],["$","b",null,{"children":"aider-polyglot:github:3"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":["$L1f","$L20","$undefined"]}]]}],"$L21"],false]}]]}]
 17:["$","section",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Citations"}],["$","table",null,{"className":"profile-table","children":["$","tbody",null,{"children":[[],["$","tr",null,{"children":[["$","th",null,{"children":"missing"}],["$","td",null,{"children":"No citation recorded yet."}]]}]]}]}]]}]
+19:["$","p",null,{"className":"sample-input","children":"language: go\nexercise: beer-song\nblurb: Produce the lyrics to that beloved classic, that field-trip favorite: 99 Bottles of Beer on the Wall.\nsolution_files: ['beer_song.go']\ntest_files: ['beer_song_test.go']"}]
+1a:["$","span",null,{"children":"Aider Polyglot exercise instructions with source/test file references"}]
+1b:["$","a",null,{"href":"https://github.com/Aider-AI/polyglot-benchmark/blob/main/go/exercises/practice/beer-song/.docs/instructions.md","target":"_blank","rel":"noreferrer","children":["Sample source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}]
+22:T6c4,# Instructions
+
+To try and encourage more sales of different books from a popular 5 book series, a bookshop has decided to offer discounts on multiple book purchases.
+
+One copy of any of the five books costs $8.
+
+If, however, you buy two different books, you get a 5% discount on those two books.
+
+If you buy 3 different books, you get a 10% discount.
+
+If you buy 4 different books, you get a 20% discount.
+
+If you buy all 5, you get a 25% discount.
+
+Note that if you buy four books, of which 3 are different titles, you get a 10% discount on the 3 that form part of a set, but the fourth book still costs $8.
+
+Your mission is to write code to calculate the price of any conceivable shopping basket (containing only books of the same series), giving as big a discount as possible.
+
+For example, how much does this basket of books cost?
+
+- 2 copies of the first book
+- 2 copies of the second book
+- 2 copies of the third book
+- 1 copy of the fourth book
+- 1 copy of the fifth book
+
+One way of grouping these 8 books is:
+
+- 1 group of 5 (1st, 2nd,3rd, 4th, 5th)
+- 1 group of 3 (1st, 2nd, 3rd)
+
+This would give a total of:
+
+- 5 books at a 25% discount
+- 3 books at a 10% discount
+
+Resulting in:
+
+- 5 × (100% - 25%) × $8 = 5 × $6.00 = $30.00, plus
+- 3 × (100% - 10%) × $8 = 3 × $7.20 = $21.60
+
+Which equals $51.60.
+
+However, a different way to group these 8 books is:
+
+- 1 group of 4 books (1st, 2nd, 3rd, 4th)
+- 1 group of 4 books (1st, 2nd, 3rd, 5th)
+
+This would give a total of:
+
+- 4 books at a 20% discount
+- 4 books at a 20% discount
+
+Resulting in:
+
+- 4 × (100% - 20%) × $8 = 4 × $6.40 = $25.60, plus
+- 4 × (100% - 20%) × $8 = 4 × $6.40 = $25.60
+
+Which equals $51.20.
+
+And $51.20 is the price with the biggest discount.1c:["$","article","aider-polyglot:github:2",{"className":"sample-record","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":"polyglot code editing exercise"}]]}],["$","p",null,{"children":"$22"}],["$","p",null,{"className":"sample-input","children":"language: go\nexercise: book-store\nblurb: To try and encourage more sales of different books from a popular 5 book series, a bookshop has decided to offer discounts of multiple-book purchases.\nsolution_files: ['book_store.go']\ntest_files: ['book_store_test.go']"}],null,"$undefined",["$","span",null,{"children":"Aider Polyglot exercise instructions with source/test file references"}],"$undefined",["$","a",null,{"href":"https://github.com/Aider-AI/polyglot-benchmark/blob/main/go/exercises/practice/book-store/.docs/instructions.md","target":"_blank","rel":"noreferrer","children":["Sample source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],"$undefined"]}]
+23:T7b4,# Instructions
+
+Recite the lyrics to that popular children's repetitive song: Ten Green Bottles.
+
+Note that not all verses are identical.
+
+```text
+Ten green bottles hanging on the wall,
+Ten green bottles hanging on the wall,
+And if one green bottle should accidentally fall,
+There'll be nine green bottles hanging on the wall.
+
+Nine green bottles hanging on the wall,
+Nine green bottles hanging on the wall,
+And if one green bottle should accidentally fall,
+There'll be eight green bottles hanging on the wall.
+
+Eight green bottles hanging on the wall,
+Eight green bottles hanging on the wall,
+And if one green bottle should accidentally fall,
+There'll be seven green bottles hanging on the wall.
+
+Seven green bottles hanging on the wall,
+Seven green bottles hanging on the wall,
+And if one green bottle should accidentally fall,
+There'll be six green bottles hanging on the wall.
+
+Six green bottles hanging on the wall,
+Six green bottles hanging on the wall,
+And if one green bottle should accidentally fall,
+There'll be five green bottles hanging on the wall.
+
+Five green bottles hanging on the wall,
+Five green bottles hanging on the wall,
+And if one green bottle should accidentally fall,
+There'll be four green bottles hanging on the wall.
+
+Four green bottles hanging on the wall,
+Four green bottles hanging on the wall,
+And if one green bottle should accidentally fall,
+There'll be three green bottles hanging on the wall.
+
+Three green bottles hanging on the wall,
+Three green bottles hanging on the wall,
+And if one green bottle should accidentally fall,
+There'll be two green bottles hanging on the wall.
+
+Two green bottles hanging on the wall,
+Two green bottles hanging on the wall,
+And if one green bottle should accidentally fall,
+There'll be one green bottle hanging on the wall.
+
+One green bottle hanging on the wall,
+One green bottle hanging on the wall,
+And if one green bottle should accidentally fall,
+There'll be no green bottles hanging on the wall.
+```1d:["$","article","aider-polyglot:github:3",{"className":"sample-record","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":"polyglot code editing exercise"}]]}],["$","p",null,{"children":"$23"}],["$","p",null,{"className":"sample-input","children":"language: go\nexercise: bottle-song\nblurb: Produce the lyrics to the popular children's repetitive song: Ten Green Bottles.\nsolution_files: ['bottle_song.go']\ntest_files: ['bottle_song_test.go']"}],null,"$undefined",["$","span",null,{"children":"Aider Polyglot exercise instructions with source/test file references"}],"$undefined",["$","a",null,{"href":"https://github.com/Aider-AI/polyglot-benchmark/blob/main/go/exercises/practice/bottle-song/.docs/instructions.md","target":"_blank","rel":"noreferrer","children":["Sample source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],"$undefined"]}]
+24:T86f,# Instructions
+
+Score a bowling game.
+
+Bowling is a game where players roll a heavy ball to knock down pins arranged in a triangle.
+Write code to keep track of the score of a game of bowling.
+
+## Scoring Bowling
+
+The game consists of 10 frames.
+A frame is composed of one or two ball throws with 10 pins standing at frame initialization.
+There are three cases for the tabulation of a frame.
+
+- An open frame is where a score of less than 10 is recorded for the frame.
+  In this case the score for the frame is the number of pins knocked down.
+
+- A spare is where all ten pins are knocked down by the second throw.
+  The total value of a spare is 10 plus the number of pins knocked down in their next throw.
+
+- A strike is where all ten pins are knocked down by the first throw.
+  The total value of a strike is 10 plus the number of pins knocked down in the next two throws.
+  If a strike is immediately followed by a second strike, then the value of the first strike cannot be determined until the ball is thrown one more time.
+
+Here is a three frame example:
+
+|  Frame 1   |  Frame 2   |     Frame 3      |
+| :--------: | :--------: | :--------------: |
+| X (strike) | 5/ (spare) | 9 0 (open frame) |
+
+Frame 1 is (10 + 5 + 5) = 20
+
+Frame 2 is (5 + 5 + 9) = 19
+
+Frame 3 is (9 + 0) = 9
+
+This means the current running total is 48.
+
+The tenth frame in the game is a special case.
+If someone throws a spare or a strike then they get one or two fill balls respectively.
+Fill balls exist to calculate the total of the 10th frame.
+Scoring a strike or spare on the fill ball does not give the player more fill balls.
+The total value of the 10th frame is the total number of pins knocked down.
+
+For a tenth frame of X1/ (strike and a spare), the total value is 20.
+
+For a tenth frame of XXX (three strikes), the total value is 30.
+
+## Requirements
+
+Write code to keep track of the score of a game of bowling.
+It should support two operations:
+
+- `roll(pins : int)` is called each time the player rolls a ball.
+  The argument is the number of pins knocked down.
+- `score() : int` is called only at the very end of the game.
+  It returns the total score for that game.1e:["$","article","aider-polyglot:github:4",{"className":"sample-record","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":"polyglot code editing exercise"}]]}],["$","p",null,{"children":"$24"}],["$","p",null,{"className":"sample-input","children":"language: go\nexercise: bowling\nblurb: Score a bowling game.\nsolution_files: ['bowling.go']\ntest_files: ['bowling_test.go']"}],null,"$undefined",["$","span",null,{"children":"Aider Polyglot exercise instructions with source/test file references"}],"$undefined",["$","a",null,{"href":"https://github.com/Aider-AI/polyglot-benchmark/blob/main/go/exercises/practice/bowling/.docs/instructions.md","target":"_blank","rel":"noreferrer","children":["Sample source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":["$L25","$L26","$undefined"]}]]}],"$undefined"]}]
+1f:["$","path","1tivn9",{"d":"M7 7h10v10"}]
+20:["$","path","1vkiza",{"d":"M7 17 17 7"}]
+21:["$","a","sample-https://github.com/Aider-AI/polyglot-benchmark/blob/main/go/exercises/practice/bowling/.docs/instructions.md",{"href":"https://github.com/Aider-AI/polyglot-benchmark/blob/main/go/exercises/practice/bowling/.docs/instructions.md","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"sample"}],["$","b",null,{"children":"aider-polyglot:github:4"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}]
+25:["$","path","1tivn9",{"d":"M7 7h10v10"}]
+26:["$","path","1vkiza",{"d":"M7 17 17 7"}]
 a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
 6:null
 8:{"metadata":[["$","title","0",{"children":"Aider Polyglot | Open Benchmark Registry"}],["$","meta","1",{"name":"description","content":"Benchmark record pending curated summary. Domain: language; type: dataset_eval."}]],"error":null,"digest":"$undefined"}
