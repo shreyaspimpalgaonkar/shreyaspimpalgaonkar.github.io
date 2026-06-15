@@ -8,16 +8,294 @@ b:I[4431,[],"MetadataBoundary"]
 c:"$Sreact.suspense"
 e:I[7150,[],""]
 :HL["/benchmark-registry/_next/static/css/de5dc80d7b62ac72.css","style"]
-0:{"P":null,"b":"Arcd0Gkcw-yBWB-1jVrBE","p":"/benchmark-registry","c":["","benchmarks","livebench",""],"i":false,"f":[[["",{"children":["benchmarks",{"children":[["id","livebench","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/benchmark-registry/_next/static/css/de5dc80d7b62ac72.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":["benchmarks",["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["id","livebench","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L4",null,["$","$L5",null,{"children":["$L6",["$","$L7",null,{"promise":"$@8"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$L9",null,{"children":"$La"}],null],["$","$Lb",null,{"children":["$","div",null,{"hidden":true,"children":["$","$c",null,{"fallback":null,"children":"$Ld"}]}]}]]}],false]],"m":"$undefined","G":["$e",[]],"s":false,"S":true}
+0:{"P":null,"b":"7gNYaTvm4vUw6GEon-hT3","p":"/benchmark-registry","c":["","benchmarks","livebench",""],"i":false,"f":[[["",{"children":["benchmarks",{"children":[["id","livebench","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/benchmark-registry/_next/static/css/de5dc80d7b62ac72.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":["benchmarks",["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["id","livebench","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L4",null,["$","$L5",null,{"children":["$L6",["$","$L7",null,{"promise":"$@8"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$L9",null,{"children":"$La"}],null],["$","$Lb",null,{"children":["$","div",null,{"hidden":true,"children":["$","$c",null,{"fallback":null,"children":"$Ld"}]}]}]]}],false]],"m":"$undefined","G":["$e",[]],"s":false,"S":true}
 f:I[2619,["619","static/chunks/619-ba102abea3e3d0e4.js","651","static/chunks/app/benchmarks/%5Bid%5D/page-a84de58d962f3a46.js"],""]
-4:["$","main",null,{"className":"profile-page","children":[["$","div",null,{"className":"profile-topbar","children":[["$","$Lf",null,{"href":"/","className":"back-link","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":16,"height":16,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Registry"]}],["$","div",null,{"className":"profile-source-actions","children":[["$","a",null,{"href":"https://livebench.ai/","target":"_blank","rel":"noreferrer","children":["Official source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a",null,{"href":"https://github.com/LiveBench/LiveBench","target":"_blank","rel":"noreferrer","children":["Repository ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}]]}]]}],["$","header",null,{"className":"profile-hero","children":[["$","div",null,{"children":[["$","div",null,{"className":"eyebrow","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":16,"height":16,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-database","children":[["$","ellipse","msslwz",{"cx":"12","cy":"5","rx":"9","ry":"3"}],["$","path","1wlel7",{"d":"M3 5V19A9 3 0 0 0 21 19V5"}],["$","path","mv7ke4",{"d":"M3 12A9 3 0 0 0 21 12"}],"$undefined"]}],"Benchmark profile"]}],["$","h1",null,{"children":"LiveBench"}],["$","p",null,{"children":"Contamination-resistant live benchmark with periodically updated questions."}],["$","div",null,{"className":"tags","children":[["$","span","language-undefined",{"className":"tag language","children":"language"}],["$","span","leaderboard-undefined",{"className":"tag leaderboard","children":"leaderboard"}],["$","span","public-public",{"className":"tag public","children":"public"}],["$","span","approximate-undefined",{"className":"tag approximate","children":"approximate"}]]}]]}],["$","div",null,{"className":"profile-status-card","children":[["$","span",null,{"className":"status incomplete","children":"sample incomplete"}],["$","b",null,{"children":[0,"/5 public samples"]}],["$","p",null,{"children":"This registry treats five public, source-linked samples as the minimum for a complete benchmark profile."}]]}]]}],["$","section",null,{"className":"profile-grid","children":[["$","div",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Definition"}],["$","dl",null,{"className":"definition-list","children":[["$","div",null,{"children":[["$","dt",null,{"children":"Benchmark ID"}],["$","dd",null,{"children":"livebench"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Primary Task"}],["$","dd",null,{"children":"live language eval"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Primary Metric"}],["$","dd",null,{"children":"normalized score"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Harness"}],["$","dd",null,{"children":"LiveBench"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Versions"}],["$","dd",null,{"children":"1"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Citations"}],["$","dd",null,{"children":"1"}]]}]]}]]}],["$","div",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Trust Signals"}],["$","div",null,{"className":"trust-stack","children":[["$","div",null,{"className":"trust-row","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield-check","children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],["$","path","dzmm74",{"d":"m9 12 2 2 4-4"}],"$undefined"]}],["$","span",null,{"children":"Official source"}],"$L10"]}],"$L11","$L12","$L13"]}]]}]]}],"$L14","$L15","$L16"]}]
+4:["$","main",null,{"className":"profile-page","children":[["$","div",null,{"className":"profile-topbar","children":[["$","$Lf",null,{"href":"/","className":"back-link","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":16,"height":16,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Registry"]}],["$","div",null,{"className":"profile-source-actions","children":[["$","a",null,{"href":"https://livebench.ai/","target":"_blank","rel":"noreferrer","children":["Official source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a",null,{"href":"https://github.com/LiveBench/LiveBench","target":"_blank","rel":"noreferrer","children":["Repository ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}]]}]]}],["$","header",null,{"className":"profile-hero","children":[["$","div",null,{"children":[["$","div",null,{"className":"eyebrow","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":16,"height":16,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-database","children":[["$","ellipse","msslwz",{"cx":"12","cy":"5","rx":"9","ry":"3"}],["$","path","1wlel7",{"d":"M3 5V19A9 3 0 0 0 21 19V5"}],["$","path","mv7ke4",{"d":"M3 12A9 3 0 0 0 21 12"}],"$undefined"]}],"Benchmark profile"]}],["$","h1",null,{"children":"LiveBench"}],["$","p",null,{"children":"Contamination-resistant live benchmark with periodically updated questions."}],["$","div",null,{"className":"tags","children":[["$","span","language-undefined",{"className":"tag language","children":"language"}],["$","span","leaderboard-undefined",{"className":"tag leaderboard","children":"leaderboard"}],["$","span","public-public",{"className":"tag public","children":"public"}],["$","span","approximate-undefined",{"className":"tag approximate","children":"approximate"}]]}]]}],["$","div",null,{"className":"profile-status-card","children":[["$","span",null,{"className":"status complete","children":"sample complete"}],["$","b",null,{"children":[5,"/5 public samples"]}],["$","p",null,{"children":"This registry treats five public, source-linked samples as the minimum for a complete benchmark profile."}]]}]]}],["$","section",null,{"className":"profile-grid","children":[["$","div",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Definition"}],["$","dl",null,{"className":"definition-list","children":[["$","div",null,{"children":[["$","dt",null,{"children":"Benchmark ID"}],["$","dd",null,{"children":"livebench"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Primary Task"}],["$","dd",null,{"children":"live language eval"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Primary Metric"}],["$","dd",null,{"children":"normalized score"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Harness"}],["$","dd",null,{"children":"LiveBench"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Versions"}],["$","dd",null,{"children":"1"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Citations"}],["$","dd",null,{"children":"1"}]]}]]}]]}],["$","div",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Trust Signals"}],["$","div",null,{"className":"trust-stack","children":[["$","div",null,{"className":"trust-row","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield-check","children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],["$","path","dzmm74",{"d":"m9 12 2 2 4-4"}],"$undefined"]}],["$","span",null,{"children":"Official source"}],"$L10"]}],"$L11","$L12","$L13"]}]]}]]}],"$L14","$L15","$L16"]}]
 10:["$","b",null,{"className":"ok","children":"yes"}]
-11:["$","div",null,{"className":"trust-row","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield-check","children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],["$","path","dzmm74",{"d":"m9 12 2 2 4-4"}],"$undefined"]}],["$","span",null,{"children":"Public sample rows"}],["$","b",null,{"className":"missing","children":"missing"}]]}]
+11:["$","div",null,{"className":"trust-row","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield-check","children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],["$","path","dzmm74",{"d":"m9 12 2 2 4-4"}],"$undefined"]}],["$","span",null,{"children":"Public sample rows"}],["$","b",null,{"className":"ok","children":"yes"}]]}]
 12:["$","div",null,{"className":"trust-row","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield-check","children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],["$","path","dzmm74",{"d":"m9 12 2 2 4-4"}],"$undefined"]}],["$","span",null,{"children":"Public access"}],["$","b",null,{"className":"ok","children":"yes"}]]}]
 13:["$","div",null,{"className":"trust-row","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield-check","children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],["$","path","dzmm74",{"d":"m9 12 2 2 4-4"}],"$undefined"]}],["$","span",null,{"children":"Reproducible protocol"}],["$","b",null,{"className":"missing","children":"missing"}]]}]
-14:["$","section",null,{"className":"profile-panel sample-explorer","children":[["$","div",null,{"className":"section-head","children":["$","div",null,{"children":[["$","h2",null,{"children":"Dataset Sample Explorer"}],["$","p",null,{"children":"Samples are the center of the benchmark profile. Missing rows are shown explicitly instead of hidden."}]]}]}],["$","div",null,{"className":"sample-explorer-grid","children":[[],[["$","article","missing-0",{"className":"sample-record missing","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":["Missing public sample ",1]}]]}],["$","p",null,{"children":"Add an official public row with prompt/question, input artifact link, task, and source URL."}]]}],["$","article","missing-1",{"className":"sample-record missing","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":["Missing public sample ",2]}]]}],["$","p",null,{"children":"Add an official public row with prompt/question, input artifact link, task, and source URL."}]]}],["$","article","missing-2",{"className":"sample-record missing","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":["Missing public sample ",3]}]]}],["$","p",null,{"children":"Add an official public row with prompt/question, input artifact link, task, and source URL."}]]}],["$","article","missing-3",{"className":"sample-record missing","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":["Missing public sample ",4]}]]}],["$","p",null,{"children":"Add an official public row with prompt/question, input artifact link, task, and source URL."}]]}],["$","article","missing-4",{"className":"sample-record missing","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":["Missing public sample ",5]}]]}],["$","p",null,{"children":"Add an official public row with prompt/question, input artifact link, task, and source URL."}]]}]]]}]]}]
-15:["$","section",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Artifacts"}],["$","div",null,{"className":"artifact-list profile-artifacts","children":[[["$","a","site-https://livebench.ai/",{"href":"https://livebench.ai/","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"site"}],["$","b",null,{"children":"Official benchmark page"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a","repo-https://github.com/LiveBench/LiveBench",{"href":"https://github.com/LiveBench/LiveBench","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"repo"}],["$","b",null,{"children":"Code or dataset repository"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a","harness-https://github.com/LiveBench/LiveBench",{"href":"https://github.com/LiveBench/LiveBench","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"harness"}],["$","b",null,{"children":"LiveBench"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}]],false]}]]}]
+17:Tc4a,### Instructions: You are an expert Python programmer. You will be given a question (problem specification) and will generate a correct Python program that matches the specification and passes all tests. You will NOT return anything except for the program.
+### Question:
+You are given a 0-indexed integer array nums containing positive integers.
+Your task is to minimize the length of nums by performing the following operations any number of times (including zero):
+
+Select two distinct indices i and j from nums, such that nums[i] > 0 and nums[j] > 0.
+Insert the result of nums[i] % nums[j] at the end of nums.
+Delete the elements at indices i and j from nums.
+
+Return an integer denoting the minimum length of nums after performing the operation any number of times.
+ 
+Example 1:
+
+Input: nums = [1,4,3,1]
+Output: 1
+Explanation: One way to minimize the length of the array is as follows:
+Operation 1: Select indices 2 and 1, insert nums[2] % nums[1] at the end and it becomes [1,4,3,1,3], then delete elements at indices 2 and 1.
+nums becomes [1,1,3].
+Operation 2: Select indices 1 and 2, insert nums[1] % nums[2] at the end and it becomes [1,1,3,1], then delete elements at indices 1 and 2.
+nums becomes [1,1].
+Operation 3: Select indices 1 and 0, insert nums[1] % nums[0] at the end and it becomes [1,1,0], then delete elements at indices 1 and 0.
+nums becomes [0].
+The length of nums cannot be reduced further. Hence, the answer is 1.
+It can be shown that 1 is the minimum achievable length. 
+Example 2:
+
+Input: nums = [5,5,5,10,5]
+Output: 2
+Explanation: One way to minimize the length of the array is as follows:
+Operation 1: Select indices 0 and 3, insert nums[0] % nums[3] at the end and it becomes [5,5,5,10,5,5], then delete elements at indices 0 and 3.
+nums becomes [5,5,5,5]. 
+Operation 2: Select indices 2 and 3, insert nums[2] % nums[3] at the end and it becomes [5,5,5,5,0], then delete elements at indices 2 and 3. 
+nums becomes [5,5,0]. 
+Operation 3: Select indices 0 and 1, insert nums[0] % nums[1] at the end and it becomes [5,5,0,0], then delete elements at indices 0 and 1.
+nums becomes [0,0].
+The length of nums cannot be reduced further. Hence, the answer is 2.
+It can be shown that 2 is the minimum achievable length. 
+Example 3:
+
+Input: nums = [2,3,4]
+Output: 1
+Explanation: One way to minimize the length of the array is as follows: 
+Operation 1: Select indices 1 and 2, insert nums[1] % nums[2] at the end and it becomes [2,3,4,3], then delete elements at indices 1 and 2.
+nums becomes [2,3].
+Operation 2: Select indices 1 and 0, insert nums[1] % nums[0] at the end and it becomes [2,3,1], then delete elements at indices 1 and 0.
+nums becomes [1].
+The length of nums cannot be reduced further. Hence, the answer is 1.
+It can be shown that 1 is the minimum achievable length.
+ 
+Constraints:
+
+1 <= nums.length <= 10^5
+1 <= nums[i] <= 10^9
+
+### Format: You will use the following starter code to write the solution to the problem and enclose your code within delimiters.
+```python
+class Solution:
+    def minimumArrayLength(self, nums: List[int]) -> int:
+        
+```
+
+### Answer: (use the provided format with backticks)14:["$","section",null,{"className":"profile-panel sample-explorer","children":[["$","div",null,{"className":"section-head","children":["$","div",null,{"children":[["$","h2",null,{"children":"Dataset Sample Explorer"}],["$","p",null,{"children":"Samples are the center of the benchmark profile. Missing rows are shown explicitly instead of hidden."}]]}]}],["$","div",null,{"className":"sample-explorer-grid","children":[[["$","article","livebench:default:test:0",{"className":"sample-record","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":"LCB generation"}]]}],["$","p",null,{"children":"$17"}],"$L18",null,"$L19","$L1a","$L1b","$L1c","$undefined"]}],"$L1d","$L1e","$L1f","$L20"],[]]}]]}]
+15:["$","section",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Artifacts"}],["$","div",null,{"className":"artifact-list profile-artifacts","children":[[["$","a","site-https://livebench.ai/",{"href":"https://livebench.ai/","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"site"}],["$","b",null,{"children":"Official benchmark page"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a","repo-https://github.com/LiveBench/LiveBench",{"href":"https://github.com/LiveBench/LiveBench","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"repo"}],["$","b",null,{"children":"Code or dataset repository"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a","sample-https://huggingface.co/datasets/livebench/coding/viewer/default/test?row=0",{"href":"https://huggingface.co/datasets/livebench/coding/viewer/default/test?row=0","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"sample"}],["$","b",null,{"children":"livebench:default:test:0"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a","sample-https://huggingface.co/datasets/livebench/coding/viewer/default/test?row=1",{"href":"https://huggingface.co/datasets/livebench/coding/viewer/default/test?row=1","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"sample"}],["$","b",null,{"children":"livebench:default:test:1"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a","sample-https://huggingface.co/datasets/livebench/coding/viewer/default/test?row=2",{"href":"https://huggingface.co/datasets/livebench/coding/viewer/default/test?row=2","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"sample"}],["$","b",null,{"children":"livebench:default:test:2"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a","sample-https://huggingface.co/datasets/livebench/coding/viewer/default/test?row=3",{"href":"https://huggingface.co/datasets/livebench/coding/viewer/default/test?row=3","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"sample"}],["$","b",null,{"children":"livebench:default:test:3"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a","sample-https://huggingface.co/datasets/livebench/coding/viewer/default/test?row=4",{"href":"https://huggingface.co/datasets/livebench/coding/viewer/default/test?row=4","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"sample"}],["$","b",null,{"children":"livebench:default:test:4"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":["$L21","$L22","$undefined"]}]]}],"$L23"],false]}]]}]
 16:["$","section",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Citations"}],["$","table",null,{"className":"profile-table","children":["$","tbody",null,{"children":[[["$","tr","introduced-LiveBench",{"children":[["$","th",null,{"children":"introduced"}],["$","td",null,{"children":"LiveBench"}]]}]],false]}]}]]}]
+18:["$","p",null,{"className":"sample-input","children":"question_id: eecef5ebcd4b0224ec2404b15759eae2703c32db82dc7fd711af23c0dffc888a\ncategory: coding\nrelease_date: 2024-06-24 00:00:00"}]
+19:["$","span",null,{"children":["Answer: ","[{\"input\": \"[1, 4, 3, 1]\", \"output\": \"1\", \"testtype\": \"functional\"}, {\"input\": \"[5, 5, 5, 10, 5]\", \"output\": \"2\", \"testtype\": \"functional\"}, {\"input\": \"[2, 3, 4]\", \"output\": \"1\", \"testtype\": \"functional\"}]"]}]
+1a:["$","span",null,{"children":"LiveBench dataset row with task metadata and ground truth/test cases"}]
+1b:["$","span",null,{"children":["livebench/coding"," / default"," / test"," / row 0"]}]
+1c:["$","a",null,{"href":"https://huggingface.co/datasets/livebench/coding/viewer/default/test?row=0","target":"_blank","rel":"noreferrer","children":["Sample source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}]
+24:T50a,### Instructions: You are an expert Python programmer. You will be given a question (problem specification) and will generate a correct Python program that matches the specification and passes all tests. You will NOT return anything except for the program.
+### Question:
+You are given an array nums consisting of positive integers.
+Return the total frequencies of elements in nums such that those elements all have the maximum frequency.
+The frequency of an element is the number of occurrences of that element in the array.
+ 
+Example 1:
+
+Input: nums = [1,2,2,3,1,4]
+Output: 4
+Explanation: The elements 1 and 2 have a frequency of 2 which is the maximum frequency in the array.
+So the number of elements in the array with maximum frequency is 4.
+
+Example 2:
+
+Input: nums = [1,2,3,4,5]
+Output: 5
+Explanation: All elements of the array have a frequency of 1 which is the maximum.
+So the number of elements in the array with maximum frequency is 5.
+
+ 
+Constraints:
+
+1 <= nums.length <= 100
+1 <= nums[i] <= 100
+
+### Format: You will use the following starter code to write the solution to the problem and enclose your code within delimiters.
+```python
+class Solution:
+    def maxFrequencyElements(self, nums: List[int]) -> int:
+        
+```
+
+### Answer: (use the provided format with backticks)1d:["$","article","livebench:default:test:1",{"className":"sample-record","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":"LCB generation"}]]}],["$","p",null,{"children":"$24"}],["$","p",null,{"className":"sample-input","children":"question_id: 0664f46bd7bf6217d229be6762834af2aa642e7b97b14469f478c93a382ee520\ncategory: coding\nrelease_date: 2024-06-24 00:00:00"}],null,["$","span",null,{"children":["Answer: ","[{\"input\": \"[1, 2, 2, 3, 1, 4]\", \"output\": \"4\", \"testtype\": \"functional\"}, {\"input\": \"[1, 2, 3, 4, 5]\", \"output\": \"5\", \"testtype\": \"functional\"}]"]}],["$","span",null,{"children":"LiveBench dataset row with task metadata and ground truth/test cases"}],["$","span",null,{"children":["livebench/coding"," / default"," / test"," / row 1"]}],["$","a",null,{"href":"https://huggingface.co/datasets/livebench/coding/viewer/default/test?row=1","target":"_blank","rel":"noreferrer","children":["Sample source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],"$undefined"]}]
+25:T508,### Instructions: You are an expert Python programmer. You will be given a question (problem specification) and will generate a correct Python program that matches the specification and passes all tests. You will NOT return anything except for the program.
+### Question:
+A non-negative integer n is called a good integer when it satisfies the following condition:
+
+- All digits in the decimal notation of n are even numbers (0, 2, 4, 6, and 8).
+
+For example, 0, 68, and 2024 are good integers.
+You are given an integer N. Find the N-th smallest good integer.
+
+Input
+
+The input is given from Standard Input in the following format:
+N
+
+Output
+
+Print the N-th smallest good integer.
+
+Constraints
+
+
+- 1 \leq N \leq 10^{12}
+- N is an integer.
+
+Sample Input 1
+
+8
+
+Sample Output 1
+
+24
+
+The good integers in ascending order are 0, 2, 4, 6, 8, 20, 22, 24, 26, 28, \dots.
+The eighth smallest is 24, which should be printed.
+
+Sample Input 2
+
+133
+
+Sample Output 2
+
+2024
+
+Sample Input 3
+
+31415926535
+
+Sample Output 3
+
+2006628868244228
+
+### Format: Read the inputs from stdin solve the problem and write the answer to stdout (do not directly test on the sample inputs). Enclose your code within delimiters as follows.
+```python
+# YOUR CODE HERE
+```
+
+### Answer: (use the provided format with backticks)1e:["$","article","livebench:default:test:2",{"className":"sample-record","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":"LCB generation"}]]}],["$","p",null,{"children":"$25"}],["$","p",null,{"className":"sample-input","children":"question_id: f62daa0a810a70c8048484566eb0dcfb331b5299ce2a104f71cbbed4a98ed2b1\ncategory: coding\nrelease_date: 2024-06-24 00:00:00"}],null,["$","span",null,{"children":["Answer: ","[{\"input\": \"8\\n\", \"output\": \"24\\n\", \"testtype\": \"stdin\"}, {\"input\": \"133\\n\", \"output\": \"2024\\n\", \"testtype\": \"stdin\"}, {\"input\": \"31415926535\\n\", \"output\": \"2006628868244228\\n\", \"testtype\": \"stdin\"}]"]}],["$","span",null,{"children":"LiveBench dataset row with task metadata and ground truth/test cases"}],["$","span",null,{"children":["livebench/coding"," / default"," / test"," / row 2"]}],["$","a",null,{"href":"https://huggingface.co/datasets/livebench/coding/viewer/default/test?row=2","target":"_blank","rel":"noreferrer","children":["Sample source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],"$undefined"]}]
+26:T117c,### Instructions: You are an expert Python programmer. You will be given a question (problem specification) and will generate a correct Python program that matches the specification and passes all tests. You will NOT return anything except for the program.
+### Question:
+This is an interactive problem (a type of problem where your program interacts with the judge program through Standard Input and Output).
+There are N bottles of juice, numbered 1 to N. It has been discovered that exactly one of these bottles has gone bad. Even a small sip of the spoiled juice will cause stomach upset the next day.
+Takahashi must identify the spoiled juice by the next day. To do this, he decides to call the minimum necessary number of friends and serve them some of the N bottles of juice. He can give any number of bottles to each friend, and each bottle of juice can be given to any number of friends.
+Print the number of friends to call and how to distribute the juice, then receive information on whether each friend has an upset stomach the next day, and print the spoiled bottle's number.
+
+Input/Output
+
+This is an interactive problem (a type of problem where your program interacts with the judge program through Standard Input and Output).
+Before the interaction, the judge secretly selects an integer X between 1 and N as the spoiled bottle's number. The value of X is not given to you. Also, the value of X may change during the interaction as long as it is consistent with the constraints and previous outputs.
+First, the judge will give you N as input.
+N
+
+You should print the number of friends to call, M, followed by a newline.
+M
+
+Next, you should perform the following procedure to print M outputs.
+For i = 1, 2, \ldots, M, the i-th output should contain the number K_i of bottles of juice you will serve to the i-th friend, and the K_i bottles' numbers in ascending order, A_{i, 1}, A_{i, 2}, \ldots, A_{i, K_i}, separated by spaces, followed by a newline.
+K_i A_{i, 1} A_{i, 2} \ldots A_{i, K_i}
+
+Then, the judge will inform you whether each friend has a stomach upset the next day by giving you a string S of length M consisting of 0 and 1.
+S
+
+For i = 1, 2, \ldots, M, the i-th friend has a stomach upset if and only if the i-th character of S is 1.
+You should respond by printing the number of the spoiled juice bottle X', followed by a newline.
+X'
+
+Then, terminate the program immediately.
+If the M you printed is the minimum necessary number of friends to identify the spoiled juice out of the N bottles, and the X' you printed matches the spoiled bottle's number X, then your program is considered correct.
+
+Input/Output
+
+This is an interactive problem (a type of problem where your program interacts with the judge program through Standard Input and Output).
+Before the interaction, the judge secretly selects an integer X between 1 and N as the spoiled bottle's number. The value of X is not given to you. Also, the value of X may change during the interaction as long as it is consistent with the constraints and previous outputs.
+First, the judge will give you N as input.
+N
+
+You should print the number of friends to call, M, followed by a newline.
+M
+
+Next, you should perform the following procedure to print M outputs.
+For i = 1, 2, \ldots, M, the i-th output should contain the number K_i of bottles of juice you will serve to the i-th friend, and the K_i bottles' numbers in ascending order, A_{i, 1}, A_{i, 2}, \ldots, A_{i, K_i}, separated by spaces, followed by a newline.
+K_i A_{i, 1} A_{i, 2} \ldots A_{i, K_i}
+
+Then, the judge will inform you whether each friend has a stomach upset the next day by giving you a string S of length M consisting of 0 and 1.
+S
+
+For i = 1, 2, \ldots, M, the i-th friend has a stomach upset if and only if the i-th character of S is 1.
+You should respond by printing the number of the spoiled juice bottle X', followed by a newline.
+X'
+
+Then, terminate the program immediately.
+If the M you printed is the minimum necessary number of friends to identify the spoiled juice out of the N bottles, and the X' you printed matches the spoiled bottle's number X, then your program is considered correct.
+
+Constraints
+
+
+- N is an integer.
+- 2 \leq N \leq 100
+
+
+
+### Format: Read the inputs from stdin solve the problem and write the answer to stdout (do not directly test on the sample inputs). Enclose your code within delimiters as follows.
+```python
+# YOUR CODE HERE
+```
+
+### Answer: (use the provided format with backticks)1f:["$","article","livebench:default:test:3",{"className":"sample-record","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":"LCB generation"}]]}],["$","p",null,{"children":"$26"}],"$L27",null,"$L28","$L29","$L2a","$L2b","$undefined"]}]
+2c:T680,### Instructions: You are an expert Python programmer. You will be given a question (problem specification) and will generate a correct Python program that matches the specification and passes all tests. You will NOT return anything except for the program.
+### Question:
+You are given an array of integers nums of length n.
+The cost of an array is the value of its first element. For example, the cost of [1,2,3] is 1 while the cost of [3,4,1] is 3.
+You need to divide nums into 3 disjoint contiguous subarrays.
+Return the minimum possible sum of the cost of these subarrays.
+ 
+Example 1:
+
+Input: nums = [1,2,3,12]
+Output: 6
+Explanation: The best possible way to form 3 subarrays is: [1], [2], and [3,12] at a total cost of 1 + 2 + 3 = 6.
+The other possible ways to form 3 subarrays are:
+- [1], [2,3], and [12] at a total cost of 1 + 2 + 12 = 15.
+- [1,2], [3], and [12] at a total cost of 1 + 3 + 12 = 16.
+
+Example 2:
+
+Input: nums = [5,4,3]
+Output: 12
+Explanation: The best possible way to form 3 subarrays is: [5], [4], and [3] at a total cost of 5 + 4 + 3 = 12.
+It can be shown that 12 is the minimum cost achievable.
+
+Example 3:
+
+Input: nums = [10,3,1,1]
+Output: 12
+Explanation: The best possible way to form 3 subarrays is: [10,3], [1], and [1] at a total cost of 10 + 1 + 1 = 12.
+It can be shown that 12 is the minimum cost achievable.
+
+ 
+Constraints:
+
+3 <= n <= 50
+1 <= nums[i] <= 50
+
+### Format: You will use the following starter code to write the solution to the problem and enclose your code within delimiters.
+```python
+class Solution:
+    def minimumCost(self, nums: List[int]) -> int:
+        
+```
+
+### Answer: (use the provided format with backticks)20:["$","article","livebench:default:test:4",{"className":"sample-record","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":"LCB generation"}]]}],["$","p",null,{"children":"$2c"}],["$","p",null,{"className":"sample-input","children":"question_id: 6cb0c2d9892875f79d632e273efd7ae3fa4ccb324fbce753673b8314aa80c737\ncategory: coding\nrelease_date: 2024-06-24 00:00:00"}],null,["$","span",null,{"children":["Answer: ","[{\"input\": \"[1, 2, 3, 12]\", \"output\": \"6\", \"testtype\": \"functional\"}, {\"input\": \"[5, 4, 3]\", \"output\": \"12\", \"testtype\": \"functional\"}, {\"input\": \"[10, 3, 1, 1]\", \"output\": \"12\", \"testtype\": \"functional\"}]"]}],["$","span",null,{"children":"LiveBench dataset row with task metadata and ground truth/test cases"}],["$","span",null,{"children":["livebench/coding"," / default"," / test"," / row 4"]}],["$","a",null,{"href":"https://huggingface.co/datasets/livebench/coding/viewer/default/test?row=4","target":"_blank","rel":"noreferrer","children":["Sample source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],"$undefined"]}]
+21:["$","path","1tivn9",{"d":"M7 7h10v10"}]
+22:["$","path","1vkiza",{"d":"M7 17 17 7"}]
+23:["$","a","harness-https://github.com/LiveBench/LiveBench",{"href":"https://github.com/LiveBench/LiveBench","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"harness"}],["$","b",null,{"children":"LiveBench"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}]
+27:["$","p",null,{"className":"sample-input","children":"question_id: 65369f81842e0735d0dd6619a120d5760217c9b8ac481de89cc20983ea555953\ncategory: coding\nrelease_date: 2024-06-24 00:00:00"}]
+28:["$","span",null,{"children":["Answer: ","[{\"input\": \"3 1\\n\", \"output\": \"2\\n1 2 \\n1 3 \\n2\\n\", \"testtype\": \"stdin\"}]"]}]
+29:["$","span",null,{"children":"LiveBench dataset row with task metadata and ground truth/test cases"}]
+2a:["$","span",null,{"children":["livebench/coding"," / default"," / test"," / row 3"]}]
+2b:["$","a",null,{"href":"https://huggingface.co/datasets/livebench/coding/viewer/default/test?row=3","target":"_blank","rel":"noreferrer","children":["Sample source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}]
 a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
 6:null
 8:{"metadata":[["$","title","0",{"children":"LiveBench | Open Benchmark Registry"}],["$","meta","1",{"name":"description","content":"Contamination-resistant live benchmark with periodically updated questions."}]],"error":null,"digest":"$undefined"}

@@ -9,6 +9,7 @@ verbatim from the source dataset fields and records dataset/config/split/row.
 from __future__ import annotations
 
 import json
+import ast
 from collections.abc import Callable
 from pathlib import Path
 from typing import Any
@@ -33,6 +34,25 @@ def compact(value: Any, limit: int = 260) -> str:
     if len(text) <= limit:
         return text
     return text[: limit - 1].rstrip() + "..."
+
+
+def as_list(value: Any) -> list[str]:
+    if value is None:
+        return []
+    if isinstance(value, list):
+        return [clean(item) for item in value if clean(item)]
+    if isinstance(value, tuple):
+        return [clean(item) for item in value if clean(item)]
+    text = clean(value)
+    if not text:
+        return []
+    try:
+        parsed = ast.literal_eval(text)
+    except (SyntaxError, ValueError):
+        return [text]
+    if isinstance(parsed, (list, tuple)):
+        return [clean(item) for item in parsed if clean(item)]
+    return [clean(parsed)]
 
 
 def hf_viewer_url(dataset: str, config: str, split: str, row_index: int) -> str:
@@ -81,6 +101,10 @@ def base_sample(
 
 
 def swe_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    image_assets = clean(row.get("image_assets"))
+    input_text = f"repo: {row.get('repo')}\ninstance_id: {row.get('instance_id')}\nbase_commit: {row.get('base_commit')}"
+    if image_assets:
+        input_text += f"\nimage_assets: {compact(image_assets, 700)}"
     return base_sample(
         benchmark_id,
         meta["dataset"],
@@ -89,7 +113,7 @@ def swe_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dic
         row_index,
         "issue_resolution",
         clean(row.get("problem_statement")),
-        input_text=f"repo: {row.get('repo')}\ninstance_id: {row.get('instance_id')}\nbase_commit: {row.get('base_commit')}",
+        input_text=input_text,
         answer=compact(row.get("patch"), 600),
         artifact="Git repository issue plus base commit, gold patch, and test patch",
     )
@@ -166,6 +190,123 @@ def scicode_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta:
         clean(row.get("response")),
         input_text=clean(row.get("prompt")),
         artifact=f"SciCode programming-problem row; metadata: {compact(row.get('metadata'), 500)}",
+    )
+
+
+def charxiv_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    question = clean(row.get("reasoning_q") or row.get("descriptive_q1"))
+    answer = clean(row.get("reasoning_a") or row.get("descriptive_a1"))
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "chart_figure_reasoning",
+        question,
+        input_text=(
+            f"category: {row.get('category')}\nyear: {row.get('year')}\n"
+            f"original_id: {row.get('original_id')}\nfigure_path: {row.get('figure_path')}"
+        ),
+        answer=answer,
+        artifact="Figure image embedded in the Hugging Face dataset row",
+    )
+
+
+def chartmuseum_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "chart_question_answering",
+        clean(row.get("question")),
+        input_text=f"image: {row.get('image')}\nreasoning_type: {row.get('reasoning_type')}\nhash: {row.get('hash')}",
+        answer=clean(row.get("answer")),
+        artifact=f"Chart image path plus original source {row.get('source')}",
+    )
+
+
+def chartqapro_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    questions = as_list(row.get("Question"))
+    answers = as_list(row.get("Answer"))
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "chart_question_answering",
+        questions[0] if questions else clean(row.get("Question")),
+        input_text=f"question_type: {row.get('Question Type')}\nyear: {row.get('Year')}\nparagraph: {compact(row.get('Paragraph'), 500)}",
+        answer=", ".join(answers),
+        artifact="Chart image bytes embedded in the Hugging Face dataset row",
+    )
+
+
+def mcp_atlas_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "mcp_tool_use_task",
+        clean(row.get("PROMPT")),
+        input_text=f"task: {row.get('TASK')}\nenabled_tools: {compact(row.get('ENABLED_TOOLS'), 800)}",
+        answer=compact(row.get("GTFA_CLAIMS"), 700),
+        artifact="MCP tool-use trajectory and ground-truth factual claims",
+    )
+
+
+def screenspot_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "gui_grounding",
+        clean(row.get("instruction")),
+        input_text=(
+            f"id: {row.get('id')}\napplication: {row.get('application')}\nplatform: {row.get('platform')}\n"
+            f"ui_type: {row.get('ui_type')}\nimage: {row.get('img_filename')}"
+        ),
+        answer=clean(row.get("bbox")),
+        artifact="Screenshot image embedded in the Hugging Face dataset row",
+    )
+
+
+def mvbench_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "video_question_answering",
+        clean(row.get("question")),
+        input_text=f"video: {row.get('video')}\nstart: {row.get('start')}\nend: {row.get('end')}",
+        answer=clean(row.get("answer")),
+        options=as_list(row.get("candidates")),
+        artifact="Video clip path with temporal bounds",
+    )
+
+
+def livebench_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    turns = as_list(row.get("turns"))
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        clean(row.get("task") or row.get("category") or "livebench_task"),
+        turns[0] if turns else clean(row.get("question_title") or row.get("question_id")),
+        input_text=f"question_id: {row.get('question_id')}\ncategory: {row.get('category')}\nrelease_date: {row.get('livebench_release_date') or row.get('release_date')}",
+        answer=compact(row.get("ground_truth") or row.get("solution") or row.get("public_test_cases"), 800),
+        artifact="LiveBench dataset row with task metadata and ground truth/test cases",
     )
 
 
@@ -481,6 +622,27 @@ CONFIGS: list[dict[str, Any]] = [
         "mapper": swe_mapper,
     },
     {
+        "benchmark_id": "swe-bench-multimodal",
+        "dataset": "princeton-nlp/SWE-bench_Multimodal",
+        "config": "default",
+        "split": "test",
+        "mapper": swe_mapper,
+    },
+    {
+        "benchmark_id": "swe-gym",
+        "dataset": "SWE-Gym/SWE-Gym",
+        "config": "default",
+        "split": "train",
+        "mapper": swe_mapper,
+    },
+    {
+        "benchmark_id": "swe-rebench",
+        "dataset": "nebius/SWE-rebench",
+        "config": "default",
+        "split": "test",
+        "mapper": swe_mapper,
+    },
+    {
         "benchmark_id": "humanevalplus",
         "dataset": "evalplus/humanevalplus",
         "config": "default",
@@ -521,6 +683,27 @@ CONFIGS: list[dict[str, Any]] = [
         "config": "default",
         "split": "train",
         "mapper": scicode_mapper,
+    },
+    {
+        "benchmark_id": "charxiv-reasoning",
+        "dataset": "princeton-nlp/CharXiv",
+        "config": "default",
+        "split": "validation",
+        "mapper": charxiv_mapper,
+    },
+    {
+        "benchmark_id": "chartmuseum",
+        "dataset": "lytang/ChartMuseum",
+        "config": "default",
+        "split": "test",
+        "mapper": chartmuseum_mapper,
+    },
+    {
+        "benchmark_id": "chartqapro",
+        "dataset": "ahmed-masry/ChartQAPro",
+        "config": "default",
+        "split": "test",
+        "mapper": chartqapro_mapper,
     },
     {
         "benchmark_id": "gmmlu",
@@ -591,6 +774,34 @@ CONFIGS: list[dict[str, Any]] = [
         "config": "CRMArena",
         "split": "test",
         "mapper": crmarena_mapper,
+    },
+    {
+        "benchmark_id": "mcp-atlas",
+        "dataset": "ScaleAI/MCP-Atlas",
+        "config": "default",
+        "split": "train",
+        "mapper": mcp_atlas_mapper,
+    },
+    {
+        "benchmark_id": "screenspot-pro",
+        "dataset": "lmms-lab/ScreenSpot-Pro",
+        "config": "default",
+        "split": "train",
+        "mapper": screenspot_mapper,
+    },
+    {
+        "benchmark_id": "mvbench",
+        "dataset": "OpenGVLab/MVBench",
+        "config": "action_sequence",
+        "split": "train",
+        "mapper": mvbench_mapper,
+    },
+    {
+        "benchmark_id": "livebench",
+        "dataset": "livebench/coding",
+        "config": "default",
+        "split": "test",
+        "mapper": livebench_mapper,
     },
     {
         "benchmark_id": "terminal-bench",
