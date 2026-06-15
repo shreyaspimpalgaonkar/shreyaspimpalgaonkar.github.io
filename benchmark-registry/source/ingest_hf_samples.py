@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import json
 import ast
+import csv
 from collections.abc import Callable
 from pathlib import Path
 from typing import Any
@@ -868,6 +869,57 @@ def helm_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: di
     )
 
 
+def toolathlon_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    config = json.loads(row.get("config") or "{}")
+    status = json.loads(row.get("task_status") or "{}")
+    stats = json.loads(row.get("key_stats") or "{}")
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "tool_rich_agent_task",
+        clean(config.get("task_str")),
+        input_text=(
+            f"task_name: {row.get('task_name')}\nrequest_id: {row.get('request_id')}\n"
+            f"task_dir: {config.get('task_dir')}\nneeded_mcp_servers: {config.get('needed_mcp_servers')}\n"
+            f"needed_local_tools: {config.get('needed_local_tools')}\nstatus: {status}\n"
+            f"interaction_turns: {stats.get('interaction_turns')}\ntool_calls: {stats.get('tool_calls')}"
+        ),
+        answer=clean(status.get("evaluation")),
+        artifact="Toolathlon trajectory row with task prompt, required MCP servers/tools, messages, tool calls, and run statistics",
+    )
+
+
+def biomysterybench_rows() -> list[dict[str, Any]]:
+    dataset = "Anthropic/BioMysteryBench-preview"
+    path = Path(hf_hub_download(dataset, "problems.csv", repo_type="dataset"))
+    rows = []
+    with path.open(newline="") as f:
+        for row_index, row in enumerate(csv.DictReader(f)):
+            rows.append(
+                base_sample(
+                    "biomysterybench",
+                    dataset,
+                    "default",
+                    "problems_csv",
+                    row_index,
+                    "biology_data_mystery_question",
+                    clean(row.get("question")),
+                    input_text=(
+                        f"id: {row.get('id')}\nhuman_solvable: {row.get('human_solvable')}\n"
+                        f"allowed_domains: {row.get('allowed_domains')}"
+                    ),
+                    answer=clean(row.get("answer_rubric")),
+                    artifact="BioMysteryBench preview problem with task data in data.zip and answer rubric in problems.csv",
+                    provenance="Hugging Face dataset repository file",
+                )
+            )
+            rows[-1]["source_url"] = f"https://huggingface.co/datasets/{dataset}/blob/main/problems.csv"
+    return rows[:ROWS_PER_BENCHMARK]
+
+
 def exploitbench_rows() -> list[dict[str, Any]]:
     dataset = "exploitbench/v8"
     path = Path(hf_hub_download(dataset, "audit.json", repo_type="dataset"))
@@ -1309,6 +1361,13 @@ CONFIGS: list[dict[str, Any]] = [
         "split": "validation",
         "mapper": helm_mapper,
     },
+    {
+        "benchmark_id": "toolathlon",
+        "dataset": "hkust-nlp/Toolathlon-Trajectories",
+        "config": "default",
+        "split": "train",
+        "mapper": toolathlon_mapper,
+    },
 ]
 
 
@@ -1335,7 +1394,7 @@ def load_rows(config: dict[str, Any]) -> list[dict[str, Any]]:
 
 def main() -> None:
     registry = json.loads(REGISTRY_PATH.read_text())
-    target_ids = {config["benchmark_id"] for config in CONFIGS} | {"exploitbench"}
+    target_ids = {config["benchmark_id"] for config in CONFIGS} | {"biomysterybench", "exploitbench"}
     samples = [sample for sample in registry.get("samples", []) if sample["benchmark_id"] not in target_ids]
 
     added = []
@@ -1351,6 +1410,12 @@ def main() -> None:
         raise RuntimeError(f"exploitbench produced {len(rows)} rows")
     samples.extend(rows)
     added.append(("exploitbench", len(rows)))
+
+    rows = biomysterybench_rows()
+    if len(rows) != ROWS_PER_BENCHMARK:
+        raise RuntimeError(f"biomysterybench produced {len(rows)} rows")
+    samples.extend(rows)
+    added.append(("biomysterybench", len(rows)))
 
     samples.sort(key=lambda sample: (sample["benchmark_id"], sample["sample_id"]))
     registry["samples"] = samples
