@@ -16,6 +16,7 @@ from typing import Any
 from urllib.parse import quote
 
 from datasets import load_dataset
+from huggingface_hub import hf_hub_download
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -766,6 +767,137 @@ def arxivmath_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, met
     )
 
 
+def assistantbench_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "web_assistant_research_task",
+        clean(row.get("task")),
+        input_text=(
+            f"id: {row.get('id')}\nset: {row.get('set')}\ndifficulty: {row.get('difficulty')}\n"
+            f"gold_url: {row.get('gold_url')}\nmetadata: {compact(row.get('metadata'), 500)}"
+        ),
+        answer=clean(row.get("answer")),
+        artifact=f"AssistantBench task with gold URL and explanation: {compact(row.get('explanation'), 700)}",
+    )
+
+
+def critpt_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "physics_math_coding_problem",
+        clean(row.get("problem_description")),
+        input_text=(
+            f"problem_id: {row.get('problem_id')}\nproblem_type: {row.get('problem_type')}\n"
+            f"notebook_path: {row.get('metadata_notebook_path')}\ntag: {row.get('metadata_tag')}\n"
+            f"code_template:\n{compact(row.get('code_template'), 900)}"
+        ),
+        answer=compact(row.get("answer_code"), 900),
+        artifact="CritPt row with problem statement, answer template, reference answer code, tests, and source notebook path",
+    )
+
+
+def deepsearchqa_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "deep_web_research_question",
+        clean(row.get("problem")),
+        input_text=f"category: {row.get('problem_category')}\nanswer_type: {row.get('answer_type')}",
+        answer=clean(row.get("answer")),
+        artifact="DeepSearchQA row with long-horizon web research question and reference answer",
+    )
+
+
+def graphwalks_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "graph_algorithm_execution",
+        clean(row.get("prompt")),
+        input_text=f"problem_type: {row.get('problem_type')}\nprompt_chars: {row.get('prompt_chars')}\ndate_added: {row.get('date_added')}",
+        answer=clean(row.get("answer_nodes")),
+        artifact="GraphWalks row with directed-edge graph prompt and target answer node set",
+    )
+
+
+def swe_rebench_v2_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "issue_resolution",
+        clean(row.get("problem_statement")),
+        input_text=(
+            f"repo: {row.get('repo')}\ninstance_id: {row.get('instance_id')}\nbase_commit: {row.get('base_commit')}\n"
+            f"language: {row.get('language')}\nimage_name: {row.get('image_name')}\n"
+            f"pr_description: {compact(row.get('pr_description'), 700)}\ninstall_config: {compact(row.get('install_config'), 600)}"
+        ),
+        answer=compact(row.get("patch"), 900),
+        artifact="SWE-rebench V2 row with repository issue, base commit, test patch, installation config, and gold patch",
+    )
+
+
+def helm_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "helm_scenario_question_answering",
+        clean(row.get("question")),
+        input_text=f"question_id: {row.get('question_id')}\ndb_id: {row.get('db_id')}\ndifficulty: {row.get('difficulty')}\nevidence: {row.get('evidence')}",
+        answer=clean(row.get("SQL")),
+        artifact="HELM scenario row from Stanford CRFM with question, evidence, database id, difficulty, and SQL answer",
+    )
+
+
+def exploitbench_rows() -> list[dict[str, Any]]:
+    dataset = "exploitbench/v8"
+    path = Path(hf_hub_download(dataset, "audit.json", repo_type="dataset"))
+    audit = json.loads(path.read_text())
+    rows = []
+    for row_index, run in enumerate(audit.get("runs", [])[:ROWS_PER_BENCHMARK]):
+        findings = run.get("findings", [])
+        first = findings[0] if findings else {}
+        rows.append(
+            base_sample(
+                "exploitbench",
+                dataset,
+                "default",
+                "audit_json",
+                row_index,
+                "exploit_benchmark_run_audit",
+                f"ExploitBench V8 run {run.get('run_id')} audit finding: {first.get('name')}",
+                input_text=(
+                    f"run_id: {run.get('run_id')}\nrun_dir: {run.get('run_dir')}\n"
+                    f"finding_count: {len(findings)}\nall_findings: {compact(findings, 1200)}"
+                ),
+                answer=clean(first.get("severity")),
+                artifact="ExploitBench audit.json run-level finding from the public Hugging Face dataset repository",
+                provenance="Hugging Face dataset repository file",
+            )
+        )
+        rows[-1]["source_url"] = f"https://huggingface.co/datasets/{dataset}/blob/main/audit.json"
+    return rows
+
+
 def generic_question_answer_mapper(
     benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]
 ) -> dict[str, Any]:
@@ -1135,6 +1267,48 @@ CONFIGS: list[dict[str, Any]] = [
         "split": "train",
         "mapper": arxivmath_mapper,
     },
+    {
+        "benchmark_id": "assistantbench",
+        "dataset": "AssistantBench/AssistantBench",
+        "config": "default",
+        "split": "validation",
+        "mapper": assistantbench_mapper,
+    },
+    {
+        "benchmark_id": "critpt",
+        "dataset": "CritPt-Benchmark/CritPt",
+        "config": "default",
+        "split": "train",
+        "mapper": critpt_mapper,
+    },
+    {
+        "benchmark_id": "deepsearchqa",
+        "dataset": "google/deepsearchqa",
+        "config": "deepsearchqa",
+        "split": "eval",
+        "mapper": deepsearchqa_mapper,
+    },
+    {
+        "benchmark_id": "graphwalks",
+        "dataset": "openai/graphwalks",
+        "config": "default",
+        "split": "train",
+        "mapper": graphwalks_mapper,
+    },
+    {
+        "benchmark_id": "swe-rebench-v2",
+        "dataset": "nebius/SWE-rebench-V2",
+        "config": "default",
+        "split": "train",
+        "mapper": swe_rebench_v2_mapper,
+    },
+    {
+        "benchmark_id": "helm",
+        "dataset": "stanford-crfm/helm-scenarios",
+        "config": "default",
+        "split": "validation",
+        "mapper": helm_mapper,
+    },
 ]
 
 
@@ -1161,7 +1335,7 @@ def load_rows(config: dict[str, Any]) -> list[dict[str, Any]]:
 
 def main() -> None:
     registry = json.loads(REGISTRY_PATH.read_text())
-    target_ids = {config["benchmark_id"] for config in CONFIGS}
+    target_ids = {config["benchmark_id"] for config in CONFIGS} | {"exploitbench"}
     samples = [sample for sample in registry.get("samples", []) if sample["benchmark_id"] not in target_ids]
 
     added = []
@@ -1171,6 +1345,12 @@ def main() -> None:
             raise RuntimeError(f"{config['benchmark_id']} produced {len(rows)} rows")
         samples.extend(rows)
         added.append((config["benchmark_id"], len(rows)))
+
+    rows = exploitbench_rows()
+    if len(rows) != ROWS_PER_BENCHMARK:
+        raise RuntimeError(f"exploitbench produced {len(rows)} rows")
+    samples.extend(rows)
+    added.append(("exploitbench", len(rows)))
 
     samples.sort(key=lambda sample: (sample["benchmark_id"], sample["sample_id"]))
     registry["samples"] = samples
