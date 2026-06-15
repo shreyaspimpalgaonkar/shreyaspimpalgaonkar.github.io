@@ -104,7 +104,16 @@ def base_sample(
 
 def swe_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
     image_assets = clean(row.get("image_assets"))
-    input_text = f"repo: {row.get('repo')}\ninstance_id: {row.get('instance_id')}\nbase_commit: {row.get('base_commit')}"
+    problem_statement = clean(row.get("problem_statement"))
+    if not problem_statement:
+        problem_statement = (
+            f"Resolve SWE issue instance {row.get('instance_id')} in {row.get('repo')}. "
+            f"Failing tests: {compact(row.get('FAIL_TO_PASS'), 900)}"
+        )
+    input_text = (
+        f"repo: {row.get('repo')}\ninstance_id: {row.get('instance_id')}\nbase_commit: {row.get('base_commit')}\n"
+        f"image_name: {row.get('image_name')}\nPASS_TO_PASS: {compact(row.get('PASS_TO_PASS'), 700)}"
+    )
     if image_assets:
         input_text += f"\nimage_assets: {compact(image_assets, 700)}"
     return base_sample(
@@ -114,7 +123,7 @@ def swe_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dic
         meta["split"],
         row_index,
         "issue_resolution",
-        clean(row.get("problem_statement")),
+        problem_statement,
         input_text=input_text,
         answer=compact(row.get("patch"), 600),
         artifact="Git repository issue plus base commit, gold patch, and test patch",

@@ -8412,7 +8412,7 @@
       "row_index": 0,
       "source_url": "https://huggingface.co/datasets/Daoguang/Multi-SWE-bench/viewer/default/java_verified?row=0",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: apache/dubbo\ninstance_id: apache__dubbo-10638\nbase_commit: 43d48bd6caf95f61f4e879a5be8b5560a55daee9",
+      "input": "repo: apache/dubbo\ninstance_id: apache__dubbo-10638\nbase_commit: 43d48bd6caf95f61f4e879a5be8b5560a55daee9\nimage_name: None\nPASS_TO_PASS: []",
       "answer": "diff --git a/dubbo-common/src/main/java/org/apache/dubbo/common/utils/CompatibleTypeUtils.java b/dubbo-common/src/main/java/org/apache/dubbo/common/utils/CompatibleTypeUtils.java index dc113e1ae8b..a57f53f82ae 100644 --- a/dubbo-common/src/main/java/org/apache/dubbo/common/utils/CompatibleTypeUtils.java +++ b/dubbo-common/src/main/java/org/apache/dubbo/common/utils/CompatibleTypeUtils.java @@ -23,6 +23,7 @@ import java.text.SimpleDateFormat; import java.time.LocalDate; import java.time.LocalDateTime; +import java.time.LocalTime; import java.util.ArrayList; import java.util.Collection; import...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -8427,7 +8427,7 @@
       "row_index": 1,
       "source_url": "https://huggingface.co/datasets/Daoguang/Multi-SWE-bench/viewer/default/java_verified?row=1",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: apache/dubbo\ninstance_id: apache__dubbo-11781\nbase_commit: 16c61c53c6caf8ac5710f85ce7ddb2592da52dc3",
+      "input": "repo: apache/dubbo\ninstance_id: apache__dubbo-11781\nbase_commit: 16c61c53c6caf8ac5710f85ce7ddb2592da52dc3\nimage_name: None\nPASS_TO_PASS: []",
       "answer": "diff --git a/dubbo-common/src/main/java/org/apache/dubbo/common/URLStrParser.java b/dubbo-common/src/main/java/org/apache/dubbo/common/URLStrParser.java index 61b37db84b2..d4b5143f7cc 100644 --- a/dubbo-common/src/main/java/org/apache/dubbo/common/URLStrParser.java +++ b/dubbo-common/src/main/java/org/apache/dubbo/common/URLStrParser.java @@ -278,7 +278,7 @@ private static boolean addParam(String str, boolean isEncoded, int nameStart, in String name = decodeComponent(str, nameStart, valueStart - 3, false, tempBuf); String value; if (valueStart >= valueEnd) { - value = name; + value = \"\"; } el...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -8442,7 +8442,7 @@
       "row_index": 2,
       "source_url": "https://huggingface.co/datasets/Daoguang/Multi-SWE-bench/viewer/default/java_verified?row=2",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: apache/dubbo\ninstance_id: apache__dubbo-7041\nbase_commit: e84cdc217a93f4628415ea0a7d8a9d0090e2c940",
+      "input": "repo: apache/dubbo\ninstance_id: apache__dubbo-7041\nbase_commit: e84cdc217a93f4628415ea0a7d8a9d0090e2c940\nimage_name: None\nPASS_TO_PASS: []",
       "answer": "diff --git a/dubbo-common/src/main/java/org/apache/dubbo/common/utils/ReflectUtils.java b/dubbo-common/src/main/java/org/apache/dubbo/common/utils/ReflectUtils.java index a8b728b8ca3..6341a5bcf07 100644 --- a/dubbo-common/src/main/java/org/apache/dubbo/common/utils/ReflectUtils.java +++ b/dubbo-common/src/main/java/org/apache/dubbo/common/utils/ReflectUtils.java @@ -31,6 +31,7 @@ import java.lang.reflect.Modifier; import java.lang.reflect.ParameterizedType; import java.lang.reflect.Type; +import java.lang.reflect.TypeVariable; import java.net.URL; import java.security.CodeSource; import java....",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -8457,7 +8457,7 @@
       "row_index": 3,
       "source_url": "https://huggingface.co/datasets/Daoguang/Multi-SWE-bench/viewer/default/java_verified?row=3",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: apache/dubbo\ninstance_id: apache__dubbo-9187\nbase_commit: d52dd47682a19b7d644c5be1a9b17e0a16f621e5",
+      "input": "repo: apache/dubbo\ninstance_id: apache__dubbo-9187\nbase_commit: d52dd47682a19b7d644c5be1a9b17e0a16f621e5\nimage_name: None\nPASS_TO_PASS: []",
       "answer": "diff --git a/dubbo-common/src/main/java/org/apache/dubbo/common/config/Environment.java b/dubbo-common/src/main/java/org/apache/dubbo/common/config/Environment.java index 18c6eef715a..f7734f4b5a3 100644 --- a/dubbo-common/src/main/java/org/apache/dubbo/common/config/Environment.java +++ b/dubbo-common/src/main/java/org/apache/dubbo/common/config/Environment.java @@ -19,7 +19,7 @@ import org.apache.dubbo.common.config.configcenter.DynamicConfiguration; import org.apache.dubbo.common.context.FrameworkExt; import org.apache.dubbo.common.context.LifecycleAdapter; -import org.apache.dubbo.common.e...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -8472,7 +8472,7 @@
       "row_index": 4,
       "source_url": "https://huggingface.co/datasets/Daoguang/Multi-SWE-bench/viewer/default/java_verified?row=4",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: fasterxml/jackson-core\ninstance_id: fasterxml__jackson-core-1016\nbase_commit: b472243f565d919b1b4ce6a74ec8e78838162784",
+      "input": "repo: fasterxml/jackson-core\ninstance_id: fasterxml__jackson-core-1016\nbase_commit: b472243f565d919b1b4ce6a74ec8e78838162784\nimage_name: None\nPASS_TO_PASS: []",
       "answer": "diff --git a/src/main/java/com/fasterxml/jackson/core/JsonFactory.java b/src/main/java/com/fasterxml/jackson/core/JsonFactory.java index bff4efba6b..1427ba5021 100644 --- a/src/main/java/com/fasterxml/jackson/core/JsonFactory.java +++ b/src/main/java/com/fasterxml/jackson/core/JsonFactory.java @@ -1299,7 +1299,7 @@ public JsonParser createNonBlockingByteArrayParser() throws IOException // for non-JSON input: _requireJSONFactory(\"Non-blocking source not (yet?) supported for this format (%s)\"); IOContext ctxt = _createNonBlockingContext(null); - ByteQuadsCanonicalizer can = _byteSymbolCanonical...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9442,7 +9442,7 @@
       "row_index": 0,
       "source_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench/viewer/default/test?row=0",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-11693\nbase_commit: 3832210580d516365ddae1a62071001faf94d416",
+      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-11693\nbase_commit: 3832210580d516365ddae1a62071001faf94d416\nimage_name: None\nPASS_TO_PASS: [\"astropy/wcs/wcsapi/tests/test_fitswcs.py::test_empty\", \"astropy/wcs/wcsapi/tests/test_fitswcs.py::test_simple_celestial\", \"astropy/wcs/wcsapi/tests/test_fitswcs.py::test_time_1d_values[tai]\", \"astropy/wcs/wcsapi/tests/test_fitswcs.py::test_time_1d_values[tcb]\", \"astropy/wcs/wcsapi/tests/test_fitswcs.py::test_time_1d_values[tcg]\", \"astropy/wcs/wcsapi/tests/test_fitswcs.py::test_time_1d_values[tdb]\", \"astropy/wcs/wcsapi/tests/test_fitswcs.py::test_time_1d_values[tt]\", \"astropy/wcs/wcsapi/tests/test_fitswcs.py::test_time_1d_values[ut1]\", \"astropy/wcs/wcsapi/tests/test_fitswcs.py::test_time_1d_values[utc]\", \"astropy/wcs/wcsapi/tests/test_fitswcs.py::test_time_1d_values[local]\", \"astropy/wcs/w...",
       "answer": "diff --git a/astropy/wcs/wcsapi/fitswcs.py b/astropy/wcs/wcsapi/fitswcs.py --- a/astropy/wcs/wcsapi/fitswcs.py +++ b/astropy/wcs/wcsapi/fitswcs.py @@ -323,7 +323,17 @@ def pixel_to_world_values(self, *pixel_arrays): return world[0] if self.world_n_dim == 1 else tuple(world) def world_to_pixel_values(self, *world_arrays): - pixel = self.all_world2pix(*world_arrays, 0) + # avoid circular import + from astropy.wcs.wcs import NoConvergence + try: + pixel = self.all_world2pix(*world_arrays, 0) + except NoConvergence as e: + warnings.warn(str(e)) + # use best_solution contained in the exception and...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9457,7 +9457,7 @@
       "row_index": 1,
       "source_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench/viewer/default/test?row=1",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-12057\nbase_commit: b6769c18c0881b6d290e543e9334c25043018b3f",
+      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-12057\nbase_commit: b6769c18c0881b6d290e543e9334c25043018b3f\nimage_name: None\nPASS_TO_PASS: [\"astropy/nddata/tests/test_nduncertainty.py::test_init_fake_with_list[FakeUncertainty]\", \"astropy/nddata/tests/test_nduncertainty.py::test_init_fake_with_list[StdDevUncertainty]\", \"astropy/nddata/tests/test_nduncertainty.py::test_init_fake_with_list[VarianceUncertainty]\", \"astropy/nddata/tests/test_nduncertainty.py::test_init_fake_with_list[InverseVariance]\", \"astropy/nddata/tests/test_nduncertainty.py::test_init_fake_with_list[UnknownUncertainty]\", \"astropy/nddata/tests/test_nduncertainty.py::test_init_fake_with_ndarray[FakeUncertainty]\", \"astropy/nddata/tests/test_nduncertainty.py::test_init_fake_with_ndarray[StdDevUncertainty]\", \"astropy/nddata/tests/test_nduncertainty.py::test_init_fak...",
       "answer": "diff --git a/astropy/nddata/nduncertainty.py b/astropy/nddata/nduncertainty.py --- a/astropy/nddata/nduncertainty.py +++ b/astropy/nddata/nduncertainty.py @@ -395,6 +395,40 @@ def _propagate_multiply(self, other_uncert, result_data, correlation): def _propagate_divide(self, other_uncert, result_data, correlation): return None + def represent_as(self, other_uncert): + \"\"\"Convert this uncertainty to a different uncertainty type. + + Parameters + ---------- + other_uncert : `NDUncertainty` subclass + The `NDUncertainty` subclass to convert to. + + Returns + ------- + resulting_uncertainty : `NDU...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9472,7 +9472,7 @@
       "row_index": 2,
       "source_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench/viewer/default/test?row=2",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-12318\nbase_commit: 43ce7895bb5b61d4fab2f9cc7d07016cf105f18e",
+      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-12318\nbase_commit: 43ce7895bb5b61d4fab2f9cc7d07016cf105f18e\nimage_name: None\nPASS_TO_PASS: [\"astropy/modeling/tests/test_physical_models.py::test_blackbody_evaluate[temperature0]\", \"astropy/modeling/tests/test_physical_models.py::test_blackbody_evaluate[temperature1]\", \"astropy/modeling/tests/test_physical_models.py::test_blackbody_weins_law\", \"astropy/modeling/tests/test_physical_models.py::test_blackbody_sefanboltzman_law\", \"astropy/modeling/tests/test_physical_models.py::test_blackbody_return_units\", \"astropy/modeling/tests/test_physical_models.py::test_blackbody_overflow\", \"astropy/modeling/tests/test_physical_models.py::test_blackbody_array_temperature\", \"astropy/modeling/tests/test_physical_models.py::test_NFW_evaluate[mass0]\", \"astropy/modeling/tests/test_physical_models.p...",
       "answer": "diff --git a/astropy/modeling/physical_models.py b/astropy/modeling/physical_models.py --- a/astropy/modeling/physical_models.py +++ b/astropy/modeling/physical_models.py @@ -27,7 +27,12 @@ class BlackBody(Fittable1DModel): Blackbody temperature. scale : float or `~astropy.units.Quantity` ['dimensionless'] - Scale factor + Scale factor. If dimensionless, input units will assumed + to be in Hz and output units in (erg / (cm ** 2 * s * Hz * sr). + If not dimensionless, must be equivalent to either + (erg / (cm ** 2 * s * Hz * sr) or erg / (cm ** 2 * s * AA * sr), + in which case the result will...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9487,7 +9487,7 @@
       "row_index": 3,
       "source_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench/viewer/default/test?row=3",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-12544\nbase_commit: 3a0cd2d8cd7b459cdc1e1b97a14f3040ccc1fffc",
+      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-12544\nbase_commit: 3a0cd2d8cd7b459cdc1e1b97a14f3040ccc1fffc\nimage_name: None\nPASS_TO_PASS: [\"astropy/io/fits/tests/test_connect.py::TestSingleTable::test_simple_meta_conflicting\", \"astropy/io/fits/tests/test_connect.py::TestSingleTable::test_with_custom_units_qtable\", \"astropy/io/fits/tests/test_connect.py::TestSingleTable::test_read_with_unit_aliases[Table]\", \"astropy/io/fits/tests/test_connect.py::TestSingleTable::test_read_with_unit_aliases[QTable]\", \"astropy/io/fits/tests/test_connect.py::TestSingleTable::test_masked\", \"astropy/io/fits/tests/test_connect.py::TestSingleTable::test_masked_nan[True]\", \"astropy/io/fits/tests/test_connect.py::TestSingleTable::test_masked_nan[False]\", \"astropy/io/fits/tests/test_connect.py::TestSingleTable::test_masked_serialize_data_mask\", \"astrop...",
       "answer": "diff --git a/astropy/io/fits/connect.py b/astropy/io/fits/connect.py --- a/astropy/io/fits/connect.py +++ b/astropy/io/fits/connect.py @@ -112,7 +112,8 @@ def _decode_mixins(tbl): def read_table_fits(input, hdu=None, astropy_native=False, memmap=False, - character_as_bytes=True, unit_parse_strict='warn'): + character_as_bytes=True, unit_parse_strict='warn', + mask_invalid=True): \"\"\" Read a Table object from an FITS file @@ -145,6 +146,8 @@ def read_table_fits(input, hdu=None, astropy_native=False, memmap=False, fit the table in memory, you may be better off leaving memory mapping off. However...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9502,7 +9502,7 @@
       "row_index": 4,
       "source_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench/viewer/default/test?row=4",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-12825\nbase_commit: 43ee5806e9c6f7d58c12c1cb9287b3c61abe489d",
+      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-12825\nbase_commit: 43ee5806e9c6f7d58c12c1cb9287b3c61abe489d\nimage_name: None\nPASS_TO_PASS: [\"astropy/table/tests/test_groups.py::test_column_group_by[False]\", \"astropy/table/tests/test_groups.py::test_column_group_by[True]\", \"astropy/table/tests/test_groups.py::test_table_group_by[False]\", \"astropy/table/tests/test_groups.py::test_groups_keys[False]\", \"astropy/table/tests/test_groups.py::test_groups_keys[True]\", \"astropy/table/tests/test_groups.py::test_groups_iterator[False]\", \"astropy/table/tests/test_groups.py::test_groups_iterator[True]\", \"astropy/table/tests/test_groups.py::test_grouped_copy[False]\", \"astropy/table/tests/test_groups.py::test_grouped_copy[True]\", \"astropy/table/tests/test_groups.py::test_grouped_slicing[False]\", \"astropy/table/tests/test_groups.py::test_group...",
       "answer": "diff --git a/astropy/table/column.py b/astropy/table/column.py --- a/astropy/table/column.py +++ b/astropy/table/column.py @@ -340,7 +340,9 @@ class ColumnInfo(BaseColumnInfo): This is required when the object is used as a mixin column within a table, but can be used as a general way to store meta information. \"\"\" - attrs_from_parent = BaseColumnInfo.attr_names + attr_names = BaseColumnInfo.attr_names | {'groups'} + _attrs_no_copy = BaseColumnInfo._attrs_no_copy | {'groups'} + attrs_from_parent = attr_names _supports_indexing = True def new_like(self, cols, length, metadata_conflicts='warn',...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9517,7 +9517,7 @@
       "row_index": 0,
       "source_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Lite/viewer/default/test?row=0",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-12907\nbase_commit: d16bfe05a744909de4b27f5875fe0d4ed41ce607",
+      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-12907\nbase_commit: d16bfe05a744909de4b27f5875fe0d4ed41ce607\nimage_name: None\nPASS_TO_PASS: [\"astropy/modeling/tests/test_separable.py::test_coord_matrix\", \"astropy/modeling/tests/test_separable.py::test_cdot\", \"astropy/modeling/tests/test_separable.py::test_cstack\", \"astropy/modeling/tests/test_separable.py::test_arith_oper\", \"astropy/modeling/tests/test_separable.py::test_separable[compound_model0-result0]\", \"astropy/modeling/tests/test_separable.py::test_separable[compound_model1-result1]\", \"astropy/modeling/tests/test_separable.py::test_separable[compound_model2-result2]\", \"astropy/modeling/tests/test_separable.py::test_separable[compound_model3-result3]\", \"astropy/modeling/tests/test_separable.py::test_separable[compound_model4-result4]\", \"astropy/modeling/tests/test_separabl...",
       "answer": "diff --git a/astropy/modeling/separable.py b/astropy/modeling/separable.py --- a/astropy/modeling/separable.py +++ b/astropy/modeling/separable.py @@ -242,7 +242,7 @@ def _cstack(left, right): cright = _coord_matrix(right, 'right', noutp) else: cright = np.zeros((noutp, right.shape[1])) - cright[-right.shape[0]:, -right.shape[1]:] = 1 + cright[-right.shape[0]:, -right.shape[1]:] = right return np.hstack([cleft, cright])",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9532,7 +9532,7 @@
       "row_index": 1,
       "source_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Lite/viewer/default/test?row=1",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-14182\nbase_commit: a5917978be39d13cd90b517e1de4e7a539ffaa48",
+      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-14182\nbase_commit: a5917978be39d13cd90b517e1de4e7a539ffaa48\nimage_name: None\nPASS_TO_PASS: [\"astropy/io/ascii/tests/test_rst.py::test_read_normal\", \"astropy/io/ascii/tests/test_rst.py::test_read_normal_names\", \"astropy/io/ascii/tests/test_rst.py::test_read_normal_names_include\", \"astropy/io/ascii/tests/test_rst.py::test_read_normal_exclude\", \"astropy/io/ascii/tests/test_rst.py::test_read_unbounded_right_column\", \"astropy/io/ascii/tests/test_rst.py::test_read_unbounded_right_column_header\", \"astropy/io/ascii/tests/test_rst.py::test_read_right_indented_table\", \"astropy/io/ascii/tests/test_rst.py::test_trailing_spaces_in_row_definition\", \"astropy/io/ascii/tests/test_rst.py::test_write_normal\"]",
       "answer": "diff --git a/astropy/io/ascii/rst.py b/astropy/io/ascii/rst.py --- a/astropy/io/ascii/rst.py +++ b/astropy/io/ascii/rst.py @@ -27,7 +27,6 @@ def get_fixedwidth_params(self, line): class SimpleRSTData(FixedWidthData): - start_line = 3 end_line = -1 splitter_class = FixedWidthTwoLineDataSplitter @@ -39,12 +38,29 @@ class RST(FixedWidth): Example:: - ==== ===== ====== - Col1 Col2 Col3 - ==== ===== ====== - 1 2.3 Hello - 2 4.5 Worlds - ==== ===== ====== + >>> from astropy.table import QTable + >>> import astropy.units as u + >>> import sys + >>> tbl = QTable({\"wave\": [350, 950] * u.nm, \"response\"...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9547,7 +9547,7 @@
       "row_index": 2,
       "source_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Lite/viewer/default/test?row=2",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-14365\nbase_commit: 7269fa3e33e8d02485a647da91a5a2a60a06af61",
+      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-14365\nbase_commit: 7269fa3e33e8d02485a647da91a5a2a60a06af61\nimage_name: None\nPASS_TO_PASS: [\"astropy/io/ascii/tests/test_qdp.py::test_get_tables_from_qdp_file\", \"astropy/io/ascii/tests/test_qdp.py::test_roundtrip[False]\", \"astropy/io/ascii/tests/test_qdp.py::test_read_example\", \"astropy/io/ascii/tests/test_qdp.py::test_roundtrip_example\", \"astropy/io/ascii/tests/test_qdp.py::test_roundtrip_example_comma\", \"astropy/io/ascii/tests/test_qdp.py::test_read_write_simple\", \"astropy/io/ascii/tests/test_qdp.py::test_read_write_simple_specify_name\", \"astropy/io/ascii/tests/test_qdp.py::test_get_lines_from_qdp\"]",
       "answer": "diff --git a/astropy/io/ascii/qdp.py b/astropy/io/ascii/qdp.py --- a/astropy/io/ascii/qdp.py +++ b/astropy/io/ascii/qdp.py @@ -68,7 +68,7 @@ def _line_type(line, delimiter=None): _new_re = rf\"NO({sep}NO)+\" _data_re = rf\"({_decimal_re}|NO|[-+]?nan)({sep}({_decimal_re}|NO|[-+]?nan))*)\" _type_re = rf\"^\\s*((?P<command>{_command_re})|(?P<new>{_new_re})|(?P<data>{_data_re})?\\s*(\\!(?P<comment>.*))?\\s*$\" - _line_type_re = re.compile(_type_re) + _line_type_re = re.compile(_type_re, re.IGNORECASE) line = line.strip() if not line: return \"comment\" @@ -306,7 +306,7 @@ def _get_tables_from_qdp_file(qdp_fi...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9562,7 +9562,7 @@
       "row_index": 3,
       "source_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Lite/viewer/default/test?row=3",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-14995\nbase_commit: b16c7d12ccbc7b2d20364b89fb44285bcbfede54",
+      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-14995\nbase_commit: b16c7d12ccbc7b2d20364b89fb44285bcbfede54\nimage_name: None\nPASS_TO_PASS: [\"astropy/nddata/mixins/tests/test_ndarithmetic.py::test_arithmetics_data[data10-data20]\", \"astropy/nddata/mixins/tests/test_ndarithmetic.py::test_arithmetics_data[data11-data21]\", \"astropy/nddata/mixins/tests/test_ndarithmetic.py::test_arithmetics_data[data12-data22]\", \"astropy/nddata/mixins/tests/test_ndarithmetic.py::test_arithmetics_data[data13-data23]\", \"astropy/nddata/mixins/tests/test_ndarithmetic.py::test_arithmetics_data[data14-data24]\", \"astropy/nddata/mixins/tests/test_ndarithmetic.py::test_arithmetics_data[data15-data25]\", \"astropy/nddata/mixins/tests/test_ndarithmetic.py::test_arithmetics_data[data16-data26]\", \"astropy/nddata/mixins/tests/test_ndarithmetic.py::test_arithmetics_...",
       "answer": "diff --git a/astropy/nddata/mixins/ndarithmetic.py b/astropy/nddata/mixins/ndarithmetic.py --- a/astropy/nddata/mixins/ndarithmetic.py +++ b/astropy/nddata/mixins/ndarithmetic.py @@ -520,10 +520,10 @@ def _arithmetic_mask(self, operation, operand, handle_mask, axis=None, **kwds): elif self.mask is None and operand is not None: # Make a copy so there is no reference in the result. return deepcopy(operand.mask) - elif operand is None: + elif operand.mask is None: return deepcopy(self.mask) else: - # Now lets calculate the resulting mask (operation enforces copy) + # Now let's calculate the resu...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9577,7 +9577,7 @@
       "row_index": 4,
       "source_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Lite/viewer/default/test?row=4",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-6938\nbase_commit: c76af9ed6bb89bfba45b9f5bc1e635188278e2fa",
+      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-6938\nbase_commit: c76af9ed6bb89bfba45b9f5bc1e635188278e2fa\nimage_name: None\nPASS_TO_PASS: [\"astropy/io/fits/tests/test_checksum.py::TestChecksumFunctions::test_sample_file\", \"astropy/io/fits/tests/test_checksum.py::TestChecksumFunctions::test_image_create\", \"astropy/io/fits/tests/test_checksum.py::TestChecksumFunctions::test_scaled_data\", \"astropy/io/fits/tests/test_checksum.py::TestChecksumFunctions::test_scaled_data_auto_rescale\", \"astropy/io/fits/tests/test_checksum.py::TestChecksumFunctions::test_uint16_data\", \"astropy/io/fits/tests/test_checksum.py::TestChecksumFunctions::test_groups_hdu_data\", \"astropy/io/fits/tests/test_checksum.py::TestChecksumFunctions::test_open_with_no_keywords\", \"astropy/io/fits/tests/test_checksum.py::TestChecksumFunctions::test_writeto_convenience\"...",
       "answer": "diff --git a/astropy/io/fits/fitsrec.py b/astropy/io/fits/fitsrec.py --- a/astropy/io/fits/fitsrec.py +++ b/astropy/io/fits/fitsrec.py @@ -1261,7 +1261,7 @@ def _scale_back_ascii(self, col_idx, input_field, output_field): # Replace exponent separator in floating point numbers if 'D' in format: - output_field.replace(encode_ascii('E'), encode_ascii('D')) + output_field[:] = output_field.replace(b'E', b'D') def _get_recarray_field(array, key):",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9592,7 +9592,7 @@
       "row_index": 0,
       "source_url": "https://huggingface.co/datasets/SWE-bench-Live/SWE-bench-Live/viewer/default/test?row=0",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: conan-io/conan\ninstance_id: conan-io__conan-15377\nbase_commit: c361744fa45be644670a8bf476d2bafccafe7f16",
+      "input": "repo: conan-io/conan\ninstance_id: conan-io__conan-15377\nbase_commit: c361744fa45be644670a8bf476d2bafccafe7f16\nimage_name: None\nPASS_TO_PASS: ['conans/test/functional/only_source_test.py::OnlySourceTest::test_build_policies_in_conanfile', 'conans/test/functional/only_source_test.py::OnlySourceTest::test_conan_test', 'conans/test/functional/only_source_test.py::OnlySourceTest::test_reuse', 'conans/test/functional/only_source_test.py::test_build_policy_missing', 'conans/test/functional/revisions_test.py::InstallingPackagesWithRevisionsTest::test_alias_to_a_rrev', 'conans/test/functional/revisions_test.py::InstallingPackagesWithRevisionsTest::test_diamond_revisions_conflict', 'conans/test/functional/revisions_test.py::InstallingPackagesWithRevisionsTest::test_install_binary_iterating_remotes_same_rrev', 'conans/test/functional/revis...",
       "answer": "diff --git a/conan/tools/files/conandata.py b/conan/tools/files/conandata.py index c6925450826..0b01824bbc5 100644 --- a/conan/tools/files/conandata.py +++ b/conan/tools/files/conandata.py @@ -58,7 +58,7 @@ def trim_conandata(conanfile): version = str(conanfile.version) result = {} for k, v in conandata.items(): - if not isinstance(v, dict): + if k == \"scm\" or not isinstance(v, dict): result[k] = v continue # to allow user extra conandata, common to all versions version_data = v.get(version) diff --git a/conan/tools/scm/git.py b/conan/tools/scm/git.py index 77d0e6dbbfd..b4944a1b3a2 100644 ---...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9607,7 +9607,7 @@
       "row_index": 1,
       "source_url": "https://huggingface.co/datasets/SWE-bench-Live/SWE-bench-Live/viewer/default/test?row=1",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: geopandas/geopandas\ninstance_id: geopandas__geopandas-3132\nbase_commit: fed9e57a0033dee6c18ce9da40dcd49e1211f876",
+      "input": "repo: geopandas/geopandas\ninstance_id: geopandas__geopandas-3132\nbase_commit: fed9e57a0033dee6c18ce9da40dcd49e1211f876\nimage_name: None\nPASS_TO_PASS: ['geopandas/io/tests/test_file.py::test_to_file[fiona-ESRI', 'geopandas/io/tests/test_file.py::test_to_file[fiona-GeoJSON-.geojson]', 'geopandas/io/tests/test_file.py::test_to_file[fiona-GPKG-.gpkg]', 'geopandas/io/tests/test_file.py::test_to_file[fiona-None-.shp]', 'geopandas/io/tests/test_file.py::test_to_file[fiona-None-]', 'geopandas/io/tests/test_file.py::test_to_file[fiona-None-.geojson]', 'geopandas/io/tests/test_file.py::test_to_file[fiona-None-.gpkg]', 'geopandas/io/tests/test_file.py::test_to_file_pathlib[fiona-ESRI', 'geopandas/io/tests/test_file.py::test_to_file_pathlib[fiona-GeoJSON-.geojson]', 'geopandas/io/tests/test_file.py::test_to_file_pathlib[fiona-GPKG-.gpkg]', 'geopanda...",
       "answer": "diff --git a/CHANGELOG.md b/CHANGELOG.md index fadd1dd85e..9405275ef2 100644 --- a/CHANGELOG.md +++ b/CHANGELOG.md @@ -22,6 +22,7 @@ New methods: - Added `contains_properly` method from shapely to GeoSeries/GeoDataframe (#3105). - Added `snap` method from shapely to GeoSeries/GeoDataframe (#3086). - Added `transform` method from shapely to GeoSeries/GeoDataFrame (#3075). +- Added `to_geo_dict` method to generate GeoJSON-like dictionary from a GeoDataFrame (#3132). New features and improvements: @@ -51,9 +52,9 @@ Bug fixes: Deprecations and compatibility notes: -- The deprecation of `geopandas...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9622,7 +9622,7 @@
       "row_index": 2,
       "source_url": "https://huggingface.co/datasets/SWE-bench-Live/SWE-bench-Live/viewer/default/test?row=2",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: reata/sqllineage\ninstance_id: reata__sqllineage-524\nbase_commit: 4adcc8f46fe9c5f919c9d942e1e1a0cf7d342cc2",
+      "input": "repo: reata/sqllineage\ninstance_id: reata__sqllineage-524\nbase_commit: 4adcc8f46fe9c5f919c9d942e1e1a0cf7d342cc2\nimage_name: None\nPASS_TO_PASS: ['tests/core/test_cli.py::test_cli_dummy', 'tests/core/test_cli.py::test_file_exception', 'tests/core/test_cli.py::test_file_permission_error', 'tests/core/test_drawing.py::test_handler', 'tests/core/test_exception.py::test_select_without_table', 'tests/core/test_exception.py::test_full_unparsable_query_in_sqlfluff', 'tests/core/test_exception.py::test_partial_unparsable_query_in_sqlfluff', 'tests/core/test_exception.py::test_partial_unparsable_query_in_sqlfluff_with_tsql_batch', 'tests/core/test_exception.py::test_unsupported_query_type_in_sqlfluff', 'tests/core/test_exception.py::test_deprecation_warning_in_sqlparse', 'tests/core/test_exception.py::test_syntax_warning_no_semicolon_in_tsql...",
       "answer": "diff --git a/sqllineage/core/holders.py b/sqllineage/core/holders.py index fe663d00..688833fe 100644 --- a/sqllineage/core/holders.py +++ b/sqllineage/core/holders.py @@ -1,5 +1,5 @@ import itertools -from typing import List, Optional, Set, Tuple, Union +from typing import Dict, List, Optional, Set, Tuple, Union import networkx as nx from networkx import DiGraph @@ -172,6 +172,27 @@ def expand_wildcard(self, metadata_provider: MetaDataProvider) -> None: src_wildcard, ) + def get_alias_mapping_from_table_group( + self, table_group: List[Union[Path, Table, SubQuery]] + ) -> Dict[str, Union[Path...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9637,7 +9637,7 @@
       "row_index": 3,
       "source_url": "https://huggingface.co/datasets/SWE-bench-Live/SWE-bench-Live/viewer/default/test?row=3",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: privacyidea/privacyidea\ninstance_id: privacyidea__privacyidea-3852\nbase_commit: 969e5f55d603ea86b3f0832e23a69e0c58621d3e",
+      "input": "repo: privacyidea/privacyidea\ninstance_id: privacyidea__privacyidea-3852\nbase_commit: 969e5f55d603ea86b3f0832e23a69e0c58621d3e\nimage_name: None\nPASS_TO_PASS: ['tests/test_api_2stepinit.py::TwoStepInitTestCase::test_01_init_token', 'tests/test_api_2stepinit.py::TwoStepInitTestCase::test_02_force_parameters', 'tests/test_api_2stepinit.py::TwoStepInitTestCase::test_03_custom_parameters', 'tests/test_api_2stepinit.py::TwoStepInitTestCase::test_04_no_2stepinit', 'tests/test_api_2stepinit.py::TwoStepInitTestCase::test_05_init_totp_token', 'tests/test_api_2stepinit.py::TwoStepInitTestCase::test_06_force_totp_parameters', 'tests/test_api_applications.py::APIApplicationsResolverTestCase::test_get_applications', 'tests/test_api_audit.py::APIAuditTestCase::test_00_get_audit', 'tests/test_api_audit.py::APIAuditTestCase::test_01_get_audit_csv', 'tests/test_a...",
       "answer": "diff --git a/doc/policies/index.rst b/doc/policies/index.rst index 7e663e0809..dabdacc572 100644 --- a/doc/policies/index.rst +++ b/doc/policies/index.rst @@ -78,6 +78,9 @@ Each policy can contain the following attributes: If this field is left blank, this policy is valid for all users. + .. note:: Starting with version 3.10 you can chooses if the username and the + adminname has to match case-sensitive or not. + .. _check_all_resolvers: **resolver** diff --git a/migrations/versions/db6b2ef8100f_.py b/migrations/versions/db6b2ef8100f_.py new file mode 100644 index 0000000000..6293d3bc0f --- /...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9652,7 +9652,7 @@
       "row_index": 4,
       "source_url": "https://huggingface.co/datasets/SWE-bench-Live/SWE-bench-Live/viewer/default/test?row=4",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: matplotlib/matplotlib\ninstance_id: matplotlib__matplotlib-27613\nbase_commit: 83aa3e41bf9d4de308e306521e0cb3f688952942",
+      "input": "repo: matplotlib/matplotlib\ninstance_id: matplotlib__matplotlib-27613\nbase_commit: 83aa3e41bf9d4de308e306521e0cb3f688952942\nimage_name: None\nPASS_TO_PASS: ['lib/matplotlib/tests/test_afm.py::test_nonascii_str', 'lib/matplotlib/tests/test_afm.py::test_parse_header', 'lib/matplotlib/tests/test_afm.py::test_parse_char_metrics', 'lib/matplotlib/tests/test_afm.py::test_get_familyname_guessed', 'lib/matplotlib/tests/test_afm.py::test_font_manager_weight_normalization', 'lib/matplotlib/tests/test_afm.py::test_bad_afm[nope\\\\nreally', 'lib/matplotlib/tests/test_afm.py::test_bad_afm[StartFontMetrics', 'lib/matplotlib/tests/test_afm.py::test_malformed_header[StartFontMetrics', 'lib/matplotlib/tests/test_agg.py::test_repeated_save_with_alpha', 'lib/matplotlib/tests/test_agg.py::test_large_single_path_collection', 'lib/matplotlib/tests/test_agg.py::test_m...",
       "answer": "diff --git a/lib/matplotlib/rcsetup.py b/lib/matplotlib/rcsetup.py index cf4dd07a6b98..f730db0dee3b 100644 --- a/lib/matplotlib/rcsetup.py +++ b/lib/matplotlib/rcsetup.py @@ -209,6 +209,20 @@ def validator(s): validate_float, doc='return a list of floats') +def _validate_marker(s): + try: + return validate_int(s) + except ValueError as e: + try: + return validate_string(s) + except ValueError as e: + raise ValueError('Supported markers are [string, int]') from e + + +_validate_markerlist = _listify_validator( + _validate_marker, doc='return a list of markers') + + def _validate_pathlike(s): i...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9667,7 +9667,7 @@
       "row_index": 0,
       "source_url": "https://huggingface.co/datasets/SWE-bench/SWE-bench_Multilingual/viewer/default/test?row=0",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: apache/druid\ninstance_id: apache__druid-13704\nbase_commit: 51dfde02840017092486fb75be2b16566aff6a19",
+      "input": "repo: apache/druid\ninstance_id: apache__druid-13704\nbase_commit: 51dfde02840017092486fb75be2b16566aff6a19\nimage_name: None\nPASS_TO_PASS: ['org.apache.druid.query.aggregation.post.ArithmeticPostAggregatorTest#testDiv', 'org.apache.druid.query.aggregation.post.ArithmeticPostAggregatorTest#testQuotient']",
       "answer": "diff --git a/docs/querying/post-aggregations.md b/docs/querying/post-aggregations.md index c75d122eb20a..935ca8fbce16 100644 --- a/docs/querying/post-aggregations.md +++ b/docs/querying/post-aggregations.md @@ -36,7 +36,7 @@ There are several post-aggregators available. The arithmetic post-aggregator applies the provided function to the given fields from left to right. The fields can be aggregators or other post aggregators. -Supported functions are `+`, `-`, `*`, `/`, and `quotient`. +Supported functions are `+`, `-`, `*`, `/`, `pow` and `quotient`. **Note**: diff --git a/processing/src/main...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9682,7 +9682,7 @@
       "row_index": 1,
       "source_url": "https://huggingface.co/datasets/SWE-bench/SWE-bench_Multilingual/viewer/default/test?row=1",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: apache/druid\ninstance_id: apache__druid-14092\nbase_commit: 4fffee17761286996a8c43154b72db4bcaafb16d",
+      "input": "repo: apache/druid\ninstance_id: apache__druid-14092\nbase_commit: 4fffee17761286996a8c43154b72db4bcaafb16d\nimage_name: None\nPASS_TO_PASS: ['org.apache.druid.discovery.DruidLeaderClientTest#testServerFailureAndRedirect']",
       "answer": "diff --git a/server/src/main/java/org/apache/druid/discovery/DruidLeaderClient.java b/server/src/main/java/org/apache/druid/discovery/DruidLeaderClient.java index 0679ac39e4ac..3bc29da40f46 100644 --- a/server/src/main/java/org/apache/druid/discovery/DruidLeaderClient.java +++ b/server/src/main/java/org/apache/druid/discovery/DruidLeaderClient.java @@ -122,6 +122,14 @@ public Request makeRequest(HttpMethod httpMethod, String urlPath) throws IOExcep return new Request(httpMethod, new URL(StringUtils.format(\"%s%s\", getCurrentKnownLeader(true), urlPath))); } + /** + * Executes a Request object a...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9697,7 +9697,7 @@
       "row_index": 2,
       "source_url": "https://huggingface.co/datasets/SWE-bench/SWE-bench_Multilingual/viewer/default/test?row=2",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: apache/druid\ninstance_id: apache__druid-14136\nbase_commit: a7d4162195a630c380d75516c24229cc23e25271",
+      "input": "repo: apache/druid\ninstance_id: apache__druid-14136\nbase_commit: a7d4162195a630c380d75516c24229cc23e25271\nimage_name: None\nPASS_TO_PASS: ['org.apache.druid.timeline.VersionedIntervalTimelineTest#testOverlapFirstContainsSecond', 'org.apache.druid.timeline.VersionedIntervalTimelineTest#testOverlapSecondContainsFirst']",
       "answer": "diff --git a/processing/src/main/java/org/apache/druid/java/util/common/JodaUtils.java b/processing/src/main/java/org/apache/druid/java/util/common/JodaUtils.java index 5d15bfe717fe..54ec9411a2b2 100644 --- a/processing/src/main/java/org/apache/druid/java/util/common/JodaUtils.java +++ b/processing/src/main/java/org/apache/druid/java/util/common/JodaUtils.java @@ -45,10 +45,11 @@ public class JodaUtils public static final long MIN_INSTANT = Long.MIN_VALUE / 2; /** - * This method will not materialize the input intervals if they represent - * a SortedSet (i.e. implement that interface). If not...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9712,7 +9712,7 @@
       "row_index": 3,
       "source_url": "https://huggingface.co/datasets/SWE-bench/SWE-bench_Multilingual/viewer/default/test?row=3",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: apache/druid\ninstance_id: apache__druid-15402\nbase_commit: 1df53d6eb30a019fff69a5ff7533ebbd998a438d",
+      "input": "repo: apache/druid\ninstance_id: apache__druid-15402\nbase_commit: 1df53d6eb30a019fff69a5ff7533ebbd998a438d\nimage_name: None\nPASS_TO_PASS: ['org.apache.druid.query.groupby.GroupByQueryQueryToolChestTest#testResultLevelCacheKeyWithSubTotalsSpec', 'org.apache.druid.query.groupby.GroupByQueryQueryToolChestTest#testMultiColumnCacheStrategy']",
       "answer": "diff --git a/processing/src/main/java/org/apache/druid/query/groupby/GroupByQueryQueryToolChest.java b/processing/src/main/java/org/apache/druid/query/groupby/GroupByQueryQueryToolChest.java index 9c746dd41429..96b8c7ec69f4 100644 --- a/processing/src/main/java/org/apache/druid/query/groupby/GroupByQueryQueryToolChest.java +++ b/processing/src/main/java/org/apache/druid/query/groupby/GroupByQueryQueryToolChest.java @@ -35,6 +35,7 @@ import com.google.common.collect.Lists; import com.google.inject.Inject; import org.apache.druid.data.input.Row; +import org.apache.druid.error.DruidException; im...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9727,7 +9727,7 @@
       "row_index": 4,
       "source_url": "https://huggingface.co/datasets/SWE-bench/SWE-bench_Multilingual/viewer/default/test?row=4",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: apache/druid\ninstance_id: apache__druid-16875\nbase_commit: 483a03f26c7221f10493d86715985a58e61af967",
+      "input": "repo: apache/druid\ninstance_id: apache__druid-16875\nbase_commit: 483a03f26c7221f10493d86715985a58e61af967\nimage_name: None\nPASS_TO_PASS: ['org.apache.druid.server.metrics.WorkerTaskCountStatsMonitorTest#testMonitorWithNulls', 'org.apache.druid.server.metrics.WorkerTaskCountStatsMonitorTest#testMonitorIndexer']",
       "answer": "diff --git a/server/src/main/java/org/apache/druid/server/metrics/WorkerTaskCountStatsMonitor.java b/server/src/main/java/org/apache/druid/server/metrics/WorkerTaskCountStatsMonitor.java index bc09e95b5ce9..a568ad85d423 100644 --- a/server/src/main/java/org/apache/druid/server/metrics/WorkerTaskCountStatsMonitor.java +++ b/server/src/main/java/org/apache/druid/server/metrics/WorkerTaskCountStatsMonitor.java @@ -38,6 +38,7 @@ public class WorkerTaskCountStatsMonitor extends AbstractMonitor private final String workerCategory; private final String workerVersion; private final boolean isMiddleMa...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9742,7 +9742,7 @@
       "row_index": 0,
       "source_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Multimodal/viewer/default/test?row=0",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: grommet/grommet\ninstance_id: grommet__grommet-6282\nbase_commit: 25f14d68f27a473691742cf37147050c1693cd7d\nimage_assets: {\"problem_statement\": [\"https://user-images.githubusercontent.com/9042104/185192572-2e6dbfec-b56a-4a1a-9576-e65078681da4.png\"]}",
+      "input": "repo: grommet/grommet\ninstance_id: grommet__grommet-6282\nbase_commit: 25f14d68f27a473691742cf37147050c1693cd7d\nimage_name: None\nPASS_TO_PASS: \nimage_assets: {\"problem_statement\": [\"https://user-images.githubusercontent.com/9042104/185192572-2e6dbfec-b56a-4a1a-9576-e65078681da4.png\"]}",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
     {
@@ -9756,7 +9756,7 @@
       "row_index": 1,
       "source_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Multimodal/viewer/default/test?row=1",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: grommet/grommet\ninstance_id: grommet__grommet-6749\nbase_commit: f1ea50db8b8d9236c616f4114934f29acc21a0b7\nimage_assets: {\"problem_statement\": [\"https://user-images.githubusercontent.com/8231064/229930828-44bd4dbf-d733-4b24-8d51-81d61e9798a2.png\", \"https://user-images.githubusercontent.com/8231064/229931489-0d37675d-27a8-4278-90d4-6fdc856518d2.png\", \"https://user-images.githubusercontent.com/8231064/229931024-c1380156-2248-42cd-ac5d-bcf96c3a6977.png\"]}",
+      "input": "repo: grommet/grommet\ninstance_id: grommet__grommet-6749\nbase_commit: f1ea50db8b8d9236c616f4114934f29acc21a0b7\nimage_name: None\nPASS_TO_PASS: \nimage_assets: {\"problem_statement\": [\"https://user-images.githubusercontent.com/8231064/229930828-44bd4dbf-d733-4b24-8d51-81d61e9798a2.png\", \"https://user-images.githubusercontent.com/8231064/229931489-0d37675d-27a8-4278-90d4-6fdc856518d2.png\", \"https://user-images.githubusercontent.com/8231064/229931024-c1380156-2248-42cd-ac5d-bcf96c3a6977.png\"]}",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
     {
@@ -9770,7 +9770,7 @@
       "row_index": 2,
       "source_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Multimodal/viewer/default/test?row=2",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: grommet/grommet\ninstance_id: grommet__grommet-5243\nbase_commit: d69a75eadb18d2405bdfab6eede61b08b43d9b22\nimage_assets: {\"problem_statement\": [\"https://user-images.githubusercontent.com/68026503/117218534-30d84680-adb8-11eb-866b-9e3dd5f44097.png\"]}",
+      "input": "repo: grommet/grommet\ninstance_id: grommet__grommet-5243\nbase_commit: d69a75eadb18d2405bdfab6eede61b08b43d9b22\nimage_name: None\nPASS_TO_PASS: \nimage_assets: {\"problem_statement\": [\"https://user-images.githubusercontent.com/68026503/117218534-30d84680-adb8-11eb-866b-9e3dd5f44097.png\"]}",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
     {
@@ -9784,7 +9784,7 @@
       "row_index": 3,
       "source_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Multimodal/viewer/default/test?row=3",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: grommet/grommet\ninstance_id: grommet__grommet-2695\nbase_commit: bcde5d660f50359d8e46e33dcfe3bbc8968471ef\nimage_assets: {\"problem_statement\": [\"https://user-images.githubusercontent.com/17486011/51508491-b6a57300-1df5-11e9-9d98-0583ae700f65.gif\"]}",
+      "input": "repo: grommet/grommet\ninstance_id: grommet__grommet-2695\nbase_commit: bcde5d660f50359d8e46e33dcfe3bbc8968471ef\nimage_name: None\nPASS_TO_PASS: \nimage_assets: {\"problem_statement\": [\"https://user-images.githubusercontent.com/17486011/51508491-b6a57300-1df5-11e9-9d98-0583ae700f65.gif\"]}",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
     {
@@ -9798,7 +9798,7 @@
       "row_index": 4,
       "source_url": "https://huggingface.co/datasets/princeton-nlp/SWE-bench_Multimodal/viewer/default/test?row=4",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: grommet/grommet\ninstance_id: grommet__grommet-6227\nbase_commit: f8c7358c43895ac8bb10e91ada33a5356a3adedd\nimage_assets: {\"problem_statement\": [\"https://user-images.githubusercontent.com/30321668/172786398-9c749797-0f0f-479a-b3ae-3231630781b9.gif\"]}",
+      "input": "repo: grommet/grommet\ninstance_id: grommet__grommet-6227\nbase_commit: f8c7358c43895ac8bb10e91ada33a5356a3adedd\nimage_name: None\nPASS_TO_PASS: \nimage_assets: {\"problem_statement\": [\"https://user-images.githubusercontent.com/30321668/172786398-9c749797-0f0f-479a-b3ae-3231630781b9.gif\"]}",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
     {
@@ -9812,7 +9812,7 @@
       "row_index": 0,
       "source_url": "https://huggingface.co/datasets/ScaleAI/SWE-bench_Pro/viewer/default/test?row=0",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: NodeBB/NodeBB\ninstance_id: instance_NodeBB__NodeBB-04998908ba6721d64eba79ae3b65a351dcfbc5b5-vnan\nbase_commit: 1e137b07052bc3ea0da44ed201702c94055b8ad2",
+      "input": "repo: NodeBB/NodeBB\ninstance_id: instance_NodeBB__NodeBB-04998908ba6721d64eba79ae3b65a351dcfbc5b5-vnan\nbase_commit: 1e137b07052bc3ea0da44ed201702c94055b8ad2\nimage_name: None\nPASS_TO_PASS: ",
       "answer": "diff --git a/public/language/en-GB/admin/manage/users.json b/public/language/en-GB/admin/manage/users.json index 6b668a31ef8e..9486295bc3ef 100644 --- a/public/language/en-GB/admin/manage/users.json +++ b/public/language/en-GB/admin/manage/users.json @@ -50,6 +50,9 @@ \"users.username\": \"username\", \"users.email\": \"email\", \"users.no-email\": \"(no email)\", + \"users.validated\": \"Validated\", + \"users.validation-pending\": \"Validation Pending\", + \"users.validation-expired\": \"Validation Expired\", \"users.ip\": \"IP\", \"users.postcount\": \"postcount\", \"users.reputation\": \"reputation\", diff --git a/public/la...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9827,7 +9827,7 @@
       "row_index": 1,
       "source_url": "https://huggingface.co/datasets/ScaleAI/SWE-bench_Pro/viewer/default/test?row=1",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: qutebrowser/qutebrowser\ninstance_id: instance_qutebrowser__qutebrowser-f91ace96223cac8161c16dd061907e138fe85111-v059c6fdc75567943479b23ebca7c07b5e9a7f34c\nbase_commit: ebfe9b7aa0c4ba9d451f993e08955004aaec4345",
+      "input": "repo: qutebrowser/qutebrowser\ninstance_id: instance_qutebrowser__qutebrowser-f91ace96223cac8161c16dd061907e138fe85111-v059c6fdc75567943479b23ebca7c07b5e9a7f34c\nbase_commit: ebfe9b7aa0c4ba9d451f993e08955004aaec4345\nimage_name: None\nPASS_TO_PASS: ",
       "answer": "diff --git a/qutebrowser/browser/qtnetworkdownloads.py b/qutebrowser/browser/qtnetworkdownloads.py index cd4a75351de..0b20b378576 100644 --- a/qutebrowser/browser/qtnetworkdownloads.py +++ b/qutebrowser/browser/qtnetworkdownloads.py @@ -29,7 +29,7 @@ from qutebrowser.qt.network import QNetworkRequest, QNetworkReply, QNetworkAccessManager from qutebrowser.config import config, websettings -from qutebrowser.utils import message, usertypes, log, urlutils, utils, debug, objreg +from qutebrowser.utils import message, usertypes, log, urlutils, utils, debug, objreg, qtlog from qutebrowser.misc impor...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9842,7 +9842,7 @@
       "row_index": 2,
       "source_url": "https://huggingface.co/datasets/ScaleAI/SWE-bench_Pro/viewer/default/test?row=2",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: NodeBB/NodeBB\ninstance_id: instance_NodeBB__NodeBB-51d8f3b195bddb13a13ddc0de110722774d9bb1b-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e\nbase_commit: da2441b9bd293d7188ee645be3322a7305a43a19",
+      "input": "repo: NodeBB/NodeBB\ninstance_id: instance_NodeBB__NodeBB-51d8f3b195bddb13a13ddc0de110722774d9bb1b-vf2cf3cbd463b7ad942381f1c6d077626485a1e9e\nbase_commit: da2441b9bd293d7188ee645be3322a7305a43a19\nimage_name: None\nPASS_TO_PASS: ",
       "answer": "diff --git a/src/controllers/index.js b/src/controllers/index.js index 253df71a67d3..b5dc1373e706 100644 --- a/src/controllers/index.js +++ b/src/controllers/index.js @@ -12,6 +12,7 @@ const helpers = require('./helpers'); const Controllers = module.exports; Controllers.ping = require('./ping'); +Controllers['well-known'] = require('./well-known'); Controllers.home = require('./home'); Controllers.topics = require('./topics'); Controllers.posts = require('./posts'); diff --git a/src/controllers/well-known.js b/src/controllers/well-known.js new file mode 100644 index 000000000000..c45c6ea8d354...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9857,7 +9857,7 @@
       "row_index": 3,
       "source_url": "https://huggingface.co/datasets/ScaleAI/SWE-bench_Pro/viewer/default/test?row=3",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: qutebrowser/qutebrowser\ninstance_id: instance_qutebrowser__qutebrowser-c580ebf0801e5a3ecabc54f327498bb753c6d5f2-v2ef375ac784985212b1805e1d0431dc8f1b3c171\nbase_commit: 0b8cc812fd0b73e296a3f93db02ce5d0b35714fc",
+      "input": "repo: qutebrowser/qutebrowser\ninstance_id: instance_qutebrowser__qutebrowser-c580ebf0801e5a3ecabc54f327498bb753c6d5f2-v2ef375ac784985212b1805e1d0431dc8f1b3c171\nbase_commit: 0b8cc812fd0b73e296a3f93db02ce5d0b35714fc\nimage_name: None\nPASS_TO_PASS: ",
       "answer": "diff --git a/qutebrowser/components/hostblock.py b/qutebrowser/components/hostblock.py index 8a01745843d..0e7278d1b37 100644 --- a/qutebrowser/components/hostblock.py +++ b/qutebrowser/components/hostblock.py @@ -37,7 +37,10 @@ qtutils, ) from qutebrowser.components.utils import blockutils -from qutebrowser.utils import version # FIXME: Move needed parts into api namespace? +from qutebrowser.utils import ( # FIXME: Move needed parts into api namespace? + urlutils, + version +) logger = logging.getLogger(\"network\") @@ -124,10 +127,17 @@ def _is_blocked(self, request_url: QUrl, first_party_url:...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9872,7 +9872,7 @@
       "row_index": 4,
       "source_url": "https://huggingface.co/datasets/ScaleAI/SWE-bench_Pro/viewer/default/test?row=4",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: ansible/ansible\ninstance_id: instance_ansible__ansible-f327e65d11bb905ed9f15996024f857a95592629-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5\nbase_commit: f533d46572113655a0a698beab4b38671744a458",
+      "input": "repo: ansible/ansible\ninstance_id: instance_ansible__ansible-f327e65d11bb905ed9f15996024f857a95592629-vba6da65a0f3baefda7a058ebbd0a8dcafb8512f5\nbase_commit: f533d46572113655a0a698beab4b38671744a458\nimage_name: None\nPASS_TO_PASS: ",
       "answer": "diff --git a/lib/ansible/galaxy/dependency_resolution/dataclasses.py b/lib/ansible/galaxy/dependency_resolution/dataclasses.py index 002578d96caeaf..49de8c5fc3fae2 100644 --- a/lib/ansible/galaxy/dependency_resolution/dataclasses.py +++ b/lib/ansible/galaxy/dependency_resolution/dataclasses.py @@ -11,7 +11,6 @@ import os from collections import namedtuple from glob import iglob -from keyword import iskeyword # used in _is_fqcn try: from typing import TYPE_CHECKING @@ -36,24 +35,10 @@ from ansible.module_utils._text import to_bytes, to_native, to_text from ansible.module_utils.six.moves.urllib...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9887,7 +9887,7 @@
       "row_index": 0,
       "source_url": "https://huggingface.co/datasets/SWE-bench/SWE-bench_Verified/viewer/default/test?row=0",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-12907\nbase_commit: d16bfe05a744909de4b27f5875fe0d4ed41ce607",
+      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-12907\nbase_commit: d16bfe05a744909de4b27f5875fe0d4ed41ce607\nimage_name: None\nPASS_TO_PASS: [\"astropy/modeling/tests/test_separable.py::test_coord_matrix\", \"astropy/modeling/tests/test_separable.py::test_cdot\", \"astropy/modeling/tests/test_separable.py::test_cstack\", \"astropy/modeling/tests/test_separable.py::test_arith_oper\", \"astropy/modeling/tests/test_separable.py::test_separable[compound_model0-result0]\", \"astropy/modeling/tests/test_separable.py::test_separable[compound_model1-result1]\", \"astropy/modeling/tests/test_separable.py::test_separable[compound_model2-result2]\", \"astropy/modeling/tests/test_separable.py::test_separable[compound_model3-result3]\", \"astropy/modeling/tests/test_separable.py::test_separable[compound_model4-result4]\", \"astropy/modeling/tests/test_separabl...",
       "answer": "diff --git a/astropy/modeling/separable.py b/astropy/modeling/separable.py --- a/astropy/modeling/separable.py +++ b/astropy/modeling/separable.py @@ -242,7 +242,7 @@ def _cstack(left, right): cright = _coord_matrix(right, 'right', noutp) else: cright = np.zeros((noutp, right.shape[1])) - cright[-right.shape[0]:, -right.shape[1]:] = 1 + cright[-right.shape[0]:, -right.shape[1]:] = right return np.hstack([cleft, cright])",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9902,7 +9902,7 @@
       "row_index": 1,
       "source_url": "https://huggingface.co/datasets/SWE-bench/SWE-bench_Verified/viewer/default/test?row=1",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-13033\nbase_commit: 298ccb478e6bf092953bca67a3d29dc6c35f6752",
+      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-13033\nbase_commit: 298ccb478e6bf092953bca67a3d29dc6c35f6752\nimage_name: None\nPASS_TO_PASS: [\"astropy/timeseries/tests/test_sampled.py::test_empty_initialization\", \"astropy/timeseries/tests/test_sampled.py::test_empty_initialization_invalid\", \"astropy/timeseries/tests/test_sampled.py::test_initialize_only_time\", \"astropy/timeseries/tests/test_sampled.py::test_initialization_with_data\", \"astropy/timeseries/tests/test_sampled.py::test_initialize_only_data\", \"astropy/timeseries/tests/test_sampled.py::test_initialization_with_table\", \"astropy/timeseries/tests/test_sampled.py::test_initialization_missing_time_delta\", \"astropy/timeseries/tests/test_sampled.py::test_initialization_invalid_time_and_time_start\", \"astropy/timeseries/tests/test_sampled.py::test_initialization_invalid_time_de...",
       "answer": "diff --git a/astropy/timeseries/core.py b/astropy/timeseries/core.py --- a/astropy/timeseries/core.py +++ b/astropy/timeseries/core.py @@ -55,6 +55,13 @@ class BaseTimeSeries(QTable): _required_columns_relax = False def _check_required_columns(self): + def as_scalar_or_list_str(obj): + if not hasattr(obj, \"__len__\"): + return f\"'{obj}'\" + elif len(obj) == 1: + return f\"'{obj[0]}'\" + else: + return str(obj) if not self._required_columns_enabled: return @@ -76,9 +83,10 @@ def _check_required_columns(self): elif self.colnames[:len(required_columns)] != required_columns: - raise ValueError(\"{} ob...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9917,7 +9917,7 @@
       "row_index": 2,
       "source_url": "https://huggingface.co/datasets/SWE-bench/SWE-bench_Verified/viewer/default/test?row=2",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-13236\nbase_commit: 6ed769d58d89380ebaa1ef52b300691eefda8928",
+      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-13236\nbase_commit: 6ed769d58d89380ebaa1ef52b300691eefda8928\nimage_name: None\nPASS_TO_PASS: [\"astropy/table/tests/test_mixin.py::test_attributes[arrayswap]\", \"astropy/table/tests/test_mixin.py::test_attributes[arraywrap]\", \"astropy/table/tests/test_mixin.py::test_attributes[cartesianrep]\", \"astropy/table/tests/test_mixin.py::test_attributes[earthlocation]\", \"astropy/table/tests/test_mixin.py::test_attributes[latitude]\", \"astropy/table/tests/test_mixin.py::test_attributes[longitude]\", \"astropy/table/tests/test_mixin.py::test_attributes[ndarraybig]\", \"astropy/table/tests/test_mixin.py::test_attributes[ndarraylil]\", \"astropy/table/tests/test_mixin.py::test_attributes[quantity]\", \"astropy/table/tests/test_mixin.py::test_attributes[skycoord]\", \"astropy/table/tests/test_mixin.py::test_a...",
       "answer": "diff --git a/astropy/table/table.py b/astropy/table/table.py --- a/astropy/table/table.py +++ b/astropy/table/table.py @@ -1239,13 +1239,6 @@ def _convert_data_to_col(self, data, copy=True, default_name=None, dtype=None, n f'{fully_qualified_name} ' 'did not return a valid mixin column') - # Structured ndarray gets viewed as a mixin unless already a valid - # mixin class - if (not isinstance(data, Column) and not data_is_mixin - and isinstance(data, np.ndarray) and len(data.dtype) > 1): - data = data.view(NdarrayMixin) - data_is_mixin = True - # Get the final column name using precedence. Som...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9932,7 +9932,7 @@
       "row_index": 3,
       "source_url": "https://huggingface.co/datasets/SWE-bench/SWE-bench_Verified/viewer/default/test?row=3",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-13398\nbase_commit: 6500928dc0e57be8f06d1162eacc3ba5e2eff692",
+      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-13398\nbase_commit: 6500928dc0e57be8f06d1162eacc3ba5e2eff692\nimage_name: None\nPASS_TO_PASS: [\"astropy/coordinates/tests/test_intermediate_transformations.py::test_icrs_gcrs[icoo0]\", \"astropy/coordinates/tests/test_intermediate_transformations.py::test_icrs_gcrs[icoo1]\", \"astropy/coordinates/tests/test_intermediate_transformations.py::test_icrs_gcrs_dist_diff[gframe0]\", \"astropy/coordinates/tests/test_intermediate_transformations.py::test_icrs_gcrs_dist_diff[gframe1]\", \"astropy/coordinates/tests/test_intermediate_transformations.py::test_cirs_to_altaz\", \"astropy/coordinates/tests/test_intermediate_transformations.py::test_cirs_to_hadec\", \"astropy/coordinates/tests/test_intermediate_transformations.py::test_gcrs_itrs\", \"astropy/coordinates/tests/test_intermediate_transformations.py:...",
       "answer": "diff --git a/astropy/coordinates/builtin_frames/__init__.py b/astropy/coordinates/builtin_frames/__init__.py --- a/astropy/coordinates/builtin_frames/__init__.py +++ b/astropy/coordinates/builtin_frames/__init__.py @@ -48,6 +48,7 @@ from . import icrs_cirs_transforms from . import cirs_observed_transforms from . import icrs_observed_transforms +from . import itrs_observed_transforms from . import intermediate_rotation_transforms from . import ecliptic_transforms diff --git a/astropy/coordinates/builtin_frames/intermediate_rotation_transforms.py b/astropy/coordinates/builtin_frames/intermediat...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9947,7 +9947,7 @@
       "row_index": 4,
       "source_url": "https://huggingface.co/datasets/SWE-bench/SWE-bench_Verified/viewer/default/test?row=4",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-13453\nbase_commit: 19cc80471739bcb67b7e8099246b391c355023ee",
+      "input": "repo: astropy/astropy\ninstance_id: astropy__astropy-13453\nbase_commit: 19cc80471739bcb67b7e8099246b391c355023ee\nimage_name: None\nPASS_TO_PASS: [\"astropy/io/ascii/tests/test_html.py::test_listwriter\", \"astropy/io/ascii/tests/test_html.py::test_htmlinputter_no_bs4\", \"astropy/io/ascii/tests/test_html.py::test_multicolumn_write\", \"astropy/io/ascii/tests/test_html.py::test_write_no_multicols\", \"astropy/io/ascii/tests/test_html.py::test_write_table_html_fill_values\", \"astropy/io/ascii/tests/test_html.py::test_write_table_html_fill_values_optional_columns\", \"astropy/io/ascii/tests/test_html.py::test_write_table_html_fill_values_masked\", \"astropy/io/ascii/tests/test_html.py::test_multicolumn_table_html_fill_values\", \"astropy/io/ascii/tests/test_html.py::test_multi_column_write_table_html_fill_values_masked\"]",
       "answer": "diff --git a/astropy/io/ascii/html.py b/astropy/io/ascii/html.py --- a/astropy/io/ascii/html.py +++ b/astropy/io/ascii/html.py @@ -349,11 +349,13 @@ def write(self, table): cols = list(table.columns.values()) self.data.header.cols = cols + self.data.cols = cols if isinstance(self.data.fill_values, tuple): self.data.fill_values = [self.data.fill_values] self.data._set_fill_values(cols) + self.data._set_col_formats() lines = []",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9962,7 +9962,7 @@
       "row_index": 0,
       "source_url": "https://huggingface.co/datasets/SWE-Gym/SWE-Gym/viewer/default/train?row=0",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: getmoto/moto\ninstance_id: getmoto__moto-7365\nbase_commit: 7f6c9cb1deafb280fe7fcc7551c38e397f11a706",
+      "input": "repo: getmoto/moto\ninstance_id: getmoto__moto-7365\nbase_commit: 7f6c9cb1deafb280fe7fcc7551c38e397f11a706\nimage_name: None\nPASS_TO_PASS: ['tests/test_dynamodb/test_dynamodb_update_expressions.py::test_update_different_map_elements_in_single_request']",
       "answer": "diff --git a/moto/dynamodb/models/dynamo_type.py b/moto/dynamodb/models/dynamo_type.py --- a/moto/dynamodb/models/dynamo_type.py +++ b/moto/dynamodb/models/dynamo_type.py @@ -1,6 +1,6 @@ import base64 import copy -import decimal +from decimal import Decimal from typing import Any, Dict, List, Optional, Union from boto3.dynamodb.types import TypeDeserializer, TypeSerializer @@ -100,9 +100,14 @@ def __add__(self, other: \"DynamoType\") -> \"DynamoType\": if self.type != other.type: raise TypeError(\"Different types of operandi is not allowed.\") if self.is_number(): - self_value = float(self.value) i...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9977,7 +9977,7 @@
       "row_index": 1,
       "source_url": "https://huggingface.co/datasets/SWE-Gym/SWE-Gym/viewer/default/train?row=1",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: getmoto/moto\ninstance_id: getmoto__moto-6920\nbase_commit: 2021e564fafcdaa701b53de49bd580c8691a5fcc",
+      "input": "repo: getmoto/moto\ninstance_id: getmoto__moto-6920\nbase_commit: 2021e564fafcdaa701b53de49bd580c8691a5fcc\nimage_name: None\nPASS_TO_PASS: ['tests/test_awslambda/test_lambda_layers.py::test_get_layer_version__unknown', 'tests/test_awslambda/test_lambda_layers.py::test_publish_lambda_layers__without_content', 'tests/test_awslambda/test_lambda_layers.py::test_get_lambda_layers', 'tests/test_awslambda/test_lambda_layers.py::test_get_layer_version', 'tests/test_awslambda/test_lambda_layers.py::test_get_layer_with_no_layer_versions', 'tests/test_awslambda/test_lambda_layers.py::test_delete_layer_version[True]', 'tests/test_awslambda/test_lambda_layers.py::test_delete_layer_version[False]']",
       "answer": "diff --git a/moto/awslambda/models.py b/moto/awslambda/models.py --- a/moto/awslambda/models.py +++ b/moto/awslambda/models.py @@ -371,6 +371,11 @@ def __init__(self, spec: Dict[str, Any], account_id: str, region: str): self.code_sha_256, self.code_digest, ) = _s3_content(key) + else: + self.code_bytes = b\"\" + self.code_size = 0 + self.code_sha_256 = \"\" + self.code_digest = \"\" @property def arn(self) -> str:",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -9992,7 +9992,7 @@
       "row_index": 2,
       "source_url": "https://huggingface.co/datasets/SWE-Gym/SWE-Gym/viewer/default/train?row=2",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: getmoto/moto\ninstance_id: getmoto__moto-5876\nbase_commit: 6d41ad72e09b49f61e54d47880f8a65026e7c0e4",
+      "input": "repo: getmoto/moto\ninstance_id: getmoto__moto-5876\nbase_commit: 6d41ad72e09b49f61e54d47880f8a65026e7c0e4\nimage_name: None\nPASS_TO_PASS: ['tests/test_cognitoidp/test_cognitoidp_exceptions.py::TestCognitoUserPoolDuplidateEmails::test_use_existing_email__when_username_is_login', 'tests/test_cognitoidp/test_cognitoidp_exceptions.py::TestCognitoUserDeleter::test_authenticate_with_signed_out_user']",
       "answer": "diff --git a/moto/cognitoidp/exceptions.py b/moto/cognitoidp/exceptions.py --- a/moto/cognitoidp/exceptions.py +++ b/moto/cognitoidp/exceptions.py @@ -2,6 +2,13 @@ from typing import Optional +class AliasExistsException(JsonRESTError): + def __init__(self) -> None: + super().__init__( + \"AliasExistsException\", \"An account with the given email already exists.\" + ) + + class ResourceNotFoundError(JsonRESTError): def __init__(self, message: Optional[str]): super().__init__(error_type=\"ResourceNotFoundException\", message=message or \"\") diff --git a/moto/cognitoidp/models.py b/moto/cognitoidp/mode...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -10007,7 +10007,7 @@
       "row_index": 3,
       "source_url": "https://huggingface.co/datasets/SWE-Gym/SWE-Gym/viewer/default/train?row=3",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: getmoto/moto\ninstance_id: getmoto__moto-5085\nbase_commit: 6b70cd1b6b1cf493b66b6fcaaea9d1041331e836",
+      "input": "repo: getmoto/moto\ninstance_id: getmoto__moto-5085\nbase_commit: 6b70cd1b6b1cf493b66b6fcaaea9d1041331e836\nimage_name: None\nPASS_TO_PASS: ['tests/test_ec2/test_instances.py::test_run_instance_with_block_device_mappings_missing_ebs', 'tests/test_ec2/test_instances.py::test_get_instances_filtering_by_tag', 'tests/test_ec2/test_instances.py::test_run_instance_and_associate_public_ip', 'tests/test_ec2/test_instances.py::test_modify_instance_attribute_security_groups', 'tests/test_ec2/test_instances.py::test_run_instance_cannot_have_subnet_and_networkinterface_parameter', 'tests/test_ec2/test_instances.py::test_create_with_volume_tags', 'tests/test_ec2/test_instances.py::test_get_instances_filtering_by_subnet_id', 'tests/test_ec2/test_instances.py::test_run_instance_with_placement', 'tests/test_ec2/test_instances.py::test_describe...",
       "answer": "diff --git a/moto/core/responses.py b/moto/core/responses.py --- a/moto/core/responses.py +++ b/moto/core/responses.py @@ -725,20 +725,6 @@ def _get_map_prefix(self, param_prefix, key_end=\".key\", value_end=\".value\"): return results - def _parse_tag_specification(self): - # [{\"ResourceType\": _type, \"Tag\": [{\"Key\": k, \"Value\": v}, ..]}] - tag_spec = self._get_multi_param(\"TagSpecification\") - # {_type: {k: v, ..}} - tags = {} - for spec in tag_spec: - if spec[\"ResourceType\"] not in tags: - tags[spec[\"ResourceType\"]] = {} - tags[spec[\"ResourceType\"]].update( - {tag[\"Key\"]: tag[\"Value\"] for tag i...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -10022,7 +10022,7 @@
       "row_index": 4,
       "source_url": "https://huggingface.co/datasets/SWE-Gym/SWE-Gym/viewer/default/train?row=4",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: getmoto/moto\ninstance_id: getmoto__moto-6709\nbase_commit: 78c518ddc832a30e1cf20015bc5c3b1850a1c797",
+      "input": "repo: getmoto/moto\ninstance_id: getmoto__moto-6709\nbase_commit: 78c518ddc832a30e1cf20015bc5c3b1850a1c797\nimage_name: None\nPASS_TO_PASS: ['tests/test_dynamodb/test_dynamodb.py::test_remove_list_index__remove_existing_nested_index', 'tests/test_dynamodb/test_dynamodb.py::test_basic_projection_expressions_using_query_with_attr_expression_names', 'tests/test_dynamodb/test_dynamodb.py::test_transact_write_items_put_conditional_expressions_return_values_on_condition_check_failure_all_old', 'tests/test_dynamodb/test_dynamodb.py::test_describe_backup_for_non_existent_backup_raises_error', 'tests/test_dynamodb/test_dynamodb.py::test_update_item_with_list', 'tests/test_dynamodb/test_dynamodb.py::test_describe_continuous_backups_errors', 'tests/test_dynamodb/test_dynamodb.py::test_describe_missing_table_boto3', 'tests/test_dynamodb/te...",
       "answer": "diff --git a/moto/dynamodb/models/__init__.py b/moto/dynamodb/models/__init__.py --- a/moto/dynamodb/models/__init__.py +++ b/moto/dynamodb/models/__init__.py @@ -301,11 +301,11 @@ def get_item( self, table_name: str, keys: Dict[str, Any], - projection_expression: Optional[str] = None, + projection_expressions: Optional[List[List[str]]] = None, ) -> Optional[Item]: table = self.get_table(table_name) hash_key, range_key = self.get_keys_value(table, keys) - return table.get_item(hash_key, range_key, projection_expression) + return table.get_item(hash_key, range_key, projection_expressions) def...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -10092,7 +10092,7 @@
       "row_index": 0,
       "source_url": "https://huggingface.co/datasets/nebius/SWE-rebench/viewer/default/test?row=0",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: 0b01001001/spectree\ninstance_id: 0b01001001__spectree-64\nbase_commit: a091fab020ac26548250c907bae0855273a98778",
+      "input": "repo: 0b01001001/spectree\ninstance_id: 0b01001001__spectree-64\nbase_commit: a091fab020ac26548250c907bae0855273a98778\nimage_name: swerebench/sweb.eval.x86_64.0b01001001_1776_spectree-64\nPASS_TO_PASS: ['tests/test_utils.py::test_comments', 'tests/test_utils.py::test_parse_code', 'tests/test_utils.py::test_parse_name', 'tests/test_utils.py::test_has_model', 'tests/test_utils.py::test_parse_resp', 'tests/test_utils.py::test_parse_request']",
       "answer": "diff --git a/setup.py b/setup.py index 1b3cb64..4ef21e6 100644 --- a/setup.py +++ b/setup.py @@ -14,7 +14,7 @@ with open(path.join(here, 'requirements.txt'), encoding='utf-8') as f: setup( name='spectree', - version='0.3.7', + version='0.3.8', author='Keming Yang', author_email='kemingy94@gmail.com', description=('generate OpenAPI document and validate request&response ' diff --git a/spectree/utils.py b/spectree/utils.py index bb5698d..73d6c71 100644 --- a/spectree/utils.py +++ b/spectree/utils.py @@ -54,6 +54,7 @@ def parse_params(func, params, models): 'in': 'query', 'schema': schema, 'requ...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -10107,7 +10107,7 @@
       "row_index": 1,
       "source_url": "https://huggingface.co/datasets/nebius/SWE-rebench/viewer/default/test?row=1",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: 12rambau/sepal_ui\ninstance_id: 12rambau__sepal_ui-347\nbase_commit: 4554f35da3fab21c32c35c4bd557ecfdec9c60c5",
+      "input": "repo: 12rambau/sepal_ui\ninstance_id: 12rambau__sepal_ui-347\nbase_commit: 4554f35da3fab21c32c35c4bd557ecfdec9c60c5\nimage_name: None\nPASS_TO_PASS: ['tests/test_StateBar.py::TestStateBar::test_add_msg']",
       "answer": "diff --git a/sepal_ui/mapping/__init__.py b/sepal_ui/mapping/__init__.py index 7f72a0eb..aa84ddee 100644 --- a/sepal_ui/mapping/__init__.py +++ b/sepal_ui/mapping/__init__.py @@ -2,6 +2,7 @@ from .aoi_control import * from .draw_control import * from .fullscreen_control import * from .layer import * +from .layer_state_control import * from .map_btn import * from .sepal_map import * from .value_inspector import * diff --git a/sepal_ui/mapping/layer_state_control.py b/sepal_ui/mapping/layer_state_control.py new file mode 100644 index 00000000..eff80080 --- /dev/null +++ b/sepal_ui/mapping/layer...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -10122,7 +10122,7 @@
       "row_index": 2,
       "source_url": "https://huggingface.co/datasets/nebius/SWE-rebench/viewer/default/test?row=2",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: 12rambau/sepal_ui\ninstance_id: 12rambau__sepal_ui-411\nbase_commit: 179bd8d089275c54e94a7614be7ed03d298ef532",
+      "input": "repo: 12rambau/sepal_ui\ninstance_id: 12rambau__sepal_ui-411\nbase_commit: 179bd8d089275c54e94a7614be7ed03d298ef532\nimage_name: swerebench/sweb.eval.x86_64.12rambau_1776_sepal_ui-411\nPASS_TO_PASS: ['tests/test_DatePicker.py::TestDatePicker::test_init', 'tests/test_DatePicker.py::TestDatePicker::test_bind']",
       "answer": "diff --git a/docs/source/modules/sepal_ui.sepalwidgets.DatePicker.rst b/docs/source/modules/sepal_ui.sepalwidgets.DatePicker.rst index 1a982afb..867227cb 100644 --- a/docs/source/modules/sepal_ui.sepalwidgets.DatePicker.rst +++ b/docs/source/modules/sepal_ui.sepalwidgets.DatePicker.rst @@ -8,6 +8,7 @@ sepal\\_ui.sepalwidgets.DatePicker .. autosummary:: ~DatePicker.menu + ~DatePicker.disabled .. rubric:: Methods @@ -15,5 +16,8 @@ sepal\\_ui.sepalwidgets.DatePicker :nosignatures: ~Datepicker.close_menu + ~DatePicker.disable -.. automethod:: sepal_ui.sepalwidgets.DatePicker.close_menu \\ No newline...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -10137,7 +10137,7 @@
       "row_index": 3,
       "source_url": "https://huggingface.co/datasets/nebius/SWE-rebench/viewer/default/test?row=3",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: 12rambau/sepal_ui\ninstance_id: 12rambau__sepal_ui-416\nbase_commit: 8b76805db051d6d15024bd9ec2d78502cd92132e",
+      "input": "repo: 12rambau/sepal_ui\ninstance_id: 12rambau__sepal_ui-416\nbase_commit: 8b76805db051d6d15024bd9ec2d78502cd92132e\nimage_name: None\nPASS_TO_PASS: ['tests/test_DrawerItem.py::TestDrawerItem::test_init_cards', 'tests/test_DrawerItem.py::TestDrawerItem::test_display_tile']",
       "answer": "diff --git a/docs/source/modules/sepal_ui.sepalwidgets.DrawerItem.rst b/docs/source/modules/sepal_ui.sepalwidgets.DrawerItem.rst index a3280cd3..22b87b44 100644 --- a/docs/source/modules/sepal_ui.sepalwidgets.DrawerItem.rst +++ b/docs/source/modules/sepal_ui.sepalwidgets.DrawerItem.rst @@ -7,7 +7,9 @@ sepal\\_ui.sepalwidgets.DrawerItem .. autosummary:: - ~DrawerItem.rt + ~DrawerItem.rt + ~DrawerItem.alert + ~DrawerItem.alert_badge .. rubric:: Methods @@ -15,5 +17,11 @@ sepal\\_ui.sepalwidgets.DrawerItem :nosignatures: ~DrawerItem.display_tile + ~DrawerItem.add_notif + ~DrawerItem.remove_notif -...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -10152,7 +10152,7 @@
       "row_index": 4,
       "source_url": "https://huggingface.co/datasets/nebius/SWE-rebench/viewer/default/test?row=4",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: 12rambau/sepal_ui\ninstance_id: 12rambau__sepal_ui-418\nbase_commit: 8b76805db051d6d15024bd9ec2d78502cd92132e",
+      "input": "repo: 12rambau/sepal_ui\ninstance_id: 12rambau__sepal_ui-418\nbase_commit: 8b76805db051d6d15024bd9ec2d78502cd92132e\nimage_name: None\nPASS_TO_PASS: ['tests/test_DatePicker.py::TestDatePicker::test_init', 'tests/test_DatePicker.py::TestDatePicker::test_bind', 'tests/test_DatePicker.py::TestDatePicker::test_disable']",
       "answer": "diff --git a/docs/source/modules/sepal_ui.sepalwidgets.DatePicker.rst b/docs/source/modules/sepal_ui.sepalwidgets.DatePicker.rst index 867227cb..322cca23 100644 --- a/docs/source/modules/sepal_ui.sepalwidgets.DatePicker.rst +++ b/docs/source/modules/sepal_ui.sepalwidgets.DatePicker.rst @@ -9,6 +9,7 @@ sepal\\_ui.sepalwidgets.DatePicker ~DatePicker.menu ~DatePicker.disabled + ~DatePicker.date_text .. rubric:: Methods @@ -17,7 +18,13 @@ sepal\\_ui.sepalwidgets.DatePicker ~Datepicker.close_menu ~DatePicker.disable + ~DatePicker.is_valid_date + ~DatePicker.check_date .. automethod:: sepal_ui.sepalw...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -10242,7 +10242,7 @@
       "row_index": 0,
       "source_url": "https://huggingface.co/datasets/SWE-bench/SWE-smith/viewer/default/train?row=0",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: swesmith/oauthlib__oauthlib.1fd52536\ninstance_id: oauthlib__oauthlib.1fd52536.combine_file__09vlzwgc\nbase_commit: None",
+      "input": "repo: swesmith/oauthlib__oauthlib.1fd52536\ninstance_id: oauthlib__oauthlib.1fd52536.combine_file__09vlzwgc\nbase_commit: None\nimage_name: jyangballin/swesmith.x86_64.oauthlib_1776_oauthlib.1fd52536\nPASS_TO_PASS: ['tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_check_request_token', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_check_verifier', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_valid_request', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_validate_client_key', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_validate_request_token', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_validate_signature', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpoi...",
       "answer": "diff --git a/oauthlib/oauth2/rfc6749/utils.py b/oauthlib/oauth2/rfc6749/utils.py index 7dc27b3..c5db6ba 100644 --- a/oauthlib/oauth2/rfc6749/utils.py +++ b/oauthlib/oauth2/rfc6749/utils.py @@ -15,8 +15,8 @@ def list_to_scope(scope): \"\"\"Convert a list of scopes to a space separated string.\"\"\" if isinstance(scope, str) or scope is None: return scope - elif isinstance(scope, (set, tuple, list)): - return \" \".join([str(s) for s in scope]) + elif isinstance(scope, (tuple, list)): + return \" \".join(str(s) for s in reversed(scope)) else: raise ValueError(\"Invalid scope (%s), must be string, tuple, s...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -10257,7 +10257,7 @@
       "row_index": 1,
       "source_url": "https://huggingface.co/datasets/SWE-bench/SWE-smith/viewer/default/train?row=1",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: swesmith/oauthlib__oauthlib.1fd52536\ninstance_id: oauthlib__oauthlib.1fd52536.combine_file__0fceycuu\nbase_commit: None",
+      "input": "repo: swesmith/oauthlib__oauthlib.1fd52536\ninstance_id: oauthlib__oauthlib.1fd52536.combine_file__0fceycuu\nbase_commit: None\nimage_name: jyangballin/swesmith.x86_64.oauthlib_1776_oauthlib.1fd52536\nPASS_TO_PASS: ['tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_check_request_token', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_check_verifier', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_valid_request', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_validate_client_key', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_validate_request_token', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_validate_signature', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpoi...",
       "answer": "diff --git a/oauthlib/oauth1/rfc5849/__init__.py b/oauthlib/oauth1/rfc5849/__init__.py index 85e0b90..ac2824e 100644 --- a/oauthlib/oauth1/rfc5849/__init__.py +++ b/oauthlib/oauth1/rfc5849/__init__.py @@ -86,7 +86,7 @@ class Client: @classmethod def register_signature_method(cls, method_name, method_callback): - cls.SIGNATURE_METHODS[method_name] = method_callback + cls.SIGNATURE_METHODS[method_callback] = method_name def __init__(self, client_key, client_secret=None, @@ -120,9 +120,8 @@ class Client: :param nonce: Use this nonce instead of generating one. (Mainly for testing) :param timestam...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -10265,14 +10265,14 @@
       "sample_id": "swe-smith:default:train:2",
       "benchmark_id": "swe-smith",
       "task": "issue_resolution",
-      "text": "",
+      "text": "Resolve SWE issue instance oauthlib__oauthlib.1fd52536.combine_file__0fukhdzk in swesmith/oauthlib__oauthlib.1fd52536. Failing tests: ['tests/oauth2/rfc6749/endpoints/test_client_authentication.py::ClientAuthenticationTest::test_client_id_authentication', 'tests/oauth2/rfc6749/endpoints/test_credentials_preservation.py::PreservationTest::test_default_uri', 'tests/oauth2/rfc6749/endpoints/test_credentials_preservation.py::PreservationTest::test_invalid_redirect_uri', 'tests/oauth2/rfc6749/endpoints/test_credentials_preservation.py::PreservationTest::test_redirect_uri_preservation', 'tests/oauth2/rfc6749/endpoints/test_credentials_preservation.py::PreservationTest::test_state_preservation', 'tests/oauth2/rfc6749/endpoints/test_error_responses.py::ErrorResponseTest::test_empty_parameter', 'tests/oauth2/rfc6749/endpoints/test_error_responses.py::ErrorResponseTest::test_invalid_default_redirect_uri', 'tests/oauth2/rfc6749/endpoints/test_error_responses.py::ErrorResponseTest::test_invalid_redirect_uri', 'tests/oauth2/rfc674...",
       "dataset": "SWE-bench/SWE-smith",
       "config": "default",
       "split": "train",
       "row_index": 2,
       "source_url": "https://huggingface.co/datasets/SWE-bench/SWE-smith/viewer/default/train?row=2",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: swesmith/oauthlib__oauthlib.1fd52536\ninstance_id: oauthlib__oauthlib.1fd52536.combine_file__0fukhdzk\nbase_commit: None",
+      "input": "repo: swesmith/oauthlib__oauthlib.1fd52536\ninstance_id: oauthlib__oauthlib.1fd52536.combine_file__0fukhdzk\nbase_commit: None\nimage_name: jyangballin/swesmith.x86_64.oauthlib_1776_oauthlib.1fd52536\nPASS_TO_PASS: ['tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_check_request_token', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_check_verifier', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_valid_request', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_validate_client_key', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_validate_request_token', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_validate_signature', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpoi...",
       "answer": "diff --git a/oauthlib/oauth2/rfc6749/grant_types/implicit.py b/oauthlib/oauth2/rfc6749/grant_types/implicit.py index cd3bfeb..c2319eb 100644 --- a/oauthlib/oauth2/rfc6749/grant_types/implicit.py +++ b/oauthlib/oauth2/rfc6749/grant_types/implicit.py @@ -169,92 +169,40 @@ class ImplicitGrant(GrantTypeBase): :type request: oauthlib.common.Request :param token_handler: A token handler instance, for example of type oauthlib.oauth2.BearerToken. - - If the resource owner grants the access request, the authorization - server issues an access token and delivers it to the client by adding - the followi...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -10287,7 +10287,7 @@
       "row_index": 3,
       "source_url": "https://huggingface.co/datasets/SWE-bench/SWE-smith/viewer/default/train?row=3",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: swesmith/oauthlib__oauthlib.1fd52536\ninstance_id: oauthlib__oauthlib.1fd52536.combine_file__0hkl0pea\nbase_commit: None",
+      "input": "repo: swesmith/oauthlib__oauthlib.1fd52536\ninstance_id: oauthlib__oauthlib.1fd52536.combine_file__0hkl0pea\nbase_commit: None\nimage_name: jyangballin/swesmith.x86_64.oauthlib_1776_oauthlib.1fd52536\nPASS_TO_PASS: ['tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_check_request_token', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_check_verifier', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_valid_request', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_validate_client_key', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_validate_request_token', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_validate_signature', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpoi...",
       "answer": "diff --git a/oauthlib/openid/connect/core/grant_types/base.py b/oauthlib/openid/connect/core/grant_types/base.py index 29d583e..381e130 100644 --- a/oauthlib/openid/connect/core/grant_types/base.py +++ b/oauthlib/openid/connect/core/grant_types/base.py @@ -17,11 +17,14 @@ class GrantTypeBase: # proxy_target grant type handler, which will usually be either # the standard OAuth2 AuthCode or Implicit grant types. def __getattr__(self, attr): - return getattr(self.proxy_target, attr) + if hasattr(self.proxy_target, attr): + return getattr(self.proxy_target, attr + '_') + else: + raise AttributeEr...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
@@ -10302,7 +10302,7 @@
       "row_index": 4,
       "source_url": "https://huggingface.co/datasets/SWE-bench/SWE-smith/viewer/default/train?row=4",
       "provenance": "Hugging Face dataset viewer",
-      "input": "repo: swesmith/oauthlib__oauthlib.1fd52536\ninstance_id: oauthlib__oauthlib.1fd52536.combine_file__0mvyid7d\nbase_commit: None",
+      "input": "repo: swesmith/oauthlib__oauthlib.1fd52536\ninstance_id: oauthlib__oauthlib.1fd52536.combine_file__0mvyid7d\nbase_commit: None\nimage_name: jyangballin/swesmith.x86_64.oauthlib_1776_oauthlib.1fd52536\nPASS_TO_PASS: ['tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_check_request_token', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_check_verifier', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_valid_request', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_validate_client_key', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_validate_request_token', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpointTest::test_validate_signature', 'tests/oauth1/rfc5849/endpoints/test_access_token.py::AccessTokenEndpoi...",
       "answer": "diff --git a/oauthlib/oauth2/rfc8628/endpoints/device_authorization.py b/oauthlib/oauth2/rfc8628/endpoints/device_authorization.py index 7cda5ee..beff0ee 100644 --- a/oauthlib/oauth2/rfc8628/endpoints/device_authorization.py +++ b/oauthlib/oauth2/rfc8628/endpoints/device_authorization.py @@ -51,14 +51,14 @@ class DeviceAuthorizationEndpoint(BaseEndpoint): :param verification_uri_complete: a string of a function that can be called with `user_data` as parameter :param user_code_generator: a callable that returns a configurable user code \"\"\" - self.request_validator = request_validator - self._e...",
       "artifact": "Git repository issue plus base commit, gold patch, and test patch"
     },
