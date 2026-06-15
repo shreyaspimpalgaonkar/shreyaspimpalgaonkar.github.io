@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import csv
+import ast
 import json
 from pathlib import Path
 from typing import Any
@@ -285,6 +286,98 @@ def terminal_bench_3_rows() -> list[dict[str, Any]]:
     return out
 
 
+def terminal_bench_2_1_rows() -> list[dict[str, Any]]:
+    root = Path("/tmp/benchrepo-terminal")
+    files = sorted((root / "original-tasks").glob("*/task.yaml"))[:ROWS_PER_BENCHMARK]
+    out = []
+    for i, path in enumerate(files):
+        cfg = yaml.safe_load(path.read_text())
+        rel = str(path.relative_to(root))
+        task_dir = path.parent
+        out.append(
+            sample(
+                "terminal-bench-2-1",
+                github_url("laude-institute/terminal-bench", "main", rel),
+                i,
+                "terminal_environment_task",
+                clean(cfg.get("instruction")),
+                input_text=(
+                    f"task: {task_dir.name}\ncategory: {cfg.get('category')}\ndifficulty: {cfg.get('difficulty')}\n"
+                    f"tags: {cfg.get('tags')}\nparser: {cfg.get('parser_name')}\n"
+                    f"expert_time_estimate_min: {cfg.get('expert_time_estimate_min')}\n"
+                    f"junior_time_estimate_min: {cfg.get('junior_time_estimate_min')}"
+                ),
+                artifact="Terminal-Bench task folder with instruction, Docker Compose environment, tests, and solution metadata",
+            )
+        )
+    return out
+
+
+def eval_static_prompt(node: ast.AST, constants: dict[str, str]) -> str:
+    if isinstance(node, ast.Constant):
+        return "" if node.value is None else str(node.value)
+    if isinstance(node, ast.Name):
+        return constants.get(node.id, "")
+    if isinstance(node, ast.Attribute):
+        return constants.get(node.attr, "")
+    if isinstance(node, ast.JoinedStr):
+        return "".join(eval_static_prompt(value, constants) for value in node.values)
+    if isinstance(node, ast.FormattedValue):
+        return eval_static_prompt(node.value, constants)
+    if isinstance(node, ast.BinOp) and isinstance(node.op, ast.Add):
+        return eval_static_prompt(node.left, constants) + eval_static_prompt(node.right, constants)
+    return ""
+
+
+def agentdojo_rows() -> list[dict[str, Any]]:
+    root = Path("/tmp/benchrepo-agentdojo")
+    suite_root = root / "src/agentdojo/default_suites/v1"
+    files = [
+        suite_root / "slack/user_tasks.py",
+        suite_root / "travel/user_tasks.py",
+        suite_root / "banking/user_tasks.py",
+        suite_root / "workspace/user_tasks.py",
+    ]
+    rows: list[tuple[Path, str, str, dict[str, str]]] = []
+    for path in files:
+        tree = ast.parse(path.read_text())
+        domain = path.parent.name
+        for cls in [node for node in tree.body if isinstance(node, ast.ClassDef)]:
+            if not cls.name.startswith("UserTask"):
+                continue
+            constants: dict[str, str] = {}
+            prompt = ""
+            difficulty = ""
+            for stmt in cls.body:
+                if not isinstance(stmt, ast.Assign) or not stmt.targets or not isinstance(stmt.targets[0], ast.Name):
+                    continue
+                name = stmt.targets[0].id
+                value = eval_static_prompt(stmt.value, constants)
+                if name == "PROMPT":
+                    prompt = value
+                elif name == "DIFFICULTY" and isinstance(stmt.value, ast.Attribute):
+                    difficulty = stmt.value.attr.lower()
+                elif value:
+                    constants[name] = value
+            if prompt:
+                rows.append((path, domain, prompt, {"class": cls.name, "difficulty": difficulty}))
+    out = []
+    for i, (path, domain, prompt, meta) in enumerate(rows[:ROWS_PER_BENCHMARK]):
+        rel = str(path.relative_to(root))
+        out.append(
+            sample(
+                "agentdojo",
+                github_url("ethz-spylab/agentdojo", "main", rel),
+                i,
+                "agent_tool_use_with_prompt_injection_risk",
+                clean(prompt),
+                input_text=f"suite: {domain}\nclass: {meta.get('class')}\ndifficulty: {meta.get('difficulty')}",
+                artifact="AgentDojo default-suite user task Python class with prompt, tools, ground-truth function calls, and utility check",
+            )
+        )
+    return out
+
+
 def toml_load(path: Path) -> dict[str, Any]:
     import tomllib
 
@@ -539,6 +632,67 @@ def osworld_rows() -> list[dict[str, Any]]:
     return out
 
 
+def paperbench_rows() -> list[dict[str, Any]]:
+    root = Path("/tmp/benchrepo-preparedness")
+    paper_root = root / "project/paperbench/data/papers"
+    configs = sorted(paper_root.glob("*/config.yaml"))[:ROWS_PER_BENCHMARK]
+    out = []
+    for i, cfg_path in enumerate(configs):
+        cfg = yaml.safe_load(cfg_path.read_text())
+        paper_dir = cfg_path.parent
+        rubric = load_json(paper_dir / "rubric.json")
+        rel = str(cfg_path.relative_to(root))
+        paper_excerpt = read_optional(paper_dir / "paper.md", 900)
+        top_requirements = [
+            compact(task.get("requirements"), 180)
+            for task in rubric.get("sub_tasks", [])[:4]
+            if clean(task.get("requirements"))
+        ]
+        out.append(
+            sample(
+                "paperbench",
+                github_url("openai/preparedness", "main", rel),
+                i,
+                "ai_research_paper_replication",
+                clean(rubric.get("requirements") or f'Reproduce "{cfg.get("title")}".'),
+                input_text=(
+                    f"id: {cfg.get('id')}\ntitle: {cfg.get('title')}\n"
+                    f"top_rubric_requirements: {top_requirements}\npaper_excerpt: {paper_excerpt}"
+                ),
+                answer=compact(rubric, 900),
+                artifact="PaperBench paper folder with paper PDF/Markdown, assets, config.yaml, blacklist, and rubric.json",
+            )
+        )
+    return out
+
+
+def swe_lancer_rows() -> list[dict[str, Any]]:
+    root = Path("/tmp/benchrepo-preparedness")
+    issue_root = root / "project/swelancer/issues"
+    files = sorted(issue_root.glob("*/issue_data.json"))[:ROWS_PER_BENCHMARK]
+    out = []
+    for i, path in enumerate(files):
+        row = load_json(path)
+        issue_dir = path.parent
+        rel = str(path.relative_to(root))
+        repro = row.get("issue_repro_steps") or row.get("issue_repo_steps") or ""
+        out.append(
+            sample(
+                "swe-lancer",
+                github_url("openai/preparedness", "main", rel),
+                i,
+                "freelance_software_engineering_issue",
+                clean(row.get("title")),
+                input_text=(
+                    f"issue_id: {issue_dir.name}\nprice: {row.get('price')}\n"
+                    f"repro_steps: {compact(repro, 900)}\nhtml_description_excerpt: {compact(row.get('html_description'), 900)}"
+                ),
+                artifact="SWE-Lancer issue folder with issue_data.json, bug reintroduction patch, tests, commit id, and captured flow",
+            )
+        )
+    return out
+
+
 def main() -> None:
     registry = json.loads(REGISTRY_PATH.read_text())
     batches = [
@@ -549,7 +703,9 @@ def main() -> None:
         mle_bench_rows(),
         visualwebarena_rows(),
         intercode_rows(),
+        terminal_bench_2_1_rows(),
         terminal_bench_3_rows(),
+        agentdojo_rows(),
         re_bench_rows(),
         theagentcompany_rows(),
         windowsagentarena_rows(),
@@ -561,6 +717,8 @@ def main() -> None:
         dsbench_rows(),
         mlgym_rows(),
         osworld_rows(),
+        paperbench_rows(),
+        swe_lancer_rows(),
     ]
     rows = [row for batch in batches for row in batch]
     target_ids = {row["benchmark_id"] for row in rows}
