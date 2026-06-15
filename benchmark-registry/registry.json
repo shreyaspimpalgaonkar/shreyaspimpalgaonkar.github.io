@@ -41,11 +41,6 @@
         {
           "title": "Claude Fable 5 & Claude Mythos 5 System Card",
           "role": "source_registry"
-        },
-        {
-          "title": "Composer 2 Technical Report CursorBench example",
-          "role": "sample_source",
-          "url": "https://arxiv.org/html/2603.24477v1#S5.F8"
         }
       ]
     },
@@ -321,6 +316,16 @@
         {
           "title": "Claude Fable 5 & Claude Mythos 5 System Card",
           "role": "source_registry"
+        },
+        {
+          "title": "Composer 2 Technical Report CursorBench production-debugging example",
+          "role": "sample_source",
+          "url": "https://arxiv.org/html/2603.24477v1#S5.F8"
+        },
+        {
+          "title": "Composer 2 Technical Report CursorBench streaming-prefix example",
+          "role": "sample_source",
+          "url": "https://arxiv.org/html/2603.24477v1#A3.F12"
         }
       ]
     },
@@ -911,7 +916,7 @@
       "reproducibility_level": "leaderboard_only",
       "official_website_url": "https://cursor.com/cursorbench",
       "official_repo_url": "",
-      "sample_count": 1,
+      "sample_count": 2,
       "capabilities": [
         "coding",
         "agent_eval",
@@ -5423,6 +5428,16 @@
       "input": "task: knowledge_qa\nreward_metric: fuzzy_match\nmetadata: {'optional': '# Domain Details\\n## Quarters of the Year\\n- Q1: January 1 to March 31 (both inclusive).\\n- Q2: April 1 to June 30 (both inclusive).\\n- Q3: July 1 to September 30 (both inclusive).\\n- Q4: October 1 to December 31 (both inclusive).\\n## Seasons\\n- Winter: December 1 to February 28/29 (both inclusive).\\n- Spring: March 1 to May 31 (both inclusive).\\n- Summer: June 1 to August 31 (both inclusive).\\n- Autumn/Fall: September 1 to November 30 (both inclusive).\\n## Time Periods\\n- Past 2 quarters: This refers to any timeframe spanning two quarters back from a specified `end_date`. That translates to a six-month period retrospectively from the `end_date`.\\n- Issue Significantly More Than Other Months: This means there is a month where the number of cases reported are larger than all...",
       "answer": "To ensure they provide adequate support and prevent injuries.",
       "artifact": "CRM task query, metadata, reward metric, and answer"
+    },
+    {
+      "sample_id": "cursorbench:composer2-report:figure-12",
+      "benchmark_id": "cursorbench",
+      "task": "production_debugging_data_analysis_task",
+      "text": "We're seeing a weird streaming bug in some chat responses: Now I / Now I need to updat / Now I need to update this. / Now I need to update this. I ha / Now I need to update this. I have the. Instead of getting proper streaming deltas, we get repeated growing prefixes like the snippet. I think this happens mostly inside think tokens. I want to know how common this is. Look at 954 response json files in @logs folder",
+      "source_url": "https://arxiv.org/html/2603.24477v1#A3.F12",
+      "provenance": "Official benchmark web page or paper excerpt",
+      "input": "Composer 2 Appendix C.1 Figure 12 says the agent must infer the failure mode from a partial symptom report, write a heuristic detector over 954 heterogeneous chat responses, tune it to recover the exact malformed-prefix count, and handle an interleave-stutter variant.",
+      "artifact": "Composer 2 technical report Figure 12: CursorBench streaming-prefix-detection task with embedded prompt text and reference-diff algorithmic core."
     },
     {
       "sample_id": "cursorbench:composer2-report:figure-8",
