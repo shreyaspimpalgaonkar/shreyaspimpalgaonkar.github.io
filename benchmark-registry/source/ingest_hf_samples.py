@@ -762,6 +762,13 @@ CONFIGS: list[dict[str, Any]] = [
         "mapper": swe_mapper,
     },
     {
+        "benchmark_id": "swe-bench-live",
+        "dataset": "SWE-bench-Live/SWE-bench-Live",
+        "config": "default",
+        "split": "test",
+        "mapper": swe_mapper,
+    },
+    {
         "benchmark_id": "multi-swe-bench",
         "dataset": "Daoguang/Multi-SWE-bench",
         "config": "default",
