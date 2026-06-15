@@ -42,10 +42,14 @@ def sample(
     input_text: str = "",
     answer: str = "",
     artifact: str = "",
+    row_kind: str = "exact_public_sample",
+    public_availability: str = "public_repository_row",
 ) -> dict[str, Any]:
     item: dict[str, Any] = {
         "sample_id": f"{benchmark_id}:github:{row_index}",
         "benchmark_id": benchmark_id,
+        "row_kind": row_kind,
+        "public_availability": public_availability,
         "task": task,
         "text": text,
         "source_url": source,
@@ -952,6 +956,8 @@ def blueprint_bench_rows() -> list[dict[str, Any]]:
                 ),
                 answer=ground_truth_url,
                 artifact=image_url,
+                row_kind="public_artifact",
+                public_availability="public_supporting_artifact",
             )
         )
     rows.append(
@@ -964,6 +970,8 @@ def blueprint_bench_rows() -> list[dict[str, Any]]:
             input_text=f"apartment: {apartment}\nfloorplan_url: {floorplan_url}",
             answer=ground_truth_url,
             artifact=floorplan_url,
+            row_kind="public_artifact",
+            public_availability="public_supporting_artifact",
         )
     )
     return rows

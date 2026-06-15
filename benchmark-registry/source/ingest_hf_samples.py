@@ -82,6 +82,8 @@ def base_sample(
     sample: dict[str, Any] = {
         "sample_id": f"{benchmark_id}:{config}:{split}:{row_index}",
         "benchmark_id": benchmark_id,
+        "row_kind": "exact_public_sample",
+        "public_availability": "public_dataset_row",
         "task": task,
         "text": text,
         "dataset": dataset,

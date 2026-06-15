@@ -35,10 +35,14 @@ def sample(
     input_text: str = "",
     answer: str = "",
     artifact: str = "",
+    row_kind: str = "exact_public_sample",
+    public_availability: str = "public_paper_or_web_example",
 ) -> dict[str, Any]:
     item: dict[str, Any] = {
         "sample_id": sample_id,
         "benchmark_id": benchmark_id,
+        "row_kind": row_kind,
+        "public_availability": public_availability,
         "task": task,
         "text": text,
         "source_url": source_url,
@@ -51,6 +55,46 @@ def sample(
     if artifact:
         item["artifact"] = artifact
     return item
+
+
+def classify_public_availability(row: dict[str, Any]) -> dict[str, Any]:
+    exact_public_ids = {
+        "riemannbench:paper:illustrative-problem",
+    }
+    if row.get("sample_id") in exact_public_ids:
+        row["row_kind"] = "exact_public_sample"
+        row["public_availability"] = "public_paper_or_web_example"
+        return row
+
+    blob = " ".join(clean(row.get(key)) for key in ["sample_id", "task", "text", "input", "artifact"]).lower()
+    component_markers = [
+        "not released",
+        "private",
+        "gated",
+        "do not reveal",
+        "schema",
+        "methodology",
+        "component",
+        "metadata",
+        "subset definition",
+        "evaluation-method",
+        "evaluation method",
+        "scoring levels",
+        "grade levels",
+    ]
+    artifact_markers = [
+        "input photograph",
+        "floorplan input artifact",
+        "candidate-video artifact",
+        "artifact group",
+    ]
+    if any(marker in blob for marker in component_markers):
+        row["row_kind"] = "public_component"
+        row["public_availability"] = "public_metadata_no_underlying_private_rows"
+    elif any(marker in blob for marker in artifact_markers):
+        row["row_kind"] = "public_artifact"
+        row["public_availability"] = "public_supporting_artifact"
+    return row
 
 
 def vending_bench_2_rows() -> list[dict[str, Any]]:
@@ -1355,6 +1399,7 @@ def main() -> None:
         + riemannbench_rows()
         + physics_iq_rows()
     )
+    rows = [classify_public_availability(row) for row in rows]
     target_ids = {row["benchmark_id"] for row in rows}
     samples = [row for row in registry.get("samples", []) if row["benchmark_id"] not in target_ids]
     samples.extend(rows)
