@@ -693,6 +693,38 @@ def swe_lancer_rows() -> list[dict[str, Any]]:
     return out
 
 
+def mlcommons_medperf_rows() -> list[dict[str, Any]]:
+    root = Path("/tmp/benchrepo-medperf")
+    rels = [
+        "examples/BraTS2024/data_prep/mlcube/mlcube.yaml",
+        "examples/BraTS2024/dummy_model/mlcube/mlcube.yaml",
+        "examples/BraTS2023/data_prep/mlcube/mlcube.yaml",
+        "examples/BraTS2023/dummy_model/mlcube/mlcube.yaml",
+        "examples/BraTS2023/inpainting_metrics/mlcube/mlcube.yaml",
+    ]
+    out = []
+    for i, rel in enumerate(rels):
+        path = root / rel
+        cfg = yaml.safe_load(path.read_text())
+        readme = read_optional(path.parents[1] / "README.md", 900) or read_optional(path.parents[2] / "README.md", 900)
+        tasks = cfg.get("tasks", {})
+        out.append(
+            sample(
+                "mlcommons-medperf",
+                github_url("mlcommons/medperf", "main", rel),
+                i,
+                "medical_benchmark_mlcube",
+                clean(cfg.get("description") or cfg.get("name")),
+                input_text=(
+                    f"name: {cfg.get('name')}\nauthors: {cfg.get('authors')}\nplatform: {cfg.get('platform')}\n"
+                    f"docker: {cfg.get('docker')}\ntasks: {compact(tasks, 1200)}\nreadme_excerpt: {readme}"
+                ),
+                artifact="MLCommons MedPerf example benchmark MLCube with task interface, Docker image metadata, parameters, and README context",
+            )
+        )
+    return out
+
+
 def main() -> None:
     registry = json.loads(REGISTRY_PATH.read_text())
     batches = [
@@ -719,6 +751,7 @@ def main() -> None:
         osworld_rows(),
         paperbench_rows(),
         swe_lancer_rows(),
+        mlcommons_medperf_rows(),
     ]
     rows = [row for batch in batches for row in batch]
     target_ids = {row["benchmark_id"] for row in rows}
