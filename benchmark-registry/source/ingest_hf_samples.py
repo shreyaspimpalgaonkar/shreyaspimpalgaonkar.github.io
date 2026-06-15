@@ -968,6 +968,71 @@ def programbench_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, 
     )
 
 
+def draco_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "deep_research_task",
+        clean(row.get("problem")),
+        input_text=f"id: {row.get('id')}\ndomain: {row.get('domain')}",
+        answer=compact(row.get("answer"), 1800),
+        artifact="DRACO public row with open-ended research problem and expert rubric JSON",
+    )
+
+
+def gdpval_aa_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "real_world_knowledge_work_task",
+        clean(row.get("prompt")),
+        input_text=(
+            f"task_id: {row.get('task_id')}\nsector: {row.get('sector')}\noccupation: {row.get('occupation')}\n"
+            f"reference_files: {compact(row.get('reference_file_urls'), 1000)}\n"
+            f"deliverable_files: {compact(row.get('deliverable_file_urls'), 1000)}"
+        ),
+        answer=compact(row.get("rubric_pretty") or row.get("rubric_json"), 1800),
+        artifact="OpenAI GDPval public gold task with supporting reference files, deliverable files, and human rubric",
+    )
+
+
+def include_rows() -> list[dict[str, Any]]:
+    dataset = "CohereForAI/include-base-44"
+    configs = ["Arabic", "Chinese", "Hindi", "Ukrainian", "Portuguese"]
+    rows = []
+    for row_index, config in enumerate(configs):
+        hf_rows = load_dataset(dataset, name=config, split="test", streaming=True)
+        row = next(iter(hf_rows))
+        options = [clean(row.get(key)) for key in ("option_a", "option_b", "option_c", "option_d")]
+        rows.append(
+            base_sample(
+                "include",
+                dataset,
+                config,
+                "test",
+                0,
+                "multilingual_multiple_choice_exam",
+                clean(row.get("question")),
+                input_text=(
+                    f"language: {row.get('language')}\ncountry: {row.get('country')}\n"
+                    f"domain: {row.get('domain')}\nsubject: {row.get('subject')}\n"
+                    f"regional_feature: {row.get('regional_feature')}\nlevel: {row.get('level')}"
+                ),
+                answer=clean(row.get("answer")),
+                options=options,
+                artifact="INCLUDE public multilingual multiple-choice benchmark row",
+            )
+        )
+        rows[-1]["sample_id"] = f"include:{config}:test:0"
+    return rows
+
+
 def biomysterybench_rows() -> list[dict[str, Any]]:
     dataset = "Anthropic/BioMysteryBench-preview"
     path = Path(hf_hub_download(dataset, "problems.csv", repo_type="dataset"))
@@ -1472,6 +1537,20 @@ CONFIGS: list[dict[str, Any]] = [
         "split": "train",
         "mapper": programbench_mapper,
     },
+    {
+        "benchmark_id": "draco",
+        "dataset": "perplexity-ai/draco",
+        "config": "default",
+        "split": "test",
+        "mapper": draco_mapper,
+    },
+    {
+        "benchmark_id": "gdpval-aa",
+        "dataset": "openai/gdpval",
+        "config": "default",
+        "split": "train",
+        "mapper": gdpval_aa_mapper,
+    },
 ]
 
 
@@ -1498,7 +1577,7 @@ def load_rows(config: dict[str, Any]) -> list[dict[str, Any]]:
 
 def main() -> None:
     registry = json.loads(REGISTRY_PATH.read_text())
-    target_ids = {config["benchmark_id"] for config in CONFIGS} | {"biomysterybench", "exploitbench"}
+    target_ids = {config["benchmark_id"] for config in CONFIGS} | {"biomysterybench", "exploitbench", "include"}
     samples = [sample for sample in registry.get("samples", []) if sample["benchmark_id"] not in target_ids]
 
     added = []
@@ -1520,6 +1599,12 @@ def main() -> None:
         raise RuntimeError(f"biomysterybench produced {len(rows)} rows")
     samples.extend(rows)
     added.append(("biomysterybench", len(rows)))
+
+    rows = include_rows()
+    if len(rows) != ROWS_PER_BENCHMARK:
+        raise RuntimeError(f"include produced {len(rows)} rows")
+    samples.extend(rows)
+    added.append(("include", len(rows)))
 
     samples.sort(key=lambda sample: (sample["benchmark_id"], sample["sample_id"]))
     registry["samples"] = samples

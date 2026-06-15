@@ -6,6 +6,7 @@ from __future__ import annotations
 import csv
 import ast
 import json
+import inspect
 from pathlib import Path
 from typing import Any
 
@@ -803,6 +804,162 @@ def lab_bench_figqa_rows() -> list[dict[str, Any]]:
     return out
 
 
+def automationbench_rows() -> list[dict[str, Any]]:
+    repo_root = Path("/tmp/benchrepo-automationbench")
+    domains = ["sales", "marketing", "operations", "support", "finance"]
+    selected: list[tuple[str, str, dict[str, Any], int]] = []
+
+    for domain in domains:
+        rel = f"automationbench/domains/{domain}/tasks.py"
+        path = repo_root / rel
+        source = path.read_text()
+        source = "\n".join(
+            line
+            for line in source.splitlines()
+            if not line.startswith("from datasets import Dataset")
+            and not line.startswith("from automationbench.domains.")
+        )
+        namespace: dict[str, Any] = {
+            "__name__": f"automationbench_sample_loader_{domain}",
+            "Dataset": object,
+            "apply_noise": lambda state, *args, **kwargs: state,
+        }
+        exec(compile(source, str(path), "exec"), namespace)
+        functions = sorted(
+            (
+                (name, value)
+                for name, value in namespace.items()
+                if name.startswith("get_") and name.endswith("_task") and callable(value)
+            ),
+            key=lambda item: inspect.getsourcelines(item[1])[1],
+        )
+        name, fn = functions[0]
+        row = fn()
+        line_no = inspect.getsourcelines(fn)[1]
+        selected.append((rel, name, row, line_no))
+
+    out = []
+    for i, (rel, name, row, line_no) in enumerate(selected):
+        messages = row.get("prompt", [])
+        user_prompt = "\n".join(clean(message.get("content")) for message in messages if message.get("role") == "user")
+        info = row.get("info", {})
+        source = f"{github_url('zapier/AutomationBench', 'main', rel)}#L{line_no}"
+        out.append(
+            sample(
+                "automationbench",
+                source,
+                i,
+                "cross_application_workflow_automation",
+                user_prompt,
+                input_text=(
+                    f"function: {name}\nexample_id: {row.get('example_id')}\ntask: {row.get('task')}\n"
+                    f"zapier_tools: {info.get('zapier_tools')}\n"
+                    f"initial_state_excerpt: {compact(info.get('initial_state'), 1500)}"
+                ),
+                answer=compact(row.get("answer"), 900),
+                artifact="AutomationBench public Python task definition with prompt, initial simulated SaaS state, tool list, and rubric/checker metadata",
+            )
+        )
+    return out
+
+
+def harvey_lab_rows() -> list[dict[str, Any]]:
+    repo_root = Path("/tmp/benchrepo-harvey-labs")
+    task_paths = sorted((repo_root / "tasks").glob("*/*/task.json"))[:ROWS_PER_BENCHMARK]
+    out = []
+    for i, path in enumerate(task_paths):
+        row = load_json(path)
+        rel = path.relative_to(repo_root).as_posix()
+        document_paths = sorted(p.relative_to(repo_root).as_posix() for p in path.parent.glob("documents/*"))
+        criteria = row.get("criteria") or []
+        if isinstance(criteria, list):
+            criteria_excerpt = [
+                {
+                    "id": item.get("id"),
+                    "title": item.get("title"),
+                    "match_criteria": item.get("match_criteria"),
+                }
+                for item in criteria[:5]
+            ]
+        else:
+            criteria_excerpt = criteria
+        out.append(
+            sample(
+                "legal-agent-benchmark",
+                github_url("harveyai/harvey-labs", "main", rel),
+                i,
+                "legal_agent_work_product",
+                clean(row.get("instructions")),
+                input_text=(
+                    f"title: {row.get('title')}\nwork_type: {row.get('work_type')}\ntags: {row.get('tags')}\n"
+                    f"deliverables: {compact(row.get('deliverables'), 700)}\n"
+                    f"documents: {compact(document_paths, 1000)}"
+                ),
+                answer=compact(criteria_excerpt, 1400),
+                artifact="Harvey LAB public legal-agent task with matter documents, deliverable spec, and all-pass grading criteria",
+            )
+        )
+    return out
+
+
+def blueprint_bench_rows() -> list[dict[str, Any]]:
+    repo_root = Path("/tmp/benchrepo-blueprint")
+    apartment = "example_house"
+    img_dir = repo_root / "dataset" / apartment / "imgs"
+    images = sorted(path.name for path in img_dir.glob("*.jpg"))
+    image_urls = [
+        github_url("AndonLabs/Blueprint-Bench-generation", "main", f"dataset/{apartment}/imgs/{name}")
+        for name in images
+    ]
+    floorplan_url = github_url("AndonLabs/Blueprint-Bench-generation", "main", f"dataset/{apartment}/floorplan.png")
+    ground_truth_url = github_url("AndonLabs/Blueprint-Bench-generation", "main", f"dataset/{apartment}/ground_truth.png")
+    config_url = github_url("AndonLabs/Blueprint-Bench-generation", "main", "config.py")
+    return [
+        sample(
+            "blueprint-bench-2",
+            config_url,
+            0,
+            "apartment_photo_to_floorplan",
+            "Create a precise architectural floor plan from these apartment images.",
+            input_text=(
+                f"apartment: {apartment}\nimage_count: {len(images)}\n"
+                f"image_urls: {compact(image_urls, 1600)}\nfloorplan_url: {floorplan_url}"
+            ),
+            answer=ground_truth_url,
+            artifact=ground_truth_url,
+        )
+    ]
+
+
+def finance_agent_rows() -> list[dict[str, Any]]:
+    repo_root = Path("/tmp/benchrepo-finance-agent-v2")
+    rel = "data/public.csv"
+    path = repo_root / rel
+    rows = []
+    with path.open(newline="") as f:
+        reader = csv.DictReader(f)
+        for i, row in enumerate(reader):
+            if i >= ROWS_PER_BENCHMARK:
+                break
+            rows.append(
+                sample(
+                    "finance-agent-benchmark",
+                    github_url("vals-ai/finance-agent-v2", "main", rel),
+                    i,
+                    "financial_analyst_agent_question",
+                    clean(row.get("Question")),
+                    input_text=(
+                        f"question_type: {row.get('Question Type')}\n"
+                        f"expert_time_minutes: {row.get('Expert time (mins)')}\n"
+                        "tools: web_search, edgar_search, parse_html_page, retrieve_information, price_history, calculator"
+                    ),
+                    answer=compact(row.get("Rubric"), 1400),
+                    artifact="Finance Agent v2 public CSV row with question, taxonomy label, expert time estimate, and expert rubric criteria",
+                )
+            )
+    return rows
+
+
 def main() -> None:
     registry = json.loads(REGISTRY_PATH.read_text())
     batches = [
@@ -833,6 +990,10 @@ def main() -> None:
         robolab_rows(),
         healthadminbench_rows(),
         lab_bench_figqa_rows(),
+        automationbench_rows(),
+        harvey_lab_rows(),
+        blueprint_bench_rows(),
+        finance_agent_rows(),
     ]
     rows = [row for batch in batches for row in batch]
     target_ids = {row["benchmark_id"] for row in rows}
