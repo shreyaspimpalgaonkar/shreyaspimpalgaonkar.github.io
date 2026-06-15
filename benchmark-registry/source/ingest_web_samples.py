@@ -211,9 +211,58 @@ def officeqa_pro_rows() -> list[dict[str, Any]]:
     ]
 
 
+def frontiercode_rows() -> list[dict[str, Any]]:
+    source = "https://cognition.ai/blog/frontier-code"
+    return [
+        sample(
+            "frontiercode",
+            "frontiercode:web:logger-warning-task",
+            source,
+            "production_code_quality_task",
+            (
+                "Encapsulate all warning logs in a new `auto LOG_WARNING() -> std::ostream &` method in "
+                "`src/logger.h` such that warnings are always printed to standard error, warnings are always "
+                "printed independently of `--verbose`, and the helper automatically prints the `warning:` prefix."
+            ),
+            input_text=(
+                "Use this new function in every instance of `warning: <message>` messages throughout the codebase. "
+                "Test guidelines: run `make`; edit or create relevant tests in `./test` unless already covered; "
+                "GoogleTest and POSIX shell tests must be registered in `test/CMakeLists.txt`. Lint guideline: "
+                "run `make configure compile`."
+            ),
+            artifact="Official Cognition FrontierCode blog example task over the jsonschema C++ repository",
+        )
+    ]
+
+
+def riemannbench_rows() -> list[dict[str, Any]]:
+    source = "https://arxiv.org/html/2604.06802v1#S4"
+    return [
+        sample(
+            "riemannbench",
+            "riemannbench:paper:illustrative-problem",
+            source,
+            "research_level_mathematics_problem",
+            (
+                "The problem concerns the classification of multibasic A-modules over the ring of Hahn series "
+                "with real-valued valuation and residue field F_2. The field K of Hahn series in indeterminate t "
+                "with value group R is considered as a module over its subring A of elements with non-negative valuation."
+            ),
+            input_text=(
+                "Special A-modules, termed basic and multibasic, are defined, with the property that every "
+                "multibasic A-module has a unique decomposition into a direct sum of basic submodules. The problem "
+                "asks for the number of distinct isomorphism classes of multibasic A-modules M satisfying three "
+                "structural conditions involving the endomorphism ring and a dimension function on associated "
+                "F_2-vector spaces."
+            ),
+            artifact="Riemann-Bench paper Section 4 illustrative problem overview; the full benchmark remains private",
+        )
+    ]
+
+
 def main() -> None:
     registry = json.loads(REGISTRY_PATH.read_text())
-    rows = vending_bench_2_rows() + officeqa_rows() + officeqa_pro_rows()
+    rows = vending_bench_2_rows() + officeqa_rows() + officeqa_pro_rows() + frontiercode_rows() + riemannbench_rows()
     target_ids = {row["benchmark_id"] for row in rows}
     samples = [row for row in registry.get("samples", []) if row["benchmark_id"] not in target_ids]
     samples.extend(rows)
