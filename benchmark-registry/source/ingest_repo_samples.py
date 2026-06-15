@@ -70,6 +70,15 @@ def load_jsonl(path: Path) -> list[dict[str, Any]]:
     return [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
 
 
+def load_json_or_jsonl(path: Path) -> list[dict[str, Any]]:
+    text = path.read_text()
+    try:
+        data = json.loads(text)
+    except json.JSONDecodeError:
+        return [json.loads(line) for line in text.splitlines() if line.strip()]
+    return data if isinstance(data, list) else list(data.values())
+
+
 def read_optional(path: Path, limit: int = 1200) -> str:
     if not path.exists():
         return ""
@@ -434,6 +443,102 @@ def devbench_like_rows(benchmark_id: str, repo: str, repo_dir: str) -> list[dict
     return out
 
 
+def bfcl_rows() -> list[dict[str, Any]]:
+    root = Path("/tmp/benchrepo-gorilla/berkeley-function-call-leaderboard/bfcl_eval/data")
+    rel = "BFCL_v4_simple_python.json"
+    rows = load_json_or_jsonl(root / rel)[:ROWS_PER_BENCHMARK]
+    answer_rows = load_json_or_jsonl(root / "possible_answer" / rel)
+    answers = {row.get("id"): row for row in answer_rows}
+    out = []
+    for i, row in enumerate(rows):
+        messages = row.get("question", [[]])[0]
+        text = "\n".join(f"{msg.get('role')}: {msg.get('content')}" for msg in messages)
+        out.append(
+            sample(
+                "bfcl",
+                github_url("ShishirPatil/gorilla", "main", f"berkeley-function-call-leaderboard/bfcl_eval/data/{rel}"),
+                i,
+                "function_calling",
+                clean(text),
+                input_text=f"id: {row.get('id')}\nfunctions: {compact(row.get('function'), 1200)}",
+                answer=compact(answers.get(row.get("id"), {}).get("ground_truth"), 900),
+                artifact="BFCL task row with available function schema and possible answer file",
+            )
+        )
+    return out
+
+
+def dsbench_rows() -> list[dict[str, Any]]:
+    root = Path("/tmp/benchrepo-dsbench")
+    rows = load_jsonl(root / "data_analysis/data.json")[:ROWS_PER_BENCHMARK]
+    out = []
+    for i, row in enumerate(rows):
+        out.append(
+            sample(
+                "dsbench",
+                github_url("LiqiangJing/DSBench", "main", "data_analysis/data.json"),
+                i,
+                "data_analysis_exam",
+                f"{row.get('name')} ({row.get('year')})",
+                input_text=f"id: {row.get('id')}\nurl: {row.get('url')}\nquestions: {row.get('questions')}\ntext_excerpt: {compact(row.get('txt'), 1000)}",
+                answer=compact(row.get("answers"), 900),
+                artifact="DSBench data-analysis row with source URL, question ids, and answers",
+            )
+        )
+    return out
+
+
+def mlgym_rows() -> list[dict[str, Any]]:
+    root = Path("/tmp/benchrepo-mlgym")
+    files = sorted((root / "configs/tasks").glob("*.yaml"))[:ROWS_PER_BENCHMARK]
+    out = []
+    for i, path in enumerate(files):
+        cfg = yaml.safe_load(path.read_text())
+        rel = str(path.relative_to(root))
+        out.append(
+            sample(
+                "mlgym",
+                github_url("facebookresearch/MLGym", "main", rel),
+                i,
+                "ml_engineering_task",
+                clean(cfg.get("description")),
+                input_text=(
+                    f"id: {cfg.get('id')}\nname: {cfg.get('name')}\ndataset_configs: {cfg.get('dataset_configs')}\n"
+                    f"task_entrypoint: {cfg.get('task_entrypoint')}\ntraining_timeout: {cfg.get('training_timeout')}\n"
+                    f"starter_code: {cfg.get('starter_code')}\nevaluation_paths: {cfg.get('evaluation_paths')}"
+                ),
+                answer=compact(cfg.get("baseline_scores"), 500),
+                artifact="MLGym task YAML with starter code, datasets, evaluator paths, and baseline scores",
+            )
+        )
+    return out
+
+
+def osworld_rows() -> list[dict[str, Any]]:
+    root = Path("/tmp/benchrepo-osworld")
+    files = sorted((root / "evaluation_examples/examples").glob("*/*.json"))[:ROWS_PER_BENCHMARK]
+    out = []
+    for i, path in enumerate(files):
+        row = load_json(path)
+        rel = str(path.relative_to(root))
+        out.append(
+            sample(
+                "osworld",
+                github_url("xlang-ai/OSWorld", "main", rel),
+                i,
+                "desktop_os_task",
+                clean(row.get("instruction")),
+                input_text=(
+                    f"id: {row.get('id')}\nsnapshot: {row.get('snapshot')}\nrelated_apps: {row.get('related_apps')}\n"
+                    f"source: {row.get('source')}\nconfig: {compact(row.get('config'), 700)}"
+                ),
+                answer=compact(row.get("evaluator"), 900),
+                artifact="OSWorld task JSON with desktop snapshot, setup config, and evaluator",
+            )
+        )
+    return out
+
+
 def main() -> None:
     registry = json.loads(REGISTRY_PATH.read_text())
     batches = [
@@ -452,6 +557,10 @@ def main() -> None:
         aider_polyglot_rows(),
         devbench_like_rows("devbench", "open-compass/DevBench", "/tmp/benchrepo-devbench"),
         devbench_like_rows("deveval", "open-compass/DevEval", "/tmp/benchrepo-deveval"),
+        bfcl_rows(),
+        dsbench_rows(),
+        mlgym_rows(),
+        osworld_rows(),
     ]
     rows = [row for batch in batches for row in batch]
     target_ids = {row["benchmark_id"] for row in rows}
