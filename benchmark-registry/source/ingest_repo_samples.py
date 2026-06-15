@@ -923,7 +923,7 @@ def blueprint_bench_rows() -> list[dict[str, Any]]:
     floorplan_url = github_url("AndonLabs/Blueprint-Bench-generation", "main", f"dataset/{apartment}/floorplan.png")
     ground_truth_url = github_url("AndonLabs/Blueprint-Bench-generation", "main", f"dataset/{apartment}/ground_truth.png")
     config_url = github_url("AndonLabs/Blueprint-Bench-generation", "main", "config.py")
-    return [
+    rows = [
         sample(
             "blueprint-bench-2",
             config_url,
@@ -938,6 +938,35 @@ def blueprint_bench_rows() -> list[dict[str, Any]]:
             artifact=ground_truth_url,
         )
     ]
+    for i, image_url in enumerate(image_urls[:3], start=1):
+        rows.append(
+            sample(
+                "blueprint-bench-2",
+                image_url,
+                i,
+                "apartment_input_photo_artifact",
+                f"Blueprint-Bench 2 public example-house input photograph {i} used to reconstruct the apartment floor plan.",
+                input_text=(
+                    f"apartment: {apartment}\nimage_index: {i}\nimage_url: {image_url}\n"
+                    f"full_public_image_set_count: {len(images)}"
+                ),
+                answer=ground_truth_url,
+                artifact=image_url,
+            )
+        )
+    rows.append(
+        sample(
+            "blueprint-bench-2",
+            floorplan_url,
+            4,
+            "apartment_floorplan_input_artifact",
+            "Blueprint-Bench 2 public example-house floorplan input artifact paired with the ground-truth target floor plan.",
+            input_text=f"apartment: {apartment}\nfloorplan_url: {floorplan_url}",
+            answer=ground_truth_url,
+            artifact=floorplan_url,
+        )
+    )
+    return rows
 
 
 def finance_agent_rows() -> list[dict[str, Any]]:
