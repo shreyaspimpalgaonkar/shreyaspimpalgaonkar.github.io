@@ -653,6 +653,46 @@ def healthbench_professional_mapper(
     )
 
 
+def simpleqa_verified_mapper(
+    benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]
+) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "short_answer_fact_question",
+        clean(row.get("problem")),
+        input_text=(
+            f"original_index: {row.get('original_index')}\ntopic: {row.get('topic')}\n"
+            f"answer_type: {row.get('answer_type')}\nmulti_step: {row.get('multi_step')}\n"
+            f"requires_reasoning: {row.get('requires_reasoning')}\nurls: {row.get('urls')}"
+        ),
+        answer=clean(row.get("answer")),
+        artifact="SimpleQA Verified question with reference answer and supporting URLs",
+    )
+
+
+def ml_bench_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "machine_learning_coding_task",
+        clean(row.get("instructions")),
+        input_text=(
+            f"id: {row.get('id')}\ndomain: {row.get('domain')}\ntask: {row.get('task')}\n"
+            f"github: {row.get('github')}\nreadme: {row.get('readme')}\npath: {row.get('path')}\n"
+            f"arguments: {row.get('arguments')}\nprefix_code: {compact(row.get('prefix_code'), 700)}"
+        ),
+        answer=clean(row.get("output")),
+        artifact=f"ML-Bench task row with oracle segment: {compact(row.get('oracle_segment'), 700)}",
+    )
+
+
 def generic_question_answer_mapper(
     benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]
 ) -> dict[str, Any]:
@@ -712,6 +752,20 @@ CONFIGS: list[dict[str, Any]] = [
         "dataset": "princeton-nlp/SWE-bench_Multimodal",
         "config": "default",
         "split": "test",
+        "mapper": swe_mapper,
+    },
+    {
+        "benchmark_id": "swe-bench-multilingual",
+        "dataset": "SWE-bench/SWE-bench_Multilingual",
+        "config": "default",
+        "split": "test",
+        "mapper": swe_mapper,
+    },
+    {
+        "benchmark_id": "multi-swe-bench",
+        "dataset": "Daoguang/Multi-SWE-bench",
+        "config": "default",
+        "split": "java_verified",
         "mapper": swe_mapper,
     },
     {
@@ -790,6 +844,13 @@ CONFIGS: list[dict[str, Any]] = [
         "config": "default",
         "split": "all_tasks",
         "mapper": mlrbench_mapper,
+    },
+    {
+        "benchmark_id": "ml-bench",
+        "dataset": "KPTK/ML-Bench",
+        "config": "default",
+        "split": "train",
+        "mapper": ml_bench_mapper,
     },
     {
         "benchmark_id": "scienceagentbench",
@@ -958,6 +1019,13 @@ CONFIGS: list[dict[str, Any]] = [
         "config": "default",
         "split": "test",
         "mapper": healthbench_professional_mapper,
+    },
+    {
+        "benchmark_id": "simpleqa-verified",
+        "dataset": "google/simpleqa-verified",
+        "config": "simpleqa_verified",
+        "split": "eval",
+        "mapper": simpleqa_verified_mapper,
     },
 ]
 
