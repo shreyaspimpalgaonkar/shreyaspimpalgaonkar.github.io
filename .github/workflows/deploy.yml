@@ -40,6 +40,8 @@ jobs:
           npm install -g purgecss
           export JEKYLL_ENV=production
           bundle exec jekyll build --lsi
+          mkdir -p _site/benchmark-registry
+          cp -R benchmark-registry/_next _site/benchmark-registry/_next
           purgecss -c purgecss.config.js
       - name: Deploy 🚀
         if: github.event_name != 'pull_request'
