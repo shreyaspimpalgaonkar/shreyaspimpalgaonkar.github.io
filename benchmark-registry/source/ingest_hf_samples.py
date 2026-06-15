@@ -693,6 +693,79 @@ def ml_bench_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta
     )
 
 
+def hle_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    has_image = bool(clean(row.get("image")))
+    has_rationale_image = bool(clean(row.get("rationale_image")) and clean(row.get("rationale_image")) != "None")
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "expert_level_question_answering",
+        clean(row.get("question")),
+        input_text=(
+            f"id: {row.get('id')}\ncategory: {row.get('category')}\nraw_subject: {row.get('raw_subject')}\n"
+            f"answer_type: {row.get('answer_type')}\nauthor_name: {row.get('author_name')}\n"
+            f"has_image: {has_image}\nhas_rationale_image: {has_rationale_image}"
+        ),
+        answer=clean(row.get("answer")),
+        artifact="Humanity's Last Exam row with optional image/rationale image embedded in the dataset viewer",
+    )
+
+
+def api_bank_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "api_call_generation",
+        clean(row.get("instruction")),
+        input_text=compact(row.get("input"), 1200),
+        answer=clean(row.get("output")),
+        artifact="API-Bank dialogue/API specification row with expected API request output",
+    )
+
+
+def commit0_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "repository_completion_from_commit_zero",
+        f"Complete repository {row.get('repo')} from its initial commit so it passes the benchmark tests.",
+        input_text=(
+            f"instance_id: {row.get('instance_id')}\nrepo: {row.get('repo')}\noriginal_repo: {row.get('original_repo')}\n"
+            f"base_commit: {row.get('base_commit')}\nreference_commit: {row.get('reference_commit')}\n"
+            f"src_dir: {row.get('src_dir')}\nsetup: {compact(row.get('setup'), 700)}\ntest: {compact(row.get('test'), 700)}"
+        ),
+        answer=clean(row.get("reference_commit")),
+        artifact="Commit0 row with initial repository, setup command, test command, source directory, and reference commit",
+    )
+
+
+def arxivmath_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "research_math_question_answering",
+        clean(row.get("problem")),
+        input_text=(
+            f"problem_idx: {row.get('problem_idx')}\nsource: {row.get('source')}\ncompetition: {row.get('competition')}\n"
+            f"problem_type: {row.get('problem_type')}"
+        ),
+        answer=clean(row.get("answer")),
+        artifact="ArxivMath problem row with arXiv source identifier and exact symbolic answer",
+    )
+
+
 def generic_question_answer_mapper(
     benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]
 ) -> dict[str, Any]:
@@ -1033,6 +1106,34 @@ CONFIGS: list[dict[str, Any]] = [
         "config": "simpleqa_verified",
         "split": "eval",
         "mapper": simpleqa_verified_mapper,
+    },
+    {
+        "benchmark_id": "humanitys-last-exam",
+        "dataset": "cais/hle",
+        "config": "default",
+        "split": "test",
+        "mapper": hle_mapper,
+    },
+    {
+        "benchmark_id": "api-bank",
+        "dataset": "liminghao1630/API-Bank",
+        "config": "default",
+        "split": "train",
+        "mapper": api_bank_mapper,
+    },
+    {
+        "benchmark_id": "commit0",
+        "dataset": "commit0/commit0",
+        "config": "default",
+        "split": "test",
+        "mapper": commit0_mapper,
+    },
+    {
+        "benchmark_id": "arxivmath",
+        "dataset": "MathArena/arxivmath",
+        "config": "default",
+        "split": "train",
+        "mapper": arxivmath_mapper,
     },
 ]
 
