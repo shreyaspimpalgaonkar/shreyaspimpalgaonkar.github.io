@@ -2935,7 +2935,7 @@
       "reproducibility_level": "leaderboard_only",
       "official_website_url": "https://arxiv.org/abs/2604.06802",
       "official_repo_url": "",
-      "sample_count": 5,
+      "sample_count": 6,
       "capabilities": [
         "science_math",
         "dataset_eval",
@@ -10591,6 +10591,18 @@
       "provenance": "Official benchmark web page or paper excerpt",
       "input": "Public evaluation-method component: the benchmark is intended for moonshot mathematics problems that may take expert humans weeks to solve.",
       "artifact": "Riemann-Bench public evaluation-method component; hidden problem rows are not released."
+    },
+    {
+      "sample_id": "riemannbench:surge:robust-maximal-independent-sets",
+      "benchmark_id": "riemannbench",
+      "row_kind": "exact_public_sample",
+      "public_availability": "public_paper_or_web_example",
+      "task": "research_level_graph_theory_problem",
+      "text": "A robust maximal independent set in a graph G is a maximal independent set that remains maximal in all connected spanning subgraphs of G. The public Riemann-bench leaderboard asks how many connected graphs on 12 vertices have the property that every maximal independent set is robust, up to isomorphism.",
+      "source_url": "https://surgehq.ai/leaderboards/riemann-bench",
+      "provenance": "Official benchmark web page or paper excerpt",
+      "input": "Problem: A robust maximal independent set in a graph G is a maximal independent set that remains maximal in all connected spanning subgraphs of G. How many connected graphs on 12 vertices have the property that every maximal independent set is a robust maximal independent set, up to isomorphism?",
+      "artifact": "Surge AI Riemann-bench public leaderboard problem card."
     },
     {
       "sample_id": "robolab:github:0",
