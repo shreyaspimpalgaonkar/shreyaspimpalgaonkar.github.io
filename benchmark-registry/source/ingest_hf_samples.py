@@ -1022,6 +1022,46 @@ def vantage_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta:
     )
 
 
+def cybergym_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "vulnerability_reproduction_and_patch_task",
+        clean(row.get("vulnerability_description")),
+        input_text=(
+            f"task_id: {row.get('task_id')}\nproject_name: {row.get('project_name')}\n"
+            f"project_homepage: {row.get('project_homepage')}\nproject_main_repo: {row.get('project_main_repo')}\n"
+            f"project_language: {row.get('project_language')}\n"
+            f"task_difficulty_artifacts: {compact(row.get('task_difficulty'), 1200)}"
+        ),
+        artifact="CyberGym public task row with vulnerable repository archive, descriptions, errors, fixed repo, and patch artifacts by difficulty level",
+    )
+
+
+def eclektic_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "cross_lingual_knowledge_question_answering",
+        clean(row.get("question")),
+        input_text=(
+            f"q_id: {row.get('q_id')}\noriginal_lang: {row.get('original_lang')}\n"
+            f"title: {row.get('title')}\nurl: {row.get('url')}\n"
+            f"context: {compact(row.get('content'), 900)}\n"
+            f"english_question: {row.get('en_q')}\nhebrew_question: {row.get('he_q')}\n"
+            f"hindi_question: {row.get('hi_q')}\njapanese_question: {row.get('ja_q')}"
+        ),
+        answer=clean(row.get("answer")),
+        artifact="ECLeKTic public multilingual QA row with source URL, original context/question/answer, and translated contexts/questions/answers",
+    )
+
+
 def include_rows() -> list[dict[str, Any]]:
     dataset = "CohereForAI/include-base-44"
     configs = ["Arabic", "Chinese", "Hindi", "Ukrainian", "Portuguese"]
@@ -1577,6 +1617,20 @@ CONFIGS: list[dict[str, Any]] = [
         "config": "vqa",
         "split": "test",
         "mapper": vantage_mapper,
+    },
+    {
+        "benchmark_id": "cybergym",
+        "dataset": "sunblaze-ucb/cybergym",
+        "config": "default",
+        "split": "tasks",
+        "mapper": cybergym_mapper,
+    },
+    {
+        "benchmark_id": "eclektic",
+        "dataset": "ura-hcmut/ECLeKTic",
+        "config": "default",
+        "split": "train",
+        "mapper": eclektic_mapper,
     },
 ]
 
