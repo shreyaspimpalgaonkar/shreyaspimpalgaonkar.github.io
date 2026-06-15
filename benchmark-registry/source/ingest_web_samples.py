@@ -260,9 +260,50 @@ def riemannbench_rows() -> list[dict[str, Any]]:
     ]
 
 
+def physics_iq_rows() -> list[dict[str, Any]]:
+    source = "https://huggingface.co/datasets/yongyizang/physicsiq-candidates"
+    scenarios = [
+        ("0001", "perspective-left", "ball-and-block-fall"),
+        ("0002", "perspective-center", "ball-and-block-fall"),
+        ("0003", "perspective-right", "ball-and-block-fall"),
+        ("0004", "perspective-left", "ball-behind-rotating-paper"),
+        ("0005", "perspective-center", "ball-behind-rotating-paper"),
+    ]
+    rows = []
+    for row_index, (scenario_id, perspective, event_name) in enumerate(scenarios):
+        stem = f"{scenario_id}_{perspective}_trimmed-{event_name}"
+        path = f"cosmos3_nano_candidates/{scenario_id}/{stem}_c00.mp4"
+        rows.append(
+            sample(
+                "physics-iq",
+                f"physics-iq:hf-candidates:{scenario_id}",
+                f"{source}/blob/main/{path}",
+                "physical_plausibility_video_evaluation",
+                f"Evaluate candidate generated videos for the Physics-IQ scenario `{event_name}` from camera view `{perspective}`.",
+                input_text=(
+                    f"scenario_id: {scenario_id}\n"
+                    f"candidate_group: cosmos3_nano_candidates/{scenario_id}/{stem}_c00..c15.mp4 and matching .npz files\n"
+                    f"example_candidate: {path}"
+                ),
+                artifact=(
+                    "Public Physics-IQ candidate-video artifact group with 16 Cosmos-3 Nano candidate MP4 files "
+                    "and matching NPZ metadata files for the same physical scenario"
+                ),
+            )
+        )
+    return rows
+
+
 def main() -> None:
     registry = json.loads(REGISTRY_PATH.read_text())
-    rows = vending_bench_2_rows() + officeqa_rows() + officeqa_pro_rows() + frontiercode_rows() + riemannbench_rows()
+    rows = (
+        vending_bench_2_rows()
+        + officeqa_rows()
+        + officeqa_pro_rows()
+        + frontiercode_rows()
+        + riemannbench_rows()
+        + physics_iq_rows()
+    )
     target_ids = {row["benchmark_id"] for row in rows}
     samples = [row for row in registry.get("samples", []) if row["benchmark_id"] not in target_ids]
     samples.extend(rows)
