@@ -269,20 +269,28 @@ def terminal_bench_3_rows() -> list[dict[str, Any]]:
     out = []
     for i, task_dir in enumerate(task_dirs[:ROWS_PER_BENCHMARK]):
         rel = f"tasks/{task_dir.name}/instruction.md"
+        task_toml_rel = f"tasks/{task_dir.name}/task.toml"
         meta = toml_load(task_dir / "task.toml")
         metadata = meta.get("metadata", {})
+        verifier = meta.get("verifier", {})
+        environment = meta.get("environment", {})
         out.append(
             sample(
                 "terminal-bench-3",
-                github_url("scaleapi/terminal-bench-3-public", "main", rel),
+                github_url("harbor-framework/terminal-bench-3", "main", rel),
                 i,
                 "terminal_environment_task",
                 clean((task_dir / "instruction.md").read_text()),
                 input_text=(
                     f"task: {task_dir.name}\ncategory: {metadata.get('category')}\ndifficulty: {metadata.get('difficulty')}\n"
-                    f"tags: {metadata.get('tags')}\nexpert_time_estimate_hours: {metadata.get('expert_time_estimate_hours')}"
+                    f"tags: {metadata.get('tags')}\nexpert_time_estimate_hours: {metadata.get('expert_time_estimate_hours')}\n"
+                    f"agent_timeout_sec: {meta.get('agent', {}).get('timeout_sec')}\n"
+                    f"verifier_timeout_sec: {verifier.get('timeout_sec')}\n"
+                    f"environment: cpus={environment.get('cpus')}, memory_mb={environment.get('memory_mb')}, "
+                    f"gpus={environment.get('gpus')}, allow_internet={environment.get('allow_internet')}\n"
+                    f"task_toml_url: {github_url('harbor-framework/terminal-bench-3', 'main', task_toml_rel)}"
                 ),
-                artifact="Terminal-Bench 3 task folder with instruction, Dockerfile, tests, and solution",
+                artifact="Terminal-Bench 3 public task folder with instruction, task.toml metadata, Docker environment, tests, verifier, and solution",
             )
         )
     return out
