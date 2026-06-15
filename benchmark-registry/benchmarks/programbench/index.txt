@@ -8,17 +8,807 @@ b:I[4431,[],"MetadataBoundary"]
 c:"$Sreact.suspense"
 e:I[7150,[],""]
 :HL["/benchmark-registry/_next/static/css/de5dc80d7b62ac72.css","style"]
-0:{"P":null,"b":"viO-ka1MtCnoFtExFiYSe","p":"/benchmark-registry","c":["","benchmarks","programbench",""],"i":false,"f":[[["",{"children":["benchmarks",{"children":[["id","programbench","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/benchmark-registry/_next/static/css/de5dc80d7b62ac72.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":["benchmarks",["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["id","programbench","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L4",null,["$","$L5",null,{"children":["$L6",["$","$L7",null,{"promise":"$@8"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$L9",null,{"children":"$La"}],null],["$","$Lb",null,{"children":["$","div",null,{"hidden":true,"children":["$","$c",null,{"fallback":null,"children":"$Ld"}]}]}]]}],false]],"m":"$undefined","G":["$e",[]],"s":false,"S":true}
+0:{"P":null,"b":"olCmuOJNbkSwqviBTdO9q","p":"/benchmark-registry","c":["","benchmarks","programbench",""],"i":false,"f":[[["",{"children":["benchmarks",{"children":[["id","programbench","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/benchmark-registry/_next/static/css/de5dc80d7b62ac72.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":["benchmarks",["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["id","programbench","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L4",null,["$","$L5",null,{"children":["$L6",["$","$L7",null,{"promise":"$@8"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$L9",null,{"children":"$La"}],null],["$","$Lb",null,{"children":["$","div",null,{"hidden":true,"children":["$","$c",null,{"fallback":null,"children":"$Ld"}]}]}]]}],false]],"m":"$undefined","G":["$e",[]],"s":false,"S":true}
 f:I[2619,["619","static/chunks/619-ba102abea3e3d0e4.js","651","static/chunks/app/benchmarks/%5Bid%5D/page-a84de58d962f3a46.js"],""]
-4:["$","main",null,{"className":"profile-page","children":[["$","div",null,{"className":"profile-topbar","children":[["$","$Lf",null,{"href":"/","className":"back-link","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":16,"height":16,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Registry"]}],["$","div",null,{"className":"profile-source-actions","children":[["$","a",null,{"href":"https://arxiv.org/abs/2605.03546","target":"_blank","rel":"noreferrer","children":["Official source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],""]}]]}],["$","header",null,{"className":"profile-hero","children":[["$","div",null,{"children":[["$","div",null,{"className":"eyebrow","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":16,"height":16,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-database","children":[["$","ellipse","msslwz",{"cx":"12","cy":"5","rx":"9","ry":"3"}],["$","path","1wlel7",{"d":"M3 5V19A9 3 0 0 0 21 19V5"}],["$","path","mv7ke4",{"d":"M3 12A9 3 0 0 0 21 12"}],"$undefined"]}],"Benchmark profile"]}],["$","h1",null,{"children":"ProgramBench"}],["$","p",null,{"children":"Program reconstruction benchmark: rebuild behavior from compiled binaries and documentation."}],["$","div",null,{"className":"tags","children":[["$","span","coding-undefined",{"className":"tag coding","children":"coding"}],["$","span","agent_eval-undefined",{"className":"tag agent_eval","children":"agent eval"}],["$","span","public-public",{"className":"tag public","children":"public"}],["$","span","approximate-undefined",{"className":"tag approximate","children":"approximate"}]]}]]}],["$","div",null,{"className":"profile-status-card","children":[["$","span",null,{"className":"status incomplete","children":"sample incomplete"}],["$","b",null,{"children":[0,"/5 public samples"]}],["$","p",null,{"children":"This registry treats five public, source-linked samples as the minimum for a complete benchmark profile."}]]}]]}],["$","section",null,{"className":"profile-grid","children":[["$","div",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Definition"}],["$","dl",null,{"className":"definition-list","children":[["$","div",null,{"children":[["$","dt",null,{"children":"Benchmark ID"}],["$","dd",null,{"children":"programbench"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Primary Task"}],["$","dd",null,{"children":"agent task completion"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Primary Metric"}],["$","dd",null,{"children":"benchmark-specific"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Harness"}],["$","dd",null,{"children":"Anthropic system card"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Versions"}],["$","dd",null,{"children":"1"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Citations"}],["$","dd",null,{"children":"2"}]]}]]}]]}],["$","div",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Trust Signals"}],["$","div",null,{"className":"trust-stack","children":[["$","div",null,{"className":"trust-row","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield-check","children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],["$","path","dzmm74",{"d":"m9 12 2 2 4-4"}],"$undefined"]}],["$","span",null,{"children":"Official source"}],["$","b",null,{"className":"ok","children":"yes"}]]}],["$","div",null,{"className":"trust-row","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield-check","children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],"$L10","$undefined"]}],"$L11","$L12"]}],"$L13","$L14"]}]]}]]}],"$L15","$L16","$L17"]}]
+4:["$","main",null,{"className":"profile-page","children":[["$","div",null,{"className":"profile-topbar","children":[["$","$Lf",null,{"href":"/","className":"back-link","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":16,"height":16,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Registry"]}],["$","div",null,{"className":"profile-source-actions","children":[["$","a",null,{"href":"https://arxiv.org/abs/2605.03546","target":"_blank","rel":"noreferrer","children":["Official source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],""]}]]}],["$","header",null,{"className":"profile-hero","children":[["$","div",null,{"children":[["$","div",null,{"className":"eyebrow","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":16,"height":16,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-database","children":[["$","ellipse","msslwz",{"cx":"12","cy":"5","rx":"9","ry":"3"}],["$","path","1wlel7",{"d":"M3 5V19A9 3 0 0 0 21 19V5"}],["$","path","mv7ke4",{"d":"M3 12A9 3 0 0 0 21 12"}],"$undefined"]}],"Benchmark profile"]}],["$","h1",null,{"children":"ProgramBench"}],["$","p",null,{"children":"Program reconstruction benchmark: rebuild behavior from compiled binaries and documentation."}],["$","div",null,{"className":"tags","children":[["$","span","coding-undefined",{"className":"tag coding","children":"coding"}],["$","span","agent_eval-undefined",{"className":"tag agent_eval","children":"agent eval"}],["$","span","public-public",{"className":"tag public","children":"public"}],["$","span","approximate-undefined",{"className":"tag approximate","children":"approximate"}]]}]]}],["$","div",null,{"className":"profile-status-card","children":[["$","span",null,{"className":"status complete","children":"sample complete"}],["$","b",null,{"children":[5,"/5 public samples"]}],["$","p",null,{"children":"This registry treats five public, source-linked samples as the minimum for a complete benchmark profile."}]]}]]}],["$","section",null,{"className":"profile-grid","children":[["$","div",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Definition"}],["$","dl",null,{"className":"definition-list","children":[["$","div",null,{"children":[["$","dt",null,{"children":"Benchmark ID"}],["$","dd",null,{"children":"programbench"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Primary Task"}],["$","dd",null,{"children":"agent task completion"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Primary Metric"}],["$","dd",null,{"children":"benchmark-specific"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Harness"}],["$","dd",null,{"children":"Anthropic system card"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Versions"}],["$","dd",null,{"children":"1"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Citations"}],["$","dd",null,{"children":"2"}]]}]]}]]}],["$","div",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Trust Signals"}],["$","div",null,{"className":"trust-stack","children":[["$","div",null,{"className":"trust-row","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield-check","children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],["$","path","dzmm74",{"d":"m9 12 2 2 4-4"}],"$undefined"]}],["$","span",null,{"children":"Official source"}],["$","b",null,{"className":"ok","children":"yes"}]]}],["$","div",null,{"className":"trust-row","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield-check","children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],"$L10","$undefined"]}],"$L11","$L12"]}],"$L13","$L14"]}]]}]]}],"$L15","$L16","$L17"]}]
 10:["$","path","dzmm74",{"d":"m9 12 2 2 4-4"}]
 11:["$","span",null,{"children":"Public sample rows"}]
-12:["$","b",null,{"className":"missing","children":"missing"}]
+12:["$","b",null,{"className":"ok","children":"yes"}]
 13:["$","div",null,{"className":"trust-row","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield-check","children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],["$","path","dzmm74",{"d":"m9 12 2 2 4-4"}],"$undefined"]}],["$","span",null,{"children":"Public access"}],["$","b",null,{"className":"ok","children":"yes"}]]}]
 14:["$","div",null,{"className":"trust-row","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield-check","children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],["$","path","dzmm74",{"d":"m9 12 2 2 4-4"}],"$undefined"]}],["$","span",null,{"children":"Reproducible protocol"}],["$","b",null,{"className":"missing","children":"missing"}]]}]
-15:["$","section",null,{"className":"profile-panel sample-explorer","children":[["$","div",null,{"className":"section-head","children":["$","div",null,{"children":[["$","h2",null,{"children":"Dataset Sample Explorer"}],["$","p",null,{"children":"Samples are the center of the benchmark profile. Missing rows are shown explicitly instead of hidden."}]]}]}],["$","div",null,{"className":"sample-explorer-grid","children":[[],[["$","article","missing-0",{"className":"sample-record missing","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":["Missing public sample ",1]}]]}],["$","p",null,{"children":"Add an official public row with prompt/question, input artifact link, task, and source URL."}]]}],["$","article","missing-1",{"className":"sample-record missing","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":["Missing public sample ",2]}]]}],["$","p",null,{"children":"Add an official public row with prompt/question, input artifact link, task, and source URL."}]]}],["$","article","missing-2",{"className":"sample-record missing","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":["Missing public sample ",3]}]]}],["$","p",null,{"children":"Add an official public row with prompt/question, input artifact link, task, and source URL."}]]}],["$","article","missing-3",{"className":"sample-record missing","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":["Missing public sample ",4]}]]}],["$","p",null,{"children":"Add an official public row with prompt/question, input artifact link, task, and source URL."}]]}],["$","article","missing-4",{"className":"sample-record missing","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":["Missing public sample ",5]}]]}],["$","p",null,{"children":"Add an official public row with prompt/question, input artifact link, task, and source URL."}]]}]]]}]]}]
-16:["$","section",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Artifacts"}],["$","div",null,{"className":"artifact-list profile-artifacts","children":[[["$","a","site-https://arxiv.org/abs/2605.03546",{"href":"https://arxiv.org/abs/2605.03546","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"site"}],["$","b",null,{"children":"Official benchmark page"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}]],false]}]]}]
+18:Tfeb,# 🥾 walk
+
+<p align="center">
+  <br>
+  <img src=".github/images/demo.gif" width="600" alt="walk demo">
+  <br>
+</p>
+
+**Walk** — a terminal navigator; a `cd` and `ls` replacement.
+
+Run `lk`, navigate using arrows or hjkl. Press, `esc` to jump to a new location; or `ctrl+c` to stay.
+
+## Install
+
+```
+brew install walk
+```
+
+```
+pkg_add walk
+```
+
+```
+go install github.com/antonmedv/walk@latest
+```
+
+```
+curl https://raw.githubusercontent.com/antonmedv/walk/master/install.sh | sh
+```
+
+Or download [prebuild binaries](https://github.com/antonmedv/walk/releases).
+
+### Setup
+
+Put the next function into the **.bashrc** or a similar config:
+
+<table>
+<tr>
+  <th> Bash/Zsh </th>
+  <th> Fish </th>
+  <th> PowerShell </th>
+</tr>
+<tr>
+<td>
+
+```bash
+function lk {
+  cd "$(walk "$@")"
+}
+```
+
+</td>
+<td>
+
+```fish
+function lk
+  set loc (walk $argv); and cd $loc;
+end
+```
+
+</td>
+<td>
+
+```powershell
+function lk() {
+  cd $(walk $args)
+}
+```
+
+</td>
+</tr>
+</table>
+
+
+Now use `lk` command to start walking.
+
+## Features
+
+### Preview mode
+
+Press `Space` to toggle preview mode.
+
+<img src=".github/images/preview-mode.gif" width="600" alt="Walk Preview Mode">
+
+### Delete file or directory
+
+Press `dd` to delete file or directory. Press `u` to undo.
+
+<img src=".github/images/rm-demo.gif" width="600" alt="Walk Deletes a File">
+
+### Display icons
+
+Install [Nerd Fonts](https://www.nerdfonts.com) and add `--icons` flag.
+
+<img src=".github/images/demo-icons.gif" width="600" alt="Walk Icons Support">
+
+### Image preview
+
+No additional setup is required.
+
+<img src=".github/images/images-mode.gif" width="600" alt="Walk Image Preview">
+
+## Usage
+
+| Key binding                          | Description        |
+|--------------------------------------|--------------------|
+| <kbd>arrows</kbd>, <kbd>hjkl</kbd>   | Move cursor        |
+| <kbd>shift</kbd> + <kbd>arrows</kbd> | Jump to start/end  |
+| <kbd>enter</kbd>                     | Enter directory    |
+| <kbd>backspace</kbd>                 | Exit directory     |
+| <kbd>space</kbd>                     | Toggle preview     |
+| <kbd>esc</kbd>, <kbd>q</kbd>         | Exit with cd       |
+| <kbd>ctrl</kbd> + <kbd>c</kbd>       | Exit without cd    |
+| <kbd>/</kbd>                         | Fuzzy search       |
+| <kbd>d</kbd>, <kbd>delete</kbd>      | Delete file or dir |
+| <kbd>y</kbd>                         | yank current dir   |
+| <kbd>.</kbd>                         | Hide hidden files  |
+
+## Configuration
+
+The `EDITOR` or `WALK_EDITOR` environment variable used for opening files from
+the walk.
+
+```bash
+export EDITOR=vim
+```
+
+To specify a command to be used to open files per extension, use the `WALK_OPEN_WITH` environment variable.
+
+```bash
+export WALK_OPEN_WITH="txt:less -N;go:vim;md:glow -p"
+```
+
+The `WALK_REMOVE_CMD` environment variable can be used to specify a command to
+be used to remove files. This is useful if you want to use a different
+command to remove files than the default `rm`.
+
+```bash
+export WALK_REMOVE_CMD=trash
+```
+
+Change main color with `WALK_MAIN_COLOR` environment variable. Available colors
+are [here](https://github.com/charmbracelet/lipgloss#colors).
+
+```bash
+export WALK_MAIN_COLOR="#0000FF"
+```
+
+Use `WALK_STATUS_BAR` environment variable to specify a [status bar](STATUS_BAR.md) program.
+
+```bash
+export WALK_STATUS_BAR="Size() + ' ' + Mode()"
+```
+
+### Flags
+
+Flags can be used to change the default behavior of the program.
+
+| Flag            | Description                 |
+|-----------------|-----------------------------|
+| `--icons`       | Show icons                  |
+| `--dir-only`    | Show dirs only              |
+| `--hide-hidden` | Hide hidden files           |
+| `--preview`     | Start with preview mode on  |
+| `--with-border` | Show border in preview mode |
+| `--fuzzy`       | Start with fuzzy search on  |
+
+## Related
+
+- [fx](https://github.com/antonmedv/fx) – terminal JSON viewer
+- [howto](https://github.com/antonmedv/howto) – terminal command LLM helper
+- [countdown](https://github.com/antonmedv/countdown) – terminal countdown timer
+
+## License
+
+[MIT](LICENSE)15:["$","section",null,{"className":"profile-panel sample-explorer","children":[["$","div",null,{"className":"section-head","children":["$","div",null,{"children":[["$","h2",null,{"children":"Dataset Sample Explorer"}],["$","p",null,{"children":"Samples are the center of the benchmark profile. Missing rows are shown explicitly instead of hidden."}]]}]}],["$","div",null,{"className":"sample-explorer-grid","children":[[["$","article","programbench:default:train:0",{"className":"sample-record","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":"binary program understanding"}]]}],["$","p",null,{"children":"# f(x)\n\n<p align=\"center\"><a href=\"https://fx.wtf\"><img src=\".github/images/preview.gif\" width=\"500\" alt=\"fx preview\"></a></p>\n\n## Documentation\n\nSee full documentation at [fx.wtf](https://fx.wtf).\n\n## Related\n\n- [walk](https://github.com/antonmedv/walk) – terminal file manager\n- [howto](https://github.com/antonmedv/howto) – terminal command LLM helper\n- [countdown](https://github.com/antonmedv/countdown) – terminal countdown timer\n\n## License\n\n[MIT](LICENSE)"}],["$","p",null,{"className":"sample-input","children":"task_id: antonmedv__fx.86d0d34\nlanguage: go\ndifficulty: None\ndocs: Terminal JSON viewer & processor\nfile_type: \nbinary_size: 0\nbinary_hf_repo: \nbinary_hf_filename: \ncompile_hint: cd /workspace/src && go build -o /workspace/executable .\ntest_branches: ['2890f43fcbbb', '2bc2ed503838', '46fee7e86f4d', '4edcf1438c5d', '6bb5e54f6d4b', '7db3471bef85', '8337efff01b2', '8557934c32db', '884f76c3abe6', '96de9f455882', 'b1361fd48c30', 'b956595d128a', 'c5c5b90118d0', 'df9af4ca1815', 'e4def75fb3ef', 'f8869935eb9c']"}],null,["$","span",null,{"children":["Answer: ","[]"]}],["$","span",null,{"children":"ProgramBench processed row with repository README/docs, language, binary/test metadata, compile hint, and example I/O"}],["$","span",null,{"children":["milkkarten/programbench-processed"," / default"," / train"," / row 0"]}],["$","a",null,{"href":"https://huggingface.co/datasets/milkkarten/programbench-processed/viewer/default/train?row=0","target":"_blank","rel":"noreferrer","children":["Sample source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],"$undefined"]}],["$","article","programbench:default:train:1",{"className":"sample-record","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":"binary program understanding"}]]}],["$","p",null,{"children":"$18"}],"$L19",null,"$L1a","$L1b","$L1c","$L1d","$undefined"]}],"$L1e","$L1f","$L20"],[]]}]]}]
+16:["$","section",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Artifacts"}],["$","div",null,{"className":"artifact-list profile-artifacts","children":[[["$","a","site-https://arxiv.org/abs/2605.03546",{"href":"https://arxiv.org/abs/2605.03546","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"site"}],["$","b",null,{"children":"Official benchmark page"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a","sample-https://huggingface.co/datasets/milkkarten/programbench-processed/viewer/default/train?row=0",{"href":"https://huggingface.co/datasets/milkkarten/programbench-processed/viewer/default/train?row=0","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"sample"}],["$","b",null,{"children":"programbench:default:train:0"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a","sample-https://huggingface.co/datasets/milkkarten/programbench-processed/viewer/default/train?row=1",{"href":"https://huggingface.co/datasets/milkkarten/programbench-processed/viewer/default/train?row=1","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"sample"}],["$","b",null,{"children":"programbench:default:train:1"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a","sample-https://huggingface.co/datasets/milkkarten/programbench-processed/viewer/default/train?row=2",{"href":"https://huggingface.co/datasets/milkkarten/programbench-processed/viewer/default/train?row=2","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"sample"}],["$","b",null,{"children":"programbench:default:train:2"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a","sample-https://huggingface.co/datasets/milkkarten/programbench-processed/viewer/default/train?row=3",{"href":"https://huggingface.co/datasets/milkkarten/programbench-processed/viewer/default/train?row=3","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"sample"}],["$","b",null,{"children":"programbench:default:train:3"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a","sample-https://huggingface.co/datasets/milkkarten/programbench-processed/viewer/default/train?row=4",{"href":"https://huggingface.co/datasets/milkkarten/programbench-processed/viewer/default/train?row=4","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"sample"}],["$","b",null,{"children":"programbench:default:train:4"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],"$L21","$undefined"]}]]}]],false]}]]}]
 17:["$","section",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Citations"}],["$","table",null,{"className":"profile-table","children":["$","tbody",null,{"children":[[["$","tr","used-Claude Fable 5 and Claude Mythos 5",{"children":[["$","th",null,{"children":"used"}],["$","td",null,{"children":"Claude Fable 5 and Claude Mythos 5"}]]}],["$","tr","source_registry-Claude Fable 5 & Claude Mythos 5 System Card",{"children":[["$","th",null,{"children":"source_registry"}],["$","td",null,{"children":"Claude Fable 5 & Claude Mythos 5 System Card"}]]}]],false]}]}]]}]
+19:["$","p",null,{"className":"sample-input","children":"task_id: antonmedv__walk.bf802ef\nlanguage: go\ndifficulty: None\ndocs: Terminal file manager\nfile_type: \nbinary_size: 0\nbinary_hf_repo: \nbinary_hf_filename: \ncompile_hint: cd /workspace/src && go build -o /workspace/executable .\ntest_branches: ['03e585f50172', '16ef6579ec7c', '28cd6e6cc919', '2d6ad78fdeb5', '3b15aa9ee623', '572a93d6cab7', '5c30eb791924', '5e812779a8a9', '79d6b387c73d', '7fbbb7c6b77c', '88b674152033', '8a948c3c5a7c', 'a56ac371fb39', 'b0bc9784b1c3', 'd64a44513afe', 'fcc1fea12b08']"}]
+1a:["$","span",null,{"children":["Answer: ","[]"]}]
+1b:["$","span",null,{"children":"ProgramBench processed row with repository README/docs, language, binary/test metadata, compile hint, and example I/O"}]
+1c:["$","span",null,{"children":["milkkarten/programbench-processed"," / default"," / train"," / row 1"]}]
+1d:["$","a",null,{"href":"https://huggingface.co/datasets/milkkarten/programbench-processed/viewer/default/train?row=1","target":"_blank","rel":"noreferrer","children":["Sample source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}]
+22:T1f4a,## Atlas: manage your database schema as code
+
+[![Twitter](https://img.shields.io/twitter/url.svg?label=Follow%20%40ariga%2Fatlas&style=social&url=https%3A%2F%2Ftwitter.com%2Fatlasgo_io)](https://twitter.com/atlasgo_io)
+[![Discord](https://img.shields.io/discord/930720389120794674?label=discord&logo=discord&style=flat-square&logoColor=white)](https://discord.com/invite/zZ6sWVg6NT)
+
+<p>
+  <a href="https://atlasgo.io" target="_blank">
+  <img alt="image" src="https://github.com/ariga/atlas/assets/7413593/2e27cb81-bad6-491a-8d9c-20920995a186">
+  </a>
+</p>
+
+Atlas is a language-agnostic tool for managing and migrating database schemas using modern DevOps principles.
+It offers two workflows:
+
+- **Declarative**: Similar to Terraform, Atlas compares the current state of the database to the desired state, as
+defined in an [HCL], [SQL], or [ORM] schema. Based on this comparison, it generates and executes a migration plan to 
+transition the database to its desired state.
+
+- **Versioned**: Unlike other tools, Atlas automatically plans schema migrations for you. Users can describe their desired
+database schema in [HCL], [SQL], or their chosen [ORM], and by utilizing Atlas, they can plan, lint, and apply the
+necessary migrations to the database.
+
+## Quick installation
+
+**macOS + Linux:**
+
+```bash
+curl -sSf https://atlasgo.sh | sh
+```
+
+**Homebrew:**
+
+```bash
+brew install ariga/tap/atlas
+```
+
+**Docker:**
+
+```bash
+docker pull arigaio/atlas
+```
+
+**NPM:**
+
+```bash
+npx @ariga/atlas
+```
+
+Click [here](https://atlasgo.io/getting-started#installation) to read instructions for other platforms.
+
+## Getting started
+Get started with Atlas by following the [Getting Started](https://atlasgo.io/getting-started/) docs.
+This tutorial teaches you how to inspect a database, generate a migration plan and apply the migration to your database.
+
+## Key features:
+
+- **Schema management**: The `atlas schema` command offers various options for inspecting, diffing, comparing, and modifying
+  database schemas.
+- **Versioned migration**: The `atlas migrate` command provides a state-of-the-art experience for planning, linting, and
+  applying migrations.
+- **Terraform support**: Managing database changes as part of a Terraform deployment workflow.
+- **[SQL], [HCL] and [ORM] support**: Atlas enables users to define their desired database schema using [HCL], [SQL], or their chosen [ORM].
+- **Multi-tenancy**: Atlas includes built-in support for multi-tenant database schemas.
+- **Cloud integration**: Atlas integrates with standard cloud services and provides an easy way to read secrets from cloud
+  providers such as AWS Secrets Manager and GCP Secret Manager.
+
+## `schema inspect`
+_**Easily inspect your database schema by providing a database URL and convert it to HCL, JSON, SQL, ERD, or other formats.**_
+
+Inspect a specific MySQL schema and get its representation in Atlas DDL syntax:
+```shell
+atlas schema inspect -u "mysql://root:pass@localhost:3306/example" > schema.hcl
+```
+
+<details><summary>Result</summary>
+
+```hcl
+table "users" {
+  schema = schema.example
+  column "id" {
+    null = false
+    type = int
+  }
+  ...
+}
+```
+</details>
+
+Inspect the entire MySQL database and get its JSON representation:
+```shell
+atlas schema inspect \
+  --url "mysql://root:pass@localhost:3306/" \
+  --format '{{ json . }}' | jq
+```
+
+<details><summary>Result</summary>
+
+```json
+{
+  "schemas": [
+    {
+      "name": "example",
+      "tables": [
+        {
+          "name": "users",
+          "columns": [
+            ...
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+</details>
+
+Inspect a specific PostgreSQL schema and get its representation in SQL DDL syntax:
+```shell
+atlas schema inspect \
+  --url "postgres://root:pass@:5432/test?search_path=public&sslmode=disable" \
+  --format '{{ sql . }}'
+```
+
+<details><summary>Result</summary>
+
+```sql
+-- create "users" table
+CREATE TABLE "users" ("id" integer NULL, ...);
+-- create "posts" table
+CREATE TABLE "posts" ("id" integer NULL, ...);
+```
+</details>
+
+Inspect a specific PostgreSQL schema and get its ERD representation in the browser:
+```shell
+atlas schema inspect \
+  --url "postgres://root:pass@:5432/test?search_path=public&sslmode=disable" \
+  -w
+```
+
+[![ERD](https://atlasgo.io/uploads/erd-example.png)](https://gh.atlasgo.cloud/explore/40d83919)
+
+
+Inspect a specific PostgreSQL schema and get its ERD representation Mermaid syntax:
+```shell
+atlas schema inspect \
+  --url "postgres://root:pass@:5432/test?search_path=public&sslmode=disable" \
+  --format '{{ mermaid . }}'
+```
+
+```mermaid
+erDiagram
+    users {
+      int id PK
+      varchar name 
+    }
+    blog_posts {
+      int id PK
+      varchar title 
+      text body 
+      int author_id FK
+    }
+    blog_posts }o--o| users : author_fk
+```
+
+## `schema diff`
+_**Compare two schema states and get a migration plan to transform one into the other. A state can be specified using a
+database URL, HCL or SQL schema, or a migration directory.**_
+
+Compare two MySQL schemas:
+```shell
+atlas schema diff \
+  --from mysql://root:pass@:3306/db1 \
+  --to mysql://root:pass@:3306/db2
+```
+
+<details><summary>Result</summary>
+
+```sql
+-- Drop "users" table
+DROP TABLE `users`;
+```
+</details>
+
+Compare a MySQL schema with a migration directory:
+```shell
+atlas schema diff \
+  --from mysql://root:pass@:3306/db1 \
+  --to file://migrations \
+  --dev-url docker://mysql/8/db1
+````
+
+Compare a PostgreSQL schema with an Atlas schema in HCL format:
+```shell
+atlas schema diff \
+  --from "postgres://postgres:pass@:5432/test?search_path=public&sslmode=disable" \
+  --to file://schema.hcl \
+  --dev-url "docker://postgres/15/test"
+````
+
+Compare an HCL schema with an SQL schema:
+```shell
+atlas schema diff \
+  --from file://schema.sql \
+  --to file://schema.hcl \ 
+  --dev-url docker://postgres/15/test  
+````
+
+## `schema apply`
+_**Generate a migration plan and apply it to the database to bring it to the desired state. The desired state can be
+specified using a database URL, HCL or SQL schema, or a migration directory.**_
+
+Update the database to the state defined in the HCL schema:
+```shell
+atlas schema apply \
+  --url mysql://root:pass@:3306/db1 \
+  --to file://schema.hcl \
+  --dev-url docker://mysql/8/db1
+```
+
+<details><summary>Result</summary>
+
+```shell
+-- Planned Changes:
+-- Modify "users" table
+ALTER TABLE `db1`.`users` DROP COLUMN `d`, ADD COLUMN `c` int NOT NULL;
+Use the arrow keys to navigate: ↓ ↑ → ← 
+? Are you sure?: 
+  ▸ Apply
+    Abort
+```
+</details>
+
+Update the database to the state defined in a specific version of the migration directory:
+```shell
+atlas schema apply \
+  --url mysql://root:pass@:3306/db1 \
+  --to "file://migrations?version=20221118091226" \
+  --dev-url docker://mysql/8/db1
+```
+
+### Additional `schema` commands
+Atlas offers additional commands to assist users managing their database schemas. These include `schema clean` and
+`schema fmt`. For more information, see the versioned migration documentation at https://atlasgo.io/declarative/inspect.
+
+## `migrate diff`
+_**Write a new migration file to the migration directory that bring it to the desired state. The desired state can be
+specified using a database URL, HCL or SQL schema, or a migration directory.**_
+
+Create a migration file named `add_blog_posts` in the migration directory to bring the database to the state defined
+in an HCL schema:
+```shell
+atlas migrate diff add_blog_posts \           
+  --dir file://migrations \
+  --to file://schema.hcl \
+  --dev-url docker://mysql/8/test
+```
+
+Create a migration file named `add_blog_posts` in the migration directory to bring the database to the state defined
+in an SQL schema:
+```shell
+atlas migrate diff add_blog_posts \           
+  --dir file://migrations \
+  --to file://schema.sql \
+  --dev-url docker://mysql/8/test
+```
+
+Create a migration file named `add_blog_posts` in the migration directory to bring the database to the state defined
+by another database:
+```shell
+atlas migrate diff add_blog_posts \           
+  --dir file://migrations \
+  --to mysql://root:1e:["$","article","programbench:default:train:2",{"className":"sample-record","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":"binary program understanding"}]]}],["$","p",null,{"children":"$22"}],"$L23",null,"$L24","$L25","$L26","$L27","$undefined"]}]
+28:T1ea0,direnv -- unclutter your .profile
+=================================
+
+[![Built with Nix](https://builtwithnix.org/badge.svg)](https://builtwithnix.org)
+[![Packaging status](https://repology.org/badge/tiny-repos/direnv.svg)](https://repology.org/project/direnv/versions)
+[![latest packaged version(s)](https://repology.org/badge/latest-versions/direnv.svg)](https://repology.org/project/direnv/versions)
+[![Support room on Matrix](https://img.shields.io/matrix/direnv:numtide.com.svg?label=%23direnv%3Anumtide.com&logo=matrix&server_fqdn=matrix.numtide.com)](https://matrix.to/#/#direnv:numtide.com)
+
+`direnv` is an extension for your shell. It augments existing shells with a
+new feature that can load and unload environment variables depending on the
+current directory.
+
+## Use cases
+
+* Load [12factor apps](https://12factor.net/) environment variables
+* Create per-project isolated development environments
+* Load secrets for deployment
+
+## How it works
+
+Before each prompt, direnv checks for the existence of a `.envrc` file (and
+[optionally](man/direnv.toml.1.md#codeloaddotenvcode) a `.env` file) in the current
+and parent directories. If the file exists (and is authorized), it is loaded
+into a **bash** sub-shell and all exported variables are then captured by
+direnv and then made available to the current shell.
+
+It supports hooks for all the common shells like bash, zsh, tcsh and fish.
+This allows project-specific environment variables without cluttering the
+`~/.profile` file.
+
+Because direnv is compiled into a single static executable, it is fast enough
+to be unnoticeable on each prompt. It is also language-agnostic and can be
+used to build solutions similar to rbenv, pyenv and phpenv.
+
+## Getting Started
+
+### Prerequisites
+
+* Unix-like operating system (macOS, Linux, ...)
+* A supported shell (bash, zsh, tcsh, fish, elvish, powershell, murex, nushell)
+
+### Basic Installation
+
+1. direnv is packaged in most distributions already. See [the installation documentation](docs/installation.md) for details.
+2. [hook direnv into your shell](docs/hook.md).
+
+Now restart your shell.
+
+### Quick demo
+
+To follow along in your shell once direnv is installed.
+
+```shell
+# Create a new folder for demo purposes.
+$ mkdir ~/my-project
+$ cd ~/my-project
+
+# Show that the FOO environment variable is not loaded.
+$ echo ${FOO-nope}
+nope
+
+# Create a new .envrc. This file is bash code that is going to be loaded by
+# direnv.
+$ echo export FOO=foo > .envrc
+.envrc is not allowed
+
+# The security mechanism didn't allow to load the .envrc. Since we trust it,
+# let's allow its execution.
+$ direnv allow .
+direnv: reloading
+direnv: loading .envrc
+direnv export: +FOO
+
+# Show that the FOO environment variable is loaded.
+$ echo ${FOO-nope}
+foo
+
+# Exit the project
+$ cd ..
+direnv: unloading
+
+# And now FOO is unset again
+$ echo ${FOO-nope}
+nope
+```
+
+### The stdlib
+
+Exporting variables by hand is a bit repetitive so direnv provides a set of
+utility functions that are made available in the context of the `.envrc` file.
+
+As an example, the `PATH_add` function is used to expand and prepend a path to
+the $PATH environment variable. Instead of `export PATH=$PWD/bin:$PATH` you
+can write `PATH_add bin`. It's shorter and avoids a common mistake where
+`$PATH=bin`.
+
+To find the documentation for all available functions check the
+[direnv-stdlib(1) man page](man/direnv-stdlib.1.md).
+
+It's also possible to create your own extensions by creating a bash file at
+`~/.config/direnv/direnvrc` or `~/.config/direnv/lib/*.sh`. This file is
+loaded before your `.envrc` and thus allows you to make your own extensions to
+direnv.
+
+Note that this functionality is not supported in `.env` files. If the
+coexistence of both is needed, one can use `.envrc` for leveraging stdlib and
+append `dotenv` at the end of it to instruct direnv to also read the `.env`
+file next.
+
+## Docs
+
+* [Install direnv](docs/installation.md)
+* [Hook into your shell](docs/hook.md)
+* [Develop for direnv](docs/development.md)
+* [Manage your rubies with direnv and ruby-install](docs/ruby.md)
+* [Using direnv with GitHub Actions](docs/github-actions.md)
+* [Community Wiki](https://github.com/direnv/direnv/wiki)
+
+Make sure to take a look at the wiki! It contains all sorts of useful
+information such as common recipes, editor integration, tips-and-tricks.
+
+### Man pages
+
+* [direnv(1) man page](man/direnv.1.md)
+* [direnv-fetchurl(1) man page](man/direnv-fetchurl.1.md)
+* [direnv-stdlib(1) man page](man/direnv-stdlib.1.md)
+* [direnv.toml(1) man page](man/direnv.toml.1.md)
+
+### FAQ
+
+Based on GitHub issues interactions, here are the top things that have been
+confusing for users:
+
+1. direnv has a standard library of functions, a collection of utilities that
+   I found useful to have and accumulated over the years. You can find it
+   here: https://github.com/direnv/direnv/blob/master/stdlib.sh
+
+2. It's possible to override the stdlib with your own set of function by
+   adding a bash file to `~/.config/direnv/direnvrc`. This file is loaded and
+   its content made available to any `.envrc` file.
+
+3. direnv is not loading the `.envrc` into the current shell. It's creating a
+   new bash sub-process to load the stdlib, direnvrc and `.envrc`, and only
+   exports the environment diff back to the original shell. This allows direnv
+   to record the environment changes accurately and also work with all sorts
+   of shells. It also means that aliases and functions are not exportable
+   right now.
+
+## Contributing
+
+Bug reports, contributions and forks are welcome. All bugs or other forms of
+discussion happen on http://github.com/direnv/direnv/issues .
+
+Or drop by on [Matrix](https://matrix.to/#/#direnv:numtide.com) to
+have a chat. If you ask a question make sure to stay around as not everyone is
+active all day.
+
+### Testing
+
+To run our tests, use these commands: (you may need to install [homebrew](https://brew.sh/))
+
+```
+brew bundle
+make test
+```
+
+## Complementary projects
+
+Here is a list of projects you might want to look into if you are using direnv.
+
+* [starship](https://starship.rs/) - A cross-shell prompt.
+* [Projects for Nix integration](https://github.com/direnv/direnv/wiki/Nix) - choose from one of a variety of projects offering improvements over Direnv's built-in `use_nix` implementation.
+
+## Related projects
+
+Here is a list of other projects found in the same design space. Feel free to
+submit new ones.
+
+* [Environment Modules](http://modules.sourceforge.net/) - one of the oldest (in a good way) environment-loading systems
+* [autoenv](https://github.com/hyperupcall/autoenv) - older, popular, and lightweight.
+* [zsh-autoenv](https://github.com/Tarrasch/zsh-autoenv) - a feature-rich mixture of autoenv and [smartcd](https://github.com/cxreg/smartcd): enter/leave events, nesting, stashing (Zsh-only).
+* [asdf](https://github.com/asdf-vm/asdf) - a pure bash solution that has a plugin system. The [asdf-direnv](https://github.com/asdf-community/asdf-direnv) plugin allows using asdf managed tools with direnv.
+* [ondir](https://github.com/alecthomas/ondir) - OnDir is a small program to automate tasks specific to certain directories
+* [shadowenv](https://shopify.github.io/shadowenv/) - uses an s-expression format to define environment changes that should be executed
+* [quickenv](https://github.com/untitaker/quickenv) - an alternative loader for `.envrc` files that does not hook into your shell and favors speed over convenience.
+* [mise](https://github.com/jdx/mise) - direnv, make and asdf all in one tool.
+
+## Commercial support
+
+Looking for help or customization?
+
+Get in touch with Numtide to get a quote. We make it easy for companies to
+work with Open Source projects: <https://numtide.com/contact>
+
+## COPYRIGHT
+
+[MIT licence](LICENSE) - Copyright (C) 2019 @zimbatm and [contributors](https://github.com/direnv/direnv/graphs/contributors)1f:["$","article","programbench:default:train:3",{"className":"sample-record","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":"binary program understanding"}]]}],["$","p",null,{"children":"$28"}],"$L29",null,"$L2a","$L2b","$L2c","$L2d","$undefined"]}]
+2e:T1f48,# go DiskUsage()
+
+<img src="./gdu.png" alt="Gdu " width="200" align="right">
+
+[![Codecov](https://codecov.io/gh/dundee/gdu/branch/master/graph/badge.svg)](https://codecov.io/gh/dundee/gdu)
+[![Go Report Card](https://goreportcard.com/badge/github.com/dundee/gdu)](https://goreportcard.com/report/github.com/dundee/gdu)
+[![Maintainability](https://api.codeclimate.com/v1/badges/30d793274607f599e658/maintainability)](https://codeclimate.com/github/dundee/gdu/maintainability)
+[![CodeScene Code Health](https://codescene.io/projects/13129/status-badges/code-health)](https://codescene.io/projects/13129)
+
+Pretty fast disk usage analyzer written in Go.
+
+Gdu is intended primarily for SSD disks where it can fully utilize parallel processing.
+However HDDs work as well, but the performance gain is not so huge.
+
+[![asciicast](https://asciinema.org/a/382738.svg)](https://asciinema.org/a/382738)
+
+<a href="https://repology.org/project/gdu/versions">
+    <img src="https://repology.org/badge/vertical-allrepos/gdu.svg" alt="Packaging status" align="right">
+</a>
+
+## Installation
+
+Head for the [releases page](https://github.com/dundee/gdu/releases) and download the binary for your system.
+
+Using curl:
+
+    curl -L https://github.com/dundee/gdu/releases/latest/download/gdu_linux_amd64.tgz | tar xz
+    chmod +x gdu_linux_amd64
+    mv gdu_linux_amd64 /usr/bin/gdu
+
+See the [installation page](./INSTALL.md) for other ways how to install Gdu to your system.
+
+Or you can use Gdu directly via Docker:
+
+    docker run --rm --init --interactive --tty --privileged --volume /:/mnt/root ghcr.io/dundee/gdu /mnt/root
+
+## Usage
+
+```
+  gdu [directory_to_scan] [flags]
+
+Flags:
+      --archive-browsing              Enable browsing of zip/jar archives
+      --collapse-path                 Collapse single-child directory chains
+      --config-file string            Read config from file (default is $HOME/.gdu.yaml)
+  -D, --db string                     Store analysis in database (*.sqlite for SQLite, *.badger for BadgerDB)
+      --depth int                     Show directory structure up to specified depth in non-interactive mode (0 means the flag is ignored)
+      --enable-profiling              Enable collection of profiling data and provide it on http://localhost:6060/debug/pprof/
+  -E, --exclude-type strings          File types to exclude (e.g., --exclude-type yaml,json)
+  -L, --follow-symlinks               Follow symlinks for files, i.e. show the size of the file to which symlink points to (symlinks to directories are not followed)
+  -h, --help                          help for gdu
+  -i, --ignore-dirs strings           Paths to ignore (separated by comma). Can be absolute or relative to current directory (default [/proc,/dev,/sys,/run])
+  -I, --ignore-dirs-pattern strings   Path patterns to ignore (separated by comma)
+  -X, --ignore-from string            Read path patterns to ignore from file
+  -f, --input-file string             Import analysis from JSON file
+  -l, --log-file string               Path to a logfile (default "/dev/null")
+      --max-age string                Include files with mtime no older than DURATION (e.g., 7d, 2h30m, 1y2mo)
+  -m, --max-cores int                 Set max cores that Gdu will use. 8 cores available (default 8)
+      --min-age string                Include files with mtime at least DURATION old (e.g., 30d, 1w)
+      --mouse                         Use mouse
+  -c, --no-color                      Do not use colorized output
+  -x, --no-cross                      Do not cross filesystem boundaries
+      --no-delete                     Do not allow deletions
+  -H, --no-hidden                     Ignore hidden directories (beginning with dot)
+      --no-prefix                     Show sizes as raw numbers without any prefixes (SI or binary) in non-interactive mode
+  -p, --no-progress                   Do not show progress in non-interactive mode
+      --no-spawn-shell                Do not allow spawning shell
+  -u, --no-unicode                    Do not use Unicode symbols (for size bar)
+  -n, --non-interactive               Do not run in interactive mode
+  -o, --output-file string            Export all info into file as JSON
+  -r, --read-from-storage             Use existing database instead of re-scanning
+      --reverse-sort                  Reverse sorting order (smallest to largest) in non-interactive mode
+      --sequential                    Use sequential scanning (intended for rotating HDDs)
+  -A, --show-annexed-size             Use apparent size of git-annex'ed files in case files are not present locally (real usage is zero)
+  -a, --show-apparent-size            Show apparent size
+  -d, --show-disks                    Show all mounted disks
+  -k, --show-in-kib                   Show sizes in KiB (or kB with --si) in non-interactive mode
+  -C, --show-item-count               Show number of items in directory
+  -M, --show-mtime                    Show latest mtime of items in directory
+  -B, --show-relative-size            Show relative size
+      --si                            Show sizes with decimal SI prefixes (kB, MB, GB) instead of binary prefixes (KiB, MiB, GiB)
+      --since string                  Include files with mtime >= WHEN. WHEN accepts RFC3339 timestamp (e.g., 2025-08-11T01:00:00-07:00) or date only YYYY-MM-DD (calendar-day compare; includes the whole day)
+  -s, --summarize                     Show only a total in non-interactive mode
+  -t, --top int                       Show only top X largest files in non-interactive mode
+  -T, --type strings                  File types to include (e.g., --type yaml,json)
+      --until string                  Include files with mtime <= WHEN. WHEN accepts RFC3339 timestamp or date only YYYY-MM-DD
+  -v, --version                       Print version
+      --write-config                  Write current configuration to file (default is $HOME/.gdu.yaml)
+
+Basic list of actions in interactive mode (show help modal for more):
+  ↑ or k                              Move cursor up
+  ↓ or j                              Move cursor down
+  → or Enter or l                     Go to highlighted directory
+  ← or h                              Go to parent directory
+  d                                   Delete the selected file or directory
+  e                                   Empty the selected directory
+  n                                   Sort by name
+  s                                   Sort by size
+  c                                   Show number of items in directory
+  ?                                   Show help modal
+```
+
+## Examples
+
+    gdu                                   # analyze current dir
+    gdu -a                                # show apparent size instead of disk usage
+    gdu --no-delete                       # prevent write operations
+    gdu <some_dir_to_analyze>             # analyze given dir
+    gdu -d                                # show all mounted disks
+    gdu -l ./gdu.log <some_dir>           # write errors to log file
+    gdu -i /sys,/proc /                   # ignore some paths
+    gdu -I '.*[abc]+'                     # ignore paths by regular pattern
+    gdu -X ignore_file /                  # ignore paths by regular patterns from file
+    gdu -c /                              # use only white/gray/black colors
+
+    gdu -n /                              # only print stats, do not start interactive mode
+    gdu -p /                              # do not show progress, useful when using its output in a script
+    gdu -ps /some/dir                     # show only total usage for given dir
+    gdu -t 10 /                           # show top 10 largest files
+    gdu --reverse-sort -n /               # show files sorted from smallest to largest in non-interactive mode
+    gdu / > file                          # write stats to file, do not start interactive mode
+
+    gdu -o- / | gzip -c >report.json.gz   # write all info to JSON file for later analysis
+    zcat report.json.gz | gdu -20:["$","article","programbench:default:train:4",{"className":"sample-record","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":"binary program understanding"}]]}],["$","p",null,{"children":"$2e"}],"$L2f",null,"$L30","$L31","$L32","$L33","$undefined"]}]
+21:["$","path","1vkiza",{"d":"M7 17 17 7"}]
+23:["$","p",null,{"className":"sample-input","children":"task_id: ariga__atlas.6d81150\nlanguage: go\ndifficulty: None\ndocs: Declarative schema migrations with schema-as-code workflows\nfile_type: \nbinary_size: 0\nbinary_hf_repo: \nbinary_hf_filename: \ncompile_hint: cd /workspace/src && go build -o /workspace/executable .\ntest_branches: ['0386d0614fb1', '040ee76f34fd', '239427da9840', '5e483d7465e7', '6188fe5b7e4d', '6256695fac2d', '6dd45c010e5d', '96d1eb797f1c', '99c1346c445d', 'bf96b63415cc', 'c46ae9b89fa0', 'cbaf9db6ea2e', 'd38253c926ee', 'dea01dd56536', 'efbed7268f1d', 'f24728ecf8a8']"}]
+24:["$","span",null,{"children":["Answer: ","[]"]}]
+25:["$","span",null,{"children":"ProgramBench processed row with repository README/docs, language, binary/test metadata, compile hint, and example I/O"}]
+26:["$","span",null,{"children":["milkkarten/programbench-processed"," / default"," / train"," / row 2"]}]
+27:["$","a",null,{"href":"https://huggingface.co/datasets/milkkarten/programbench-processed/viewer/default/train?row=2","target":"_blank","rel":"noreferrer","children":["Sample source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}]
+29:["$","p",null,{"className":"sample-input","children":"task_id: direnv__direnv.02040c7\nlanguage: go\ndifficulty: None\ndocs: unclutter your .profile\nfile_type: \nbinary_size: 0\nbinary_hf_repo: \nbinary_hf_filename: \ncompile_hint: cd /workspace/src && go build -o /workspace/executable .\ntest_branches: ['06702977bf06', '581e95e0e35a', '591597c191de', '642420bd4df9', '660164a15a44', '6af5af3937e4', '6dc5eb5d8d9e', '6fddbf3ce693', '7555036308a6', '8a3a462ef617', 'edffe8618591']"}]
+2a:["$","span",null,{"children":["Answer: ","[]"]}]
+2b:["$","span",null,{"children":"ProgramBench processed row with repository README/docs, language, binary/test metadata, compile hint, and example I/O"}]
+2c:["$","span",null,{"children":["milkkarten/programbench-processed"," / default"," / train"," / row 3"]}]
+2d:["$","a",null,{"href":"https://huggingface.co/datasets/milkkarten/programbench-processed/viewer/default/train?row=3","target":"_blank","rel":"noreferrer","children":["Sample source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}]
+2f:["$","p",null,{"className":"sample-input","children":"task_id: dundee__gdu.ede21d2\nlanguage: go\ndifficulty: None\ndocs: Fast disk usage analyzer with console interface written in Go\nfile_type: \nbinary_size: 0\nbinary_hf_repo: \nbinary_hf_filename: \ncompile_hint: cd /workspace/src && go build -o /workspace/executable .\ntest_branches: ['10eca2807d4a', '1277cb79dbb9', '1e380e408cef', '3f556672d710', '50b94ec9f58d', '65fcb612cb25', '7fd882315fd3', '864768bd656d', '8a22cbd07344', '9a09132872e3', 'abd9c19cdfc1', 'f55fa858b817']"}]
+30:["$","span",null,{"children":["Answer: ","[]"]}]
+31:["$","span",null,{"children":"ProgramBench processed row with repository README/docs, language, binary/test metadata, compile hint, and example I/O"}]
+32:["$","span",null,{"children":["milkkarten/programbench-processed"," / default"," / train"," / row 4"]}]
+33:["$","a",null,{"href":"https://huggingface.co/datasets/milkkarten/programbench-processed/viewer/default/train?row=4","target":"_blank","rel":"noreferrer","children":["Sample source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}]
 a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
 6:null
 8:{"metadata":[["$","title","0",{"children":"ProgramBench | Open Benchmark Registry"}],["$","meta","1",{"name":"description","content":"Program reconstruction benchmark: rebuild behavior from compiled binaries and documentation."}]],"error":null,"digest":"$undefined"}
