@@ -10,6 +10,7 @@ import inspect
 from pathlib import Path
 from typing import Any
 
+import tomllib
 import yaml
 
 
@@ -960,6 +961,44 @@ def finance_agent_rows() -> list[dict[str, Any]]:
     return rows
 
 
+def frontier_swe_rows() -> list[dict[str, Any]]:
+    repo_root = Path("/tmp/benchrepo-frontier-swe")
+    task_dirs = sorted(path.parent for path in (repo_root / "tasks").glob("*/instruction.md"))[:ROWS_PER_BENCHMARK]
+    out = []
+    for i, task_dir in enumerate(task_dirs):
+        task_id = task_dir.name
+        instruction_rel = f"tasks/{task_id}/instruction.md"
+        toml_rel = f"tasks/{task_id}/task.toml"
+        instruction = read_optional(repo_root / instruction_rel, 1800)
+        metadata: dict[str, Any] = {}
+        task_toml = repo_root / toml_rel
+        if task_toml.exists():
+            metadata = tomllib.loads(task_toml.read_text())
+        env = metadata.get("environment", {})
+        meta = metadata.get("metadata", {})
+        verifier = metadata.get("verifier", {})
+        test_files = sorted(path.relative_to(repo_root).as_posix() for path in (task_dir / "tests").glob("*"))[:8]
+        out.append(
+            sample(
+                "frontier-swe",
+                github_url("Proximal-Labs/frontier-swe", "main", instruction_rel),
+                i,
+                "frontier_software_engineering_task",
+                instruction,
+                input_text=(
+                    f"task_id: {task_id}\ndifficulty: {meta.get('difficulty')}\ncategory: {meta.get('category')}\n"
+                    f"tags: {meta.get('tags')}\ndocker_image: {env.get('docker_image')}\ncpus: {env.get('cpus')}\n"
+                    f"memory_mb: {env.get('memory_mb')}\nstorage_mb: {env.get('storage_mb')}\n"
+                    f"agent_timeout_sec: {metadata.get('agent', {}).get('timeout_sec')}\n"
+                    f"verifier_timeout_sec: {verifier.get('timeout_sec')}\ntest_files: {compact(test_files, 900)}\n"
+                    f"task_toml_url: {github_url('Proximal-Labs/frontier-swe', 'main', toml_rel)}"
+                ),
+                artifact="FrontierSWE public task directory with instruction.md, task.toml, Docker environment, tests, and verifier configuration",
+            )
+        )
+    return out
+
+
 def main() -> None:
     registry = json.loads(REGISTRY_PATH.read_text())
     batches = [
@@ -994,6 +1033,7 @@ def main() -> None:
         harvey_lab_rows(),
         blueprint_bench_rows(),
         finance_agent_rows(),
+        frontier_swe_rows(),
     ]
     rows = [row for batch in batches for row in batch]
     target_ids = {row["benchmark_id"] for row in rows}

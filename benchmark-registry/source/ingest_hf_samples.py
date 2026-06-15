@@ -1002,6 +1002,26 @@ def gdpval_aa_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, met
     )
 
 
+def vantage_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "fixed_camera_video_multiple_choice",
+        clean(row.get("question")),
+        input_text=(
+            f"q_uid: {row.get('q_uid')}\nindustry: {row.get('industry')}\nevent_type: {row.get('event_type')}\n"
+            f"task_type: {row.get('task_type')}\nstart_time: {row.get('start_time')}\n"
+            f"end_time: {row.get('end_time')}\nvideo_duration: {row.get('video_duration')}\n"
+            f"dimension: {row.get('dimension')}"
+        ),
+        options=as_list(row.get("options")),
+        artifact="VANTAGE-Bench public VQA row over fixed-camera operational video",
+    )
+
+
 def include_rows() -> list[dict[str, Any]]:
     dataset = "CohereForAI/include-base-44"
     configs = ["Arabic", "Chinese", "Hindi", "Ukrainian", "Portuguese"]
@@ -1550,6 +1570,13 @@ CONFIGS: list[dict[str, Any]] = [
         "config": "default",
         "split": "train",
         "mapper": gdpval_aa_mapper,
+    },
+    {
+        "benchmark_id": "vantage",
+        "dataset": "nvidia/PhysicalAI-VANTAGE-Bench",
+        "config": "vqa",
+        "split": "test",
+        "mapper": vantage_mapper,
     },
 ]
 
