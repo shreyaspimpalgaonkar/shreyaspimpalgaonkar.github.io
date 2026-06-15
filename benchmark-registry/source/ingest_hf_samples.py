@@ -1062,6 +1062,29 @@ def eclektic_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta
     )
 
 
+def milu_mapper(benchmark_id: str, row: dict[str, Any], row_index: int, meta: dict[str, str]) -> dict[str, Any]:
+    options = [clean(row.get(key)) for key in ("option1", "option2", "option3", "option4")]
+    translated_options = [clean(row.get(key)) for key in ("option1_ar", "option2_ar", "option3_ar", "option4_ar")]
+    return base_sample(
+        benchmark_id,
+        meta["dataset"],
+        meta["config"],
+        meta["split"],
+        row_index,
+        "indic_multitask_multiple_choice",
+        clean(row.get("question")),
+        input_text=(
+            f"language: {row.get('language')}\ndomain: {row.get('domain')}\nsubject: {row.get('subject')}\n"
+            f"is_translated: {row.get('is_translated')}\nquestion_ar: {row.get('question_ar')}\n"
+            f"translated_options: {translated_options}"
+        ),
+        answer=clean(row.get("target")),
+        options=options,
+        artifact="Public MILU mirror row with multiple-choice question, options, answer key, language/domain metadata, and translated fields",
+        provenance="Hugging Face dataset mirror",
+    )
+
+
 def include_rows() -> list[dict[str, Any]]:
     dataset = "CohereForAI/include-base-44"
     configs = ["Arabic", "Chinese", "Hindi", "Ukrainian", "Portuguese"]
@@ -1631,6 +1654,13 @@ CONFIGS: list[dict[str, Any]] = [
         "config": "default",
         "split": "train",
         "mapper": eclektic_mapper,
+    },
+    {
+        "benchmark_id": "milu",
+        "dataset": "oddadmix/ai4bharat-MILU",
+        "config": "default",
+        "split": "validation",
+        "mapper": milu_mapper,
     },
 ]
 
