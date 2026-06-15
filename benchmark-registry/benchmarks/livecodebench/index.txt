@@ -7,18 +7,318 @@
 b:I[4431,[],"MetadataBoundary"]
 c:"$Sreact.suspense"
 e:I[7150,[],""]
-:HL["/benchmark-registry/_next/static/css/ce3127f9e169db37.css","style"]
-0:{"P":null,"b":"2xG_TAuhKao0CtaOTmyYI","p":"/benchmark-registry","c":["","benchmarks","livecodebench",""],"i":false,"f":[[["",{"children":["benchmarks",{"children":[["id","livecodebench","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/benchmark-registry/_next/static/css/ce3127f9e169db37.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":["benchmarks",["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["id","livecodebench","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L4",null,["$","$L5",null,{"children":["$L6",["$","$L7",null,{"promise":"$@8"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$L9",null,{"children":"$La"}],null],["$","$Lb",null,{"children":["$","div",null,{"hidden":true,"children":["$","$c",null,{"fallback":null,"children":"$Ld"}]}]}]]}],false]],"m":"$undefined","G":["$e",[]],"s":false,"S":true}
+:HL["/benchmark-registry/_next/static/css/de5dc80d7b62ac72.css","style"]
+0:{"P":null,"b":"Arcd0Gkcw-yBWB-1jVrBE","p":"/benchmark-registry","c":["","benchmarks","livecodebench",""],"i":false,"f":[[["",{"children":["benchmarks",{"children":[["id","livecodebench","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/benchmark-registry/_next/static/css/de5dc80d7b62ac72.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":["benchmarks",["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["id","livecodebench","d"],["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L4",null,["$","$L5",null,{"children":["$L6",["$","$L7",null,{"promise":"$@8"}]]}]]}],{},null,false]},null,false]},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$L9",null,{"children":"$La"}],null],["$","$Lb",null,{"children":["$","div",null,{"hidden":true,"children":["$","$c",null,{"fallback":null,"children":"$Ld"}]}]}]]}],false]],"m":"$undefined","G":["$e",[]],"s":false,"S":true}
 f:I[2619,["619","static/chunks/619-ba102abea3e3d0e4.js","651","static/chunks/app/benchmarks/%5Bid%5D/page-a84de58d962f3a46.js"],""]
-4:["$","main",null,{"className":"profile-page","children":[["$","div",null,{"className":"profile-topbar","children":[["$","$Lf",null,{"href":"/","className":"back-link","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":16,"height":16,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Registry"]}],["$","div",null,{"className":"profile-source-actions","children":[["$","a",null,{"href":"https://arxiv.org/abs/2403.07974","target":"_blank","rel":"noreferrer","children":["Official source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],""]}]]}],["$","header",null,{"className":"profile-hero","children":[["$","div",null,{"children":[["$","div",null,{"className":"eyebrow","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":16,"height":16,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-database","children":[["$","ellipse","msslwz",{"cx":"12","cy":"5","rx":"9","ry":"3"}],["$","path","1wlel7",{"d":"M3 5V19A9 3 0 0 0 21 19V5"}],["$","path","mv7ke4",{"d":"M3 12A9 3 0 0 0 21 12"}],"$undefined"]}],"Benchmark profile"]}],["$","h1",null,{"children":"LiveCodeBench"}],["$","p",null,{"children":"Benchmark record pending curated summary. Domain: coding; type: dataset_eval."}],["$","div",null,{"className":"tags","children":[["$","span","coding-undefined",{"className":"tag coding","children":"coding"}],["$","span","dataset_eval-undefined",{"className":"tag dataset_eval","children":"dataset eval"}],["$","span","public-public",{"className":"tag public","children":"public"}],["$","span","approximate-undefined",{"className":"tag approximate","children":"approximate"}]]}]]}],["$","div",null,{"className":"profile-status-card","children":[["$","span",null,{"className":"status incomplete","children":"sample incomplete"}],["$","b",null,{"children":[0,"/5 public samples"]}],["$","p",null,{"children":"This registry treats five public, source-linked samples as the minimum for a complete benchmark profile."}]]}]]}],["$","section",null,{"className":"profile-grid","children":[["$","div",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Definition"}],["$","dl",null,{"className":"definition-list","children":[["$","div",null,{"children":[["$","dt",null,{"children":"Benchmark ID"}],["$","dd",null,{"children":"livecodebench"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Primary Task"}],["$","dd",null,{"children":"unknown"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Primary Metric"}],["$","dd",null,{"children":"benchmark-specific"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Harness"}],["$","dd",null,{"children":"unknown"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Versions"}],["$","dd",null,{"children":"0"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Citations"}],["$","dd",null,{"children":"0"}]]}]]}]]}],["$","div",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Trust Signals"}],["$","div",null,{"className":"trust-stack","children":[["$","div",null,{"className":"trust-row","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield-check","children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],["$","path","dzmm74",{"d":"m9 12 2 2 4-4"}],"$undefined"]}],["$","span",null,{"children":"Official source"}],["$","b",null,{"className":"ok","children":"yes"}]]}],["$","div",null,{"className":"trust-row","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield-check","children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],"$L10","$undefined"]}],"$L11","$L12"]}],"$L13","$L14"]}]]}]]}],"$L15","$L16","$L17"]}]
+4:["$","main",null,{"className":"profile-page","children":[["$","div",null,{"className":"profile-topbar","children":[["$","$Lf",null,{"href":"/","className":"back-link","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":16,"height":16,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-left","children":[["$","path","1l729n",{"d":"m12 19-7-7 7-7"}],["$","path","x3x0zl",{"d":"M19 12H5"}],"$undefined"]}],"Registry"]}],["$","div",null,{"className":"profile-source-actions","children":[["$","a",null,{"href":"https://arxiv.org/abs/2403.07974","target":"_blank","rel":"noreferrer","children":["Official source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],""]}]]}],["$","header",null,{"className":"profile-hero","children":[["$","div",null,{"children":[["$","div",null,{"className":"eyebrow","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":16,"height":16,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-database","children":[["$","ellipse","msslwz",{"cx":"12","cy":"5","rx":"9","ry":"3"}],["$","path","1wlel7",{"d":"M3 5V19A9 3 0 0 0 21 19V5"}],["$","path","mv7ke4",{"d":"M3 12A9 3 0 0 0 21 12"}],"$undefined"]}],"Benchmark profile"]}],["$","h1",null,{"children":"LiveCodeBench"}],["$","p",null,{"children":"Benchmark record pending curated summary. Domain: coding; type: dataset_eval."}],["$","div",null,{"className":"tags","children":[["$","span","coding-undefined",{"className":"tag coding","children":"coding"}],["$","span","dataset_eval-undefined",{"className":"tag dataset_eval","children":"dataset eval"}],["$","span","public-public",{"className":"tag public","children":"public"}],["$","span","approximate-undefined",{"className":"tag approximate","children":"approximate"}]]}]]}],["$","div",null,{"className":"profile-status-card","children":[["$","span",null,{"className":"status complete","children":"sample complete"}],["$","b",null,{"children":[5,"/5 public samples"]}],["$","p",null,{"children":"This registry treats five public, source-linked samples as the minimum for a complete benchmark profile."}]]}]]}],["$","section",null,{"className":"profile-grid","children":[["$","div",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Definition"}],["$","dl",null,{"className":"definition-list","children":[["$","div",null,{"children":[["$","dt",null,{"children":"Benchmark ID"}],["$","dd",null,{"children":"livecodebench"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Primary Task"}],["$","dd",null,{"children":"unknown"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Primary Metric"}],["$","dd",null,{"children":"benchmark-specific"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Harness"}],["$","dd",null,{"children":"unknown"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Versions"}],["$","dd",null,{"children":"0"}]]}],["$","div",null,{"children":[["$","dt",null,{"children":"Citations"}],["$","dd",null,{"children":"0"}]]}]]}]]}],["$","div",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Trust Signals"}],["$","div",null,{"className":"trust-stack","children":[["$","div",null,{"className":"trust-row","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield-check","children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],["$","path","dzmm74",{"d":"m9 12 2 2 4-4"}],"$undefined"]}],["$","span",null,{"children":"Official source"}],["$","b",null,{"className":"ok","children":"yes"}]]}],["$","div",null,{"className":"trust-row","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield-check","children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],"$L10","$undefined"]}],"$L11","$L12"]}],"$L13","$L14"]}]]}]]}],"$L15","$L16","$L17"]}]
 10:["$","path","dzmm74",{"d":"m9 12 2 2 4-4"}]
 11:["$","span",null,{"children":"Public sample rows"}]
-12:["$","b",null,{"className":"missing","children":"missing"}]
+12:["$","b",null,{"className":"ok","children":"yes"}]
 13:["$","div",null,{"className":"trust-row","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield-check","children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],["$","path","dzmm74",{"d":"m9 12 2 2 4-4"}],"$undefined"]}],["$","span",null,{"children":"Public access"}],["$","b",null,{"className":"ok","children":"yes"}]]}]
 14:["$","div",null,{"className":"trust-row","children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-shield-check","children":[["$","path","oel41y",{"d":"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"}],["$","path","dzmm74",{"d":"m9 12 2 2 4-4"}],"$undefined"]}],["$","span",null,{"children":"Reproducible protocol"}],["$","b",null,{"className":"missing","children":"missing"}]]}]
-15:["$","section",null,{"className":"profile-panel sample-explorer","children":[["$","div",null,{"className":"section-head","children":["$","div",null,{"children":[["$","h2",null,{"children":"Dataset Sample Explorer"}],["$","p",null,{"children":"Samples are the center of the benchmark profile. Missing rows are shown explicitly instead of hidden."}]]}]}],["$","div",null,{"className":"sample-explorer-grid","children":[[],[["$","article","missing-0",{"className":"sample-record missing","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":["Missing public sample ",1]}]]}],["$","p",null,{"children":"Add an official public row with prompt/question, input artifact link, task, and source URL."}]]}],["$","article","missing-1",{"className":"sample-record missing","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":["Missing public sample ",2]}]]}],["$","p",null,{"children":"Add an official public row with prompt/question, input artifact link, task, and source URL."}]]}],["$","article","missing-2",{"className":"sample-record missing","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":["Missing public sample ",3]}]]}],["$","p",null,{"children":"Add an official public row with prompt/question, input artifact link, task, and source URL."}]]}],["$","article","missing-3",{"className":"sample-record missing","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":["Missing public sample ",4]}]]}],["$","p",null,{"children":"Add an official public row with prompt/question, input artifact link, task, and source URL."}]]}],["$","article","missing-4",{"className":"sample-record missing","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":["Missing public sample ",5]}]]}],["$","p",null,{"children":"Add an official public row with prompt/question, input artifact link, task, and source URL."}]]}]]]}]]}]
-16:["$","section",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Artifacts"}],["$","div",null,{"className":"artifact-list profile-artifacts","children":[[["$","a","site-https://arxiv.org/abs/2403.07974",{"href":"https://arxiv.org/abs/2403.07974","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"site"}],["$","b",null,{"children":"Official benchmark page"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}]],false]}]]}]
+18:T571,A DDoS-type string is a string of length 4 consisting of uppercase and lowercase English letters satisfying both of the following conditions.
+
+- The first, second, and fourth characters are uppercase English letters, and the third character is a lowercase English letter.
+- The first and second characters are equal.
+
+For instance, DDoS and AAaA are DDoS-type strings, while neither ddos nor IPoE is.
+You are given a string S consisting of uppercase and lowercase English letters and ?.
+Let q be the number of occurrences of ? in S. There are 52^q strings that can be obtained by independently replacing each ? in S with an uppercase or lowercase English letter.
+Among these strings, find the number of ones that do not contain a DDoS-type string as a subsequence, modulo 998244353.
+
+Input
+
+The input is given from Standard Input in the following format:
+S
+
+Output
+
+Print the answer.
+
+Constraints
+
+
+- S consists of uppercase English letters, lowercase English letters, and ?.
+- The length of S is between 4 and 3\times 10^5, inclusive.
+
+Sample Input 1
+
+DD??S
+
+Sample Output 1
+
+676
+
+When at least one of the ?s is replaced with a lowercase English letter, the resulting string will contain a DDoS-type string as a subsequence.
+
+Sample Input 2
+
+????????????????????????????????????????
+
+Sample Output 2
+
+858572093
+
+Find the count modulo 998244353.
+
+Sample Input 3
+
+?D??S
+
+Sample Output 3
+
+13660415:["$","section",null,{"className":"profile-panel sample-explorer","children":[["$","div",null,{"className":"section-head","children":["$","div",null,{"children":[["$","h2",null,{"children":"Dataset Sample Explorer"}],["$","p",null,{"children":"Samples are the center of the benchmark profile. Missing rows are shown explicitly instead of hidden."}]]}]}],["$","div",null,{"className":"sample-explorer-grid","children":[[["$","article","livecodebench:default:test:0",{"className":"sample-record","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":"competitive programming"}]]}],["$","p",null,{"children":"$18"}],["$","p",null,{"className":"sample-input","children":"title: Anti\nplatform: atcoder\ndifficulty: hard"}],null,["$","span",null,{"children":["Answer: ","[{\"input\": \"DD??S\\n\", \"output\": \"676\\n\", \"testtype\": \"stdin\"}, {\"input\": \"????????????????????????????????????????\\n\", \"output\": \"858572093\\n\", \"testtype\": \"stdin\"}, {\"input\": \"?D??S\\n\", \"output\": \"136604\\n\", \"testtype\": \"stdin\"}]"]}],["$","span",null,{"children":"Programming problem with public/private test cases"}],["$","span",null,{"children":["livecodebench/code_generation"," / default"," / test"," / row 0"]}],["$","a",null,{"href":"https://huggingface.co/datasets/livecodebench/code_generation/viewer/default/test?row=0","target":"_blank","rel":"noreferrer","children":["Sample source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],"$undefined"]}],["$","article","livecodebench:default:test:1",{"className":"sample-record","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":["$L19","$L1a","$L1b","$L1c","$L1d","$undefined"]}],"$L1e"]}],"$L1f","$L20",null,"$L21","$L22","$L23","$L24","$undefined"]}],"$L25","$L26","$L27"],[]]}]]}]
+16:["$","section",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Artifacts"}],["$","div",null,{"className":"artifact-list profile-artifacts","children":[[["$","a","site-https://arxiv.org/abs/2403.07974",{"href":"https://arxiv.org/abs/2403.07974","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"site"}],["$","b",null,{"children":"Official benchmark page"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a","sample-https://huggingface.co/datasets/livecodebench/code_generation/viewer/default/test?row=0",{"href":"https://huggingface.co/datasets/livecodebench/code_generation/viewer/default/test?row=0","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"sample"}],["$","b",null,{"children":"livecodebench:default:test:0"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a","sample-https://huggingface.co/datasets/livecodebench/code_generation/viewer/default/test?row=1",{"href":"https://huggingface.co/datasets/livecodebench/code_generation/viewer/default/test?row=1","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"sample"}],["$","b",null,{"children":"livecodebench:default:test:1"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a","sample-https://huggingface.co/datasets/livecodebench/code_generation/viewer/default/test?row=2",{"href":"https://huggingface.co/datasets/livecodebench/code_generation/viewer/default/test?row=2","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"sample"}],["$","b",null,{"children":"livecodebench:default:test:2"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a","sample-https://huggingface.co/datasets/livecodebench/code_generation/viewer/default/test?row=3",{"href":"https://huggingface.co/datasets/livecodebench/code_generation/viewer/default/test?row=3","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"sample"}],["$","b",null,{"children":"livecodebench:default:test:3"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],["$","a","sample-https://huggingface.co/datasets/livecodebench/code_generation/viewer/default/test?row=4",{"href":"https://huggingface.co/datasets/livecodebench/code_generation/viewer/default/test?row=4","target":"_blank","rel":"noreferrer","children":[["$","span",null,{"children":"sample"}],["$","b",null,{"children":"livecodebench:default:test:4"}],["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}]],false]}]]}]
 17:["$","section",null,{"className":"profile-panel","children":[["$","h2",null,{"children":"Citations"}],["$","table",null,{"className":"profile-table","children":["$","tbody",null,{"children":[[],["$","tr",null,{"children":[["$","th",null,{"children":"missing"}],["$","td",null,{"children":"No citation recorded yet."}]]}]]}]}]]}]
+19:["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}]
+1a:["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}]
+1b:["$","path","b1mrlr",{"d":"M10 9H8"}]
+1c:["$","path","t4e002",{"d":"M16 13H8"}]
+1d:["$","path","z1uh3a",{"d":"M16 17H8"}]
+1e:["$","b",null,{"children":"competitive programming"}]
+28:T46d,Takahashi and Aoki played N games.
+You are given a string S of length N, representing the results of these games.
+Takahashi won the i-th game if the i-th character of S is T, and Aoki won that game if it is A.
+The overall winner between Takahashi and Aoki is the one who won more games than the other.
+If they had the same number of wins, the overall winner is the one who reached that number of wins first.
+Find the overall winner: Takahashi or Aoki.
+
+Input
+
+The input is given from Standard Input in the following format:
+N
+S
+
+Output
+
+If the overall winner is Takahashi, print T; if it is Aoki, print A.
+
+Constraints
+
+
+- 1\leq N \leq 100
+- N is an integer.
+- S is a string of length N consisting of T and A.
+
+Sample Input 1
+
+5
+TTAAT
+
+Sample Output 1
+
+T
+
+Takahashi won three games, and Aoki won two.
+Thus, the overall winner is Takahashi, who won more games.
+
+Sample Input 2
+
+6
+ATTATA
+
+Sample Output 2
+
+T
+
+Both Takahashi and Aoki won three games.
+Takahashi reached three wins in the fifth game, and Aoki in the sixth game.
+Thus, the overall winner is Takahashi, who reached three wins first.
+
+Sample Input 3
+
+1
+A
+
+Sample Output 3
+
+A1f:["$","p",null,{"children":"$28"}]
+20:["$","p",null,{"className":"sample-input","children":"title: Overall Winner\nplatform: atcoder\ndifficulty: easy"}]
+21:["$","span",null,{"children":["Answer: ","[{\"input\": \"5\\nTTAAT\\n\", \"output\": \"T\\n\", \"testtype\": \"stdin\"}, {\"input\": \"6\\nATTATA\\n\", \"output\": \"T\\n\", \"testtype\": \"stdin\"}, {\"input\": \"1\\nA\\n\", \"output\": \"A\\n\", \"testtype\": \"stdin\"}]"]}]
+22:["$","span",null,{"children":"Programming problem with public/private test cases"}]
+23:["$","span",null,{"children":["livecodebench/code_generation"," / default"," / test"," / row 1"]}]
+24:["$","a",null,{"href":"https://huggingface.co/datasets/livecodebench/code_generation/viewer/default/test?row=1","target":"_blank","rel":"noreferrer","children":["Sample source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}]
+29:T553,A single-player card game is popular in AtCoder Inc.
+Each card in the game has a lowercase English letter or the symbol @ written on it. There is plenty number of cards for each kind.
+The game goes as follows.
+
+- Arrange the same number of cards in two rows.
+- Replace each card with @ with one of the following cards: a, t, c, o, d, e, r.
+- If the two rows of cards coincide, you win. Otherwise, you lose.
+
+To win this game, you will do the following cheat.
+
+- Freely rearrange the cards within a row whenever you want after step 1.
+
+You are given two strings S and T, representing the two rows you have after step 1. Determine whether it is possible to win with cheating allowed.
+
+Input
+
+The input is given from Standard Input in the following format:
+S
+T
+
+Output
+
+If it is possible to win with cheating allowed, print Yes; otherwise, print No.
+
+Constraints
+
+
+- S and T consist of lowercase English letters and @.
+- The lengths of S and T are equal and between 1 and 2\times 10^5, inclusive.
+
+Sample Input 1
+
+ch@ku@ai
+choku@@i
+
+Sample Output 1
+
+Yes
+
+You can replace the @s so that both rows become chokudai.
+
+Sample Input 2
+
+ch@kud@i
+akidu@ho
+
+Sample Output 2
+
+Yes
+
+You can cheat and replace the @s so that both rows become chokudai.
+
+Sample Input 3
+
+aoki
+@ok@
+
+Sample Output 3
+
+No
+
+You cannot win even with cheating.
+
+Sample Input 4
+
+aa
+bb
+
+Sample Output 4
+
+No25:["$","article","livecodebench:default:test:2",{"className":"sample-record","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":"competitive programming"}]]}],["$","p",null,{"children":"$29"}],["$","p",null,{"className":"sample-input","children":"title: AtCoder Cards\nplatform: atcoder\ndifficulty: medium"}],null,["$","span",null,{"children":["Answer: ","[{\"input\": \"ch@ku@ai\\nchoku@@i\\n\", \"output\": \"Yes\\n\", \"testtype\": \"stdin\"}, {\"input\": \"ch@kud@i\\nakidu@ho\\n\", \"output\": \"Yes\\n\", \"testtype\": \"stdin\"}, {\"input\": \"aoki\\n@ok@\\n\", \"output\": \"No\\n\", \"testtype\": \"stdin\"}, {\"input\": \"aa\\nbb\\n\", \"output\": \"No\\n\", \"testtype\": \"stdin\"}]"]}],["$","span",null,{"children":"Programming problem with public/private test cases"}],["$","span",null,{"children":["livecodebench/code_generation"," / default"," / test"," / row 2"]}],["$","a",null,{"href":"https://huggingface.co/datasets/livecodebench/code_generation/viewer/default/test?row=2","target":"_blank","rel":"noreferrer","children":["Sample source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],"$undefined"]}]
+2a:T455,You are given an integer N and a string S consisting of 0, 1, and ?.
+Let T be the set of values that can be obtained by replacing each ? in S with 0 or 1 and interpreting the result as a binary integer.
+For instance, if S= ?0?, we have T=\lbrace 000_{(2)},001_{(2)},100_{(2)},101_{(2)}\rbrace=\lbrace 0,1,4,5\rbrace.
+Print (as a decimal integer) the greatest value in T less than or equal to N.
+If T does not contain a value less than or equal to N, print -1 instead.
+
+Input
+
+The input is given from Standard Input in the following format:
+S
+N
+
+Output
+
+Print the answer.
+
+Constraints
+
+
+- S is a string consisting of 0, 1, and ?.
+- The length of S is between 1 and 60, inclusive.
+- 1\leq N \leq 10^{18}
+- N is an integer.
+
+Sample Input 1
+
+?0?
+2
+
+Sample Output 1
+
+1
+
+As shown in the problem statement, T=\lbrace 0,1,4,5\rbrace.
+Among them, 0 and 1 are less than or equal to N, so you should print the greatest of them, 1.
+
+Sample Input 2
+
+101
+4
+
+Sample Output 2
+
+-1
+
+We have T=\lbrace 5\rbrace, which does not contain a value less than or equal to N.
+
+Sample Input 3
+
+?0?
+1000000000000000000
+
+Sample Output 3
+
+526:["$","article","livecodebench:default:test:3",{"className":"sample-record","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":"competitive programming"}]]}],["$","p",null,{"children":"$2a"}],["$","p",null,{"className":"sample-input","children":"title: Bitmask\nplatform: atcoder\ndifficulty: medium"}],null,["$","span",null,{"children":["Answer: ","[{\"input\": \"?0?\\n2\\n\", \"output\": \"1\\n\", \"testtype\": \"stdin\"}, {\"input\": \"101\\n4\\n\", \"output\": \"-1\\n\", \"testtype\": \"stdin\"}, {\"input\": \"?0?\\n1000000000000000000\\n\", \"output\": \"5\\n\", \"testtype\": \"stdin\"}]"]}],["$","span",null,{"children":"Programming problem with public/private test cases"}],["$","span",null,{"children":["livecodebench/code_generation"," / default"," / test"," / row 3"]}],["$","a",null,{"href":"https://huggingface.co/datasets/livecodebench/code_generation/viewer/default/test?row=3","target":"_blank","rel":"noreferrer","children":["Sample source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],"$undefined"]}]
+2b:T556,We have a sequence of length N consisting of positive integers: A=(A_1,\ldots,A_N). Any two adjacent terms have different values.
+Let us insert some numbers into this sequence by the following procedure.
+
+- If every pair of adjacent terms in A has an absolute difference of 1, terminate the procedure.
+- Let A_i, A_{i+1} be the pair of adjacent terms nearest to the beginning of A whose absolute difference is not 1.
+- If A_i < A_{i+1}, insert A_i+1,A_i+2,\ldots,A_{i+1}-1 between A_i and A_{i+1}.
+- If A_i > A_{i+1}, insert A_i-1,A_i-2,\ldots,A_{i+1}+1 between A_i and A_{i+1}.
+
+
+- Return to step 1.
+
+Print the sequence when the procedure ends.
+
+Input
+
+The input is given from Standard Input in the following format:
+N
+A_1 A_2 \ldots A_N
+
+Output
+
+Print the terms in the sequence when the procedure ends, separated by spaces.
+
+Constraints
+
+
+- 2 \leq N \leq 100
+- 1 \leq A_i \leq 100
+- A_i \neq A_{i+1}
+- All values in the input are integers.
+
+Sample Input 1
+
+4
+2 5 1 2
+
+Sample Output 1
+
+2 3 4 5 4 3 2 1 2
+
+The initial sequence is (2,5,1,2). The procedure goes as follows.
+
+- Insert 3,4 between the first term 2 and the second term 5, making the sequence (2,3,4,5,1,2).
+- Insert 4,3,2 between the fourth term 5 and the fifth term 1, making the sequence (2,3,4,5,4,3,2,1,2).
+
+Sample Input 2
+
+6
+3 4 5 6 5 4
+
+Sample Output 2
+
+3 4 5 6 5 4
+
+No insertions may be performed.27:["$","article","livecodebench:default:test:4",{"className":"sample-record","children":[["$","div",null,{"children":[["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":17,"height":17,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-file-text","children":[["$","path","1rqfz7",{"d":"M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"}],["$","path","tnqrlb",{"d":"M14 2v4a2 2 0 0 0 2 2h4"}],["$","path","b1mrlr",{"d":"M10 9H8"}],["$","path","t4e002",{"d":"M16 13H8"}],["$","path","z1uh3a",{"d":"M16 17H8"}],"$undefined"]}],["$","b",null,{"children":"competitive programming"}]]}],["$","p",null,{"children":"$2b"}],["$","p",null,{"className":"sample-input","children":"title: Fill the Gaps\nplatform: atcoder\ndifficulty: easy"}],null,["$","span",null,{"children":["Answer: ","[{\"input\": \"4\\n2 5 1 2\\n\", \"output\": \"2 3 4 5 4 3 2 1 2\\n\", \"testtype\": \"stdin\"}, {\"input\": \"6\\n3 4 5 6 5 4\\n\", \"output\": \"3 4 5 6 5 4\\n\", \"testtype\": \"stdin\"}]"]}],["$","span",null,{"children":"Programming problem with public/private test cases"}],["$","span",null,{"children":["livecodebench/code_generation"," / default"," / test"," / row 4"]}],["$","a",null,{"href":"https://huggingface.co/datasets/livecodebench/code_generation/viewer/default/test?row=4","target":"_blank","rel":"noreferrer","children":["Sample source ",["$","svg",null,{"ref":"$undefined","xmlns":"http://www.w3.org/2000/svg","width":14,"height":14,"viewBox":"0 0 24 24","fill":"none","stroke":"currentColor","strokeWidth":2,"strokeLinecap":"round","strokeLinejoin":"round","className":"lucide lucide-arrow-up-right","children":[["$","path","1tivn9",{"d":"M7 7h10v10"}],["$","path","1vkiza",{"d":"M7 17 17 7"}],"$undefined"]}]]}],"$undefined"]}]
 a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
 6:null
 8:{"metadata":[["$","title","0",{"children":"LiveCodeBench | Open Benchmark Registry"}],["$","meta","1",{"name":"description","content":"Benchmark record pending curated summary. Domain: coding; type: dataset_eval."}]],"error":null,"digest":"$undefined"}
