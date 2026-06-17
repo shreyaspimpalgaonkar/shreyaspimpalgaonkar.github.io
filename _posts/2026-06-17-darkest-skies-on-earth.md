@@ -40,6 +40,18 @@ coordinates (a flat pixel distance would be badly wrong near the poles).
     <img src="/assets/img/blogs/bortle/hero_pacific.png" alt="World map of the largest Bortle-1 dark-sky circles" width="100%">
 </div>
 
+### On a globe
+
+The same circles, draped over the planet's light-pollution texture. **Drag to
+rotate** — the cyan rings are the darkest circles (mostly ocean), the green ones
+are the *accessible* circles discussed below.
+
+<iframe src="{{ '/assets/plotly/dark_sky_globe.html' | relative_url }}" frameborder="0" scrolling="no" height="720px" width="100%" style="border:none;"></iframe>
+
+<div style="text-align:center; padding-top: 6px; padding-bottom: 20px;">
+    <img src="/assets/img/blogs/bortle/globe_3d.png" alt="3D globe of Earth's light pollution with dark-sky circles" width="100%">
+</div>
+
 ## The answer
 
 Unsurprisingly, **the open ocean wins** — the darkest, most light-remote places
@@ -94,6 +106,34 @@ remote islands:
 | 4 | Line Islands (Kiribati) | 2.9°S, 171.6°W | 1,188 km |
 | 5 | Pitcairn / Ducie | 24.4°S, 128.3°W | 1,064 km |
 
+## Dark skies you can actually get to
+
+Remote islands and mid-ocean points are darkest, but you can't exactly drive
+there. So I added an **accessibility filter**: keep only circles where there's a
+**mapped road within ~12 km of the center** (so you can reach the sweet spot) *and*
+**at least one airport inside the circle** (so you can fly somewhere nearby). For
+roads I used the **GRIP4** global road database (5 arc-min density raster); for
+airports, the **OurAirports** database (small/medium/large airports — note that any
+airport *inside* a pristine circle is necessarily a small, dim airstrip, since a
+big lit airport would itself break the darkness).
+
+| # | Place | Center (lat, lon) | Radius | Nearest airport (inside) |
+|---|---|---|---|---|
+| 1 | **Norfolk Island** (Tasman Sea) | 29.0°S, 168.1°E | 703 km | Norfolk Is. Intl, 13 km — **scheduled flights** |
+| 2 | **Tanezrouft Basin**, Sahara (Algeria/Mali) | 21.6°N, 6.2°W | 525 km | Chegga (Mauritania), 418 km |
+| 3 | **Tibesti**, N. Chad | 21.8°N, 17.9°E | 450 km | Aozou airstrip, 93 km |
+| 4 | **Libyan Desert** (Sudan/Chad/Libya) | 19.6°N, 25.0°E | 444 km | desert strip, 339 km |
+| 5 | **Zemio**, S.E. Central African Rep. | 4.7°N, 24.8°E | 399 km | Zemio, 47 km |
+
+Honorable mention: the **Canning Stock Route** in the Western Australian desert
+(22.7°S, 125.9°E, r ≈ 363 km), with the remote "Well 33" airstrip 120 km away — a
+genuinely reachable, world-class outback dark-sky site.
+
+The clear practical winner is **Norfolk Island**: it has commercial flights, sealed
+roads, and the nearest light pollution is ~700 km away across the Tasman Sea. For a
+true *continental* trip, the **central Sahara** gives you a ~525 km-radius bubble of
+pristine sky.
+
 ## Method notes
 
 - Working grid: 0.05° (~5.5 km), max-pooled from the native 30″ raster.
@@ -105,8 +145,10 @@ remote islands:
 
 ---
 
-*Data: Falchi, F. et al., "The new world atlas of artificial night sky
-brightness," **Science Advances** 2, e1600377 (2016),
+*Data: light pollution — Falchi, F. et al., "The new world atlas of artificial
+night sky brightness," **Science Advances** 2, e1600377 (2016),
 [doi:10.1126/sciadv.1600377](https://doi.org/10.1126/sciadv.1600377); dataset via
 GFZ Data Services, [doi:10.5880/GFZ.1.4.2016.001](https://doi.org/10.5880/GFZ.1.4.2016.001)
-(CC BY-NC 4.0).*
+(CC BY-NC 4.0). Roads — Global Roads Inventory Project
+[GRIP4](https://www.globio.info/download-grip-dataset) (Meijer et al. 2018, ODbL).
+Airports — [OurAirports](https://ourairports.com/data/) (public domain).*
