@@ -92,11 +92,8 @@
       {% endfor %}
       {% assign more_authors = author_array_size | minus: author_array_limit %}
 
-      {% assign more_authors_hide = more_authors | append: ' more author' %}
+      {% assign more_authors_hide = 'et al.' %}
       {% if more_authors > 0 %}
-        {% if more_authors > 1 %}
-          {% assign more_authors_hide = more_authors_hide | append: 's' %}
-        {% endif %}
         {% assign more_authors_show = '' %}
         {% for author in entry.author_array offset: author_array_limit %}
           {% assign more_authors_show = more_authors_show | append: author.first | append: ' ' | append: author.last %}
@@ -104,10 +101,24 @@
             {% assign more_authors_show = more_authors_show | append: ', ' %}
           {% endunless %}
         {% endfor %}
-        , and
+        {% comment %} Surface the profile author's name with ellipses when they are hidden beyond the cutoff {% endcomment %}
+        {% assign self_hidden = false %}
+        {% assign self_name = '' %}
+        {% for author in entry.author_array offset: author_array_limit %}
+          {% assign a_last = author.last | remove: '¶' | remove: '&' | remove: '*' | remove: '†' | remove: '^' %}
+          {% if site.scholar.last_name contains a_last %}
+            {% if site.scholar.first_name contains author.first %}
+              {% assign self_hidden = true %}
+              {% capture self_name %}{{ author.first }} {{ author.last }}{% endcapture %}
+              {% break %}
+            {% endif %}
+          {% endif %}
+        {% endfor %}
+        {% if self_hidden %}, &hellip; <em>{{ self_name | strip }}</em>{% endif %}
+        ,
         <span
           class="more-authors"
-          title="click to view {{more_authors_hide}}"
+          title="click to show all authors"
           onclick="
               var element = $(this);
               element.attr('title', '');

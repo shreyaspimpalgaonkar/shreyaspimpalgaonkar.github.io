@@ -3,7 +3,107 @@
 
 @string{aps = {American Physical Society,}}
 
+@article{merrill2026terminalbench,
+  abbr={arXiv},
+  title={Terminal-Bench: Benchmarking Agents on Hard, Realistic Tasks in Command Line Interfaces},
+  author={Mike A. Merrill and Alexander G. Shaw and Nicholas Carlini and Boxuan Li and Harsh Raj and Ivan Bercovich and Lin Shi and Jeong Yeon Shin and Thomas Walshe and E. Kelly Buchanan and Junhong Shen and Guanghao Ye and Haowei Lin and Jason Poulos and Maoyu Wang and Marianna Nezhurina and Jenia Jitsev and Di Lu and Orfeas Menis Mastromichalakis and Zhiwei Xu and Zizhao Chen and Yue Liu and Robert Zhang and Leon Liangyu Chen and Anurag Kashyap and Jan-Lucas Uslu and Jeffrey Li and Jianbo Wu and Minghao Yan and Song Bian and Vedang Sharma and Ke Sun and Steven Dillmann and Akshay Anand and Andrew Lanpouthakoun and Bardia Koopah and Changran Hu and Etash Guha and Gabriel H. S. Dreiman and Jiacheng Zhu and Karl Krauth and Li Zhong and Niklas Muennighoff and Robert Amanfu and Shangyin Tan and Shreyas Pimpalgaonkar and Tushar Aggarwal and Xiangning Lin and Xin Lan and Xuandong Zhao and Yiqing Liang and Yuanli Wang and Zilong Wang and Changzhi Zhou and David Heineman and Hange Liu and Harsh Trivedi and John Yang and Junhong Lin and Manish Shetty and Michael Yang and Nabil Omi and Negin Raoof and Shanda Li and Terry Yue Zhuo and Wuwei Lin and Yiwei Dai and Yuxin Wang and Wenhao Chai and Shang Zhou and Dariush Wahdany and Ziyu She and Jiaming Hu and Zhikang Dong and Yuxuan Zhu and Sasha Cui and Ahson Saiyed and Arinbjörn Kolbeinsson and Jesse Hu and Christopher Michael Rytting and Ryan Marten and Yixin Wang and Alex Dimakis and Andy Konwinski and Ludwig Schmidt},
+  journal={arXiv preprint arXiv:2601.11868},
+  year={2026},
+  month=jan,
+  arxiv={2601.11868},
+  html={https://arxiv.org/abs/2601.11868},
+  abstract={AI agents may soon become capable of autonomously completing valuable, long-horizon tasks in diverse domains. Current benchmarks either do not measure real-world tasks, or are not sufficiently difficult to meaningfully measure frontier models. To this end, we present Terminal-Bench 2.0: a carefully curated hard benchmark composed of 89 tasks in computer terminal environments inspired by problems from real workflows. Each task features a unique environment, human-written solution, and comprehensive tests for verification. We show that frontier models and agents score less than 65\% on the benchmark and conduct an error analysis to identify areas for model and agent improvement.},
+  bibtex_show={true}
+}
+
+@misc{openthoughts2026tblite,
+  abbr={Benchmark},
+  title={OpenThoughts-TBLite: A High-Signal Benchmark for Iterating on Terminal Agents},
+  author={{OpenThoughts Team}},
+  year={2026},
+  month=feb,
+  howpublished={OpenThoughts blog (with Snorkel AI and Bespoke Labs)},
+  html={https://www.openthoughts.ai/blog/openthoughts-tblite},
+  abstract={OpenThoughts-TBLite is a difficulty-calibrated collection of 100 Terminal-Bench tasks spanning 9 categories that closely tracks Terminal-Bench 2.0 scores (r = 0.911) while running much faster, giving a higher-signal benchmark for debugging, iteration, and training ablations on terminal agents.},
+  bibtex_show={true}
+}
+
+@article{guha2025openthoughts,
+  abbr={arXiv},
+  title={OpenThoughts: Data Recipes for Reasoning Models},
+  author={Etash Guha and Ryan Marten and Sedrick Keh and Negin Raoof and Georgios Smyrnis and Hritik Bansal and Marianna Nezhurina and Jean Mercat and Trung Vu and Zayne Sprague and Ashima Suvarna and Benjamin Feuer and Liangyu Chen and Zaid Khan and Eric Frankel and Sachin Grover and Caroline Choi and Niklas Muennighoff and Shiye Su and Wanjia Zhao and John Yang and Shreyas Pimpalgaonkar and Kartik Sharma and Charlie Cheng-Jie Ji and Yichuan Deng and Sarah Pratt and Vivek Ramanujan and Jon Saad-Falcon and Jeffrey Li and Achal Dave and Alon Albalak and Kushal Arora and Blake Wulfe and Chinmay Hegde and Greg Durrett and Sewoong Oh and Mohit Bansal and Saadia Gabriel and Aditya Grover and Kai-Wei Chang and Vaishaal Shankar and Aaron Gokaslan and Mike A. Merrill and Tatsunori Hashimoto and Yejin Choi and Jenia Jitsev and Reinhard Heckel and Maheswaran Sathiamoorthy and Alexandros G. Dimakis and Ludwig Schmidt},
+  journal={arXiv preprint arXiv:2506.04178},
+  year={2025},
+  month=jun,
+  arxiv={2506.04178},
+  html={https://arxiv.org/abs/2506.04178},
+  abstract={Reasoning models have made rapid progress on many benchmarks involving math, code, and science. Yet there are still many open questions about the best training recipes for reasoning, since state-of-the-art models often rely on proprietary datasets with little public information. The OpenThoughts project aims to create open-source datasets for training reasoning models. Our OpenThoughts2-1M dataset led to OpenThinker2-32B, the first model trained on public reasoning data to match DeepSeek-R1-Distill-32B on benchmarks such as AIME and LiveCodeBench. Systematically studying each step of the pipeline with 1,000+ controlled experiments led to OpenThoughts3; scaling to 1.2M examples with QwQ-32B as teacher yields OpenThoughts3-7B, achieving state-of-the-art results (e.g., 53\% on AIME 2025, 51\% on LiveCodeBench, 54\% on GPQA Diamond).},
+  bibtex_show={true}
+}
+
+@inproceedings{saparov2025transformers,
+  abbr={ICLR},
+  title={Transformers Struggle to Learn to Search},
+  author={Abulhair Saparov and Srushti Pawar and Shreyas Pimpalgaonkar and Nitish Joshi and Richard Yuanzhe Pang and Vishakh Padmakumar and Seyed Mehran Kazemi and Najoung Kim and He He},
+  booktitle={The Thirteenth International Conference on Learning Representations (ICLR)},
+  year={2025},
+  month=apr,
+  arxiv={2412.04703},
+  html={https://openreview.net/forum?id=9cQB1Hwrtw},
+  abstract={Search is foundational to many important tasks, and recent studies have shown that large language models struggle to perform search robustly. Using the graph connectivity problem as a testbed to generate effectively limitless high-coverage data, we train small transformers and test whether they can learn to search. Given the right training distribution, the transformer learns to search, and a mechanistic interpretability analysis shows that it performs search at every vertex in parallel, with each layer expanding the reachable set. However, as the input graph grows, the task becomes harder to learn, and this is not resolved by adding parameters or chain-of-thought, suggesting that scale alone will not yield robust search.},
+  bibtex_show={true}
+}
+
+@misc{marten2025curator,
+  abbr={Software},
+  title={Curator: A Tool for Synthetic Data Creation},
+  author={Ryan Marten and Trung Vu and Charlie Cheng-Jie Ji and Kartik Sharma and Shreyas Pimpalgaonkar and Alexandros G. Dimakis and Maheswaran Sathiamoorthy},
+  year={2025},
+  month=jan,
+  howpublished={Bespoke Labs, open-source software},
+  html={https://github.com/bespokelabsai/curator},
+  abstract={Bespoke Curator is an open-source Python library for synthetic data curation for post-training and structured data extraction. It lets users build synthetic data pipelines with structured outputs, caching, fault recovery, and a built-in data viewer.},
+  bibtex_show={true}
+}
+
+@misc{bespokelabs2025minichart,
+  abbr={Model},
+  title={Bespoke-MiniChart-7B: Pushing the Frontiers of Open VLMs for Chart Understanding},
+  author={{Bespoke Labs}},
+  year={2025},
+  month=apr,
+  howpublished={Bespoke Labs blog},
+  html={https://www.bespokelabs.ai/blog/bespoke-minichart-7b},
+  abstract={Bespoke-MiniChart-7B is an open 7B vision-language model for chart understanding and chart question answering that sets a new state of the art among open VLMs of its size.},
+  bibtex_show={true}
+}
+
+@misc{bespokelabs2025stratos,
+  abbr={Model},
+  title={Bespoke-Stratos: The Unreasonable Effectiveness of Reasoning Distillation},
+  author={{Bespoke Labs}},
+  year={2025},
+  month=jan,
+  howpublished={Bespoke Labs blog},
+  html={https://www.bespokelabs.ai/blog/bespoke-stratos-the-unreasonable-effectiveness-of-reasoning-distillation},
+  abstract={Bespoke-Stratos is a pair of reasoning models (7B and 32B) distilled from DeepSeek-R1 using Berkeley NovaSky's Sky-T1 data pipeline on 17k curated examples. The models outperform Sky-T1 and OpenAI's o1-preview on math and code reasoning benchmarks while using far fewer training examples.},
+  bibtex_show={true}
+}
+
+@misc{pimpalgaonkar2024triplex,
+  abbr={Model},
+  title={Triplex: A SOTA LLM for Knowledge Graph Construction},
+  author={Shreyas Pimpalgaonkar and Nolan Tremelling and Owen Colegrove},
+  year={2024},
+  month=jul,
+  howpublished={Hugging Face (SciPhi.AI)},
+  html={https://huggingface.co/SciPhi/Triplex},
+  abstract={Triplex is a fine-tuned version of Phi3-3.8B that builds knowledge graphs from unstructured text by extracting triplets (subject, predicate, object), constructing knowledge graphs at a large cost reduction relative to using GPT-4.},
+  bibtex_show={true}
+}
+
 @inproceedings{pimpalgaonkar-etal-2021-introduction,
+    abbr={ICON},
     title = "Introduction to {P}roverb{N}et: An Online Multilingual Database of Proverbs and Comprehensive Metadata",
     author = "Pimpalgaonkar, Shreyas  and
       Lele, Dhanashree  and
@@ -13,7 +113,9 @@
     month = dec,
     year = "2021",
     url = {https://aclanthology.org/2021.icon-main.78},
+    html = {https://aclanthology.org/2021.icon-main.78},
     pages = "638--650",
     abstract = "Proverbs are unique linguistic expressions used by humans in the process of communication. They are frozen expressions and have the capacity to convey deep semantic aspects of a given language. This paper describes ProverbNet, a novel online multilingual database of proverbs and comprehensive metadata equipped with a multipurpose search engine to store, explore, understand, classify and analyze proverbs and their metadata. ProverbNet has immense applications including machine translation, cognitive studies and learning tools. We have 2320 Sanskrit Proverbs and 1136 Marathi proverbs and their metadata in ProverbNet and are adding more proverbs in different languages to the network.",
+    bibtex_show={true},
     preview={proverbnet.jpg}
 }
