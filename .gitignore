@@ -10,3 +10,12 @@ Gemfile.lock
 node_modules/
 vendor
 
+# Astro redesign
+web/dist/
+web/.astro/
+web/public/benchmark-registry/
+*.tsbuildinfo
+
+# brainstorm scratch
+.superpowers/
+

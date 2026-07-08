@@ -1,0 +1,15 @@
+---
+import { NAV, SOCIALS } from "../consts";
+const path = Astro.url.pathname;
+const isActive = (href: string) => path === href || (href !== "/" && path.startsWith(href));
+---
+
+<nav class="site-nav">
+  <a class="brand" href="/">Shreyas<span>.</span></a>
+  <div class="links">
+    {NAV.map((item) => (
+      <a href={item.href} aria-current={isActive(item.href) ? "page" : undefined}>{item.label}</a>
+    ))}
+    <a class="hi" href={SOCIALS.email}>Say hi</a>
+  </div>
+</nav>

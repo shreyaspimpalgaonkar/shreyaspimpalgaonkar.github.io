@@ -1,0 +1,37 @@
+---
+import Base from "../layouts/Base.astro";
+import { NEWS } from "../data/news";
+const fmt = (d: string) =>
+  new Date(d).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+---
+
+<Base title="News" description="Updates from Shreyas Pimpalgaonkar.">
+  <header class="page-head">
+    <div class="section-label">News</div>
+    <h1 class="page-title">News</h1>
+  </header>
+  <div class="page-main">
+    <div class="inner">
+      <ul class="news-list">
+        {
+          NEWS.map((n) => (
+            <li>
+              <span class="date mono">{fmt(n.date)}</span>
+              <span class="body" set:html={n.html} />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .news-list { list-style: none; }
+  .news-list li { display: flex; gap: 24px; padding: 18px 4px; border-top: 1px solid var(--line); align-items: baseline; }
+  .news-list li:last-child { border-bottom: 1px solid var(--line); }
+  .date { color: var(--muted-2); font-size: 12.5px; white-space: nowrap; min-width: 150px; }
+  .body { color: var(--ink-2); }
+  .body :global(a) { text-decoration: underline; text-decoration-color: var(--accent-weak); text-underline-offset: 2px; }
+  @media (max-width: 640px) { .news-list li { flex-direction: column; gap: 4px; } .date { min-width: 0; } }
+</style>

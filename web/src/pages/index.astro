@@ -1,0 +1,104 @@
+---
+import Base from "../layouts/Base.astro";
+import { getCollection } from "astro:content";
+import { PUBLICATIONS } from "../data/publications";
+import { SOCIALS } from "../consts";
+
+const posts = (await getCollection("blog"))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const latest = posts.slice(0, 3);
+
+// Feature recent work: Terminal-Bench, OpenThoughts-TBLite, Curator.
+const featured = [PUBLICATIONS[0], PUBLICATIONS[1], PUBLICATIONS[4]];
+
+const postUrl = (e: (typeof posts)[number]) =>
+  `/blog/${e.data.date.getFullYear()}/${e.id}/`;
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+---
+
+<Base>
+  <section class="hero">
+    <div class="container">
+      <div class="kicker">&#9702; Bespoke Labs &middot; Post training and RL Environments</div>
+      <h1>Shreyas<br />Pimpalgaonkar</h1>
+      <div class="cta mono">
+        &rarr; <a href="/about/">about</a> &nbsp;&middot;&nbsp;
+        <a href={SOCIALS.email}>email</a> &nbsp;&middot;&nbsp;
+        <a href={SOCIALS.x} target="_blank" rel="noreferrer">X / Twitter</a>
+      </div>
+    </div>
+    <div class="scroll-cue mono">Selected work &darr;</div>
+  </section>
+
+  <div class="home-below">
+    <section class="home-sec">
+      <div class="container">
+        <div class="section-label">Selected work</div>
+        <div class="grid">
+          {
+            featured.map((p) => (
+              <a class="card" href={p.links.html} target="_blank" rel="noreferrer">
+                <span class="tag">{p.abbr} &middot; {p.year}</span>
+                <h3>{p.title}</h3>
+                <p class="muted">{p.venue}</p>
+              </a>
+            ))
+          }
+        </div>
+        <a class="more mono" href="/publications/">All papers &rarr;</a>
+      </div>
+    </section>
+
+    <section class="home-sec">
+      <div class="container">
+        <div class="section-label">Latest writing</div>
+        <div class="grid">
+          {
+            latest.map((e) => (
+              <a class="card" href={postUrl(e)}>
+                <span class="tag">{fmt(e.data.date)}</span>
+                <h3>{e.data.title}</h3>
+                <p class="muted">{e.data.description}</p>
+              </a>
+            ))
+          }
+        </div>
+        <a class="more mono" href="/blog/">All writing &rarr;</a>
+      </div>
+    </section>
+  </div>
+</Base>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .hero h1 {
+    font-size: clamp(46px, 8.4vw, 98px);
+    line-height: 0.96;
+    letter-spacing: -0.035em;
+    margin: 22px 0 30px;
+  }
+  .hero .cta { color: var(--muted); font-size: 13px; }
+  .hero .cta a { border-bottom: 1px solid var(--accent-weak); padding-bottom: 2px; margin: 0 2px; }
+  .scroll-cue {
+    position: absolute;
+    bottom: 26px;
+    left: 8vw;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted-2);
+  }
+  .home-sec { padding: 46px 0; }
+  .home-sec:first-child { padding-top: 64px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(258px, 1fr)); gap: 16px; }
+  .card h3 { font-size: 18px; margin: 10px 0 6px; letter-spacing: -0.02em; }
+  .more { display: inline-block; margin-top: 22px; color: var(--accent); font-size: 13px; }
+</style>

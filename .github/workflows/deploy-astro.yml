@@ -1,0 +1,43 @@
+name: Deploy site (Astro)
+
+# Inert by default: only runs on manual dispatch so nothing deploys until you
+# are ready. To go live, uncomment the push trigger below and remove the old
+# Jekyll workflow (.github/workflows/deploy.yml).
+on:
+  workflow_dispatch:
+  push:
+    branches: [master, main]
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+
+      - name: Build Astro site
+        working-directory: web
+        run: |
+          npm ci
+          npm run build
+
+      - name: Keep /benchmark-registry served
+        run: cp -R benchmark-registry web/dist/benchmark-registry
+
+      - name: Disable Jekyll processing on Pages
+        run: touch web/dist/.nojekyll
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: web/dist

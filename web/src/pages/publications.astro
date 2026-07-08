@@ -1,0 +1,70 @@
+---
+import Base from "../layouts/Base.astro";
+import { PUBLICATIONS, ME } from "../data/publications";
+
+const byYear: Record<number, typeof PUBLICATIONS> = {};
+for (const p of PUBLICATIONS) (byYear[p.year] ||= []).push(p);
+const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
+const authorsHtml = (a: string) => a.replaceAll(ME, `<strong>${ME}</strong>`);
+---
+
+<Base title="Papers" description="Publications by Shreyas Pimpalgaonkar.">
+  <header class="page-head">
+    <div class="section-label">Papers</div>
+    <h1 class="page-title">Publications</h1>
+    <p class="lead-in">Selected papers, benchmarks, models, and software.</p>
+  </header>
+  <div class="page-main">
+    <div class="inner pubs">
+      {
+        years.map((y) => (
+          <section class="year-block">
+            <div class="year mono">{y}</div>
+            <ul>
+              {byYear[y].map((p) => (
+                <li class="pub">
+                  <span class="tag abbr">{p.abbr}</span>
+                  <div class="pbody">
+                    <h3>
+                      {p.links.html ? (
+                        <a href={p.links.html} target="_blank" rel="noreferrer">{p.title}</a>
+                      ) : (
+                        p.title
+                      )}
+                    </h3>
+                    <p class="authors" set:html={authorsHtml(p.authors)} />
+                    <p class="venue muted">{p.venue}</p>
+                    <div class="plinks mono">
+                      {p.links.html && <a href={p.links.html} target="_blank" rel="noreferrer">link</a>}
+                      {p.links.arxiv && <a href={p.links.arxiv} target="_blank" rel="noreferrer">arXiv</a>}
+                      {p.links.code && <a href={p.links.code} target="_blank" rel="noreferrer">code</a>}
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ))
+      }
+    </div>
+  </div>
+</Base>
+
+<style>
+  .year-block { display: flex; gap: 28px; padding: 26px 0; border-top: 1px solid var(--line); }
+  .year { color: var(--muted-2); font-size: 13px; min-width: 60px; padding-top: 3px; }
+  .year-block ul { list-style: none; flex: 1; display: flex; flex-direction: column; gap: 26px; }
+  .pub { display: grid; grid-template-columns: 104px 1fr; gap: 16px; align-items: start; }
+  .abbr { justify-self: start; margin-top: 3px; white-space: nowrap; }
+  .pbody h3 { font-size: 17px; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .pbody h3 a { text-decoration: underline; text-decoration-color: var(--accent-weak); text-underline-offset: 2px; }
+  .authors { font-size: 14px; color: var(--ink-2); }
+  .authors :global(strong) { color: var(--ink); }
+  .venue { font-size: 13.5px; margin-top: 3px; }
+  .plinks { margin-top: 8px; display: flex; gap: 16px; font-size: 12.5px; }
+  .plinks a { color: var(--accent); }
+  @media (max-width: 640px) {
+    .year-block { flex-direction: column; gap: 12px; }
+    .pub { grid-template-columns: 1fr; gap: 8px; }
+  }
+</style>

@@ -1,0 +1,50 @@
+---
+import Base from "../layouts/Base.astro";
+import projects from "../data/projects.json";
+
+type Project = { title: string; description: string; category: string; importance: number };
+const list = projects as Project[];
+
+const order = ["AI", "Software", "Finance", "Fun", "Other"];
+const byCat: Record<string, Project[]> = {};
+for (const p of list) (byCat[p.category] ||= []).push(p);
+const cats = [
+  ...order.filter((c) => byCat[c]),
+  ...Object.keys(byCat).filter((c) => !order.includes(c)),
+];
+---
+
+<Base title="Projects" description="Research, course, and side projects by Shreyas Pimpalgaonkar.">
+  <header class="page-head">
+    <div class="section-label">Projects</div>
+    <h1 class="page-title">Projects</h1>
+    <p class="lead-in">A grab bag of research, course, and side projects.</p>
+  </header>
+  <div class="page-main">
+    <div class="inner">
+      {
+        cats.map((cat) => (
+          <section class="cat">
+            <div class="cat-label mono">{cat}</div>
+            <div class="proj-grid">
+              {byCat[cat].map((p) => (
+                <div class="proj card">
+                  <h3>{p.title}</h3>
+                  {p.description && <p class="muted">{p.description}</p>}
+                </div>
+              ))}
+            </div>
+          </section>
+        ))
+      }
+    </div>
+  </div>
+</Base>
+
+<style>
+  .cat { padding: 26px 0; border-top: 1px solid var(--line); }
+  .cat-label { color: var(--accent); font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 16px; }
+  .proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+  .proj h3 { font-size: 16px; letter-spacing: -0.02em; }
+  .proj p { font-size: 13.5px; margin-top: 6px; line-height: 1.5; }
+</style>

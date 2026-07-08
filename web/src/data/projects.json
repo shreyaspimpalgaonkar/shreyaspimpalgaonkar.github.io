@@ -1,0 +1,212 @@
+[
+  {
+    "title": "Blockchain Anomalies",
+    "description": "Worked on anomalies affecting systems whose consensus protocol does not guarantee deterministic agreement",
+    "category": "Software",
+    "importance": 1
+  },
+  {
+    "title": "Deep Learning based voice conversion",
+    "description": "Voice conversion using Deep Learning",
+    "category": "Software",
+    "importance": 1
+  },
+  {
+    "title": "Flush+Reload attack",
+    "description": "Predicting flush+reload attack on LLC to extract private keys",
+    "category": "Software",
+    "importance": 1
+  },
+  {
+    "title": "LLM Unlearning",
+    "description": "Maching Learning for Large Language Models. Making LLMs forget Harry Potter!",
+    "category": "AI",
+    "importance": 1
+  },
+  {
+    "title": "ProverbNet",
+    "description": "A large online multilingual database of proverbs and associated metadata",
+    "category": "Software",
+    "importance": 1
+  },
+  {
+    "title": "Spotify Skip Prediction Challenge",
+    "description": "Predicting whether a user will skip a song or not",
+    "category": "AI",
+    "importance": 1
+  },
+  {
+    "title": "Advanced Compiler Construction",
+    "description": "",
+    "category": "Software",
+    "importance": 2
+  },
+  {
+    "title": "BO-MLE",
+    "description": "Bayesian Optimization for Discrete Choice Model Likelihood Estimation",
+    "category": "AI",
+    "importance": 2
+  },
+  {
+    "title": "MIC",
+    "description": "",
+    "category": "AI",
+    "importance": 2
+  },
+  {
+    "title": "Open Benchmark Registry",
+    "description": "A research database for discovering AI evaluation benchmarks by capability and inspecting public benchmark samples.",
+    "category": "AI",
+    "importance": 2
+  },
+  {
+    "title": "Tomographic Reconstruction under Unknown Angles",
+    "description": "Tomographic reconstruction is a multidimensional inverse problem to reconstruct a specific system from finite number of projections. We estimate the optimal number of projections needed when projection angles are unknown",
+    "category": "AI",
+    "importance": 2
+  },
+  {
+    "title": "Affordable device to convert a screen to touchscreen",
+    "description": "",
+    "category": "Software",
+    "importance": 3
+  },
+  {
+    "title": "AIML",
+    "description": "",
+    "category": "AI",
+    "importance": 3
+  },
+  {
+    "title": "AIML",
+    "description": "",
+    "category": "AI",
+    "importance": 3
+  },
+  {
+    "title": "Architecture",
+    "description": "",
+    "category": "Software",
+    "importance": 3
+  },
+  {
+    "title": "Aspect Based Emotion Analysis",
+    "description": "Predicting emotions with respect to different aspects (e.g. food, service) in reviews",
+    "category": "AI",
+    "importance": 3
+  },
+  {
+    "title": "Autonomous Driving Vehicle",
+    "description": "",
+    "category": "Software",
+    "importance": 3
+  },
+  {
+    "title": "DB",
+    "description": "",
+    "category": "Software",
+    "importance": 3
+  },
+  {
+    "title": "DLD",
+    "description": "",
+    "category": "Software",
+    "importance": 3
+  },
+  {
+    "title": "Fake News Detection",
+    "description": "",
+    "category": "Software",
+    "importance": 3
+  },
+  {
+    "title": "FPGA based Rail Signaling",
+    "description": "",
+    "category": "Software",
+    "importance": 3
+  },
+  {
+    "title": "Generative AI Hackathon",
+    "description": "Text to comic generation using LLMs and Diffusion models",
+    "category": "AI",
+    "importance": 3
+  },
+  {
+    "title": "Human Face and License Plate Detection",
+    "description": "",
+    "category": "AI",
+    "importance": 3
+  },
+  {
+    "title": "Indoor Positioning System",
+    "description": "",
+    "category": "AI",
+    "importance": 3
+  },
+  {
+    "title": "Large Language and Vision Models Seminar",
+    "description": "Seminar on Large Language Models research and application",
+    "category": "AI",
+    "importance": 3
+  },
+  {
+    "title": "Math Scanner",
+    "description": "",
+    "category": "Software",
+    "importance": 3
+  },
+  {
+    "title": "MG",
+    "description": "",
+    "category": "Fun",
+    "importance": 3
+  },
+  {
+    "title": "Model based Reinforcement Learning",
+    "description": "Accelerating Robot Learning with Model-based Reinforcement Learning",
+    "category": "AI",
+    "importance": 3
+  },
+  {
+    "title": "OS",
+    "description": "",
+    "category": "Software",
+    "importance": 3
+  },
+  {
+    "title": "Racecar",
+    "description": "",
+    "category": "Software",
+    "importance": 3
+  },
+  {
+    "title": "Road Anomaly Detection",
+    "description": "",
+    "category": "Software",
+    "importance": 3
+  },
+  {
+    "title": "VaR Change Analysis",
+    "description": "Automated commentary framework for VaR change analysis",
+    "category": "Finance",
+    "importance": 3
+  },
+  {
+    "title": "FBSDE",
+    "description": "Portfolio Optimization using Deep Learning with propagator transaction cost model",
+    "category": "Finance",
+    "importance": 4
+  },
+  {
+    "title": "Layoff Price Prediction",
+    "description": "Predicting stock price movements post tech layoffs",
+    "category": "Finance",
+    "importance": 4
+  },
+  {
+    "title": "LLM earnings surprise",
+    "description": "Predicting Earnings surprise using news data and large language models",
+    "category": "Finance",
+    "importance": 4
+  }
+]

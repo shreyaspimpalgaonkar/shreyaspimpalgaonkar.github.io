@@ -1,0 +1,55 @@
+---
+import Base from "../../layouts/Base.astro";
+import { getCollection } from "astro:content";
+
+const posts = (await getCollection("blog"))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+const postUrl = (e: (typeof posts)[number]) =>
+  `/blog/${e.data.date.getFullYear()}/${e.id}/`;
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" });
+---
+
+<Base title="Writing" description="Writing by Shreyas Pimpalgaonkar on machine learning, agents, and more.">
+  <header class="page-head">
+    <div class="section-label">Writing</div>
+    <h1 class="page-title">Writing</h1>
+    <p class="lead-in">Notes on machine learning, agents, and whatever else I&rsquo;m thinking about.</p>
+  </header>
+  <div class="page-main">
+    <div class="inner">
+      <ul class="post-list">
+        {
+          posts.map((e) => (
+            <li>
+              <a href={postUrl(e)}>
+                <span class="date mono">{fmt(e.data.date)}</span>
+                <span class="pt">
+                  <span class="ptitle">{e.data.title}</span>
+                  <span class="pdesc muted">{e.data.description}</span>
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .post-list { list-style: none; }
+  .post-list li { border-top: 1px solid var(--line); }
+  .post-list li:last-child { border-bottom: 1px solid var(--line); }
+  .post-list a { display: flex; gap: 24px; padding: 22px 4px; align-items: baseline; }
+  .post-list a:hover .ptitle { color: var(--accent); }
+  .date { color: var(--muted-2); font-size: 12.5px; white-space: nowrap; min-width: 120px; }
+  .pt { display: flex; flex-direction: column; gap: 3px; }
+  .ptitle { font-weight: 600; font-size: 18px; letter-spacing: -0.02em; transition: color 0.2s; }
+  .pdesc { font-size: 14.5px; }
+  @media (max-width: 640px) {
+    .post-list a { flex-direction: column; gap: 4px; }
+    .date { min-width: 0; }
+  }
+</style>

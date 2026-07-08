@@ -1,0 +1,19 @@
+---
+import Base from "../layouts/Base.astro";
+---
+
+<Base title="Not found">
+  <section class="nf">
+    <div class="container">
+      <div class="kicker">&#9702; 404</div>
+      <h1>Lost in space.</h1>
+      <p class="muted">That page drifted out of orbit. <a href="/">Back home &rarr;</a></p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .nf { min-height: 82vh; display: flex; align-items: center; }
+  .nf h1 { font-size: clamp(38px, 7vw, 72px); letter-spacing: -0.035em; margin: 14px 0; }
+  .nf a { color: var(--accent); border-bottom: 1px solid var(--accent-weak); }
+</style>

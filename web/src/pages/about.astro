@@ -1,0 +1,70 @@
+---
+import Base from "../layouts/Base.astro";
+import { SOCIALS } from "../consts";
+---
+
+<Base title="About" description="About Shreyas Pimpalgaonkar — machine learning & robotics at NYU Courant.">
+  <header class="page-head">
+    <div class="section-label">About</div>
+    <h1 class="page-title">Shreyas Pimpalgaonkar</h1>
+  </header>
+
+  <div class="page-main">
+    <div class="inner about">
+      <div class="update mono">
+        &#9702; Currently on the job market &mdash;
+        <a href={SOCIALS.email}>reach out</a> if you have something interesting.
+      </div>
+
+      <img
+        class="portrait"
+        src="/assets/img/shreyas_pimpalgaonkar_20240114.jpg"
+        alt="Shreyas Pimpalgaonkar"
+        width="150"
+        height="150"
+        onerror="this.style.display='none'"
+      />
+
+      <div class="prose">
+        <p>
+          Hi! I&rsquo;m Shreyas Pimpalgaonkar. I&rsquo;m a graduate student at the{" "}
+          <a href="https://cims.nyu.edu/">Courant Institute of Mathematical Sciences</a> at{" "}
+          <a href="https://www.nyu.edu/">New York University</a>. I&rsquo;m interested in Machine
+          Learning and Robotics. Currently, I&rsquo;m working with{" "}
+          <a href="https://www.lerrelpinto.com/">Prof. Lerrel Pinto</a> on developing world models
+          to scale and speed up robot learning. I&rsquo;m also working with{" "}
+          <a href="https://hhexiy.github.io/">Prof. He He</a> on improving the mathematical
+          capabilities of large language models. In the past, I have worked with amazing professors{" "}
+          <a href="https://www.cse.iitb.ac.in/~pb/">Prof. Pushpak Bhattacharyya</a>,{" "}
+          <a href="https://www.cse.iitb.ac.in/~ajitvr/">Prof. Ajit Rajwade</a> and{" "}
+          <a href="https://www.cse.iitb.ac.in/~br/">Prof. Bhaskaran Raman</a>.
+        </p>
+        <p>
+          I have also been interested in the financial markets and have worked as a quantitative
+          research intern at{" "}
+          <a href="https://www.citadel.com/">Citadel</a>. Before my Masters, I worked as a
+          quantitative researcher and developer at{" "}
+          <a href="https://www.goldmansachs.com/">Goldman Sachs</a>, where I worked with{" "}
+          <a href="https://www.linkedin.com/in/jiantao-wang-2127333/">Jiantao Wang</a> and{" "}
+          <a href="https://www.linkedin.com/in/bhargav-srirangam-a33a683/">Bhargav Srirangam</a>.
+        </p>
+      </div>
+
+      <div class="contact mono">
+        <a href={SOCIALS.email}>Email</a>
+        <a href={SOCIALS.github} target="_blank" rel="noreferrer">GitHub</a>
+        <a href={SOCIALS.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
+        <a href={SOCIALS.x} target="_blank" rel="noreferrer">X / Twitter</a>
+      </div>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .update { color: var(--muted); font-size: 13px; margin-bottom: 26px; }
+  .update a { border-bottom: 1px solid var(--accent-weak); }
+  .portrait { border-radius: 14px; float: right; margin: 0 0 18px 26px; border: 1px solid var(--line); }
+  .contact { margin-top: 34px; display: flex; gap: 22px; flex-wrap: wrap; font-size: 13px; }
+  .contact a { color: var(--ink); border-bottom: 1px solid var(--accent-weak); padding-bottom: 2px; }
+  .contact a:hover { color: var(--accent); }
+</style>

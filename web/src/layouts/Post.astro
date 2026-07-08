@@ -1,0 +1,69 @@
+---
+import Base from "../layouts/Base.astro";
+import { GISCUS } from "../consts";
+
+interface Props {
+  title: string;
+  date: Date;
+  description?: string;
+  tags?: string[];
+}
+const { title, date, description, tags = [] } = Astro.props;
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
+---
+
+<Base title={title} description={description}>
+  <article>
+    <header class="page-head">
+      <a class="back mono" href="/blog/">&larr; Writing</a>
+      <h1 class="post-title">{title}</h1>
+      <div class="post-meta mono">
+        <span>{fmt(date)}</span>
+        {tags.map((t) => <span class="tag">{t}</span>)}
+      </div>
+    </header>
+    <div class="page-main">
+      <div class="inner">
+        <div class="prose"><slot /></div>
+        <div class="comments"><div id="giscus"></div></div>
+      </div>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .back { display: inline-block; color: var(--muted); font-size: 12.5px; margin-bottom: 16px; }
+  .post-title {
+    font-size: clamp(30px, 5vw, 46px);
+    letter-spacing: -0.035em;
+    line-height: 1.05;
+    max-width: var(--measure);
+  }
+  .post-meta { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 16px; color: var(--muted-2); font-size: 12.5px; }
+  .comments { max-width: var(--measure); margin-top: 64px; border-top: 1px solid var(--line); padding-top: 30px; }
+</style>
+
+<script define:vars={{ GISCUS }}>
+  const mount = document.getElementById("giscus");
+  if (mount) {
+    if (GISCUS.repoId && GISCUS.categoryId) {
+      const s = document.createElement("script");
+      s.src = "https://giscus.app/client.js";
+      s.setAttribute("data-repo", GISCUS.repo);
+      s.setAttribute("data-repo-id", GISCUS.repoId);
+      s.setAttribute("data-category", GISCUS.category);
+      s.setAttribute("data-category-id", GISCUS.categoryId);
+      s.setAttribute("data-mapping", "pathname");
+      s.setAttribute("data-theme", "light");
+      s.setAttribute("data-reactions-enabled", "1");
+      s.setAttribute("data-lang", "en");
+      s.crossOrigin = "anonymous";
+      s.async = true;
+      mount.appendChild(s);
+    } else {
+      const section = document.querySelector(".comments");
+      if (section) section.remove();
+    }
+  }
+</script>
