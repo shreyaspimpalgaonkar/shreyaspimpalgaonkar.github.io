@@ -4,6 +4,7 @@ import { PUBLICATIONS, ME } from "../data/publications";
 
 const byYear: Record<number, typeof PUBLICATIONS> = {};
 for (const p of PUBLICATIONS) (byYear[p.year] ||= []).push(p);
+for (const y of Object.keys(byYear)) byYear[Number(y)].sort((a, b) => b.month - a.month);
 const years = Object.keys(byYear).map(Number).sort((a, b) => b - a);
 const authorsHtml = (a: string) => a.replaceAll(ME, `<strong>${ME}</strong>`);
 ---

@@ -43,8 +43,8 @@ export const PUBLICATIONS: Pub[] = [
     authors:
       "Shreyas S. Vidyarthi, Shreyas Pimpalgaonkar, Iraklis Koutrouvelis, Alexandros G. Dimakis, Maddie Daianu, Jatin Ghia, Wei Huo",
     venue: "Technical report · Intuit & Bespoke Labs",
-    year: 2025,
-    month: 9,
+    year: 2026,
+    month: 7,
     links: { pdf: "https://files.bespokelabs.ai/ck-bespoke-tr.pdf" },
     abstract:
       "We describe SeeWhy, a compliance-critical fine-tuning pipeline that uses synthetic data with engineered distributions, GEPA prompt optimization, and a novel way of curating SFT datasets we call Dynamic Semantic Tags (DSTs). The goal is a small, specialized model for product-recommendation explanations — given a credit card and a user profile, explain why the card fits the user — while never hallucinating compliance-critical details such as interest rates or card names. The specialized model is more accurate than frontier models and can be served at 15–20× lower cost.",
