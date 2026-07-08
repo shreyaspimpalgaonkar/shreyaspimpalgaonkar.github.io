@@ -9,8 +9,8 @@ const posts = (await getCollection("blog"))
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 const latest = posts.slice(0, 3);
 
-// Feature recent work: Terminal-Bench, OpenThoughts-TBLite, Curator.
-const featured = [PUBLICATIONS[0], PUBLICATIONS[1], PUBLICATIONS[4]];
+// Feature recent work: the DST report, Terminal-Bench, OpenThoughts-TBLite.
+const featured = [PUBLICATIONS[2], PUBLICATIONS[0], PUBLICATIONS[1]];
 
 const postUrl = (e: (typeof posts)[number]) =>
   `/blog/${e.data.date.getFullYear()}/${e.id}/`;
@@ -39,7 +39,7 @@ const fmt = (d: Date) =>
         <div class="grid">
           {
             featured.map((p) => (
-              <a class="card" href={p.links.html} target="_blank" rel="noreferrer">
+              <a class="card" href={p.links.html ?? p.links.pdf} target="_blank" rel="noreferrer">
                 <span class="tag">{p.abbr} &middot; {p.year}</span>
                 <h3>{p.title}</h3>
                 <p class="muted">{p.venue}</p>

@@ -26,8 +26,8 @@ const authorsHtml = (a: string) => a.replaceAll(ME, `<strong>${ME}</strong>`);
                   <span class="tag abbr">{p.abbr}</span>
                   <div class="pbody">
                     <h3>
-                      {p.links.html ? (
-                        <a href={p.links.html} target="_blank" rel="noreferrer">{p.title}</a>
+                      {p.links.html || p.links.pdf ? (
+                        <a href={p.links.html ?? p.links.pdf} target="_blank" rel="noreferrer">{p.title}</a>
                       ) : (
                         p.title
                       )}
@@ -36,6 +36,7 @@ const authorsHtml = (a: string) => a.replaceAll(ME, `<strong>${ME}</strong>`);
                     <p class="venue muted">{p.venue}</p>
                     <div class="plinks mono">
                       {p.links.html && <a href={p.links.html} target="_blank" rel="noreferrer">link</a>}
+                      {p.links.pdf && <a href={p.links.pdf} target="_blank" rel="noreferrer">PDF</a>}
                       {p.links.arxiv && <a href={p.links.arxiv} target="_blank" rel="noreferrer">arXiv</a>}
                       {p.links.code && <a href={p.links.code} target="_blank" rel="noreferrer">code</a>}
                     </div>
