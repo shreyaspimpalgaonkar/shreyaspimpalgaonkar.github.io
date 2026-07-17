@@ -1,0 +1,320 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#f7f7f2"><title>Teaching a 135M model to keep financial facts attached · Shreyas Pimpalgaonkar</title><meta name="description" content="A controlled LoRA ablation on synthetic card comparisons, where explicit semantic tags reached 64/64 held-out critical passes."><link rel="canonical" href="https://shreyaspimpalgaonkar.github.io/blog/2026/binding-financial-facts-with-dst/"><meta property="og:title" content="Teaching a 135M model to keep financial facts attached · Shreyas Pimpalgaonkar"><meta property="og:description" content="A controlled LoRA ablation on synthetic card comparisons, where explicit semantic tags reached 64/64 held-out critical passes."><meta property="og:type" content="website"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"><link rel="stylesheet" href="/_astro/Base.D5Jfv9Y8.css"><style>.back[data-astro-cid-g5songws]{color:var(--muted);margin-bottom:16px;font-size:12.5px;display:inline-block}.post-title[data-astro-cid-g5songws]{letter-spacing:-.035em;max-width:var(--measure);font-size:clamp(30px,5vw,46px);line-height:1.05}.post-meta[data-astro-cid-g5songws]{color:var(--muted-2);flex-wrap:wrap;align-items:center;gap:12px;margin-top:16px;font-size:12.5px;display:flex}.comments[data-astro-cid-g5songws]{max-width:var(--measure);border-top:1px solid var(--line);margin-top:64px;padding-top:30px}
+</style></head><body><canvas id="celestial" aria-hidden="true" data-astro-cid-nueygcte></canvas><script type="module">var e=document.getElementById(`celestial`);if(e){let t=e.getContext(`2d`),n=0,r=0,i=1;function a(){i=Math.min(window.devicePixelRatio||1,2),n=window.innerWidth,r=window.innerHeight,e.width=n*i,e.height=r*i,t.setTransform(i,0,0,i,0,0)}let o={x:0,y:0,tx:0,ty:0};addEventListener(`mousemove`,e=>{o.tx=e.clientX,o.ty=e.clientY}),addEventListener(`touchmove`,e=>{let t=e.touches[0];t&&(o.tx=t.clientX,o.ty=t.clientY)},{passive:!0});let s=[{bx:.82,by:.26,r:360,col:`255,79,20`,a:.1,sp:.05,ph:0,depth:.5},{bx:.24,by:.82,r:300,col:`120,140,180`,a:.12,sp:.04,ph:2.1,depth:.8},{bx:.66,by:.72,r:210,col:`190,150,120`,a:.11,sp:.06,ph:4,depth:1.1}],c=[];function l(){c=[];let e=Math.round(n*r/16e3);for(let t=0;t<e;t++)c.push({x:Math.random()*n,y:Math.random()*r,z:.3+Math.random()*.7,r:Math.random()*1+.3,ph:Math.random()*6.28,tw:.25+Math.random()*.6})}let u=performance.now();function d(e){let i=(e-u)/1e3;o.x+=(o.tx-o.x)*.06,o.y+=(o.ty-o.y)*.06;let a=n/2,l=r/2,f=(o.x-a)/n,p=(o.y-l)/r;t.fillStyle=`#F7F7F2`,t.fillRect(0,0,n,r),t.save(),t.globalCompositeOperation=`multiply`;for(let e of s){let a=e.bx*n+Math.sin(i*e.sp+e.ph)*30-f*e.depth*26,o=e.by*r+Math.cos(i*e.sp*.9+e.ph)*24-p*e.depth*26,s=t.createRadialGradient(a,o,0,a,o,e.r);s.addColorStop(0,`rgba(${e.col},${e.a})`),s.addColorStop(.7,`rgba(${e.col},${e.a*.4})`),s.addColorStop(1,`rgba(${e.col},0)`),t.fillStyle=s,t.beginPath(),t.arc(a,o,e.r,0,6.2832),t.fill()}t.restore();for(let e of c){let n=e.x-f*e.z*20,r=e.y-p*e.z*20,a=.5+.5*Math.sin(i*e.tw+e.ph);t.globalAlpha=(.1+.22*a)*e.z,t.fillStyle=`#3a3b36`,t.beginPath(),t.arc(n,r,e.r,0,6.2832),t.fill()}t.globalAlpha=1;let m=n*.7+f*26,h=r*.52+p*16,g=Math.min(n,r),_=.3+p*.12,v=i*.045+f*.45,y=[.2,.3,.42];t.lineWidth=1,y.forEach((e,n)=>{let r=g*e,i=r*_,a=v*(n%2?-1:1)+n*.5;t.strokeStyle=`rgba(21,22,20,${.12-n*.03})`,t.beginPath(),t.ellipse(m,h,r,i,a,0,6.2832),t.stroke()});let b=g*y[1],x=b*_,S=v*-1+.5,C=e=>{let t=b*Math.cos(e),n=x*Math.sin(e);return{x:m+t*Math.cos(S)-n*Math.sin(S),y:h+t*Math.sin(S)+n*Math.cos(S)}};t.lineCap=`round`;let w=i*.22;for(let e=0;e<14;e++){let n=C(w-e*.05),r=C(w-(e+1)*.05),i=1-e/14;t.strokeStyle=`rgba(255,79,20,${i*.5})`,t.lineWidth=i*2,t.beginPath(),t.moveTo(r.x,r.y),t.lineTo(n.x,n.y),t.stroke()}let T=C(w);t.fillStyle=`#FF4F14`,t.beginPath(),t.arc(T.x,T.y,2.6,0,6.2832),t.fill(),requestAnimationFrame(d)}a(),l(),o.x=o.tx=n*.5,o.y=o.ty=r*.5,requestAnimationFrame(d),addEventListener(`resize`,()=>{a(),l()})}</script><nav class="site-nav"><a class="brand" href="/">Shreyas<span>.</span></a><div class="links"><a href="/about/">About</a><a href="/blog/" aria-current="page">Writing</a><a href="/publications/">Papers</a><a href="/cv/">CV</a><a class="hi" href="mailto:shreyas.pgkr@gmail.com">Say hi</a></div></nav><main><article data-astro-cid-g5songws><header class="page-head" data-astro-cid-g5songws><a class="back mono" href="/blog/" data-astro-cid-g5songws>&larr; Writing</a><h1 class="post-title" data-astro-cid-g5songws>Teaching a 135M model to keep financial facts attached</h1><div class="post-meta mono" data-astro-cid-g5songws><span data-astro-cid-g5songws>July 16, 2026</span><span class="tag" data-astro-cid-g5songws>llm</span><span class="tag" data-astro-cid-g5songws>post-training</span><span class="tag" data-astro-cid-g5songws>lora</span><span class="tag" data-astro-cid-g5songws>synthetic-data</span><span class="tag" data-astro-cid-g5songws>evals</span></div></header><div class="page-main" data-astro-cid-g5songws><div class="inner" data-astro-cid-g5songws><div class="prose" data-astro-cid-g5songws><h2 id="the-question">The question</h2>
+<p>Small language models can copy facts. The harder question is whether they can keep
+each fact attached to the right entity.</p>
+<p>Suppose a prompt contains four fictional cards with long, similar names. Each card
+has its own annual fee, purchase APR, and reward multiplier. A response that copies
+every number but swaps two fees is fluent and wrong.</p>
+<p>I wanted to test a narrow version of this problem:</p>
+<blockquote>
+<p>Can a 135M-parameter model learn reliable product-to-fact binding from 300
+synthetic training examples?</p>
+</blockquote>
+<p>I compared ordinary supervised fine-tuning with
+<a href="https://files.bespokelabs.ai/ck-bespoke-tr.pdf">Dynamic Semantic Tags Reduce Hallucinations in Small-LLM Post-Training</a>,
+which introduces Dynamic Semantic Tags (DST).
+The tags put an explicit scope around each critical value:</p>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="text"><code><span class="line"><span>&#x3C;card1__annual_fee>$0&#x3C;/card1__annual_fee></span></span>
+<span class="line"><span>&#x3C;card2__annual_fee>$95&#x3C;/card2__annual_fee></span></span></code></pre>
+<p>The interesting part is not the markup by itself. It is that the same structure
+used during training can become a deterministic interface at release time.</p>
+<h2 id="the-experiment">The experiment</h2>
+<p>The base model was
+<a href="https://huggingface.co/HuggingFaceTB/SmolLM2-135M-Instruct"><code>HuggingFaceTB/SmolLM2-135M-Instruct</code></a>.
+I trained three <a href="https://arxiv.org/abs/2106.09685">LoRA</a> adapters:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Adapter</th><th>Training distribution</th><th>Target format</th></tr></thead><tbody><tr><td>Naive plain</td><td>98% of product slots have a $0 annual fee</td><td>Plain text</td></tr><tr><td>Balanced plain</td><td>Four fee tiers are equally represented</td><td>Plain text</td></tr><tr><td>Balanced DST</td><td>The same balanced scenarios</td><td>Scoped tags</td></tr></tbody></table>
+<p>Each adapter saw 300 examples: 100 with two products, 100 with three, and 100 with
+four. The names were deliberately long and similar, with <code>™</code> and <code>℠</code> symbols, so
+that copying and segmentation were not trivial.</p>
+<p>The naive set contained 900 product slots. Exactly 882 had a <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>0</mn><mi>a</mi><mi>n</mi><mi>n</mi><mi>u</mi><mi>a</mi><mi>l</mi><mi>f</mi><mi>e</mi><mi>e</mi><mi mathvariant="normal">.</mi><mi>T</mi><mi>h</mi><mi>e</mi><mi>b</mi><mi>a</mi><mi>l</mi><mi>a</mi><mi>n</mi><mi>c</mi><mi>e</mi><mi>d</mi><mi>s</mi><mi>e</mi><mi>t</mi><mi>s</mi><mi>h</mi><mi>a</mi><mi>d</mi><mn>225</mn><mi>s</mi><mi>l</mi><mi>o</mi><mi>t</mi><mi>s</mi><mi>i</mi><mi>n</mi><mi>e</mi><mi>a</mi><mi>c</mi><mi>h</mi><mi>f</mi><mi>e</mi><mi>e</mi><mi>t</mi><mi>i</mi><mi>e</mi><mi>r</mi><mo>:</mo></mrow><annotation encoding="application/x-tex">0 annual fee. The
+balanced sets had 225 slots in each fee tier: </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8889em;vertical-align:-0.1944em;"></span><span class="mord">0</span><span class="mord mathnormal">ann</span><span class="mord mathnormal">u</span><span class="mord mathnormal">a</span><span class="mord mathnormal" style="margin-right:0.0197em;">l</span><span class="mord mathnormal" style="margin-right:0.1076em;">f</span><span class="mord mathnormal">ee</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.1389em;">T</span><span class="mord mathnormal">h</span><span class="mord mathnormal">e</span><span class="mord mathnormal">ba</span><span class="mord mathnormal" style="margin-right:0.0197em;">l</span><span class="mord mathnormal">an</span><span class="mord mathnormal">ce</span><span class="mord mathnormal">d</span><span class="mord mathnormal">se</span><span class="mord mathnormal">t</span><span class="mord mathnormal">s</span><span class="mord mathnormal">ha</span><span class="mord mathnormal">d</span><span class="mord">225</span><span class="mord mathnormal">s</span><span class="mord mathnormal" style="margin-right:0.0197em;">l</span><span class="mord mathnormal">o</span><span class="mord mathnormal">t</span><span class="mord mathnormal">s</span><span class="mord mathnormal">in</span><span class="mord mathnormal">e</span><span class="mord mathnormal">a</span><span class="mord mathnormal">c</span><span class="mord mathnormal">h</span><span class="mord mathnormal" style="margin-right:0.1076em;">f</span><span class="mord mathnormal">ee</span><span class="mord mathnormal">t</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.0278em;">er</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">:</span></span></span></span>0, <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>95</mn><mo separator="true">,</mo></mrow><annotation encoding="application/x-tex">95, </annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8389em;vertical-align:-0.1944em;"></span><span class="mord">95</span><span class="mpunct">,</span></span></span></span>250, and $550. Five prompt
+templates were allocated evenly, and product order was permuted across examples.</p>
+<p>The held-out set contained 64 examples arranged into 32 counterfactual pairs.
+Sixteen pairs changed a fee; sixteen changed product order. Product names, prompt
+hashes, and template families were disjoint between training and evaluation.</p>
+<p>All 900 canonical training rows passed curation. The longest DST example was 2,047
+tokens, one token below the 2,048-token training limit. That exact boundary looked
+suspicious, so I audited prompt and completion lengths separately: the full record
+was present, the completion was 563 tokens, and no row was truncated.</p>
+<h2 id="training">Training</h2>
+<p>The result in this post comes from one Modal/H100 run. Each adapter used 75
+optimizer steps, a physical batch size of 1, gradient accumulation of 4, and
+therefore exactly 300 example presentations: one effective epoch.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Adapter</th><th align="right">Train loss</th><th align="right">Wall time</th><th align="right">Peak GPU memory</th><th align="right">Adapter size</th></tr></thead><tbody><tr><td>Naive plain</td><td align="right">0.1152</td><td align="right">64.4 s</td><td align="right">1.73 GB</td><td align="right">23.12 MB</td></tr><tr><td>Balanced plain</td><td align="right">0.1155</td><td align="right">56.4 s</td><td align="right">1.75 GB</td><td align="right">23.12 MB</td></tr><tr><td>Balanced DST</td><td align="right">0.0637</td><td align="right">557.6 s</td><td align="right">2.74 GB</td><td align="right">23.12 MB</td></tr></tbody></table>
+<p>All three adapters had 4,884,480 trainable parameters. Prompt tokens were masked
+and only completion tokens contributed to the loss. After each run I generated
+one unseen example; all three outputs were nonempty and passed the critical gate.</p>
+<p>The DST run took much longer because its prompts and completions were roughly
+twice as long. Its median full sequence was 1,574 tokens, compared with 828–835
+for the plain conditions.</p>
+<p>The workshop notebook has a separate prospective T4 configuration: 70 optimizer
+steps with gradient accumulation 8, or 560 example presentations. Those settings
+are not the source of the results below. I am keeping the H100 evidence and the T4
+reproduction separate rather than treating two training budgets as one run.</p>
+<h2 id="evaluation">Evaluation</h2>
+<p>I evaluated five conditions on the same 64 held-out examples:</p>
+<ol>
+<li>The base model with a plain prompt.</li>
+<li>The base model asked to produce tagged output.</li>
+<li>The naive plain adapter.</li>
+<li>The balanced plain adapter.</li>
+<li>The balanced DST adapter.</li>
+</ol>
+<p>Generation used a persistent vLLM service with all three adapters loaded and a
+2,048-token output limit. The complete evaluation produced 320 generations in
+409.7 seconds.</p>
+<p>The field columns below are entity-bound exact matches. For a plain response, the
+evaluator first finds the unique product name, isolates that product’s segment,
+and checks its fee, APR, and reward inside that segment. <strong>Binding</strong> means all four
+critical fields are correct for the same product. <strong>Critical pass</strong> is stricter:
+every product must be completely bound, the tag structure must be exact when tags
+are expected, and the deterministic release checks must all pass.</p>
+<p>For plain conditions, tag validity is 100% by definition because no tag contract
+is required. It should not be read as evidence that those outputs contain tags.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Condition</th><th align="right">Name</th><th align="right">Fee</th><th align="right">APR</th><th align="right">Reward</th><th align="right">Binding</th><th align="right">Tag valid</th><th align="right">Critical pass</th></tr></thead><tbody><tr><td>Base, plain prompt</td><td align="right">65.1%</td><td align="right">58.9%</td><td align="right">60.9%</td><td align="right">49.5%</td><td align="right">46.9%</td><td align="right">100.0%</td><td align="right">0.0%</td></tr><tr><td>Base, tagged prompt</td><td align="right">73.0%</td><td align="right">78.4%</td><td align="right">77.1%</td><td align="right">80.2%</td><td align="right">55.1%</td><td align="right">0.0%</td><td align="right">0.0%</td></tr><tr><td>Naive plain LoRA</td><td align="right">99.2%</td><td align="right">98.7%</td><td align="right">98.4%</td><td align="right">99.2%</td><td align="right">97.9%</td><td align="right">100.0%</td><td align="right">93.8%</td></tr><tr><td>Balanced plain LoRA</td><td align="right">99.2%</td><td align="right">98.4%</td><td align="right">98.4%</td><td align="right">98.4%</td><td align="right">98.4%</td><td align="right">100.0%</td><td align="right">96.9%</td></tr><tr><td>Balanced DST LoRA</td><td align="right"><strong>100.0%</strong></td><td align="right"><strong>100.0%</strong></td><td align="right"><strong>100.0%</strong></td><td align="right"><strong>100.0%</strong></td><td align="right"><strong>100.0%</strong></td><td align="right"><strong>100.0%</strong></td><td align="right"><strong>100.0%</strong></td></tr></tbody></table>
+<p>The balanced DST adapter passed 64 of 64 examples. The 95% Wilson interval for a
+64/64 result is 94.3%–100.0%. The sample count matters: this is a clean result on
+this held-out set, not evidence of universal reliability.</p>
+<h2 id="prompting-for-tags-was-not-enough">Prompting for tags was not enough</h2>
+<p>The tagged base prompt improved the field-level numbers, but the result is
+confounded. Sixty of its 64 generations hit the 2,048-token output ceiling.
+None produced a complete, valid tag set.</p>
+<p>The model often copied useful values and then continued generating until it was
+cut off. So the 0% tag-validity result does not isolate whether tagged prompting
+helps. It shows that requesting a schema and learning a schema are different
+things for this model.</p>
+<p>The other 256 generations ended without hitting the limit.</p>
+<h2 id="counterfactuals">Counterfactuals</h2>
+<p>Changing the output is easy. Staying correct after the input changes is harder.
+For each pair, I required both responses to preserve exact fees and complete
+product-field binding.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Condition</th><th align="right">Counterfactual pair remained correct</th></tr></thead><tbody><tr><td>Base, plain prompt</td><td align="right">18.8%</td></tr><tr><td>Base, tagged prompt</td><td align="right">12.5%</td></tr><tr><td>Naive plain LoRA</td><td align="right">90.6%</td></tr><tr><td>Balanced plain LoRA</td><td align="right">96.9%</td></tr><tr><td>Balanced DST LoRA</td><td align="right"><strong>100.0%</strong></td></tr></tbody></table>
+<p>The DST adapter remained correct on all 32 pairs. It also changed its output for
+every changed input.</p>
+<p>Here is part of one real held-out generation:</p>
+<pre class="astro-code github-light" style="background-color:#fff;color:#24292e; overflow-x: auto; white-space: pre-wrap; word-wrap: break-word;" tabindex="0" data-language="text"><code><span class="line"><span>&#x3C;card1__card_name>Fictional Paper Horizon ℠ Household Purchase Chronicle</span></span>
+<span class="line"><span>Purchase Card&#x3C;/card1__card_name> ... has an annual fee of</span></span>
+<span class="line"><span>&#x3C;card1__annual_fee>$0&#x3C;/card1__annual_fee> ...</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>&#x3C;card2__card_name>Fictional Paper Horizon ℠ Household Purchase Chronicle</span></span>
+<span class="line"><span>Rewards Card&#x3C;/card2__card_name> ... has an annual fee of</span></span>
+<span class="line"><span>&#x3C;card2__annual_fee>$95&#x3C;/card2__annual_fee> ...</span></span></code></pre>
+<p>The names differ by one word. The evaluator does not give partial credit for
+putting the right fee under the wrong product.</p>
+<h2 id="the-release-gate">The release gate</h2>
+<p>The tags are useful because validation can be mechanical.</p>
+<p>I took an actual held-out output from the balanced DST adapter and ran it through
+the release validator. The validator checked the complete tag set and compared
+each scoped value with the source record. The output passed, the internal tags
+were removed, and the customer-facing text was released.</p>
+<p>Then I replaced one annual fee in the same output. The validator blocked it and
+returned a deterministic fallback rendered only from source values. The only
+recorded failure was the sabotaged product’s annual-fee binding.</p>
+<p>The important decision is not made by an LLM judge, model confidence, or the
+fluency of the answer. It is made by the validator.</p>
+<h2 id="what-surprised-me">What surprised me</h2>
+<p>I expected the 98% fee skew to hurt the naive adapter more. It did not. The naive
+plain adapter still reached 98.7% fee accuracy and passed 60 of 64 examples. The
+balanced plain adapter passed 62 of 64.</p>
+<p>The distribution created a plausible shortcut, but this particular task made
+literal fee copying easy enough that the shortcut did not dominate. The two-example
+gap between the plain adapters is a small signal, not a dramatic result.</p>
+<p>The larger separation came from the control boundary. Plain fine-tuning made the
+model very accurate. DST made every critical value explicitly addressable and
+gave the release system a schema it could enforce.</p>
+<h2 id="limitations">Limitations</h2>
+<ul>
+<li>The evaluation has 64 synthetic examples and 32 counterfactual pairs.</li>
+<li>All product names and customer profiles are fictional.</li>
+<li>The held-out set contains six nonzero variable APR ranges and no 0% APR values.
+The experiment tests annual-fee skew, not generalization from a skewed APR
+distribution.</li>
+<li>The base tagged-prompt comparison is dominated by output truncation.</li>
+<li>The reported result is from the 75-step H100 run. The separate T4 workshop run
+should be reported independently when it finishes.</li>
+<li>This experiment demonstrates packaging and deterministic release validation. It
+is not a claim about regulatory compliance or production hosting.</li>
+</ul>
+<p>The narrow conclusion is still useful: for this synthetic binding task, 300
+examples were enough to teach a 135M model a strict semantic interface. The model
+generated the text, but the interface made correctness testable.</p>
+<hr>
+<p><em>Experiment artifacts: run <code>run-20260716-v1</code>; seed <code>20260716</code>; held-out SHA-256
+<code>c73179bf8d4b6f69d5c10b478014d14095fbbba84b3804c80ec1e166588d917f</code>.
+The evaluation used exact string matching within product scope and a deterministic
+release validator.</em></p></div><div class="comments" data-astro-cid-g5songws><div id="giscus" data-astro-cid-g5songws></div></div></div></div></article></main><footer class="site-footer"><span>&copy; 2026 Shreyas Pimpalgaonkar</span><span class="spacer"></span><a href="https://github.com/shreyaspimpalgaonkar" target="_blank" rel="noreferrer">GitHub</a><a href="https://www.linkedin.com/in/shreyas1999" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://x.com/sayshrey" target="_blank" rel="noreferrer">X</a><a href="mailto:shreyas.pgkr@gmail.com">Email</a></footer></body></html><script>(function(){const GISCUS = {"repo":"shreyaspimpalgaonkar/shreyaspimpalgaonkar.github.io","repoId":"","category":"Announcements","categoryId":""};
+
+  const mount = document.getElementById("giscus");
+  if (mount) {
+    if (GISCUS.repoId && GISCUS.categoryId) {
+      const s = document.createElement("script");
+      s.src = "https://giscus.app/client.js";
+      s.setAttribute("data-repo", GISCUS.repo);
+      s.setAttribute("data-repo-id", GISCUS.repoId);
+      s.setAttribute("data-category", GISCUS.category);
+      s.setAttribute("data-category-id", GISCUS.categoryId);
+      s.setAttribute("data-mapping", "pathname");
+      s.setAttribute("data-theme", "light");
+      s.setAttribute("data-reactions-enabled", "1");
+      s.setAttribute("data-lang", "en");
+      s.crossOrigin = "anonymous";
+      s.async = true;
+      mount.appendChild(s);
+    } else {
+      const section = document.querySelector(".comments");
+      if (section) section.remove();
+    }
+  }
+})();</script>
