@@ -2,3 +2,6 @@
 **/*.min.js
 assets/css/main.scss
 assets/plotly/demo.html
+
+# generated data for the MiMo RL atlas
+web/public/mimo-rl/data/
