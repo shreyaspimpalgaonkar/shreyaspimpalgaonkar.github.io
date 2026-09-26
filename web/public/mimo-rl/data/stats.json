@@ -553,7 +553,146 @@
    ]
   ],
   "npm_install_at_test": 106,
-  "pip_install_at_test": 133
+  "pip_install_at_test": 133,
+  "repos_top": [
+   [
+    "pandas-dev/pandas",
+    33
+   ],
+   [
+    "home-assistant/core",
+    25
+   ],
+   [
+    "python/mypy",
+    17
+   ],
+   [
+    "tobymao/sqlglot",
+    16
+   ],
+   [
+    "sqlfluff/sqlfluff",
+    14
+   ],
+   [
+    "apache/airflow",
+    12
+   ],
+   [
+    "serverless/serverless",
+    10
+   ],
+   [
+    "prettier/prettier",
+    9
+   ],
+   [
+    "pingcap/tidb",
+    8
+   ],
+   [
+    "Lightning-AI/pytorch-lightning",
+    7
+   ],
+   [
+    "pydantic/pydantic",
+    7
+   ],
+   [
+    "getmoto/moto",
+    6
+   ],
+   [
+    "mne-tools/mne-python",
+    6
+   ],
+   [
+    "getsentry/sentry",
+    5
+   ],
+   [
+    "numpy/numpy",
+    5
+   ],
+   [
+    "GoogleContainerTools/skaffold",
+    5
+   ],
+   [
+    "kubernetes/kops",
+    5
+   ],
+   [
+    "python/cpython",
+    5
+   ],
+   [
+    "elastic/beats",
+    5
+   ],
+   [
+    "geopandas/geopandas",
+    4
+   ]
+  ],
+  "repos_distinct": 957,
+  "origin": [
+   [
+    "A. Pull request, issue rewritten",
+    843
+   ],
+   [
+    "B. GitHub issue as written",
+    606
+   ],
+   [
+    "C. Written specification",
+    454
+   ],
+   [
+    "D. Employee-style request",
+    276
+   ],
+   [
+    "E. Feature removed from a repo",
+    519
+   ]
+  ],
+  "public_sources": [
+   [
+    "swe_rebench_v2",
+    59
+   ],
+   [
+    "swe_rebench_v1",
+    47
+   ],
+   [
+    "swe_lego_real",
+    39
+   ],
+   [
+    "swe_bench_full",
+    29
+   ],
+   [
+    "swe_gym",
+    18
+   ],
+   [
+    "scale_swe",
+    7
+   ],
+   [
+    "multi_swe_rl",
+    3
+   ],
+   [
+    "multi_swe_bench",
+    2
+   ]
+  ]
  },
  "cyber": {
   "n": 1000,
@@ -1483,11 +1622,13 @@
     1
    ]
   ],
-  "in_cybergym": 135,
+  "in_cybergym": 278,
   "cybergym_arvo": 1368,
   "dup_desc_groups": 194,
   "dup_desc_rows": 501,
-  "prompt_is_short_desc": 0
+  "prompt_is_short_desc": 0,
+  "cybergym_tasks_hit": 223,
+  "dup_pairs": 164
  },
  "general": {
   "n": 925,

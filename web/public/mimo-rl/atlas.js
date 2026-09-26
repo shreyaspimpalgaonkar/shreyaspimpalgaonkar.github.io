@@ -38,12 +38,16 @@ const FACETS = {
     ["fw", "Test framework"],
     ["pl", "Language"],
     ["cwd", "Repo path"],
+    ["grp", "Origin group"],
+    ["repo", "Repository"],
   ],
   cyber: [
     ["san", "Sanitizer"],
     ["bug", "Bug type"],
     ["proj", "Project"],
     ["cg", "Also in CyberGym"],
+    ["cgm", "CyberGym match"],
+    ["dup", "Appears twice"],
   ],
   general: [
     ["ind", "Industry"],
@@ -104,7 +108,7 @@ const nice = (key, v) => {
       { none: "No, report only", mutate_db: "Yes, change database", edit_workspace: "Yes, edit files", both: "Yes, database and files" }[v] ||
       String(v)
     );
-  if (key === "cg" || key === "att") return v === true || v === "true" ? "Yes" : "No";
+  if (key === "cg" || key === "att" || key === "dup") return v === true || v === "true" ? "Yes" : "No";
   return String(v);
 };
 
@@ -646,13 +650,22 @@ async function taskDetail(main, id) {
         h(
           "p",
           { class: "card-sub", style: { marginTop: "10px" } },
-          f.cg
+          f.cg && f.cgid
             ? [
-                "This ARVO bug id is also a task in the CyberGym benchmark, where the paper reports its scores: ",
-                ext(`https://huggingface.co/datasets/sunblaze-ucb/cybergym/tree/main/data/arvo/${arvo}`, `CyberGym arvo/${arvo}`),
+                f.cgm === "same bug, renumbered id"
+                  ? "This is the same bug as a CyberGym task, under the old OSS-Fuzz number: "
+                  : "This bug is also a task in the CyberGym benchmark, where the paper reports its scores: ",
+                ext(`https://huggingface.co/datasets/sunblaze-ucb/cybergym/tree/main/data/${f.cgid.replace(":", "/")}`, `CyberGym ${f.cgid}`),
                 ".",
               ]
-            : "This ARVO id is not in the CyberGym benchmark."
+            : "This bug is not in the CyberGym benchmark.",
+          f.dup
+            ? h(
+                "span",
+                { style: { display: "block", marginTop: "6px" } },
+                "The same bug also appears in the training set under its other OSS-Fuzz number."
+              )
+            : null
         )
       )
     );
@@ -927,7 +940,23 @@ async function dashCode(main) {
           .sort((a, b) => a[0] - b[0])
           .map(([v, n]) => ({ label: `${v} file${v === 1 ? "" : "s"}`, value: n, color: DOMAIN.code.color }))
       ),
-      barsCard("Where the repo lives", "Two base paths, which also line up with the formats.", toRows(c.cwd, d, "cwd"))
+      barsCard("Where the repo lives", "Two base paths, which also line up with the formats.", toRows(c.cwd, d, "cwd")),
+      c.origin
+        ? barsCard(
+            "Where the code tasks come from",
+            "Five groups by how the tasks are packaged. The names are our guesses at the paper's five sources.",
+            c.origin.map(([v, n]) => ({ label: v, value: n, color: DOMAIN.code.color, href: browse({ d, "f.grp": v }) })),
+            { labelWidth: "48%" }
+          )
+        : null,
+      c.repos_top
+        ? barsCard(
+            "Most common repositories",
+            `Repository guesses with high or medium confidence cover ${fmt(c.repos_distinct)} repositories. Most have one task.`,
+            c.repos_top.slice(0, 16).map(([v, n]) => ({ label: v, value: n, color: DOMAIN.code.color, href: browse({ d, "f.repo": v }) })),
+            { labelWidth: "48%" }
+          )
+        : null
     ),
     section(
       "What a code task looks like",
@@ -986,7 +1015,7 @@ async function dashCyber(main) {
     dashHead(d, S, [
       [fmt(c.n), "ARVO bugs from OSS-Fuzz"],
       [fmt(c.proj.length), "projects"],
-      [fmt(c.in_cybergym), "bug ids that are also CyberGym tasks"],
+      [fmt(c.in_cybergym), `tasks that are the same bug as one of ${fmt(c.cybergym_tasks_hit || 0)} CyberGym tasks`],
       [fmt(c.bug_type.length), "bug types across three sanitizers"],
     ]),
     h(
@@ -1020,7 +1049,7 @@ async function dashCyber(main) {
         h(
           "p",
           {},
-          `We did not run the cyber tasks. ${fmt(c.dup_desc_rows)} tasks share their exact target line with at least one other task, and 26 tasks target an abort inside the fuzzer's setup function, which runs before the input is read. See the Issues page.`
+          `We did not run the cyber tasks. ${fmt(c.dup_pairs || 0)} bugs appear twice in the set, once under the old OSS-Fuzz number and once under the new one, and 26 tasks target an abort inside the fuzzer's setup function, which runs before the input is read. See the Issues page.`
         )
       )
     )
@@ -1912,10 +1941,10 @@ async function figure(main, name) {
         h(
           "div",
           { class: "social-f" },
-          h("div", {}, h("b", {}, "135"), " cyber training tasks are also CyberGym test tasks"),
+          h("div", {}, h("b", {}, "16 of 16"), " code images we checked still hold the fixes in git"),
+          h("div", {}, h("b", {}, "278"), " cyber training tasks are CyberGym test bugs"),
           h("div", {}, h("b", {}, "1,000"), " music prompts, and the reward never reads them"),
-          h("div", {}, h("b", {}, "172"), " office tasks pay reward for doing nothing"),
-          h("div", {}, h("b", {}, "7.5 TB"), " of Docker images, worth about $1.4M to $1.9M")
+          h("div", {}, h("b", {}, "172"), " office tasks pay reward for doing nothing")
         ),
         h("div", { class: "social-u mono" }, "shreyaspimpalgaonkar.github.io/mimo-rl")
       ),
