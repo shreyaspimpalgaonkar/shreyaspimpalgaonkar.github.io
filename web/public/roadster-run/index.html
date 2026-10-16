@@ -17,12 +17,12 @@
 <meta name="twitter:player" content="https://shreyaspimpalgaonkar.github.io/roadster-run/player.html">
 <meta name="twitter:player:width" content="640">
 <meta name="twitter:player:height" content="640">
-<meta name="twitter:image" content="https://shreyaspimpalgaonkar.github.io/roadster-run/poster.png?v=2">
+<meta name="twitter:image" content="https://shreyaspimpalgaonkar.github.io/roadster-run/poster.png?v=3">
 <meta name="twitter:image:alt" content="The Roadster Run title screen in gray pixel art, with a white Roadster parked on a desert road.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Roadster Run">
 <meta property="og:description" content="Fly Tesla's new flying Roadster in a retro runner, in 2D or 3D.">
-<meta property="og:image" content="https://shreyaspimpalgaonkar.github.io/roadster-run/card.png?v=2">
+<meta property="og:image" content="https://shreyaspimpalgaonkar.github.io/roadster-run/card.png?v=3">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://shreyaspimpalgaonkar.github.io/roadster-run/">
@@ -196,6 +196,7 @@
   .pad small { display: block; font-family: var(--ui); font-size: 10px; letter-spacing: 0.12em; color: var(--muted); }
   .pad { border-radius: 12px; }
   .pad.jump { background: linear-gradient(180deg, rgba(38, 104, 132, 0.6), rgba(14, 40, 56, 0.92)); border-color: var(--ice); }
+  .pad.flip { min-height: 44px; color: var(--ice); }
   .pad.down { transform: translateY(2px); box-shadow: inset 0 0 24px rgba(122, 230, 255, 0.35); }
   .rotate { display: none; margin: 0; color: var(--muted); font-size: 15px; }
 
@@ -301,6 +302,8 @@
   <section class="dock" aria-label="Controls">
     <p class="rotate">Turn your phone sideways for a bigger screen.</p>
     <div class="touch">
+      <button class="pad flip chamfer" id="btnBack" type="button" aria-label="Backflip">BACKFLIP</button>
+      <button class="pad flip chamfer" id="btnFront" type="button" aria-label="Front flip">FRONTFLIP</button>
       <button class="pad duck chamfer" id="btnDuck" type="button">SUCTION<small>HOLD</small></button>
       <button class="pad jump chamfer" id="btnJump" type="button">JUMP<small>HOLD TO HOVER</small></button>
     </div>
@@ -319,12 +322,13 @@
       <ul class="keys">
         <li><kbd>Space</kbd><kbd>&uarr;</kbd> Press to jump. Keep holding after the top of a jump to hover on the thrusters.</li>
         <li><kbd>&darr;</kbd> Hold on the road to drop into suction mode, so drones pass over you. Hold it in the air to drop fast.</li>
+        <li><kbd>Z</kbd><kbd>X</kbd> Press in the air to do a backflip or a front flip. Land on your wheels, or you crash. Each extra flip in the same jump is worth more points.</li>
         <li><kbd>V</kbd> Press to switch between the 2D screen and the three 3D cameras. You can switch in the middle of a run.</li>
         <li><kbd>C</kbd> Press to change the colors.</li>
         <li><kbd>P</kbd><kbd>M</kbd> Press P to pause and M to turn the sound off.</li>
       </ul>
       <p>Hovering uses air. You get air back slowly while you drive on the road. Each air canister you grab gives you half a tank.</p>
-      <p class="small">On a phone, tap the screen to jump. Hold the left third of the screen or the SUCTION button to duck. You can also play with a game controller.</p>
+      <p class="small">On a phone, tap the screen to jump. Hold the left third of the screen or the SUCTION button to duck. Tap BACKFLIP or FRONTFLIP to flip. You can also play with a game controller.</p>
     </article>
     <article class="card chamfer">
       <h2>FROM THE OCT 15 DEMO</h2>
@@ -386,6 +390,7 @@
         case 'falling': return ['FALLING', 'status-alert'];
       }
       if (c.flip) return ['BACKFLIP', 'status-warm'];
+      if (c.stunt) return [c.stunt.dir > 0 ? 'BACKFLIP' : 'FRONTFLIP', 'status-warm'];
       if (c.hover) return ['HOVERING', 'status-warm'];
       if (!c.onGround) return ['AIRBORNE', 'status-ok'];
       if (c.duck) return ['SUCTION', 'status-ok'];

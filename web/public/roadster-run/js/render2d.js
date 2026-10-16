@@ -86,6 +86,7 @@
         case 'jump': for (let i = 0; i < 10; i++) this.puff(car, true, 1.4); break;
         case 'land': for (let i = 0; i < Math.min(12, e.v / 60); i++) this.dust(car.x + 8 + Math.random() * 44, GY - 1); break;
         case 'flip': for (let i = 0; i < 14; i++) this.puff(car, true, 1.6); break;
+        case 'stunt': for (let i = 0; i < 10; i++) this.puff(car, true, 1.5); break;
         case 'crash': this.explode(car, game); break;
         case 'canister': for (let i = 0; i < 12; i++) this.spark(e.x + 4, GY - e.y - 7, 'glow', 90); break;
         case 'boom': this.shake = 0.6; for (let i = 0; i < 30; i++) this.dust(80 + Math.random() * 220, H - 4, true); break;
