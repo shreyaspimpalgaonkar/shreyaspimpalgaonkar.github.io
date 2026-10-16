@@ -8,17 +8,21 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Michroma&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500&family=Michroma&display=swap">
 <style>
-  /* The player inside an X post: one square screen, tap to jump, hold the left third to duck. */
+  /* The player inside an X post: one square screen. Tap to jump, hold the left
+     third to duck. Every option from the full page sits in the menu. */
   :root {
-    --void: #050a14; --ice: #7af5ff; --ice-soft: #3fb9d8; --line: rgba(122, 230, 255, 0.22);
-    --text: #e4f3ff; --muted: #8aa2b8;
+    --void: #050a14; --ice: #7af5ff; --ice-soft: #3fb9d8; --line: rgba(122, 230, 255, 0.22); --line-hi: rgba(122, 230, 255, 0.55);
+    --glass: rgba(5, 12, 22, 0.74); --text: #e4f3ff; --muted: #8aa2b8;
     --display: "Michroma", "Eurostile", "Arial Black", sans-serif;
+    --ui: "Chakra Petch", "Segoe UI", system-ui, sans-serif;
+    --fs: max(8.5px, 2.3vw);
     color-scheme: dark;
   }
   html, body { margin: 0; height: 100%; overflow: hidden; background: var(--void); color: var(--text); }
   body { font-family: var(--display); -webkit-text-size-adjust: 100%; user-select: none; -webkit-user-select: none; }
+  button { font: inherit; color: inherit; }
   .screen {
     position: fixed; inset: 0; touch-action: none; cursor: pointer; -webkit-tap-highlight-color: transparent;
     background:
@@ -38,24 +42,58 @@
   }
   .screen.is3d .view3d, .screen.is3d .hud3d { display: block; }
   .screen.is3d #game { visibility: hidden; }
-  .ui {
-    position: fixed; left: 0; right: 0; bottom: 0; display: flex; align-items: flex-end; justify-content: space-between;
-    gap: 8px; padding: 0 max(8px, 2.4vw) max(8px, 2.4vw); pointer-events: none;
+  .screen.crt::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 2;
+    background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0.2) 2px 3px),
+      radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 58%, rgba(0, 0, 0, 0.4) 100%);
   }
-  .ui button, .ui a {
-    pointer-events: auto; font-family: var(--display); font-size: max(9px, 2.3vw); letter-spacing: 0.14em; color: var(--text);
-    background: rgba(5, 12, 22, 0.72); border: 1px solid var(--line); padding: 0.9em 1.1em 0.8em; cursor: pointer; text-decoration: none;
+
+  .chip {
+    pointer-events: auto; font-family: var(--display); font-size: var(--fs); letter-spacing: 0.14em; color: var(--text);
+    background: var(--glass); border: 1px solid var(--line); padding: 0.9em 1.1em 0.8em; cursor: pointer; text-decoration: none;
     clip-path: polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px);
-    -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); white-space: nowrap;
   }
-  .ui button:focus-visible, .ui a:focus-visible { outline: 2px solid var(--ice); outline-offset: 2px; }
+  .chip:hover { border-color: var(--line-hi); }
+  button:focus-visible, a:focus-visible { outline: 2px solid var(--ice); outline-offset: 2px; }
+  .ui {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 5; display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 6px; padding: 0 max(8px, 2.4vw) max(8px, 2.4vw); pointer-events: none;
+  }
+  .ui .group { display: flex; gap: 6px; }
   .tip {
-    position: fixed; left: 0; right: 0; bottom: calc(max(8px, 2.4vw) + 3.4em); text-align: center; pointer-events: none;
+    position: fixed; left: 0; right: 0; bottom: calc(max(8px, 2.4vw) + 3.4em); z-index: 4; text-align: center; pointer-events: none;
     font-family: var(--display); font-size: max(8px, 2.2vw); letter-spacing: 0.16em; color: var(--text);
     text-shadow: 0 0 6px rgba(5, 10, 20, 0.9), 0 0 2px #000;
   }
   .tip[hidden] { display: none; }
-  .ui .right { display: flex; gap: 8px; }
+
+  /* the options menu covers the square; the game waits underneath */
+  .menu {
+    position: fixed; inset: 0; z-index: 10; display: flex; align-items: center; justify-content: center; padding: max(10px, 3vw);
+    background: rgba(3, 7, 14, 0.78); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  }
+  .menu[hidden] { display: none; }
+  .panel {
+    width: min(100%, 520px); display: grid; gap: max(8px, 2.2vw); padding: max(12px, 3.4vw);
+    background: linear-gradient(rgba(10, 20, 34, 0.95), rgba(10, 20, 34, 0.95)) padding-box,
+      linear-gradient(140deg, var(--ice), rgba(122, 230, 255, 0.15) 35%, rgba(122, 230, 255, 0.15) 70%, var(--ice)) border-box;
+    border: 1px solid transparent;
+    clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px);
+  }
+  .panel h2 { margin: 0; font-family: var(--display); font-weight: 400; font-size: max(10px, 2.8vw); letter-spacing: 0.24em; color: var(--ice); }
+  .k { font-size: max(7.5px, 1.9vw); letter-spacing: 0.22em; color: var(--muted); margin-bottom: 0.5em; }
+  .seg { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line-hi); }
+  .seg button { background: transparent; border: 0; border-left: 1px solid var(--line); padding: 0.95em 0.2em 0.85em; font-size: var(--fs); letter-spacing: 0.12em; color: var(--muted); cursor: pointer; }
+  .seg button:first-child { border-left: 0; }
+  .seg button[aria-pressed="true"] { color: #031018; background: var(--ice); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: max(6px, 1.6vw); }
+  .grid2 .chip { text-align: center; padding: 1em 0.4em 0.9em; }
+  .chip[aria-pressed="false"] { color: var(--muted); }
+  .keys { margin: 0; font-family: var(--ui); font-size: max(10px, 2.5vw); line-height: 1.45; color: var(--muted); letter-spacing: 0.01em; }
+  .row { display: flex; gap: max(6px, 1.6vw); }
+  .row .chip { flex: 1; text-align: center; padding: 1.05em 0.4em 0.95em; }
+  .chip.go { color: #031018; background: var(--ice); border-color: var(--ice); }
 </style>
 </head>
 <body>
@@ -64,14 +102,38 @@
 </div>
 <div class="tip" id="tip">TAP TO JUMP &nbsp;/&nbsp; HOLD LEFT SIDE TO DUCK</div>
 <div class="ui">
-  <button type="button" id="viewBtn" aria-label="Switch between the 2D and 3D views">2D</button>
-  <div class="right">
-    <button type="button" data-act="sound" id="optSound" aria-pressed="true">SOUND ON</button>
-    <a href="./" target="_blank" rel="noopener" aria-label="Open the full game in a new tab">FULL</a>
+  <div class="group">
+    <button class="chip" type="button" data-act="view" id="optView" aria-label="Switch camera">2D</button>
+    <button class="chip" type="button" data-act="pause" id="optPause">PAUSE</button>
+  </div>
+  <button class="chip" type="button" id="menuBtn" aria-haspopup="dialog" aria-controls="menu">MENU</button>
+</div>
+
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Options" hidden>
+  <div class="panel">
+    <h2>OPTIONS</h2>
+    <div>
+      <div class="k">CAMERA</div>
+      <div class="seg" role="group" aria-label="Camera">
+        <button type="button" data-view="2d" aria-pressed="false">2D</button><button type="button" data-view="chase" aria-pressed="true">CHASE</button><button type="button" data-view="side" aria-pressed="false">SIDE</button><button type="button" data-view="tv" aria-pressed="false">TV</button>
+      </div>
+    </div>
+    <div class="grid2">
+      <button class="chip" type="button" data-act="colors" id="optColors">COLORS: HOLO</button>
+      <button class="chip" type="button" data-act="crt" id="optCrt" aria-pressed="false">CRT: OFF</button>
+      <button class="chip" type="button" data-act="music" id="optMusic" aria-pressed="false">MUSIC: OFF</button>
+      <button class="chip" type="button" data-act="sound" id="optSound" aria-pressed="true">SOUND: ON</button>
+    </div>
+    <p class="keys">Tap to jump. Keep holding to hover. Hold the left side to duck. On a keyboard, use Space, Down, V for camera, C for colors, M for sound and P to pause.</p>
+    <div class="row">
+      <button class="chip go" type="button" id="menuClose">RESUME</button>
+      <a class="chip" href="./" target="_blank" rel="noopener">FULL GAME</a>
+    </div>
   </div>
 </div>
+
 <script>
-  window.RR_CONFIG = { palette: 'holo', fit: 'css', music: false, view: 'chase', view3d: { w: 320, h: 320 }, labels: { sound: 'SOUND ' } };
+  window.RR_CONFIG = { palette: 'holo', fit: 'css', music: false, view: 'chase', view3d: { w: 320, h: 320 }, labels: { view: '' } };
 </script>
 <script src="js/sprites.js"></script>
 <script src="js/core.js"></script>
@@ -81,17 +143,38 @@
 <script src="js/main.js"></script>
 <script>
   (function () {
-    var btn = document.getElementById('viewBtn'), tip = document.getElementById('tip');
-    btn.addEventListener('click', function () {
-      var R = window.RR; if (!R || !R.setView) return;
-      R.setView(R.view === '2d' ? 'chase' : '2d'); btn.blur();
-    });
+    var $ = function (id) { return document.getElementById(id); };
+    var menu = $('menu'), tip = $('tip'), autoPaused = false;
+    function playing(g) { return g.state === 'play' || g.state === 'intro'; }
+    function openMenu() {
+      var R = window.RR; if (!R || !R.game) return;
+      menu.hidden = false;
+      if (!R.game.paused && playing(R.game)) { R.actions.pause(); autoPaused = true; }
+      $('menuClose').focus();
+    }
+    function closeMenu() {
+      var R = window.RR;
+      menu.hidden = true;
+      if (autoPaused && R && R.game.paused) R.actions.pause();
+      autoPaused = false;
+      $('menuBtn').blur();
+    }
+    $('menuBtn').addEventListener('click', openMenu);
+    $('menuClose').addEventListener('click', closeMenu);
+    // a camera pick closes the menu so the new view is visible right away
+    document.querySelectorAll('.menu [data-view]').forEach(function (b) { b.addEventListener('click', function () { setTimeout(closeMenu, 120); }); });
+    menu.addEventListener('pointerdown', function (e) { if (e.target === menu) closeMenu(); });
+    // while the menu is open, keys work the menu and not the game; Escape closes it
+    window.addEventListener('keydown', function (e) {
+      if (menu.hidden) return;
+      if (e.code === 'Escape') closeMenu();
+      e.stopImmediatePropagation();
+    }, true);
+    window.addEventListener('keyup', function (e) { if (!menu.hidden) e.stopImmediatePropagation(); }, true);
     function tick() {
       var R = window.RR;
       if (R && R.game) {
-        var label = R.view === '2d' ? '3D' : '2D';
-        if (btn.textContent !== label) btn.textContent = label;
-        var showTip = R.game.state === 'title' || R.game.state === 'over';
+        var showTip = menu.hidden && (R.game.state === 'title' || R.game.state === 'over');
         if (tip.hidden === showTip) tip.hidden = !showTip;
       }
       requestAnimationFrame(tick);
