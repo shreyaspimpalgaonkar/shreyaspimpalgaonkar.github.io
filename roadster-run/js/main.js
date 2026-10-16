@@ -99,7 +99,7 @@
 
     // ------------------------------------------------------------ input
     const src = { key: { jump: false, duck: false }, ptr: { jump: false, duck: false }, btn: { jump: false, duck: false }, pad: { jump: false, duck: false } };
-    let edge = false;
+    let edge = false, flipEdge = 0;
     const jumpHeld = () => src.key.jump || src.ptr.jump || src.btn.jump || src.pad.jump;
     const duckHeld = () => src.key.duck || src.ptr.duck || src.btn.duck || src.pad.duck;
     function press(which, kind, down) {
@@ -110,12 +110,21 @@
       }
       src[which][kind] = down;
     }
+    // dir is 1 for a backflip and -1 for a frontflip
+    function flip(dir) {
+      audio.unlock();
+      if (game.paused) { togglePause(); return; }
+      flipEdge = dir;
+    }
 
     const JUMP = ['Space', 'ArrowUp', 'KeyW'], DUCK = ['ArrowDown', 'KeyS'];
+    const BACK = ['KeyZ', 'KeyA', 'ArrowLeft'], FRONT = ['KeyX', 'KeyD', 'ArrowRight'];
     window.addEventListener('keydown', e => {
       if (e.metaKey || e.ctrlKey || e.altKey) return;
       if (JUMP.includes(e.code) || e.code === 'Enter') { e.preventDefault(); if (!e.repeat) press('key', 'jump', true); }
       else if (DUCK.includes(e.code)) { e.preventDefault(); press('key', 'duck', true); }
+      else if (BACK.includes(e.code)) { e.preventDefault(); if (!e.repeat) flip(1); }
+      else if (FRONT.includes(e.code)) { e.preventDefault(); if (!e.repeat) flip(-1); }
       else if (e.code === 'KeyP' || e.code === 'Escape') { togglePause(); }
       else if (e.code === 'KeyM') { actions.sound(); label(); }
       else if (e.code === 'KeyC') { actions.colors(); label(); }
@@ -153,8 +162,16 @@
       b.addEventListener('pointerup', up); b.addEventListener('pointercancel', up);
       b.addEventListener('contextmenu', e => e.preventDefault());
     });
+    [['btnBack', 1], ['btnFront', -1]].forEach(([id, dir]) => {
+      const b = $(id);
+      if (!b) return;
+      b.addEventListener('pointerdown', e => { e.preventDefault(); b.classList.add('down'); flip(dir); });
+      const up = () => b.classList.remove('down');
+      b.addEventListener('pointerup', up); b.addEventListener('pointercancel', up); b.addEventListener('pointerleave', up);
+      b.addEventListener('contextmenu', e => e.preventDefault());
+    });
 
-    let padPause = false;
+    let padPause = false, padBack = false, padFront = false;
     function pollPad() {
       const pads = navigator.getGamepads ? navigator.getGamepads() : [];
       const p = [...pads].find(x => x && x.connected);
@@ -163,6 +180,10 @@
       const j = b(0) || b(12) || (p.axes[1] || 0) < -0.6, d = b(1) || b(13) || (p.axes[1] || 0) > 0.6;
       if (j !== src.pad.jump) press('pad', 'jump', j);
       if (d !== src.pad.duck) press('pad', 'duck', d);
+      const fb = b(2) || b(4) || b(14), ff = b(3) || b(5) || b(15);
+      if (fb && !padBack) flip(1);
+      if (ff && !padFront) flip(-1);
+      padBack = fb; padFront = ff;
       if (b(9) && !padPause) togglePause();
       padPause = b(9);
     }
@@ -190,7 +211,9 @@
         case 'jump': audio.play('jump', { vol: 0.55 }); break;
         case 'land': audio.play('land', { vol: Math.min(0.9, e.v / 900) }); break;
         case 'flip': audio.play('jump', { vol: 0.7, rate: 0.75 }); break;
-        case 'flipLand': audio.play('trick'); break;
+        case 'flipLand': audio.play('trick', { rate: 1 + 0.12 * Math.min(4, (e.n || 1) - 1) }); break;
+        case 'stunt': audio.play('jump', { vol: 0.6, rate: e.dir > 0 ? 1.25 : 1.4 }); break;
+        case 'airEmpty': audio.play('tick', { vol: 0.6, rate: 0.6 }); break;
         case 'canyonClear': audio.play('trick', { rate: 1.12 }); audio.play('milestone', { vol: 0.6 }); break;
         case 'canister': audio.play('canister', { vol: 0.8 }); break;
         case 'milestone': audio.play('milestone', { vol: 0.5 }); break;
@@ -236,14 +259,15 @@
       pollPad();
       if (!game.paused && !window.RRHold) {
         acc += dt;
-        const inp = { jump: jumpHeld(), duck: duckHeld(), jumpPressed: false };
+        const inp = { jump: jumpHeld(), duck: duckHeld(), jumpPressed: false, flipPressed: 0 };
         let ran = false;
         while (acc >= STEP) {
           inp.jumpPressed = edge && !ran;
+          inp.flipPressed = ran ? 0 : flipEdge;
           game.update(STEP, inp);
           ran = true; acc -= STEP;
         }
-        if (ran) edge = false;
+        if (ran) { edge = false; flipEdge = 0; }
       }
       for (const e of game.events) handle(e);
       game.events.length = 0;

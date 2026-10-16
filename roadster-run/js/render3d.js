@@ -602,6 +602,7 @@
       switch (e.type) {
         case 'jump': for (let i = 0; i < 10; i++) this.puff(game, 1.4); break;
         case 'flip': for (let i = 0; i < 12; i++) this.puff(game, 1.5); break;
+        case 'stunt': for (let i = 0; i < 9; i++) this.puff(game, 1.4); break;
         case 'land': for (let i = 0; i < Math.min(12, e.v / 60); i++) this.dust(); break;
         case 'crash': this.crash(game); break;
         case 'canister': for (let i = 0; i < 14; i++) this.spark([(e.x - C.CAR_X) * U + 0.4, e.y * U + 0.7, 0], this.mats.lamp, 6); break;
@@ -732,7 +733,7 @@
       const sq = c.duck ? -0.32 : 0;
       this.car.body.position.y = -this.car.center[1] + sq;
       this.car.wheels.forEach((w, i) => { w.position.y = 0.43 - sq; });
-      if (c.wreck) { this.car.pivot.rotation.z = -0.08; this.car.pivot.rotation.y = 0.18; } else this.car.pivot.rotation.y = 0;
+      if (c.wreck) { this.car.pivot.rotation.z = -c.rot - 0.08; this.car.pivot.rotation.y = 0.18; } else this.car.pivot.rotation.y = 0;
       const overGround = !game.features.some(f => f.kind === 'canyon' && 69 > f.x && 69 < f.x + f.w);
       this.car.shadow.visible = overGround && game.state !== 'falling';
       this.car.shadow.position.set(2.9, 0.04, 0);
