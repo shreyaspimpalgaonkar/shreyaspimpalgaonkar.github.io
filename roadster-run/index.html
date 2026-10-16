@@ -184,17 +184,17 @@
     box-shadow: inset 0 1px 0 rgba(122, 230, 255, 0.1);
     transition: border-color 0.15s, box-shadow 0.15s, transform 0.06s;
   }
-  .opts button { font-family: var(--display); font-size: 9px; letter-spacing: 0.16em; padding: 11px 16px 10px; }
+  .opts button { font-family: var(--display); font-size: 8.5px; letter-spacing: 0.15em; padding: 9px 13px 8px; border-radius: 9px; }
   .opts button:hover, .pad:hover { border-color: var(--ice); box-shadow: inset 0 1px 0 rgba(122, 230, 255, 0.1), 0 0 18px rgba(122, 230, 255, 0.22); }
   .opts button:active { transform: translateY(1px); }
   .opts button[aria-pressed="false"] { color: var(--muted); }
   button:focus-visible { outline: 2px solid var(--ice); outline-offset: 3px; }
-  .touch { display: none; width: 100%; max-width: 680px; grid-template-columns: 1fr 1.4fr; gap: 12px; }
+  .touch { display: none; width: 100%; max-width: 520px; grid-template-columns: 1fr 1.4fr; gap: 10px; }
   .is-touch .touch { display: grid; }
-  .pad { min-height: 78px; font-family: var(--display); font-size: 13px; letter-spacing: 0.14em; line-height: 1.7; padding: 10px;
+  .pad { min-height: 54px; font-family: var(--display); font-size: 11px; letter-spacing: 0.14em; line-height: 1.6; padding: 7px;
     touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
-  .pad small { display: block; font-family: var(--ui); font-size: 11px; letter-spacing: 0.12em; color: var(--muted); }
-  .pad { border-radius: 16px; }
+  .pad small { display: block; font-family: var(--ui); font-size: 10px; letter-spacing: 0.12em; color: var(--muted); }
+  .pad { border-radius: 12px; }
   .pad.jump { background: linear-gradient(180deg, rgba(38, 104, 132, 0.6), rgba(14, 40, 56, 0.92)); border-color: var(--ice); }
   .pad.down { transform: translateY(2px); box-shadow: inset 0 0 24px rgba(122, 230, 255, 0.35); }
   .rotate { display: none; margin: 0; color: var(--muted); font-size: 15px; }
@@ -236,7 +236,7 @@
     .v { font-size: 24px; }
     .screen { --pad: 7px; border-radius: 14px; }
     .seg button { padding: 7px 9px 6px; }
-    .opts button { padding: 10px 11px 9px; }
+    .opts button { padding: 8px 10px 7px; }
   }
   @media (orientation: portrait) and (max-width: 640px) { .is-touch .rotate { display: block; } }
   @media (prefers-reduced-motion: reduce) {
