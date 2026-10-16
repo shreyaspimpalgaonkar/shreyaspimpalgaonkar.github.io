@@ -10,7 +10,7 @@
     SPEED0: 360, SPEED_MAX: 800, ACCEL: 3.4,       // px/s, px/s^2 (the dino game's 6 -> 13 px/frame)
     G: 3000, JUMP_V: 700, CUT_V: 300, MIN_JUMP_H: 18, FASTFALL: 3,
     HOVER_FALL: 40, AIR_DRAIN: 0.55, AIR_REGEN: 0.1,
-    STUNT_T: 0.42, STUNT_AIR: 0.1, STUNT_SLOP: 0.5,   // a full flip takes 0.42 s and 10% air; land within 0.5 rad of level
+    STUNT_T: 0.42, STUNT_MIN: 0.3, STUNT_AIR: 0.1, STUNT_SLOP: 0.5,   // a flip takes 0.3 to 0.42 s and 10% air; land within 0.5 rad of level
     SCORE_K: 0.025, GAP_COEF: 0.6,
     NIGHT_EVERY: 700, NIGHT_LEN: 12, NIGHT_FADE: 1.2,
     RAMP_FIRST: 550, RAMP_GAP: [650, 1000],
@@ -77,7 +77,7 @@
       this.car = {
         y: 0, vy: 0, jumpY0: 0, onGround: true, duck: false, hover: false, held: false, buffer: 0,
         air: 1, rot: 0, flip: null, onRamp: null, spoiler: 0, wheel: 0, frame: 0, sprite: 'car0',
-        burst: 0, wreck: false, zeroTo60: 0, stunt: null, airFlips: 0, flipBuf: null,
+        burst: 0, wreck: false, zeroTo60: 0, stunt: null, airFlips: 0, flipBuf: null, airT: Infinity,
       };
       this.obstacles = []; this.items = []; this.decor = []; this.features = [];
       this.tail = CFG.W + CFG.SPEED0 * 1.0;
@@ -233,19 +233,25 @@
       // jump (from the road or from the ramp deck). A flip from the road jumps first.
       if ((c.buffer > 0 || wantFlip) && c.onGround) {
         c.vy = CFG.JUMP_V; c.onGround = false; c.held = true; c.buffer = 0; c.burst = 1;
-        c.jumpY0 = c.y; c.onRamp = null; c.rot = 0; c.airFlips = 0;
+        c.jumpY0 = c.y; c.onRamp = null; c.rot = 0; c.airFlips = 0; c.airT = 0;
         this.emit('jump');
       }
 
       // stunt flips: the thrusters spin the car a full turn while it is in the air
       if (wantFlip && !c.onGround) {
-        c.stunt = { dir: c.flipBuf.dir, t: 0 }; c.flipBuf = null;
+        // a flip early in a short hop gets back the lift of a full jump, so a quick JUMP then FLIP works
+        c.vy = Math.max(c.vy, CFG.JUMP_V - G * c.airT);
+        // the car spins faster when it has less time before it lands, but never faster than STUNT_MIN
+        const h = c.y - this.groundAt(xc);
+        const hovering = inp.jump && !inp.duck && c.air - CFG.STUNT_AIR > 0.05;
+        const rem = hovering || !isFinite(h) ? Infinity : (c.vy + Math.sqrt(Math.max(0, c.vy * c.vy + 2 * G * h))) / G;
+        c.stunt = { dir: c.flipBuf.dir, t: 0, T: clamp(rem * 0.95, CFG.STUNT_MIN, CFG.STUNT_T) }; c.flipBuf = null;
         c.air = Math.max(0, c.air - CFG.STUNT_AIR);
         this.emit('stunt', { dir: c.stunt.dir });
       }
       if (c.stunt) {
         c.stunt.t += dt;
-        const k = Math.min(1, c.stunt.t / CFG.STUNT_T);
+        const k = Math.min(1, c.stunt.t / c.stunt.T);
         c.rot = -c.stunt.dir * Math.PI * 2 * ease(k);
         c.burst = Math.max(c.burst, 0.5);
         if (k >= 1) this.finishStunt();
@@ -264,7 +270,7 @@
         c.vy -= G * (inp.duck ? CFG.FASTFALL : 1) * dt;
       }
       if (c.hover !== wasHover) this.emit('hover', { on: c.hover });
-      if (!c.onGround) c.y += c.vy * dt;
+      if (!c.onGround) { c.y += c.vy * dt; c.airT += dt; }
 
       const gnd = this.groundAt(xc);
       if (gnd === -Infinity) {
@@ -276,10 +282,11 @@
       } else if (c.y <= gnd + 0.01) {
         const wasAir = !c.onGround;
         if (wasAir && c.stunt) {
-          // a flip that is nearly done still counts; anything else lands on the roof
-          const a = ((Math.abs(c.rot) % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2);
-          if (a < CFG.STUNT_SLOP || a > Math.PI * 2 - CFG.STUNT_SLOP) this.finishStunt();
-          else if (this.god) { c.stunt = null; c.rot = 0; }
+          // a flip that is nearly done still counts, a flip that has barely started gives nothing,
+          // and anything in between lands on the roof
+          const a = Math.abs(c.rot);
+          if (a > Math.PI * 2 - CFG.STUNT_SLOP) this.finishStunt();
+          else if (a < CFG.STUNT_SLOP || this.god) { c.stunt = null; c.rot = 0; }
           else { c.y = gnd; c.vy = 0; c.stunt = null; c.rot = Math.PI; this.crash({ kind: 'roof', hit: false }); return; }
         }
         if (wasAir) c.airFlips = 0;
@@ -297,7 +304,7 @@
           c.flip = { t0: this.t, T };
           this.emit('flip');
         } else {
-          c.onGround = false; c.vy = Math.min(c.vy, 0); c.onRamp = null; c.rot = 0;
+          c.onGround = false; c.vy = Math.min(c.vy, 0); c.onRamp = null; c.rot = 0; c.airT = Infinity;
         }
       }
 
