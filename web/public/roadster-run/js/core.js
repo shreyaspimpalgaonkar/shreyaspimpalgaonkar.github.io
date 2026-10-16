@@ -239,10 +239,12 @@
 
       // stunt flips: the thrusters spin the car a full turn while it is in the air
       if (wantFlip && !c.onGround) {
-        // a flip early in a short hop gets back the lift of a full jump, so a quick JUMP then FLIP works
-        c.vy = Math.max(c.vy, CFG.JUMP_V - G * c.airT);
-        // the car spins faster when it has less time before it lands, but never faster than STUNT_MIN
+        // a flip after a short hop gets the lift of a full jump: it lands when a full jump would,
+        // so a quick JUMP then FLIP works
         const h = c.y - this.groundAt(xc);
+        const full = 2 * CFG.JUMP_V / G - c.airT;
+        if (full > CFG.STUNT_MIN * 0.8 && isFinite(h)) c.vy = Math.max(c.vy, (G * full * full / 2 - h) / full);
+        // the car spins faster when it has less time before it lands, but never faster than STUNT_MIN
         const hovering = inp.jump && !inp.duck && c.air - CFG.STUNT_AIR > 0.05;
         const rem = hovering || !isFinite(h) ? Infinity : (c.vy + Math.sqrt(Math.max(0, c.vy * c.vy + 2 * G * h))) / G;
         c.stunt = { dir: c.flipBuf.dir, t: 0, T: clamp(rem * 0.95, CFG.STUNT_MIN, CFG.STUNT_T) }; c.flipBuf = null;
