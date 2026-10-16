@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Roadster Run</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap">
+<style>
+  /* The player inside an X post. It is the same game and the same look as the
+     full version: an arcade cabinet with the screen in the middle and big pads
+     below, so it fits a square post on a phone. */
+  :root {
+    --cab: #0c0e15; --bezel: #151925; --deck: #1a1f2d; --line: #2b3246;
+    --plate: #eceae3; --brass: #c9a25a; --gas: #9fd6ff; --ink: #d7dae4; --muted: #8d93a8;
+    --display: "Press Start 2P", ui-monospace, "Courier New", monospace;
+    --body: "VT323", ui-monospace, "Courier New", monospace;
+    --u: min(1vw, 1vh);
+    color-scheme: dark;
+  }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: var(--cab); color: var(--ink); }
+  body { font-family: var(--display); -webkit-text-size-adjust: 100%; user-select: none; -webkit-user-select: none; }
+  button { font: inherit; color: inherit; }
+  .cab {
+    position: fixed; inset: 0; display: flex; flex-direction: column; justify-content: center;
+    gap: calc(var(--u) * 2.4); padding: calc(var(--u) * 3);
+  }
+  .top { display: flex; align-items: center; gap: calc(var(--u) * 2.4); }
+  .plate {
+    font-size: calc(var(--u) * 2.2); letter-spacing: 0.3em; color: var(--cab); background: var(--plate);
+    border-radius: 3px; padding: 0.5em 0.5em 0.4em 0.8em; box-shadow: inset 0 0 0 2px #a9a7a0;
+  }
+  .title { flex: 1; font-size: calc(var(--u) * 3.6); letter-spacing: 0.05em; color: var(--plate); text-shadow: 0 2px 0 var(--brass); white-space: nowrap; }
+  .mini {
+    font-size: calc(var(--u) * 2.3); letter-spacing: 0.04em; background: var(--deck); border: 2px solid var(--line);
+    border-radius: 7px; padding: 0.9em 1em 0.8em; cursor: pointer;
+  }
+  .mini:hover { border-color: var(--brass); }
+  .scores { display: flex; justify-content: flex-end; gap: 1.6em; font-size: calc(var(--u) * 3); letter-spacing: 0.04em; margin-top: calc(var(--u) * -0.6); }
+  .scores .hi { color: var(--muted); }
+  .screen {
+    --pad: calc(var(--u) * 1.8);
+    position: relative; padding: var(--pad); background: var(--bezel); border-radius: calc(var(--u) * 2.4);
+    box-shadow: inset 0 0 0 2px var(--line), 0 0 0 1px #05060a, 0 0 calc(var(--u) * 8) rgba(159, 214, 255, 0.08);
+    touch-action: none; cursor: pointer; -webkit-tap-highlight-color: transparent;
+  }
+  #game {
+    display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; border-radius: 3px;
+    image-rendering: pixelated; image-rendering: crisp-edges; -webkit-touch-callout: none;
+  }
+  .screen .view3d, .screen .hud3d {
+    position: absolute; inset: var(--pad); width: calc(100% - 2 * var(--pad)); height: calc(100% - 2 * var(--pad));
+    display: none; pointer-events: none; border-radius: 3px; image-rendering: pixelated; image-rendering: crisp-edges;
+  }
+  .screen.is3d .view3d, .screen.is3d .hud3d { display: block; }
+  .screen.is3d #game { visibility: hidden; }
+  .screen.crt::after {
+    content: ""; position: absolute; inset: var(--pad); border-radius: 3px; pointer-events: none; z-index: 2;
+    background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0.16) 2px 3px),
+      radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.32) 100%);
+  }
+  .pads { display: grid; grid-template-columns: 1fr 1.4fr; gap: calc(var(--u) * 2.4); }
+  .pad {
+    min-height: calc(var(--u) * 18); font-size: calc(var(--u) * 3.4); line-height: 1.6; padding: 0.6em;
+    color: var(--ink); background: var(--deck); border: 2px solid var(--line); border-radius: 9px; cursor: pointer;
+    touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
+  }
+  .pad small { display: block; font-size: 0.6em; color: var(--muted); letter-spacing: 0.06em; }
+  .pad.jump { border-color: var(--brass); box-shadow: inset 0 -4px 0 rgba(201, 162, 90, 0.35); }
+  .pad.duck { border-color: #3d5f7a; box-shadow: inset 0 -4px 0 rgba(159, 214, 255, 0.18); }
+  .pad.down { transform: translateY(2px); box-shadow: none; background: #222a3c; }
+  button:focus-visible, a:focus-visible { outline: 2px solid var(--gas); outline-offset: 2px; }
+
+  /* the options menu covers the cabinet; the game waits underneath */
+  .menu {
+    position: fixed; inset: 0; z-index: 10; display: flex; align-items: center; justify-content: center; padding: calc(var(--u) * 3);
+    background: rgba(8, 9, 14, 0.82);
+  }
+  .menu[hidden] { display: none; }
+  .panel {
+    width: min(100%, 560px); display: grid; gap: calc(var(--u) * 2.6); padding: calc(var(--u) * 3.6);
+    background: var(--bezel); border: 2px solid var(--line); border-radius: 12px; box-shadow: inset 0 0 0 1px #05060a;
+  }
+  .panel h2 { margin: 0; font-weight: 400; font-size: calc(var(--u) * 3); letter-spacing: 0.1em; color: var(--brass); }
+  .k { font-size: calc(var(--u) * 2); letter-spacing: 0.12em; color: var(--muted); margin-bottom: 0.7em; }
+  .seg { display: grid; grid-template-columns: repeat(4, 1fr); border: 2px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .seg button { background: var(--deck); border: 0; border-left: 2px solid var(--line); padding: 1em 0.2em 0.9em; font-size: calc(var(--u) * 2.3); color: var(--muted); cursor: pointer; }
+  .seg button:first-child { border-left: 0; }
+  .seg button[aria-pressed="true"] { color: var(--cab); background: var(--plate); }
+  .opt {
+    font-size: calc(var(--u) * 2.3); letter-spacing: 0.04em; background: var(--deck); border: 2px solid var(--line);
+    border-radius: 8px; padding: 1.05em 0.4em 0.95em; cursor: pointer; text-align: center; text-decoration: none; color: var(--ink);
+  }
+  .opt:hover { border-color: var(--brass); }
+  .opt[aria-pressed="false"] { color: var(--muted); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: calc(var(--u) * 1.8); }
+  .keys { margin: 0; font-family: var(--body); font-size: calc(var(--u) * 4.4); line-height: 1.15; color: var(--muted); }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: calc(var(--u) * 1.8); }
+  .opt.go { color: var(--cab); background: var(--plate); border-color: var(--plate); }
+</style>
+</head>
+<body>
+<div class="cab">
+  <header class="top">
+    <span class="plate" aria-hidden="true">RDSTR</span>
+    <span class="title">ROADSTER RUN</span>
+    <button class="mini" type="button" id="menuBtn" aria-haspopup="dialog" aria-controls="menu">MENU</button>
+  </header>
+  <div class="scores" aria-live="off"><span class="hi" id="hi">HI 00000</span><span id="sc">00000</span></div>
+  <div class="screen" id="screen">
+    <canvas id="game" width="600" height="200" aria-label="Roadster Run. Tap to play."></canvas>
+  </div>
+  <div class="pads">
+    <button class="pad duck" id="btnDuck" type="button">SUCTION<small>HOLD</small></button>
+    <button class="pad jump" id="btnJump" type="button">JUMP<small>HOLD TO HOVER</small></button>
+  </div>
+</div>
+
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Options" hidden>
+  <div class="panel">
+    <h2>OPTIONS</h2>
+    <div>
+      <div class="k">VIEW</div>
+      <div class="seg" role="group" aria-label="View">
+        <button type="button" data-view="2d" aria-pressed="true">2D</button><button type="button" data-view="chase" aria-pressed="false">CHASE</button><button type="button" data-view="side" aria-pressed="false">SIDE</button><button type="button" data-view="tv" aria-pressed="false">TV</button>
+      </div>
+    </div>
+    <div class="grid2">
+      <button class="opt" type="button" data-act="colors" id="optColors">COLORS: CLASSIC</button>
+      <button class="opt" type="button" data-act="crt" id="optCrt" aria-pressed="false">CRT: OFF</button>
+      <button class="opt" type="button" data-act="music" id="optMusic" aria-pressed="true">MUSIC: ON</button>
+      <button class="opt" type="button" data-act="sound" id="optSound" aria-pressed="true">SOUND: ON</button>
+    </div>
+    <p class="keys">Tap the screen or JUMP to jump. Keep holding to hover. Hold SUCTION or the left side of the screen to duck. On a keyboard, use Space and Down. V changes the view, C the colors, M the sound and P pauses.</p>
+    <div class="row">
+      <button class="opt go" type="button" id="menuClose">RESUME</button>
+      <a class="opt" href="./" target="_blank" rel="noopener">FULL GAME</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.RR_CONFIG = { palette: 'classic', fit: 'css' };
+</script>
+<script src="js/sprites.js"></script>
+<script src="js/core.js"></script>
+<script src="js/render2d.js"></script>
+<script src="js/render3d.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/main.js"></script>
+<script>
+  (function () {
+    var $ = function (id) { return document.getElementById(id); };
+    var menu = $('menu'), hi = $('hi'), sc = $('sc'), autoPaused = false, last = '';
+    var pad5 = function (n) { return String(Math.max(0, Math.min(99999, n))).padStart(5, '0'); };
+    function playing(g) { return g.state === 'play' || g.state === 'intro'; }
+    function openMenu() {
+      var R = window.RR; if (!R || !R.game) return;
+      menu.hidden = false;
+      if (!R.game.paused && playing(R.game)) { R.actions.pause(); autoPaused = true; }
+      $('menuClose').focus();
+    }
+    function closeMenu() {
+      var R = window.RR;
+      menu.hidden = true;
+      if (autoPaused && R && R.game.paused) R.actions.pause();
+      autoPaused = false;
+      $('menuBtn').blur();
+    }
+    $('menuBtn').addEventListener('click', openMenu);
+    $('menuClose').addEventListener('click', closeMenu);
+    // a view pick closes the menu so the new view shows right away
+    document.querySelectorAll('.menu [data-view]').forEach(function (b) { b.addEventListener('click', function () { setTimeout(closeMenu, 120); }); });
+    menu.addEventListener('pointerdown', function (e) { if (e.target === menu) closeMenu(); });
+    // while the menu is open, keys work the menu and not the game; Escape closes it
+    window.addEventListener('keydown', function (e) {
+      if (menu.hidden) return;
+      if (e.code === 'Escape') closeMenu();
+      e.stopImmediatePropagation();
+    }, true);
+    window.addEventListener('keyup', function (e) { if (!menu.hidden) e.stopImmediatePropagation(); }, true);
+    // the score in big type, since the in-game numbers are small on a phone
+    function tick() {
+      var R = window.RR;
+      if (R && R.game) {
+        var s = 'HI ' + pad5(R.game.best) + '|' + pad5(R.game.score);
+        if (s !== last) { last = s; var p = s.split('|'); hi.textContent = p[0]; sc.textContent = p[1]; }
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  })();
+</script>
+</body>
+</html>
