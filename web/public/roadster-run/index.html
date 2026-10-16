@@ -17,12 +17,12 @@
 <meta name="twitter:player" content="https://shreyaspimpalgaonkar.github.io/roadster-run/player.html">
 <meta name="twitter:player:width" content="640">
 <meta name="twitter:player:height" content="640">
-<meta name="twitter:image" content="https://shreyaspimpalgaonkar.github.io/roadster-run/poster.png">
-<meta name="twitter:image:alt" content="The Roadster Run title screen: a white Roadster on a neon desert road, seen from behind.">
+<meta name="twitter:image" content="https://shreyaspimpalgaonkar.github.io/roadster-run/poster.png?v=2">
+<meta name="twitter:image:alt" content="The Roadster Run title screen in gray pixel art, with a white Roadster parked on a desert road.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Roadster Run">
 <meta property="og:description" content="Fly Tesla's new flying Roadster in a retro runner, in 2D or 3D.">
-<meta property="og:image" content="https://shreyaspimpalgaonkar.github.io/roadster-run/card.png">
+<meta property="og:image" content="https://shreyaspimpalgaonkar.github.io/roadster-run/card.png?v=2">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://shreyaspimpalgaonkar.github.io/roadster-run/">
@@ -244,10 +244,6 @@
     .opts button { padding: 10px 11px 9px; }
   }
   @media (orientation: portrait) and (max-width: 640px) { .is-touch .rotate { display: block; } }
-  /* phones held upright get a square screen that opens in the 3D chase view */
-  .sq .screen { width: 100%; aspect-ratio: 1 / 1; }
-  .sq #game { position: absolute; left: var(--pad); right: var(--pad); top: 50%; transform: translateY(-50%); width: calc(100% - 2 * var(--pad)); max-width: none; }
-  .sq .rotate, .sq.is-touch .rotate { display: none; }
   @media (prefers-reduced-motion: reduce) {
     .bg .floor, .screen::before, .live i { animation: none; }
   }
@@ -314,7 +310,7 @@
       <button class="pad jump chamfer" id="btnJump" type="button">JUMP<small>HOLD TO HOVER</small></button>
     </div>
     <div class="opts">
-      <button class="chamfer" type="button" data-act="colors" id="optColors">COLORS: HOLO</button>
+      <button class="chamfer" type="button" data-act="colors" id="optColors">COLORS: CLASSIC</button>
       <button class="chamfer" type="button" data-act="sound" id="optSound" aria-pressed="true">SOUND: ON</button>
       <button class="chamfer" type="button" data-act="music" id="optMusic" aria-pressed="true">MUSIC: ON</button>
       <button class="chamfer" type="button" data-act="crt" id="optCrt" aria-pressed="false">CRT: OFF</button>
@@ -368,14 +364,7 @@
   </footer>
 </div>
 
-<script>
-  // Phones held upright play in a square box that opens on the 3D chase camera.
-  (function () {
-    var phone = window.matchMedia && matchMedia('(pointer: coarse) and (orientation: portrait) and (max-width: 640px)').matches;
-    window.RR_CONFIG = phone ? { palette: 'holo', fit: 'css', view: 'chase', view3d: { w: 320, h: 320 } } : { palette: 'holo' };
-    if (phone) document.documentElement.classList.add('sq');
-  })();
-</script>
+<script>window.RR_CONFIG = { palette: 'classic' };</script>
 <script src="js/sprites.js"></script>
 <script src="js/core.js"></script>
 <script src="js/render2d.js"></script>
