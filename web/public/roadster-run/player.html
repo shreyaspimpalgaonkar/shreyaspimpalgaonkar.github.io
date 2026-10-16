@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Roadster Run</title>
+<meta name="robots" content="noindex">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Michroma&display=swap">
+<style>
+  /* The player inside an X post: one square screen, tap to jump, hold the left third to duck. */
+  :root {
+    --void: #050a14; --ice: #7af5ff; --ice-soft: #3fb9d8; --line: rgba(122, 230, 255, 0.22);
+    --text: #e4f3ff; --muted: #8aa2b8;
+    --display: "Michroma", "Eurostile", "Arial Black", sans-serif;
+    color-scheme: dark;
+  }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: var(--void); color: var(--text); }
+  body { font-family: var(--display); -webkit-text-size-adjust: 100%; user-select: none; -webkit-user-select: none; }
+  .screen {
+    position: fixed; inset: 0; touch-action: none; cursor: pointer; -webkit-tap-highlight-color: transparent;
+    background:
+      linear-gradient(rgba(122, 230, 255, 0.07) 1px, transparent 1px) 0 0 / 32px 32px,
+      linear-gradient(90deg, rgba(122, 230, 255, 0.07) 1px, transparent 1px) 0 0 / 32px 32px,
+      radial-gradient(120% 80% at 50% 0%, #0f2b47 0%, var(--void) 70%);
+  }
+  /* the 2D view is a 3:1 strip, so it sits centered in the square */
+  #game {
+    position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+    width: 100%; height: auto; aspect-ratio: 3 / 1; display: block;
+    image-rendering: pixelated; image-rendering: crisp-edges; -webkit-touch-callout: none;
+  }
+  .screen .view3d, .screen .hud3d {
+    position: absolute; inset: 0; width: 100%; height: 100%; display: none; pointer-events: none;
+    image-rendering: pixelated; image-rendering: crisp-edges;
+  }
+  .screen.is3d .view3d, .screen.is3d .hud3d { display: block; }
+  .screen.is3d #game { visibility: hidden; }
+  .ui {
+    position: fixed; left: 0; right: 0; bottom: 0; display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 8px; padding: 0 max(8px, 2.4vw) max(8px, 2.4vw); pointer-events: none;
+  }
+  .ui button, .ui a {
+    pointer-events: auto; font-family: var(--display); font-size: max(9px, 2.3vw); letter-spacing: 0.14em; color: var(--text);
+    background: rgba(5, 12, 22, 0.72); border: 1px solid var(--line); padding: 0.9em 1.1em 0.8em; cursor: pointer; text-decoration: none;
+    clip-path: polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px);
+    -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+  }
+  .ui button:focus-visible, .ui a:focus-visible { outline: 2px solid var(--ice); outline-offset: 2px; }
+  .tip {
+    position: fixed; left: 0; right: 0; bottom: calc(max(8px, 2.4vw) + 3.4em); text-align: center; pointer-events: none;
+    font-family: var(--display); font-size: max(8px, 2.2vw); letter-spacing: 0.16em; color: var(--text);
+    text-shadow: 0 0 6px rgba(5, 10, 20, 0.9), 0 0 2px #000;
+  }
+  .tip[hidden] { display: none; }
+  .ui .right { display: flex; gap: 8px; }
+</style>
+</head>
+<body>
+<div class="screen" id="screen">
+  <canvas id="game" width="600" height="200" aria-label="Roadster Run. Tap to play."></canvas>
+</div>
+<div class="tip" id="tip">TAP TO JUMP &nbsp;/&nbsp; HOLD LEFT SIDE TO DUCK</div>
+<div class="ui">
+  <button type="button" id="viewBtn" aria-label="Switch between the 2D and 3D views">2D</button>
+  <div class="right">
+    <button type="button" data-act="sound" id="optSound" aria-pressed="true">SOUND ON</button>
+    <a href="./" target="_blank" rel="noopener" aria-label="Open the full game in a new tab">FULL</a>
+  </div>
+</div>
+<script>
+  window.RR_CONFIG = { palette: 'holo', fit: 'css', music: false, view: 'chase', view3d: { w: 320, h: 320 }, labels: { sound: 'SOUND ' } };
+</script>
+<script src="js/sprites.js"></script>
+<script src="js/core.js"></script>
+<script src="js/render2d.js"></script>
+<script src="js/render3d.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/main.js"></script>
+<script>
+  (function () {
+    var btn = document.getElementById('viewBtn'), tip = document.getElementById('tip');
+    btn.addEventListener('click', function () {
+      var R = window.RR; if (!R || !R.setView) return;
+      R.setView(R.view === '2d' ? 'chase' : '2d'); btn.blur();
+    });
+    function tick() {
+      var R = window.RR;
+      if (R && R.game) {
+        var label = R.view === '2d' ? '3D' : '2D';
+        if (btn.textContent !== label) btn.textContent = label;
+        var showTip = R.game.state === 'title' || R.game.state === 'over';
+        if (tip.hidden === showTip) tip.hidden = !showTip;
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Roadster Run</title>
+<meta name="description" content="A retro runner game like the Chrome dinosaur game. Fly the new Roadster from Tesla's October 15, 2026 demo, in pixel art 2D or in 3D.">
+<meta name="theme-color" content="#04060b">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<!-- X player card: the game plays inside the post -->
+<meta name="twitter:card" content="player">
+<meta name="twitter:site" content="@sayshrey">
+<meta name="twitter:creator" content="@sayshrey">
+<meta name="twitter:title" content="Roadster Run">
+<meta name="twitter:description" content="Fly Tesla's new flying Roadster in a retro runner. Tap play to drive it right here.">
+<meta name="twitter:player" content="https://shreyaspimpalgaonkar.github.io/roadster-run/player.html">
+<meta name="twitter:player:width" content="640">
+<meta name="twitter:player:height" content="640">
+<meta name="twitter:image" content="https://shreyaspimpalgaonkar.github.io/roadster-run/poster.png">
+<meta name="twitter:image:alt" content="The Roadster Run title screen: a white Roadster on a neon desert road, seen from behind.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Roadster Run">
+<meta property="og:description" content="Fly Tesla's new flying Roadster in a retro runner, in 2D or 3D.">
+<meta property="og:image" content="https://shreyaspimpalgaonkar.github.io/roadster-run/card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://shreyaspimpalgaonkar.github.io/roadster-run/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600&family=Michroma&family=Share+Tech+Mono&display=swap">
+<style>
+  /* Layout: a flight deck. Live telemetry rails flank the game screen, the
+     controls dock below it, and the notes sit in glass panels underneath. */
+  :root {
+    --void: #04060b;
+    --glass: rgba(9, 16, 28, 0.74);
+    --glass-hi: rgba(18, 31, 50, 0.86);
+    --line: rgba(122, 230, 255, 0.16);
+    --line-hi: rgba(122, 230, 255, 0.55);
+    --ice: #7af5ff;
+    --ice-soft: #3fb9d8;
+    --text: #e4f3ff;
+    --muted: #8099b0;
+    --alert: #ff3b5c;
+    --brass: #ffcf7a;
+    --display: "Michroma", "Eurostile", "Arial Black", sans-serif;
+    --ui: "Chakra Petch", "Segoe UI", system-ui, sans-serif;
+    --mono: "Share Tech Mono", ui-monospace, Menlo, Consolas, monospace;
+    --cut: 14px;
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--void); color: var(--text); }
+  body {
+    font-family: var(--ui); font-size: 16px; line-height: 1.5; min-height: 100%;
+    padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px);
+    -webkit-text-size-adjust: 100%;
+  }
+  a { color: var(--ice); text-underline-offset: 3px; }
+  button { font: inherit; color: inherit; }
+  .mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+  .wrap {
+    max-width: 1480px; margin: 0 auto;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .chamfer {
+    clip-path: polygon(var(--cut) 0, calc(100% - var(--cut)) 0, 100% var(--cut), 100% calc(100% - var(--cut)),
+      calc(100% - var(--cut)) 100%, var(--cut) 100%, 0 calc(100% - var(--cut)), 0 var(--cut));
+  }
+
+  /* background: a light grid floor rushing toward you, and a cold glow at the horizon */
+  .bg { position: fixed; inset: 0; z-index: -1; overflow: hidden; pointer-events: none;
+    background: radial-gradient(120% 70% at 50% -20%, #0f2b47 0%, rgba(15, 43, 71, 0) 60%), var(--void); }
+  .bg .floor {
+    position: absolute; left: -60%; right: -60%; bottom: -12%; height: 62%;
+    background-image: linear-gradient(rgba(122, 230, 255, 0.2) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(122, 230, 255, 0.2) 1px, transparent 1px);
+    background-size: 64px 64px;
+    transform: perspective(520px) rotateX(72deg); transform-origin: 50% 100%;
+    -webkit-mask-image: linear-gradient(to top, #000 25%, transparent 92%); mask-image: linear-gradient(to top, #000 25%, transparent 92%);
+    animation: floor 1.6s linear infinite;
+  }
+  .bg .horizon { position: absolute; left: 0; right: 0; bottom: 52%; height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(122, 230, 255, 0.45), transparent); filter: blur(1px); }
+  @keyframes floor { to { background-position: 0 64px, 0 0; } }
+
+  /* top bar */
+  .bar { display: flex; align-items: center; gap: 14px; padding-block: 16px 14px; flex-wrap: wrap; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--text); }
+  .brand svg { width: 58px; height: 17px; flex: none; filter: drop-shadow(0 0 6px rgba(122, 230, 255, 0.55)); }
+  .brand span { font-family: var(--display); font-size: 17px; letter-spacing: 0.16em; }
+  .tag { font-family: var(--display); font-size: 9px; letter-spacing: 0.22em; color: var(--muted);
+    border: 1px solid var(--line); padding: 5px 8px 4px; }
+  .spacer { flex: 1; }
+  .sys { display: inline-flex; align-items: center; gap: 8px; font-family: var(--display); font-size: 9px; letter-spacing: 0.2em; color: var(--ice); }
+  .sys i { width: 7px; height: 7px; background: var(--ice); box-shadow: 0 0 10px var(--ice); transform: rotate(45deg); }
+  .sys.alert { color: var(--alert); }
+  .sys.alert i { background: var(--alert); box-shadow: 0 0 12px var(--alert); }
+  .sys.warm { color: var(--brass); }
+  .sys.warm i { background: var(--brass); box-shadow: 0 0 10px var(--brass); }
+  .clock { font-size: 15px; color: var(--muted); letter-spacing: 0.06em; min-width: 9ch; text-align: right; }
+
+  /* deck: rails | feed | rails */
+  .deck { display: grid; grid-template-columns: 188px minmax(0, 1fr) 188px; gap: 18px; align-items: start; }
+  .rail { display: grid; gap: 12px; align-items: start; }
+  .tile {
+    --cut: 10px; position: relative; padding: 12px 14px 13px; min-width: 0;
+    background: linear-gradient(var(--glass), var(--glass)) padding-box,
+      linear-gradient(140deg, var(--line-hi), var(--line) 35%, var(--line) 70%, rgba(122, 230, 255, 0.35)) border-box;
+    border: 1px solid transparent;
+    -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  }
+  .k { display: block; font-family: var(--display); font-size: 8.5px; letter-spacing: 0.24em; color: var(--muted); margin-bottom: 6px; }
+  .v { font-family: var(--mono); font-size: 30px; line-height: 1; color: var(--text); letter-spacing: 0.02em; }
+  .v.small { font-size: 17px; line-height: 1.2; letter-spacing: 0.08em; }
+  .u { font-family: var(--display); font-size: 8.5px; letter-spacing: 0.2em; color: var(--ice-soft); margin-left: 6px; }
+  .barline { height: 4px; margin-top: 10px; background: rgba(122, 230, 255, 0.1); overflow: hidden; }
+  .barline i { display: block; height: 100%; width: 0%; background: linear-gradient(90deg, var(--ice-soft), var(--ice)); box-shadow: 0 0 10px var(--ice); transition: width 0.12s linear; }
+  .cells { display: grid; grid-template-columns: repeat(10, 1fr); gap: 3px; margin-top: 10px; }
+  .cells i { height: 12px; background: rgba(122, 230, 255, 0.1); }
+  .cells i.on { background: var(--ice); box-shadow: 0 0 8px rgba(122, 230, 255, 0.6); }
+  .cells.low i.on { background: var(--alert); box-shadow: 0 0 8px rgba(255, 59, 92, 0.6); }
+  .dots { display: grid; grid-template-columns: repeat(10, minmax(0, 13px)); gap: 3px; margin: 6px 0 10px; }
+  .dots i { aspect-ratio: 1; border-radius: 50%; border: 1px solid var(--line-hi); }
+  .dots i.on { background: radial-gradient(circle, #ffffff 0%, var(--ice) 45%, rgba(122, 230, 255, 0.2) 100%); box-shadow: 0 0 10px var(--ice); }
+  .rows { display: grid; gap: 7px; }
+  .rows div { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+  .rows .k { margin: 0; }
+  .rows .v { font-size: 20px; }
+  .tile.pulse { animation: pulse 0.6s ease-out; }
+  @keyframes pulse { from { box-shadow: 0 0 0 0 rgba(122, 230, 255, 0.7); } to { box-shadow: 0 0 0 14px rgba(122, 230, 255, 0); } }
+  .status-ok { color: var(--ice); } .status-warm { color: var(--brass); } .status-alert { color: var(--alert); }
+
+  /* the live feed */
+  .feed { min-width: 0; }
+  .feedbar { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+  .live { display: inline-flex; align-items: center; gap: 7px; font-family: var(--display); font-size: 9px; letter-spacing: 0.22em; color: var(--alert); }
+  .live i { width: 8px; height: 8px; border-radius: 50%; background: var(--alert); box-shadow: 0 0 10px var(--alert); animation: blink 1.4s steps(2, start) infinite; }
+  @keyframes blink { to { visibility: hidden; } }
+  .feedname { font-size: 14px; color: var(--muted); letter-spacing: 0.08em; }
+  .seg { display: inline-flex; border: 1px solid var(--line-hi); }
+  .seg button { background: transparent; border: 0; border-left: 1px solid var(--line); padding: 7px 12px 6px;
+    font-family: var(--display); font-size: 9px; letter-spacing: 0.16em; color: var(--muted); cursor: pointer; }
+  .seg button:first-child { border-left: 0; }
+  .seg button:hover { color: var(--text); }
+  .seg button[aria-pressed="true"] { color: #031018; background: var(--ice); box-shadow: 0 0 16px rgba(122, 230, 255, 0.45); }
+
+  .screen {
+    --pad: 12px; --cut: 18px;
+    position: relative; padding: var(--pad); margin: 0 auto; width: fit-content; max-width: 100%;
+    background: linear-gradient(180deg, rgba(15, 28, 46, 0.95), rgba(5, 9, 17, 0.95)) padding-box,
+      linear-gradient(135deg, var(--ice), rgba(122, 230, 255, 0.15) 30%, rgba(122, 230, 255, 0.15) 70%, var(--ice)) border-box;
+    border: 1px solid transparent;
+    box-shadow: 0 0 60px rgba(63, 185, 216, 0.12);
+    touch-action: none; cursor: pointer;
+  }
+  .screen::before {          /* a slow scan line sweeping the feed */
+    content: ""; position: absolute; left: var(--pad); right: var(--pad); top: var(--pad); height: 30%;
+    background: linear-gradient(180deg, rgba(122, 230, 255, 0), rgba(122, 230, 255, 0.07), rgba(122, 230, 255, 0));
+    pointer-events: none; z-index: 3; animation: sweep 6s linear infinite;
+  }
+  @keyframes sweep { from { transform: translateY(-100%); } to { transform: translateY(340%); } }
+  .screen.hit { animation: hit 0.5s ease-out; }
+  @keyframes hit { 0% { box-shadow: 0 0 0 2px var(--alert), 0 0 70px rgba(255, 59, 92, 0.6); } 100% { box-shadow: 0 0 60px rgba(63, 185, 216, 0.12); } }
+  #game {
+    display: block; width: 600px; height: auto; max-width: 100%; aspect-ratio: 3 / 1;
+    image-rendering: pixelated; image-rendering: crisp-edges;
+    user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
+  }
+  .screen .view3d, .screen .hud3d {
+    position: absolute; inset: var(--pad); width: calc(100% - 2 * var(--pad)); height: calc(100% - 2 * var(--pad));
+    image-rendering: pixelated; image-rendering: crisp-edges; pointer-events: none; display: none;
+  }
+  .screen.is3d .view3d, .screen.is3d .hud3d { display: block; }
+  .screen.is3d #game { visibility: hidden; }
+  .screen.crt::after {
+    content: ""; position: absolute; inset: var(--pad); pointer-events: none; z-index: 2;
+    background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0.18) 2px 3px),
+      radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.35) 100%);
+  }
+  .hint { margin: 10px 0 0; text-align: center; color: var(--muted); font-size: 15px; letter-spacing: 0.02em; }
+
+  /* control dock */
+  .dock { display: grid; gap: 14px; justify-items: center; margin-top: 18px; }
+  .opts { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .opts button, .pad {
+    --cut: 8px; cursor: pointer; color: var(--text);
+    background: linear-gradient(var(--glass-hi), var(--glass-hi)) padding-box,
+      linear-gradient(135deg, var(--line-hi), var(--line)) border-box;
+    border: 1px solid transparent;
+  }
+  .opts button { font-family: var(--display); font-size: 9px; letter-spacing: 0.16em; padding: 11px 14px 10px; }
+  .opts button:hover, .pad:hover { box-shadow: 0 0 18px rgba(122, 230, 255, 0.25); }
+  .opts button[aria-pressed="false"] { color: var(--muted); }
+  button:focus-visible { outline: 2px solid var(--ice); outline-offset: 3px; }
+  .touch { display: none; width: 100%; max-width: 680px; grid-template-columns: 1fr 1.4fr; gap: 12px; }
+  .is-touch .touch { display: grid; }
+  .pad { min-height: 78px; font-family: var(--display); font-size: 13px; letter-spacing: 0.14em; line-height: 1.7; padding: 10px;
+    touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none; }
+  .pad small { display: block; font-family: var(--ui); font-size: 11px; letter-spacing: 0.12em; color: var(--muted); }
+  .pad.jump { background: linear-gradient(rgba(16, 44, 60, 0.9), rgba(16, 44, 60, 0.9)) padding-box, linear-gradient(135deg, var(--ice), var(--ice-soft)) border-box; }
+  .pad.down { transform: translateY(2px); box-shadow: inset 0 0 24px rgba(122, 230, 255, 0.35); }
+  .rotate { display: none; margin: 0; color: var(--muted); font-size: 15px; }
+
+  /* notes */
+  .cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 34px; }
+  .card {
+    --cut: 16px; padding: 20px 22px 18px; min-width: 0;
+    background: linear-gradient(var(--glass), var(--glass)) padding-box,
+      linear-gradient(160deg, var(--line-hi), var(--line) 40%, var(--line)) border-box;
+    border: 1px solid transparent;
+    -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  }
+  .card h2 { margin: 0 0 14px; font-family: var(--display); font-weight: 400; font-size: 11px; letter-spacing: 0.24em; color: var(--ice); text-wrap: balance; }
+  .card h2::before { content: "// "; color: var(--ice-soft); }
+  .card p { margin: 0 0 12px; color: #c8dbea; }
+  .card ul { margin: 0 0 12px; padding-left: 1.1em; display: grid; gap: 8px; color: #c8dbea; }
+  .card li::marker { color: var(--ice-soft); }
+  .keys { list-style: none; padding-left: 0 !important; }
+  kbd { font-family: var(--mono); font-size: 13px; color: var(--ice); border: 1px solid var(--line-hi); padding: 1px 6px; margin-right: 6px; background: rgba(122, 230, 255, 0.06); }
+  .small { color: var(--muted); font-size: 14px; }
+
+  .foot { display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; justify-content: space-between;
+    margin-top: 30px; padding-block: 18px 30px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+  .foot a { color: var(--muted); }
+  .foot a:hover { color: var(--ice); }
+
+  @media (max-width: 1180px) {
+    .deck { grid-template-columns: minmax(0, 1fr); }
+    .feed { order: -1; }
+    .rail { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .cards { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .bar { padding-block: 12px 10px; gap: 10px; }
+    .brand span { font-size: 14px; }
+    .clock { display: none; }
+    .rail { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    .tile { padding: 10px 11px 11px; }
+    .v { font-size: 24px; }
+    .screen { --pad: 7px; --cut: 12px; }
+    .seg button { padding: 7px 9px 6px; }
+    .opts button { padding: 10px 11px 9px; }
+  }
+  @media (orientation: portrait) and (max-width: 640px) { .is-touch .rotate { display: block; } }
+  /* phones held upright get a square screen that opens in the 3D chase view */
+  .sq .screen { width: 100%; aspect-ratio: 1 / 1; }
+  .sq #game { position: absolute; left: var(--pad); right: var(--pad); top: 50%; transform: translateY(-50%); width: calc(100% - 2 * var(--pad)); max-width: none; }
+  .sq .rotate, .sq.is-touch .rotate { display: none; }
+  @media (prefers-reduced-motion: reduce) {
+    .bg .floor, .screen::before, .live i { animation: none; }
+  }
+</style>
+</head>
+<body>
+<div class="bg" aria-hidden="true"><div class="horizon"></div><div class="floor"></div></div>
+
+<div class="wrap">
+  <header class="bar">
+    <a class="brand" href="./" aria-label="Roadster Run">
+      <svg viewBox="0 0 58 17" aria-hidden="true">
+        <polygon points="1,13.6 0.5,9 1.4,6.6 9,5.8 16,3.3 24,2.3 30,2.7 37.5,5.3 45,6.7 51,9 56.6,11.7 56.2,13.4 51,14.8 5,14.8" fill="none" stroke="#7af5ff" stroke-width="1" stroke-linejoin="round"/>
+        <polyline points="12.6,6.6 16.9,4.1 24,3.4 29.6,3.8 35.6,6 20,6.9 12.6,6.6" fill="none" stroke="#7af5ff" stroke-width="0.8"/>
+        <circle cx="11" cy="12.7" r="3.6" fill="#04060b" stroke="#7af5ff" stroke-width="1"/>
+        <circle cx="45" cy="12.7" r="3.6" fill="#04060b" stroke="#7af5ff" stroke-width="1"/>
+      </svg>
+      <span>ROADSTER RUN</span>
+    </a>
+    <span class="tag">UNOFFICIAL FAN GAME</span>
+    <span class="spacer"></span>
+    <span class="sys" id="sys"><i></i><b id="sysText">SYSTEMS READY</b></span>
+    <span class="clock mono" id="clock">T+ 00:00.0</span>
+  </header>
+
+  <main class="deck">
+    <aside class="rail" aria-label="Flight data">
+      <div class="tile chamfer"><span class="k">SPEED</span><span class="v" id="tSpeed">0</span><span class="u">MPH</span><div class="barline"><i id="tSpeedBar"></i></div></div>
+      <div class="tile chamfer"><span class="k">ALTITUDE</span><span class="v" id="tAlt">0</span><span class="u">FT</span><div class="barline"><i id="tAltBar"></i></div></div>
+      <div class="tile chamfer"><span class="k">AIR TANKS</span><span class="v" id="tAir">100</span><span class="u">%</span><div class="cells" id="tAirCells"></div></div>
+      <div class="tile chamfer"><span class="k">THRUSTERS</span><div class="dots" id="tThr"></div><span class="v small" id="tThrText">IDLE</span></div>
+    </aside>
+
+    <section class="feed" aria-label="Game">
+      <div class="feedbar">
+        <span class="live"><i></i>LIVE</span>
+        <span class="feedname mono" id="feedName">CAM 01 / PIXEL FEED</span>
+        <span class="spacer"></span>
+        <div class="seg" role="group" aria-label="Camera">
+          <button type="button" data-view="2d" aria-pressed="true">2D</button><button type="button" data-view="chase" aria-pressed="false">CHASE</button><button type="button" data-view="side" aria-pressed="false">SIDE</button><button type="button" data-view="tv" aria-pressed="false">TV</button>
+        </div>
+      </div>
+      <div class="screen chamfer" id="screen">
+        <canvas id="game" width="600" height="200" aria-label="Roadster Run. Press Space or tap to play."></canvas>
+      </div>
+      <p class="hint" id="hint">Press Space or tap the screen to launch.</p>
+    </section>
+
+    <aside class="rail" aria-label="Run data">
+      <div class="tile chamfer" id="scoreTile"><span class="k">SCORE</span><span class="v" id="tScore">00000</span></div>
+      <div class="tile chamfer"><span class="k">BEST</span><span class="v" id="tBest">00000</span></div>
+      <div class="tile chamfer rows">
+        <div><span class="k">BACKFLIPS</span><span class="v" id="tFlips">0</span></div>
+        <div><span class="k">CANYONS</span><span class="v" id="tCanyons">0</span></div>
+        <div><span class="k">CLOSE CALLS</span><span class="v" id="tClose">0</span></div>
+      </div>
+      <div class="tile chamfer"><span class="k">STATUS</span><span class="v small status-ok" id="tStatus">STANDBY</span><span class="u" id="tMode">DAY</span></div>
+    </aside>
+  </main>
+
+  <section class="dock" aria-label="Controls">
+    <p class="rotate">Turn your phone sideways for a bigger screen.</p>
+    <div class="touch">
+      <button class="pad duck chamfer" id="btnDuck" type="button">SUCTION<small>HOLD</small></button>
+      <button class="pad jump chamfer" id="btnJump" type="button">JUMP<small>HOLD TO HOVER</small></button>
+    </div>
+    <div class="opts">
+      <button class="chamfer" type="button" data-act="colors" id="optColors">COLORS: HOLO</button>
+      <button class="chamfer" type="button" data-act="sound" id="optSound" aria-pressed="true">SOUND: ON</button>
+      <button class="chamfer" type="button" data-act="music" id="optMusic" aria-pressed="true">MUSIC: ON</button>
+      <button class="chamfer" type="button" data-act="crt" id="optCrt" aria-pressed="false">CRT: OFF</button>
+      <button class="chamfer" type="button" data-act="pause" id="optPause">PAUSE</button>
+    </div>
+  </section>
+
+  <section class="cards">
+    <article class="card chamfer">
+      <h2>HOW TO FLY</h2>
+      <ul class="keys">
+        <li><kbd>Space</kbd><kbd>&uarr;</kbd> Press to jump. Keep holding after the top of a jump to hover on the thrusters.</li>
+        <li><kbd>&darr;</kbd> Hold on the road to drop into suction mode, so drones pass over you. Hold it in the air to drop fast.</li>
+        <li><kbd>V</kbd> Press to switch between the 2D screen and the three 3D cameras. You can switch in the middle of a run.</li>
+        <li><kbd>C</kbd> Press to change the colors.</li>
+        <li><kbd>P</kbd><kbd>M</kbd> Press P to pause and M to turn the sound off.</li>
+      </ul>
+      <p>Hovering uses air. You get air back slowly while you drive on the road. Each air canister you grab gives you half a tank.</p>
+      <p class="small">On a phone, tap the screen to jump. Hold the left third of the screen or the SUCTION button to duck. You can also play with a game controller.</p>
+    </article>
+    <article class="card chamfer">
+      <h2>FROM THE OCT 15 DEMO</h2>
+      <ul>
+        <li>Each run starts with a standing lift-off and a 0 to 60 mph launch in 0.81 seconds.</li>
+        <li>The rows of parked cars are based on the Cybercab, Cybertruck, Semi, Model Y and Model 3 that the real car jumped over.</li>
+        <li>The flip ramps are based on the ramp that the real car drove up before it spun around and landed.</li>
+        <li>The ten air tanks stand for the 600 liters of compressed air that feed the car's 10 cold gas thrusters.</li>
+        <li>The canyon jumps are in the game because Musk said they may try to jump the Snake River Canyon.</li>
+      </ul>
+      <p class="small">Sources: <a href="https://www.dezeen.com/2026/10/16/tesla-launches-flying-roadster-concept-car/" target="_blank" rel="noopener">Dezeen</a> and <a href="https://techcrunch.com/2026/10/15/tesla-reveals-spacex-powered-roadster-that-flies-and-falls-with-style/" target="_blank" rel="noopener">TechCrunch</a>.</p>
+    </article>
+    <article class="card chamfer">
+      <h2>CREDITS</h2>
+      <p>These parts were made for this game:</p>
+      <ul>
+        <li>The pixel art and the pixel font.</li>
+        <li>The 3D Roadster and the 3D parked cars.</li>
+        <li>The game code and the electric motor sound.</li>
+      </ul>
+      <p>These parts come from other creators:</p>
+      <ul>
+        <li>Sound effects and music by Juhani Junkala, from <a href="https://opengameart.org/content/512-sound-effects-8-bit-style" target="_blank" rel="noopener">OpenGameArt</a> (CC0).</li>
+        <li>Thruster sounds and the 3D cones, crash debris and roadside cars by <a href="https://kenney.nl/assets/car-kit" target="_blank" rel="noopener">Kenney</a> (CC0).</li>
+        <li>Fonts from Google Fonts, and three.js for the 3D view (MIT license).</li>
+      </ul>
+    </article>
+  </section>
+
+  <footer class="foot">
+    <span>This is a fan project. Tesla and SpaceX did not make it and are not connected to it.</span>
+    <span><a href="/">shreyaspimpalgaonkar.github.io</a></span>
+  </footer>
+</div>
+
+<script>
+  // Phones held upright play in a square box that opens on the 3D chase camera.
+  (function () {
+    var phone = window.matchMedia && matchMedia('(pointer: coarse) and (orientation: portrait) and (max-width: 640px)').matches;
+    window.RR_CONFIG = phone ? { palette: 'holo', fit: 'css', view: 'chase', view3d: { w: 320, h: 320 } } : { palette: 'holo' };
+    if (phone) document.documentElement.classList.add('sq');
+  })();
+</script>
+<script src="js/sprites.js"></script>
+<script src="js/core.js"></script>
+<script src="js/render2d.js"></script>
+<script src="js/render3d.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/main.js"></script>
+<script>
+  // Flight deck telemetry: reads the running game every frame and updates the rails.
+  (function () {
+    var $ = function (id) { return document.getElementById(id); };
+    var cells = $('tAirCells'), dots = $('tThr');
+    for (var i = 0; i < 10; i++) { cells.appendChild(document.createElement('i')); dots.appendChild(document.createElement('i')); }
+    var cellEls = cells.children, dotEls = dots.children, last = {};
+    var FEEDS = { '2d': 'CAM 01 / PIXEL FEED', chase: 'CAM 02 / CHASE', side: 'CAM 03 / SIDE', tv: 'CAM 04 / TV' };
+    var pad5 = function (n) { return String(Math.max(0, Math.min(99999, n))).padStart(5, '0'); };
+    function set(id, v) { if (last[id] !== v) { last[id] = v; $(id).textContent = v; } }
+    function cls(id, v) { if (last['c' + id] !== v) { last['c' + id] = v; $(id).className = v; } }
+    function status(g, c) {
+      if (g.paused) return ['PAUSED', 'status-warm'];
+      switch (g.state) {
+        case 'title': return ['STANDBY', 'status-ok'];
+        case 'intro': return ['LIFT-OFF', 'status-warm'];
+        case 'crashed': case 'over': return ['IMPACT', 'status-alert'];
+        case 'falling': return ['FALLING', 'status-alert'];
+      }
+      if (c.flip) return ['BACKFLIP', 'status-warm'];
+      if (c.hover) return ['HOVERING', 'status-warm'];
+      if (!c.onGround) return ['AIRBORNE', 'status-ok'];
+      if (c.duck) return ['SUCTION', 'status-ok'];
+      return ['DRIVING', 'status-ok'];
+    }
+    function tick() {
+      var R = window.RR;
+      if (R && R.game) {
+        var g = R.game, c = g.car, moving = g.state === 'play' || g.state === 'intro';
+        var mph = g.state === 'intro' ? Math.round(60 * c.zeroTo60) : moving ? g.mph : 0;
+        set('tSpeed', String(mph));
+        $('tSpeedBar').style.width = Math.min(100, mph / 233 * 100).toFixed(1) + '%';
+        var alt = Math.max(0, Math.round(c.y * 0.25));
+        set('tAlt', String(alt));
+        $('tAltBar').style.width = Math.min(100, alt / 40 * 100).toFixed(1) + '%';
+        var air = Math.round(c.air * 100);
+        set('tAir', String(air));
+        for (var i = 0; i < 10; i++) cellEls[i].className = c.air * 10 > i + 0.05 ? 'on' : '';
+        cells.classList.toggle('low', c.air < 0.25);
+        var firing = !moving ? (g.state === 'title' && c.burst > 0 ? 3 : 0) : c.hover ? 10 : c.flip ? 6 : Math.ceil(c.burst * 10);
+        for (var j = 0; j < 10; j++) dotEls[j].className = j < firing && (firing === 10 || Math.random() > 0.15) ? 'on' : '';
+        set('tThrText', c.hover ? 'HOVER' : c.flip ? 'SPIN' : firing ? 'BURST' : 'IDLE');
+        set('tScore', pad5(g.score)); set('tBest', pad5(g.best));
+        set('tFlips', String(g.stats.flips)); set('tCanyons', String(g.stats.canyons)); set('tClose', String(g.stats.close));
+        var st = status(g, c);
+        set('tStatus', st[0]); cls('tStatus', 'v small ' + st[1]);
+        set('tMode', g.nightMix > 0.5 ? 'NIGHT' : 'DAY');
+        var sys = st[1] === 'status-alert' ? ['IMPACT DETECTED', 'sys alert'] : g.state === 'title' ? ['SYSTEMS READY', 'sys'] : g.paused ? ['HOLD', 'sys warm'] : ['IN FLIGHT', 'sys'];
+        set('sysText', sys[0]); cls('sys', sys[1]);
+        var t = g.playT || 0, m = Math.floor(t / 60), s = t - m * 60;
+        set('clock', 'T+ ' + String(m).padStart(2, '0') + ':' + s.toFixed(1).padStart(4, '0'));
+        set('feedName', FEEDS[R.view] || FEEDS['2d']);
+        var touch = R.r2d && R.r2d.touch;
+        set('hint', g.state === 'title' ? (touch ? 'Tap the screen to launch.' : 'Press Space or tap the screen to launch.')
+          : g.state === 'over' ? (touch ? 'Tap the screen to fly again.' : 'Press Space to fly again.')
+          : (touch ? 'Hold JUMP to hover. Tap a camera above the screen to switch views.' : 'Hold jump to hover. Press V to switch cameras.'));
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+    window.RR = window.RR || {};
+    window.RR.onEvent = function (e) {
+      if (e.type === 'crash' || e.type === 'boom') { var s = $('screen'); s.classList.remove('hit'); void s.offsetWidth; s.classList.add('hit'); }
+      if (e.type === 'milestone' || e.type === 'flipLand' || e.type === 'canyonClear') { var t = $('scoreTile'); t.classList.remove('pulse'); void t.offsetWidth; t.classList.add('pulse'); }
+    };
+  })();
+</script>
+</body>
+</html>
