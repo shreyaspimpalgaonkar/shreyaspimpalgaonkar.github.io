@@ -66,6 +66,7 @@
       this.renderer.setPixelRatio(1);
       this.renderer.setSize(this.w, this.h, false);
       this.canvas = this.renderer.domElement; this.canvas.className = 'view3d';
+      this.canvas.style.removeProperty('display');      // three.js sets display:block inline, which would beat the page's hide rule
       this.hudCv = document.createElement('canvas'); this.hudCv.width = this.w; this.hudCv.height = this.h; this.hudCv.className = 'hud3d';
       this.hud = this.hudCv.getContext('2d');
       screen.appendChild(this.canvas); screen.appendChild(this.hudCv);

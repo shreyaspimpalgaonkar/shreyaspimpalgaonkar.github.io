@@ -232,6 +232,7 @@
     let last = performance.now(), acc = 0;
     function frame(now) {
       const dt = Math.min(0.05, (now - last) / 1000); last = now;
+      if (window.RRManual) { requestAnimationFrame(frame); return; }   // a recorder steps the game itself
       pollPad();
       if (!game.paused && !window.RRHold) {
         acc += dt;
