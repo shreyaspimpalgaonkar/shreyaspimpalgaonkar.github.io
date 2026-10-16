@@ -8,132 +8,142 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500&family=Michroma&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap">
 <style>
-  /* The player inside an X post: one square screen. Tap to jump, hold the left
-     third to duck. Every option from the full page sits in the menu. */
+  /* The player inside an X post. It is the same game and the same look as the
+     full version: an arcade cabinet with the screen in the middle and big pads
+     below, so it fits a square post on a phone. */
   :root {
-    --void: #050a14; --ice: #7af5ff; --ice-soft: #3fb9d8; --line: rgba(122, 230, 255, 0.22); --line-hi: rgba(122, 230, 255, 0.55);
-    --glass: rgba(5, 12, 22, 0.74); --text: #e4f3ff; --muted: #8aa2b8;
-    --display: "Michroma", "Eurostile", "Arial Black", sans-serif;
-    --ui: "Chakra Petch", "Segoe UI", system-ui, sans-serif;
-    --fs: max(8.5px, 2.3vw);
+    --cab: #0c0e15; --bezel: #151925; --deck: #1a1f2d; --line: #2b3246;
+    --plate: #eceae3; --brass: #c9a25a; --gas: #9fd6ff; --ink: #d7dae4; --muted: #8d93a8;
+    --display: "Press Start 2P", ui-monospace, "Courier New", monospace;
+    --body: "VT323", ui-monospace, "Courier New", monospace;
+    --u: min(1vw, 1vh);
     color-scheme: dark;
   }
-  html, body { margin: 0; height: 100%; overflow: hidden; background: var(--void); color: var(--text); }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: var(--cab); color: var(--ink); }
   body { font-family: var(--display); -webkit-text-size-adjust: 100%; user-select: none; -webkit-user-select: none; }
   button { font: inherit; color: inherit; }
-  .screen {
-    position: fixed; inset: 0; touch-action: none; cursor: pointer; -webkit-tap-highlight-color: transparent;
-    background:
-      linear-gradient(rgba(122, 230, 255, 0.07) 1px, transparent 1px) 0 0 / 32px 32px,
-      linear-gradient(90deg, rgba(122, 230, 255, 0.07) 1px, transparent 1px) 0 0 / 32px 32px,
-      radial-gradient(120% 80% at 50% 0%, #0f2b47 0%, var(--void) 70%);
+  .cab {
+    position: fixed; inset: 0; display: flex; flex-direction: column; justify-content: center;
+    gap: calc(var(--u) * 2.4); padding: calc(var(--u) * 3);
   }
-  /* the 2D view is a 3:1 strip, so it sits centered in the square */
+  .top { display: flex; align-items: center; gap: calc(var(--u) * 2.4); }
+  .plate {
+    font-size: calc(var(--u) * 2.2); letter-spacing: 0.3em; color: var(--cab); background: var(--plate);
+    border-radius: 3px; padding: 0.5em 0.5em 0.4em 0.8em; box-shadow: inset 0 0 0 2px #a9a7a0;
+  }
+  .title { flex: 1; font-size: calc(var(--u) * 3.6); letter-spacing: 0.05em; color: var(--plate); text-shadow: 0 2px 0 var(--brass); white-space: nowrap; }
+  .mini {
+    font-size: calc(var(--u) * 2.3); letter-spacing: 0.04em; background: var(--deck); border: 2px solid var(--line);
+    border-radius: 7px; padding: 0.9em 1em 0.8em; cursor: pointer;
+  }
+  .mini:hover { border-color: var(--brass); }
+  .scores { display: flex; justify-content: flex-end; gap: 1.6em; font-size: calc(var(--u) * 3); letter-spacing: 0.04em; margin-top: calc(var(--u) * -0.6); }
+  .scores .hi { color: var(--muted); }
+  .screen {
+    --pad: calc(var(--u) * 1.8);
+    position: relative; padding: var(--pad); background: var(--bezel); border-radius: calc(var(--u) * 2.4);
+    box-shadow: inset 0 0 0 2px var(--line), 0 0 0 1px #05060a, 0 0 calc(var(--u) * 8) rgba(159, 214, 255, 0.08);
+    touch-action: none; cursor: pointer; -webkit-tap-highlight-color: transparent;
+  }
   #game {
-    position: absolute; left: 0; top: 50%; transform: translateY(-50%);
-    width: 100%; height: auto; aspect-ratio: 3 / 1; display: block;
+    display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; border-radius: 3px;
     image-rendering: pixelated; image-rendering: crisp-edges; -webkit-touch-callout: none;
   }
   .screen .view3d, .screen .hud3d {
-    position: absolute; inset: 0; width: 100%; height: 100%; display: none; pointer-events: none;
-    image-rendering: pixelated; image-rendering: crisp-edges;
+    position: absolute; inset: var(--pad); width: calc(100% - 2 * var(--pad)); height: calc(100% - 2 * var(--pad));
+    display: none; pointer-events: none; border-radius: 3px; image-rendering: pixelated; image-rendering: crisp-edges;
   }
   .screen.is3d .view3d, .screen.is3d .hud3d { display: block; }
   .screen.is3d #game { visibility: hidden; }
   .screen.crt::after {
-    content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 2;
-    background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0.2) 2px 3px),
-      radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 58%, rgba(0, 0, 0, 0.4) 100%);
+    content: ""; position: absolute; inset: var(--pad); border-radius: 3px; pointer-events: none; z-index: 2;
+    background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0.16) 2px 3px),
+      radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.32) 100%);
   }
+  .pads { display: grid; grid-template-columns: 1fr 1.4fr; gap: calc(var(--u) * 2.4); }
+  .pad {
+    min-height: calc(var(--u) * 18); font-size: calc(var(--u) * 3.4); line-height: 1.6; padding: 0.6em;
+    color: var(--ink); background: var(--deck); border: 2px solid var(--line); border-radius: 9px; cursor: pointer;
+    touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
+  }
+  .pad small { display: block; font-size: 0.6em; color: var(--muted); letter-spacing: 0.06em; }
+  .pad.jump { border-color: var(--brass); box-shadow: inset 0 -4px 0 rgba(201, 162, 90, 0.35); }
+  .pad.duck { border-color: #3d5f7a; box-shadow: inset 0 -4px 0 rgba(159, 214, 255, 0.18); }
+  .pad.down { transform: translateY(2px); box-shadow: none; background: #222a3c; }
+  button:focus-visible, a:focus-visible { outline: 2px solid var(--gas); outline-offset: 2px; }
 
-  .chip {
-    pointer-events: auto; font-family: var(--display); font-size: var(--fs); letter-spacing: 0.14em; color: var(--text);
-    background: var(--glass); border: 1px solid var(--line); padding: 0.9em 1.1em 0.8em; cursor: pointer; text-decoration: none;
-    clip-path: polygon(7px 0, 100% 0, 100% calc(100% - 7px), calc(100% - 7px) 100%, 0 100%, 0 7px);
-    -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); white-space: nowrap;
-  }
-  .chip:hover { border-color: var(--line-hi); }
-  button:focus-visible, a:focus-visible { outline: 2px solid var(--ice); outline-offset: 2px; }
-  .ui {
-    position: fixed; left: 0; right: 0; bottom: 0; z-index: 5; display: flex; align-items: flex-end; justify-content: space-between;
-    gap: 6px; padding: 0 max(8px, 2.4vw) max(8px, 2.4vw); pointer-events: none;
-  }
-  .ui .group { display: flex; gap: 6px; }
-  .tip {
-    position: fixed; left: 0; right: 0; bottom: calc(max(8px, 2.4vw) + 3.4em); z-index: 4; text-align: center; pointer-events: none;
-    font-family: var(--display); font-size: max(8px, 2.2vw); letter-spacing: 0.16em; color: var(--text);
-    text-shadow: 0 0 6px rgba(5, 10, 20, 0.9), 0 0 2px #000;
-  }
-  .tip[hidden] { display: none; }
-
-  /* the options menu covers the square; the game waits underneath */
+  /* the options menu covers the cabinet; the game waits underneath */
   .menu {
-    position: fixed; inset: 0; z-index: 10; display: flex; align-items: center; justify-content: center; padding: max(10px, 3vw);
-    background: rgba(3, 7, 14, 0.78); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+    position: fixed; inset: 0; z-index: 10; display: flex; align-items: center; justify-content: center; padding: calc(var(--u) * 3);
+    background: rgba(8, 9, 14, 0.82);
   }
   .menu[hidden] { display: none; }
   .panel {
-    width: min(100%, 520px); display: grid; gap: max(8px, 2.2vw); padding: max(12px, 3.4vw);
-    background: linear-gradient(rgba(10, 20, 34, 0.95), rgba(10, 20, 34, 0.95)) padding-box,
-      linear-gradient(140deg, var(--ice), rgba(122, 230, 255, 0.15) 35%, rgba(122, 230, 255, 0.15) 70%, var(--ice)) border-box;
-    border: 1px solid transparent;
-    clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 14px, 100% calc(100% - 14px), calc(100% - 14px) 100%, 14px 100%, 0 calc(100% - 14px), 0 14px);
+    width: min(100%, 560px); display: grid; gap: calc(var(--u) * 2.6); padding: calc(var(--u) * 3.6);
+    background: var(--bezel); border: 2px solid var(--line); border-radius: 12px; box-shadow: inset 0 0 0 1px #05060a;
   }
-  .panel h2 { margin: 0; font-family: var(--display); font-weight: 400; font-size: max(10px, 2.8vw); letter-spacing: 0.24em; color: var(--ice); }
-  .k { font-size: max(7.5px, 1.9vw); letter-spacing: 0.22em; color: var(--muted); margin-bottom: 0.5em; }
-  .seg { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line-hi); }
-  .seg button { background: transparent; border: 0; border-left: 1px solid var(--line); padding: 0.95em 0.2em 0.85em; font-size: var(--fs); letter-spacing: 0.12em; color: var(--muted); cursor: pointer; }
+  .panel h2 { margin: 0; font-weight: 400; font-size: calc(var(--u) * 3); letter-spacing: 0.1em; color: var(--brass); }
+  .k { font-size: calc(var(--u) * 2); letter-spacing: 0.12em; color: var(--muted); margin-bottom: 0.7em; }
+  .seg { display: grid; grid-template-columns: repeat(4, 1fr); border: 2px solid var(--line); border-radius: 8px; overflow: hidden; }
+  .seg button { background: var(--deck); border: 0; border-left: 2px solid var(--line); padding: 1em 0.2em 0.9em; font-size: calc(var(--u) * 2.3); color: var(--muted); cursor: pointer; }
   .seg button:first-child { border-left: 0; }
-  .seg button[aria-pressed="true"] { color: #031018; background: var(--ice); }
-  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: max(6px, 1.6vw); }
-  .grid2 .chip { text-align: center; padding: 1em 0.4em 0.9em; }
-  .chip[aria-pressed="false"] { color: var(--muted); }
-  .keys { margin: 0; font-family: var(--ui); font-size: max(10px, 2.5vw); line-height: 1.45; color: var(--muted); letter-spacing: 0.01em; }
-  .row { display: flex; gap: max(6px, 1.6vw); }
-  .row .chip { flex: 1; text-align: center; padding: 1.05em 0.4em 0.95em; }
-  .chip.go { color: #031018; background: var(--ice); border-color: var(--ice); }
+  .seg button[aria-pressed="true"] { color: var(--cab); background: var(--plate); }
+  .opt {
+    font-size: calc(var(--u) * 2.3); letter-spacing: 0.04em; background: var(--deck); border: 2px solid var(--line);
+    border-radius: 8px; padding: 1.05em 0.4em 0.95em; cursor: pointer; text-align: center; text-decoration: none; color: var(--ink);
+  }
+  .opt:hover { border-color: var(--brass); }
+  .opt[aria-pressed="false"] { color: var(--muted); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: calc(var(--u) * 1.8); }
+  .keys { margin: 0; font-family: var(--body); font-size: calc(var(--u) * 4.4); line-height: 1.15; color: var(--muted); }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: calc(var(--u) * 1.8); }
+  .opt.go { color: var(--cab); background: var(--plate); border-color: var(--plate); }
 </style>
 </head>
 <body>
-<div class="screen" id="screen">
-  <canvas id="game" width="600" height="200" aria-label="Roadster Run. Tap to play."></canvas>
-</div>
-<div class="tip" id="tip">TAP TO JUMP &nbsp;/&nbsp; HOLD LEFT SIDE TO DUCK</div>
-<div class="ui">
-  <div class="group">
-    <button class="chip" type="button" data-act="view" id="optView" aria-label="Switch camera">2D</button>
-    <button class="chip" type="button" data-act="pause" id="optPause">PAUSE</button>
+<div class="cab">
+  <header class="top">
+    <span class="plate" aria-hidden="true">RDSTR</span>
+    <span class="title">ROADSTER RUN</span>
+    <button class="mini" type="button" id="menuBtn" aria-haspopup="dialog" aria-controls="menu">MENU</button>
+  </header>
+  <div class="scores" aria-live="off"><span class="hi" id="hi">HI 00000</span><span id="sc">00000</span></div>
+  <div class="screen" id="screen">
+    <canvas id="game" width="600" height="200" aria-label="Roadster Run. Tap to play."></canvas>
   </div>
-  <button class="chip" type="button" id="menuBtn" aria-haspopup="dialog" aria-controls="menu">MENU</button>
+  <div class="pads">
+    <button class="pad duck" id="btnDuck" type="button">SUCTION<small>HOLD</small></button>
+    <button class="pad jump" id="btnJump" type="button">JUMP<small>HOLD TO HOVER</small></button>
+  </div>
 </div>
 
 <div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Options" hidden>
   <div class="panel">
     <h2>OPTIONS</h2>
     <div>
-      <div class="k">CAMERA</div>
-      <div class="seg" role="group" aria-label="Camera">
-        <button type="button" data-view="2d" aria-pressed="false">2D</button><button type="button" data-view="chase" aria-pressed="true">CHASE</button><button type="button" data-view="side" aria-pressed="false">SIDE</button><button type="button" data-view="tv" aria-pressed="false">TV</button>
+      <div class="k">VIEW</div>
+      <div class="seg" role="group" aria-label="View">
+        <button type="button" data-view="2d" aria-pressed="true">2D</button><button type="button" data-view="chase" aria-pressed="false">CHASE</button><button type="button" data-view="side" aria-pressed="false">SIDE</button><button type="button" data-view="tv" aria-pressed="false">TV</button>
       </div>
     </div>
     <div class="grid2">
-      <button class="chip" type="button" data-act="colors" id="optColors">COLORS: HOLO</button>
-      <button class="chip" type="button" data-act="crt" id="optCrt" aria-pressed="false">CRT: OFF</button>
-      <button class="chip" type="button" data-act="music" id="optMusic" aria-pressed="false">MUSIC: OFF</button>
-      <button class="chip" type="button" data-act="sound" id="optSound" aria-pressed="true">SOUND: ON</button>
+      <button class="opt" type="button" data-act="colors" id="optColors">COLORS: CLASSIC</button>
+      <button class="opt" type="button" data-act="crt" id="optCrt" aria-pressed="false">CRT: OFF</button>
+      <button class="opt" type="button" data-act="music" id="optMusic" aria-pressed="true">MUSIC: ON</button>
+      <button class="opt" type="button" data-act="sound" id="optSound" aria-pressed="true">SOUND: ON</button>
     </div>
-    <p class="keys">Tap to jump. Keep holding to hover. Hold the left side to duck. On a keyboard, use Space, Down, V for camera, C for colors, M for sound and P to pause.</p>
+    <p class="keys">Tap the screen or JUMP to jump. Keep holding to hover. Hold SUCTION or the left side of the screen to duck. On a keyboard, use Space and Down. V changes the view, C the colors, M the sound and P pauses.</p>
     <div class="row">
-      <button class="chip go" type="button" id="menuClose">RESUME</button>
-      <a class="chip" href="./" target="_blank" rel="noopener">FULL GAME</a>
+      <button class="opt go" type="button" id="menuClose">RESUME</button>
+      <a class="opt" href="./" target="_blank" rel="noopener">FULL GAME</a>
     </div>
   </div>
 </div>
 
 <script>
-  window.RR_CONFIG = { palette: 'holo', fit: 'css', music: false, view: 'chase', view3d: { w: 320, h: 320 }, labels: { view: '' } };
+  window.RR_CONFIG = { palette: 'classic', fit: 'css' };
 </script>
 <script src="js/sprites.js"></script>
 <script src="js/core.js"></script>
@@ -144,7 +154,8 @@
 <script>
   (function () {
     var $ = function (id) { return document.getElementById(id); };
-    var menu = $('menu'), tip = $('tip'), autoPaused = false;
+    var menu = $('menu'), hi = $('hi'), sc = $('sc'), autoPaused = false, last = '';
+    var pad5 = function (n) { return String(Math.max(0, Math.min(99999, n))).padStart(5, '0'); };
     function playing(g) { return g.state === 'play' || g.state === 'intro'; }
     function openMenu() {
       var R = window.RR; if (!R || !R.game) return;
@@ -161,7 +172,7 @@
     }
     $('menuBtn').addEventListener('click', openMenu);
     $('menuClose').addEventListener('click', closeMenu);
-    // a camera pick closes the menu so the new view is visible right away
+    // a view pick closes the menu so the new view shows right away
     document.querySelectorAll('.menu [data-view]').forEach(function (b) { b.addEventListener('click', function () { setTimeout(closeMenu, 120); }); });
     menu.addEventListener('pointerdown', function (e) { if (e.target === menu) closeMenu(); });
     // while the menu is open, keys work the menu and not the game; Escape closes it
@@ -171,11 +182,12 @@
       e.stopImmediatePropagation();
     }, true);
     window.addEventListener('keyup', function (e) { if (!menu.hidden) e.stopImmediatePropagation(); }, true);
+    // the score in big type, since the in-game numbers are small on a phone
     function tick() {
       var R = window.RR;
       if (R && R.game) {
-        var showTip = menu.hidden && (R.game.state === 'title' || R.game.state === 'over');
-        if (tip.hidden === showTip) tip.hidden = !showTip;
+        var s = 'HI ' + pad5(R.game.best) + '|' + pad5(R.game.score);
+        if (s !== last) { last = s; var p = s.split('|'); hi.textContent = p[0]; sc.textContent = p[1]; }
       }
       requestAnimationFrame(tick);
     }
