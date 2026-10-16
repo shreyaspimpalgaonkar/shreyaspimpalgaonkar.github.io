@@ -4,8 +4,29 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Roadster Run</title>
-<meta name="robots" content="noindex">
+<meta name="description" content="A retro runner game like the Chrome dinosaur game. Fly the new Roadster from Tesla's October 15, 2026 demo, and do backflips and front flips over traffic.">
+<meta name="theme-color" content="#0c0e15">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<!-- X shows this page as a player card: the poster first, then this same page inside the post -->
+<meta name="twitter:card" content="player">
+<meta name="twitter:site" content="@sayshrey">
+<meta name="twitter:creator" content="@sayshrey">
+<meta name="twitter:title" content="Roadster Run">
+<meta name="twitter:description" content="Fly Tesla's new flying Roadster in a retro runner. Jump, hover and flip. Tap play to drive it right here.">
+<meta name="twitter:player" content="https://shreyaspimpalgaonkar.github.io/roadster-run/player.html">
+<meta name="twitter:player:width" content="640">
+<meta name="twitter:player:height" content="640">
+<meta name="twitter:image" content="https://shreyaspimpalgaonkar.github.io/roadster-run/poster.png?v=3">
+<meta name="twitter:image:alt" content="The Roadster Run title screen in gray pixel art, with a white Roadster parked on a desert road.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Roadster Run">
+<meta property="og:description" content="Fly Tesla's new flying Roadster in a retro runner. Jump, hover and flip.">
+<meta property="og:image" content="https://shreyaspimpalgaonkar.github.io/roadster-run/card.png?v=3">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://shreyaspimpalgaonkar.github.io/roadster-run/player.html">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap">
@@ -24,8 +45,10 @@
   html, body { margin: 0; height: 100%; overflow: hidden; background: var(--cab); color: var(--ink); }
   body { font-family: var(--display); -webkit-text-size-adjust: 100%; user-select: none; -webkit-user-select: none; }
   button { font: inherit; color: inherit; }
+  /* In a wide frame the cabinet gets narrower, so the 3:1 screen and the pads still fit the height. */
   .cab {
-    position: fixed; inset: 0; display: flex; flex-direction: column; justify-content: center;
+    position: fixed; inset: 0; margin: 0 auto; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center;
+    width: min(100%, calc((100vh - var(--u) * 48 - 18px) * 3 + var(--u) * 9.6));
     gap: calc(var(--u) * 2.4); padding: calc(var(--u) * 3);
   }
   .top { display: flex; align-items: center; gap: calc(var(--u) * 2.4); }
@@ -74,6 +97,7 @@
   .pad small { display: block; font-size: 0.62em; color: var(--muted); letter-spacing: 0.06em; margin-top: 0.2em; }
   .pad.jump { border-color: var(--brass); --lip: #5c4820; background: linear-gradient(180deg, #2c2a2a, #1d1b1f); }
   .pad.duck { border-color: #3d5f7a; --lip: #1b2d3c; }
+  .pad.flip { min-height: calc(var(--u) * 8.4); color: var(--gas); border-color: #36405a; --lip: #262d40; }
   button:focus-visible, a:focus-visible { outline: 2px solid var(--gas); outline-offset: 2px; }
 
   /* the options menu covers the cabinet; the game waits underneath */
@@ -112,6 +136,8 @@
     <canvas id="game" width="600" height="200" aria-label="Roadster Run. Tap to play."></canvas>
   </div>
   <div class="pads">
+    <button class="pad flip" id="btnBack" type="button" aria-label="Backflip">BACKFLIP</button>
+    <button class="pad flip" id="btnFront" type="button" aria-label="Front flip">FRONTFLIP</button>
     <button class="pad duck" id="btnDuck" type="button">SUCTION<small>HOLD</small></button>
     <button class="pad jump" id="btnJump" type="button">JUMP<small>HOLD TO HOVER</small></button>
   </div>
@@ -132,10 +158,10 @@
       <button class="opt" type="button" data-act="music" id="optMusic" aria-pressed="true">MUSIC: ON</button>
       <button class="opt" type="button" data-act="sound" id="optSound" aria-pressed="true">SOUND: ON</button>
     </div>
-    <p class="keys">Tap the screen or JUMP to jump. Keep holding to hover. Hold SUCTION or the left side of the screen to duck. On a keyboard, use Space and Down. V changes the view, C the colors, M the sound and P pauses.</p>
+    <p class="keys">Tap the screen or JUMP to jump. Keep holding to hover. Hold SUCTION or the left side of the screen to duck. Tap BACKFLIP or FRONTFLIP to spin the car, and land on your wheels. On a keyboard, use Space, Down, Z and X. V changes the view, C the colors, M the sound and P pauses.</p>
     <div class="row">
       <button class="opt go" type="button" id="menuClose">RESUME</button>
-      <a class="opt" href="./" target="_blank" rel="noopener">FULL GAME</a>
+      <a class="opt" href="https://shreyaspimpalgaonkar.github.io/roadster-run/" target="_blank" rel="noopener">FULL GAME</a>
     </div>
   </div>
 </div>
