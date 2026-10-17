@@ -17,12 +17,12 @@
 <meta name="twitter:player" content="https://shreyaspimpalgaonkar.github.io/roadster-run/player.html">
 <meta name="twitter:player:width" content="640">
 <meta name="twitter:player:height" content="640">
-<meta name="twitter:image" content="https://shreyaspimpalgaonkar.github.io/roadster-run/poster.png?v=4">
+<meta name="twitter:image" content="https://shreyaspimpalgaonkar.github.io/roadster-run/poster.png?v=7">
 <meta name="twitter:image:alt" content="The Roadster Run title screen in gray pixel art, with a white Roadster parked on a desert road.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Roadster Run">
 <meta property="og:description" content="Fly Tesla's new flying Roadster in a retro runner. Jump, hover, and do backflips, frontflips and sideflips.">
-<meta property="og:image" content="https://shreyaspimpalgaonkar.github.io/roadster-run/card.png?v=4">
+<meta property="og:image" content="https://shreyaspimpalgaonkar.github.io/roadster-run/card.png?v=7">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://shreyaspimpalgaonkar.github.io/roadster-run/player.html">
@@ -45,10 +45,10 @@
   html, body { margin: 0; height: 100%; overflow: hidden; background: var(--cab); color: var(--ink); }
   body { font-family: var(--display); -webkit-text-size-adjust: 100%; user-select: none; -webkit-user-select: none; }
   button { font: inherit; color: inherit; }
-  /* In a wide frame the cabinet gets narrower, so the 15:8 screen still fits the height. */
+  /* In a wide frame the cabinet gets narrower, so the 5:3 screen still fits the height. */
   .cab {
     position: fixed; inset: 0; margin: 0 auto; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center;
-    width: min(100%, calc((100vh - var(--u) * 24 - 14px) * 1.875 + var(--u) * 9.6));
+    width: min(100%, calc((100vh - var(--u) * 24 - 14px) * 1.6667 + var(--u) * 9.6));
     gap: calc(var(--u) * 2.4); padding: calc(var(--u) * 3);
   }
   .top { display: flex; align-items: center; gap: calc(var(--u) * 2.4); }
@@ -75,7 +75,7 @@
     touch-action: none; cursor: pointer; -webkit-tap-highlight-color: transparent;
   }
   #game {
-    display: block; width: 100%; height: auto; aspect-ratio: 600 / 320; border-radius: 3px;
+    display: block; width: 100%; height: auto; aspect-ratio: 480 / 288; border-radius: 3px;
     image-rendering: pixelated; image-rendering: crisp-edges; -webkit-touch-callout: none;
   }
   .screen .view3d, .screen .hud3d {
@@ -89,13 +89,14 @@
     background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0.16) 2px 3px),
       radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.32) 100%);
   }
-  /* on-screen buttons: placed in percent of the 600x320 game picture; the road ends at 59%,
-     so the buttons only cover the ground strip under it */
+  /* on-screen buttons: placed in percent of the 480x288 game picture; the road ends at 65%,
+     so the buttons only cover the ground strip under it. SUCTION is alone on the left,
+     and the three flips sit in a row next to JUMP on the right. */
   .ctl { position: absolute; inset: var(--pad); z-index: 3; pointer-events: none; container-type: inline-size; }
   .tb {
     position: absolute; transform: translate(-50%, -50%); aspect-ratio: 1; height: auto; border-radius: 50%;
     display: grid; place-items: center; align-content: center; padding: 0; margin: 0; pointer-events: auto;
-    font-size: calc(var(--u) * 1.6); font-size: 1.75cqw; line-height: 1.35; letter-spacing: 0.04em; text-align: center; color: #fff;
+    font-size: calc(var(--u) * 1.5); font-size: 1.7cqw; line-height: 1.35; letter-spacing: 0.04em; text-align: center; color: #fff;
     text-shadow: 1px 0 0 rgba(0, 0, 0, 0.6), -1px 0 0 rgba(0, 0, 0, 0.6), 0 1px 0 rgba(0, 0, 0, 0.6), 0 -1px 0 rgba(0, 0, 0, 0.6);
     background: rgba(14, 17, 27, 0.28); border: 2px solid rgba(255, 255, 255, 0.8);
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.32), inset 0 0 0 1px rgba(0, 0, 0, 0.18);
@@ -104,10 +105,10 @@
   }
   .tb span { display: block; }
   .tb.down { background: rgba(255, 255, 255, 0.42); transform: translate(-50%, -50%) scale(0.92); }
-  .tb.jump { width: 18%; left: 88.6%; top: 80.6%; font-size: calc(var(--u) * 2.1); font-size: 2.3cqw; border-color: rgba(236, 200, 128, 0.95); }
-  .tb.duck { width: 21%; aspect-ratio: 120 / 66; border-radius: 999px; left: 12.9%; top: 83.2%; border-color: rgba(159, 214, 255, 0.92); }
-  .tb.flip { width: 12.5%; top: 83%; }
-  .tb.back { left: 36%; } .tb.side { left: 50%; } .tb.front { left: 64%; }
+  .tb.jump { width: 15.83%; left: 90.42%; top: 84.03%; font-size: calc(var(--u) * 1.9); font-size: 2.1cqw; border-color: rgba(236, 200, 128, 0.95); }
+  .tb.duck { width: 19.17%; aspect-ratio: 2; border-radius: 999px; left: 11.25%; top: 86.8%; border-color: rgba(159, 214, 255, 0.92); }
+  .tb.flip { width: 10.83%; top: 86.8%; }
+  .tb.back { left: 51.25%; } .tb.side { left: 63.33%; } .tb.front { left: 75.42%; }
   button:focus-visible, a:focus-visible { outline: 2px solid var(--gas); outline-offset: 2px; }
 
   /* the options menu covers the cabinet; the game waits underneath */
@@ -143,7 +144,7 @@
   </header>
   <div class="scores" aria-live="off"><span class="hi" id="hi">HI 00000</span><span id="sc">00000</span></div>
   <div class="screen" id="screen">
-    <canvas id="game" width="600" height="320" aria-label="Roadster Run. Tap to play."></canvas>
+    <canvas id="game" width="480" height="288" aria-label="Roadster Run. Tap to play."></canvas>
     <div class="ctl">
       <button class="tb duck" id="btnDuck" type="button" aria-label="Suction. Hold to duck.">SUCTION</button>
       <button class="tb flip back" id="btnBack" type="button" aria-label="Backflip"><span>BACK</span><span>FLIP</span></button>
@@ -164,7 +165,7 @@
       </div>
     </div>
     <div class="grid2">
-      <button class="opt" type="button" data-act="colors" id="optColors">COLORS: CLASSIC</button>
+      <button class="opt" type="button" data-act="colors" id="optColors">COLORS: TEXAS</button>
       <button class="opt" type="button" data-act="crt" id="optCrt" aria-pressed="false">CRT: OFF</button>
       <button class="opt" type="button" data-act="music" id="optMusic" aria-pressed="true">MUSIC: ON</button>
       <button class="opt" type="button" data-act="sound" id="optSound" aria-pressed="true">SOUND: ON</button>
@@ -178,7 +179,7 @@
 </div>
 
 <script>
-  window.RR_CONFIG = { palette: 'classic', fit: 'css', screenH: 320, view3d: { w: 600, h: 320, band: 120 }, zones: false };
+  window.RR_CONFIG = { palette: 'texas', fit: 'css', screenW: 480, screenH: 288, view3d: { w: 480, h: 288, band: 88 }, zones: false };
 </script>
 <script src="js/sprites.js"></script>
 <script src="js/core.js"></script>
