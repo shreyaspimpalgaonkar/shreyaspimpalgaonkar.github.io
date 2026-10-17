@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Roadster Run</title>
+<meta name="description" content="A retro runner game like the Chrome dinosaur game. Fly the new Roadster from Tesla's October 15, 2026 demo, and do backflips, front flips and sideflips over traffic.">
+<meta name="theme-color" content="#0c0e15">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+<!-- X shows this page as a player card: the poster first, then this same page inside the post -->
+<meta name="twitter:card" content="player">
+<meta name="twitter:site" content="@sayshrey">
+<meta name="twitter:creator" content="@sayshrey">
+<meta name="twitter:title" content="Roadster Run">
+<meta name="twitter:description" content="Fly Tesla's new flying Roadster in a retro runner. Jump, hover, and do backflips, frontflips and sideflips. Tap play to drive it right here.">
+<meta name="twitter:player" content="https://shreyaspimpalgaonkar.github.io/roadster-run/player.html">
+<meta name="twitter:player:width" content="640">
+<meta name="twitter:player:height" content="640">
+<meta name="twitter:image" content="https://shreyaspimpalgaonkar.github.io/roadster-run/poster.png?v=4">
+<meta name="twitter:image:alt" content="The Roadster Run title screen in gray pixel art, with a white Roadster parked on a desert road.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Roadster Run">
+<meta property="og:description" content="Fly Tesla's new flying Roadster in a retro runner. Jump, hover, and do backflips, frontflips and sideflips.">
+<meta property="og:image" content="https://shreyaspimpalgaonkar.github.io/roadster-run/card.png?v=4">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://shreyaspimpalgaonkar.github.io/roadster-run/player.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap">
+<style>
+  /* The player inside an X post. It is the same game and the same look as the
+     full version: an arcade cabinet around a taller screen. The buttons sit on
+     the screen like in a phone game, see-through, on the ground under the road. */
+  :root {
+    --cab: #0c0e15; --bezel: #151925; --deck: #1a1f2d; --line: #2b3246;
+    --plate: #eceae3; --brass: #c9a25a; --gas: #9fd6ff; --ink: #d7dae4; --muted: #8d93a8;
+    --display: "Press Start 2P", ui-monospace, "Courier New", monospace;
+    --body: "VT323", ui-monospace, "Courier New", monospace;
+    --u: min(1vw, 1vh);
+    color-scheme: dark;
+  }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: var(--cab); color: var(--ink); }
+  body { font-family: var(--display); -webkit-text-size-adjust: 100%; user-select: none; -webkit-user-select: none; }
+  button { font: inherit; color: inherit; }
+  /* In a wide frame the cabinet gets narrower, so the 15:8 screen still fits the height. */
+  .cab {
+    position: fixed; inset: 0; margin: 0 auto; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center;
+    width: min(100%, calc((100vh - var(--u) * 24 - 14px) * 1.875 + var(--u) * 9.6));
+    gap: calc(var(--u) * 2.4); padding: calc(var(--u) * 3);
+  }
+  .top { display: flex; align-items: center; gap: calc(var(--u) * 2.4); }
+  .plate {
+    font-size: calc(var(--u) * 1.9); letter-spacing: 0.3em; color: var(--cab); background: var(--plate);
+    border-radius: 3px; padding: 0.5em 0.5em 0.4em 0.8em; box-shadow: inset 0 0 0 2px #a9a7a0;
+  }
+  .title { flex: 1; font-size: calc(var(--u) * 3.1); letter-spacing: 0.05em; color: var(--plate); text-shadow: 0 2px 0 var(--brass); white-space: nowrap; }
+  /* arcade keys: a solid lip underneath that the key presses down into */
+  .mini, .opt {
+    cursor: pointer; color: var(--ink); background: linear-gradient(180deg, #232a3c, #181d2a);
+    border: 2px solid var(--line); border-radius: 12px; transition: transform 0.06s, box-shadow 0.06s;
+    --lip: #07080d; box-shadow: 0 3px 0 var(--lip), 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+  .mini:active, .opt:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--lip), 0 2px 6px rgba(0, 0, 0, 0.3); }
+  .mini { font-size: calc(var(--u) * 1.8); letter-spacing: 0.04em; border-radius: 8px; padding: 0.75em 0.9em 0.65em; }
+  .mini:hover, .opt:hover { border-color: var(--brass); }
+  .scores { display: flex; justify-content: flex-end; gap: 1.6em; font-size: calc(var(--u) * 2.5); letter-spacing: 0.04em; margin-top: calc(var(--u) * -0.6); }
+  .scores .hi { color: var(--muted); }
+  .screen {
+    --pad: calc(var(--u) * 1.8);
+    position: relative; padding: var(--pad); background: var(--bezel); border-radius: calc(var(--u) * 2.4);
+    box-shadow: inset 0 0 0 2px var(--line), 0 0 0 1px #05060a, 0 0 calc(var(--u) * 8) rgba(159, 214, 255, 0.08);
+    touch-action: none; cursor: pointer; -webkit-tap-highlight-color: transparent;
+  }
+  #game {
+    display: block; width: 100%; height: auto; aspect-ratio: 600 / 320; border-radius: 3px;
+    image-rendering: pixelated; image-rendering: crisp-edges; -webkit-touch-callout: none;
+  }
+  .screen .view3d, .screen .hud3d {
+    position: absolute; inset: var(--pad); width: calc(100% - 2 * var(--pad)); height: calc(100% - 2 * var(--pad));
+    display: none; pointer-events: none; border-radius: 3px; image-rendering: pixelated; image-rendering: crisp-edges;
+  }
+  .screen.is3d .view3d, .screen.is3d .hud3d { display: block; }
+  .screen.is3d #game { visibility: hidden; }
+  .screen.crt::after {
+    content: ""; position: absolute; inset: var(--pad); border-radius: 3px; pointer-events: none; z-index: 2;
+    background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0.16) 2px 3px),
+      radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.32) 100%);
+  }
+  /* on-screen buttons: placed in percent of the 600x320 game picture; the road ends at 59%,
+     so the buttons only cover the ground strip under it */
+  .ctl { position: absolute; inset: var(--pad); z-index: 3; pointer-events: none; container-type: inline-size; }
+  .tb {
+    position: absolute; transform: translate(-50%, -50%); aspect-ratio: 1; height: auto; border-radius: 50%;
+    display: grid; place-items: center; align-content: center; padding: 0; margin: 0; pointer-events: auto;
+    font-size: calc(var(--u) * 1.6); font-size: 1.75cqw; line-height: 1.35; letter-spacing: 0.04em; text-align: center; color: #fff;
+    text-shadow: 1px 0 0 rgba(0, 0, 0, 0.6), -1px 0 0 rgba(0, 0, 0, 0.6), 0 1px 0 rgba(0, 0, 0, 0.6), 0 -1px 0 rgba(0, 0, 0, 0.6);
+    background: rgba(14, 17, 27, 0.28); border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.32), inset 0 0 0 1px rgba(0, 0, 0, 0.18);
+    cursor: pointer; touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent; transition: transform 0.05s, background-color 0.05s;
+  }
+  .tb span { display: block; }
+  .tb.down { background: rgba(255, 255, 255, 0.42); transform: translate(-50%, -50%) scale(0.92); }
+  .tb.jump { width: 18%; left: 88.6%; top: 80.6%; font-size: calc(var(--u) * 2.1); font-size: 2.3cqw; border-color: rgba(236, 200, 128, 0.95); }
+  .tb.duck { width: 21%; aspect-ratio: 120 / 66; border-radius: 999px; left: 12.9%; top: 83.2%; border-color: rgba(159, 214, 255, 0.92); }
+  .tb.flip { width: 12.5%; top: 83%; }
+  .tb.back { left: 36%; } .tb.side { left: 50%; } .tb.front { left: 64%; }
+  button:focus-visible, a:focus-visible { outline: 2px solid var(--gas); outline-offset: 2px; }
+
+  /* the options menu covers the cabinet; the game waits underneath */
+  .menu {
+    position: fixed; inset: 0; z-index: 10; display: flex; align-items: center; justify-content: center; padding: calc(var(--u) * 3);
+    background: rgba(8, 9, 14, 0.82);
+  }
+  .menu[hidden] { display: none; }
+  .panel {
+    width: min(100%, 560px); display: grid; gap: calc(var(--u) * 2.6); padding: calc(var(--u) * 3.6);
+    background: var(--bezel); border: 2px solid var(--line); border-radius: 12px; box-shadow: inset 0 0 0 1px #05060a;
+  }
+  .panel h2 { margin: 0; font-weight: 400; font-size: calc(var(--u) * 3); letter-spacing: 0.1em; color: var(--brass); }
+  .k { font-size: calc(var(--u) * 2); letter-spacing: 0.12em; color: var(--muted); margin-bottom: 0.7em; }
+  .seg { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3px; padding: 3px; background: #0d1018; border: 2px solid var(--line); border-radius: 12px; }
+  .seg button { background: transparent; border: 0; border-radius: 8px; padding: 0.85em 0.2em 0.75em; font-size: calc(var(--u) * 2); color: var(--muted); cursor: pointer; }
+  .seg button:hover { color: var(--ink); background: #1a1f2d; }
+  .seg button[aria-pressed="true"] { color: var(--cab); background: var(--plate); }
+  .opt { font-size: calc(var(--u) * 2); letter-spacing: 0.04em; border-radius: 9px; padding: 0.9em 0.4em 0.8em; text-align: center; text-decoration: none; }
+  .opt[aria-pressed="false"] { color: var(--muted); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: calc(var(--u) * 1.8); }
+  .keys { margin: 0; font-family: var(--body); font-size: calc(var(--u) * 3.7); line-height: 1.15; color: var(--muted); }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: calc(var(--u) * 1.8); }
+  .opt.go { color: var(--cab); background: var(--plate); border-color: var(--plate); --lip: #8f8d86; }
+</style>
+</head>
+<body>
+<div class="cab">
+  <header class="top">
+    <span class="plate" aria-hidden="true">RDSTR</span>
+    <span class="title">ROADSTER RUN</span>
+    <button class="mini" type="button" id="menuBtn" aria-haspopup="dialog" aria-controls="menu">MENU</button>
+  </header>
+  <div class="scores" aria-live="off"><span class="hi" id="hi">HI 00000</span><span id="sc">00000</span></div>
+  <div class="screen" id="screen">
+    <canvas id="game" width="600" height="320" aria-label="Roadster Run. Tap to play."></canvas>
+    <div class="ctl">
+      <button class="tb duck" id="btnDuck" type="button" aria-label="Suction. Hold to duck.">SUCTION</button>
+      <button class="tb flip back" id="btnBack" type="button" aria-label="Backflip"><span>BACK</span><span>FLIP</span></button>
+      <button class="tb flip side" id="btnSide" type="button" aria-label="Sideflip"><span>SIDE</span><span>FLIP</span></button>
+      <button class="tb flip front" id="btnFront" type="button" aria-label="Front flip"><span>FRONT</span><span>FLIP</span></button>
+      <button class="tb jump" id="btnJump" type="button" aria-label="Jump. Hold to hover.">JUMP</button>
+    </div>
+  </div>
+</div>
+
+<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Options" hidden>
+  <div class="panel">
+    <h2>OPTIONS</h2>
+    <div>
+      <div class="k">VIEW</div>
+      <div class="seg" role="group" aria-label="View">
+        <button type="button" data-view="2d" aria-pressed="true">2D</button><button type="button" data-view="chase" aria-pressed="false">CHASE</button><button type="button" data-view="side" aria-pressed="false">SIDE</button><button type="button" data-view="tv" aria-pressed="false">TV</button>
+      </div>
+    </div>
+    <div class="grid2">
+      <button class="opt" type="button" data-act="colors" id="optColors">COLORS: CLASSIC</button>
+      <button class="opt" type="button" data-act="crt" id="optCrt" aria-pressed="false">CRT: OFF</button>
+      <button class="opt" type="button" data-act="music" id="optMusic" aria-pressed="true">MUSIC: ON</button>
+      <button class="opt" type="button" data-act="sound" id="optSound" aria-pressed="true">SOUND: ON</button>
+    </div>
+    <p class="keys">Tap the screen or JUMP to jump. Keep holding to hover. Hold SUCTION to duck. Tap BACK, SIDE or FRONT to flip. Flip on the way up, or hover while you flip, so the car lands on its wheels. On a keyboard, use Space, Down, Z, X and F. V changes the view, C the colors, M the sound and P pauses.</p>
+    <div class="row">
+      <button class="opt go" type="button" id="menuClose">RESUME</button>
+      <a class="opt" href="https://shreyaspimpalgaonkar.github.io/roadster-run/" target="_blank" rel="noopener">FULL GAME</a>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.RR_CONFIG = { palette: 'classic', fit: 'css', screenH: 320, view3d: { w: 600, h: 320, band: 120 }, zones: false };
+</script>
+<script src="js/sprites.js"></script>
+<script src="js/core.js"></script>
+<script src="js/render2d.js"></script>
+<script src="js/render3d.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/main.js"></script>
+<script>
+  (function () {
+    var $ = function (id) { return document.getElementById(id); };
+    var menu = $('menu'), hi = $('hi'), sc = $('sc'), autoPaused = false, last = '';
+    var pad5 = function (n) { return String(Math.max(0, Math.min(99999, n))).padStart(5, '0'); };
+    function playing(g) { return g.state === 'play' || g.state === 'intro'; }
+    function openMenu() {
+      var R = window.RR; if (!R || !R.game) return;
+      menu.hidden = false;
+      if (!R.game.paused && playing(R.game)) { R.actions.pause(); autoPaused = true; }
+      $('menuClose').focus();
+    }
+    function closeMenu() {
+      var R = window.RR;
+      menu.hidden = true;
+      if (autoPaused && R && R.game.paused) R.actions.pause();
+      autoPaused = false;
+      $('menuBtn').blur();
+    }
+    $('menuBtn').addEventListener('click', openMenu);
+    $('menuClose').addEventListener('click', closeMenu);
+    // a view pick closes the menu so the new view shows right away
+    document.querySelectorAll('.menu [data-view]').forEach(function (b) { b.addEventListener('click', function () { setTimeout(closeMenu, 120); }); });
+    menu.addEventListener('pointerdown', function (e) { if (e.target === menu) closeMenu(); });
+    // while the menu is open, keys work the menu and not the game; Escape closes it
+    window.addEventListener('keydown', function (e) {
+      if (menu.hidden) return;
+      if (e.code === 'Escape') closeMenu();
+      e.stopImmediatePropagation();
+    }, true);
+    window.addEventListener('keyup', function (e) { if (!menu.hidden) e.stopImmediatePropagation(); }, true);
+    // the score in big type, since the in-game numbers are small on a phone
+    function tick() {
+      var R = window.RR;
+      if (R && R.game) {
+        var s = 'HI ' + pad5(R.game.best) + '|' + pad5(R.game.score);
+        if (s !== last) { last = s; var p = s.split('|'); hi.textContent = p[0]; sc.textContent = p[1]; }
+      }
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  })();
+</script>
+</body>
+</html>
