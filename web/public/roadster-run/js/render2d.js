@@ -408,6 +408,13 @@
       }
     }
 
+    // Inside a post on x.com the game sits in a frame that does not get key presses until it is clicked,
+    // so it asks for a click until it has focus.
+    prompt(tap, click, key) {
+      if (this.touch) return tap;
+      return this.embedded && !document.hasFocus() ? click : key;
+    }
+
     rot(x, im, cx, cy, a, sy) {
       x.save(); x.translate(Math.round(cx), Math.round(cy)); x.rotate(a);
       if (sy && sy !== 1) x.scale(1, sy);
@@ -475,7 +482,7 @@
       if (game.state === 'title') {
         this.logo(x, S, W);
         this.outlined(x, S, 'hudDim', 'A FLYING CAR RUNNER', W / 2, 74, 1, 'center');
-        if (blink) this.outlined(x, S, 'hud', this.touch ? 'TAP TO LAUNCH' : 'PRESS SPACE TO LAUNCH', W / 2, 100, 1, 'center');
+        if (blink) this.outlined(x, S, 'hud', this.prompt('TAP TO LAUNCH', 'CLICK TO LAUNCH', 'PRESS SPACE TO LAUNCH'), W / 2, 100, 1, 'center');
         if (game.best > 0) this.outlined(x, S, 'hudDim', 'HI ' + pad5(game.best), W / 2, 116, 1, 'center');
       }
       if (game.state === 'intro') {
@@ -491,7 +498,7 @@
         if (game.state === 'over') {
           x.drawImage(S.spr.restart, Math.round(W / 2 - S.spr.restart.width / 2), 78);
           if (game.newBest && blink) this.outlined(x, S, 'hud', 'NEW HIGH SCORE!', W / 2, 104, 1, 'center');
-          else this.outlined(x, S, 'hudDim', this.touch ? 'TAP TO RETRY' : 'SPACE TO RETRY', W / 2, 104, 1, 'center');
+          else this.outlined(x, S, 'hudDim', this.prompt('TAP TO RETRY', 'CLICK TO RETRY', 'SPACE TO RETRY'), W / 2, 104, 1, 'center');
           const st = game.stats;
           const line = 'FLIPS ' + st.flips + '  CANYONS ' + st.canyons + '  CLOSE CALLS ' + st.close;
           this.outlined(x, S, 'hudDim', line, W / 2, 118, 1, 'center');
@@ -500,7 +507,7 @@
       if (this.notice) this.outlined(x, S, 'hud', this.notice, W / 2, 140, 1, 'center');
       if (game.paused) {
         this.outlined(x, S, 'hud', 'PAUSED', W / 2, 60, 2, 'center');
-        this.outlined(x, S, 'hudDim', this.touch ? 'TAP TO RESUME' : 'P TO RESUME', W / 2, 84, 1, 'center');
+        this.outlined(x, S, 'hudDim', this.prompt('TAP TO RESUME', 'CLICK TO RESUME', 'P TO RESUME'), W / 2, 84, 1, 'center');
       }
     }
 

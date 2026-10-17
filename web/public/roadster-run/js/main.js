@@ -38,6 +38,9 @@
 
     const coarse = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
     r2d.touch = coarse;
+    try { r2d.embedded = window.self !== window.top; } catch (e) { r2d.embedded = true; }
+    // a click inside a framed copy (like a post on x.com) takes keyboard focus, so Space and the arrows work after it
+    const grabKeys = () => { if (r2d.embedded && !document.hasFocus()) { try { window.focus(); } catch (e) { /* ignore */ } } };
     document.body.classList.toggle('is-touch', coarse);
 
     // ------------------------------------------------------------ controls panel
@@ -140,7 +143,7 @@
     // unless the page puts its own buttons on the screen (RR_CONFIG.zones = false).
     const ptrs = new Map();
     screen.addEventListener('pointerdown', e => {
-      e.preventDefault();
+      e.preventDefault(); grabKeys();
       screen.setPointerCapture && screen.setPointerCapture(e.pointerId);
       const r = screen.getBoundingClientRect();
       const kind = coarse && CONF.zones !== false && (e.clientX - r.left) < r.width * 0.33 && game.state === 'play' ? 'duck' : 'jump';
@@ -160,7 +163,7 @@
       const b = $(id);
       if (!b) return;
       // stopPropagation: a button that sits on the screen must not also count as a tap on the screen
-      b.addEventListener('pointerdown', e => { e.preventDefault(); e.stopPropagation(); b.setPointerCapture && b.setPointerCapture(e.pointerId); b.classList.add('down'); press('btn', kind, true); });
+      b.addEventListener('pointerdown', e => { e.preventDefault(); e.stopPropagation(); grabKeys(); b.setPointerCapture && b.setPointerCapture(e.pointerId); b.classList.add('down'); press('btn', kind, true); });
       const up = () => { b.classList.remove('down'); press('btn', kind, false); };
       b.addEventListener('pointerup', up); b.addEventListener('pointercancel', up);
       b.addEventListener('contextmenu', e => e.preventDefault());
@@ -168,7 +171,7 @@
     [['btnBack', 'back'], ['btnFront', 'front'], ['btnSide', 'side']].forEach(([id, kind]) => {
       const b = $(id);
       if (!b) return;
-      b.addEventListener('pointerdown', e => { e.preventDefault(); e.stopPropagation(); b.classList.add('down'); flip(kind); });
+      b.addEventListener('pointerdown', e => { e.preventDefault(); e.stopPropagation(); grabKeys(); b.classList.add('down'); flip(kind); });
       const up = () => b.classList.remove('down');
       b.addEventListener('pointerup', up); b.addEventListener('pointercancel', up); b.addEventListener('pointerleave', up);
       b.addEventListener('contextmenu', e => e.preventDefault());
