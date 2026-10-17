@@ -17,7 +17,7 @@
     const game = new Core.Game(cat);
     const canvas = document.getElementById('game');
     const screen = document.getElementById('screen');
-    const r2d = new window.RRRender2D(canvas, cat, { h: CONF.screenH });
+    const r2d = new window.RRRender2D(canvas, cat, { h: CONF.screenH, w: CONF.screenW });
     const audio = new window.RRAudio('assets/');
     const $ = id => document.getElementById(id);
 
