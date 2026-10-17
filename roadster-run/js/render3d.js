@@ -55,11 +55,13 @@
 
   class Render3D {
     // opts.w / opts.h set the internal render size; a square frame suits phones.
+    // opts.band adds that many rows of ground below the usual picture, for on-screen buttons.
     constructor(screen, catalogue, r2d, opts) {
       const T = this.T = global.THREE;
       T.Cache.enabled = true;
       opts = opts || {};
       this.w = opts.w || W; this.h = opts.h || H;
+      this.band = Math.max(0, Math.min(this.h - 40, opts.band || 0)); this.baseH = this.h - this.band;
       this.r2d = r2d; this.cat = catalogue; this.time = 0;
       this.view = 'chase'; this.camState = null;
       this.renderer = new T.WebGLRenderer({ antialias: false, powerPreference: 'high-performance' });
@@ -84,7 +86,10 @@
 
       this.scene = new T.Scene();
       this.camera = new T.PerspectiveCamera(56, this.w / this.h, 0.1, 700);
-      this.square = this.w / this.h < 1.6;
+      this.square = this.w / this.baseH < 1.6;
+      // with a band, the camera renders a taller frame and shows its lower part, so the usual
+      // picture keeps its place at the top and the extra rows below show more of the road
+      if (this.band) this.camera.setViewOffset(this.w, this.baseH + 2 * this.band, 0, this.band, this.w, this.h);
       this.scene.fog = new T.Fog(0xffffff, 60, 230);
       this.hemi = new T.HemisphereLight(0xffffff, 0x888888, 0.75); this.scene.add(this.hemi);
       this.sun = new T.DirectionalLight(0xffffff, 0.65); this.sun.position.set(-30, 60, 40); this.scene.add(this.sun);
@@ -154,7 +159,7 @@
       if (K.horizon !== K.bg) {
         yx.fillStyle = K.horizon;
         const B = [[0, 8, 2, 10], [12, 4, 14, 6], [3, 11, 1, 9], [15, 7, 13, 5]];
-        const y0 = Math.round(SH * 0.1), span = SH * (this.square ? 0.32 : 0.35);
+        const BH = SH - this.band, y0 = Math.round(BH * 0.1), span = BH * (this.square ? 0.32 : 0.35);
         for (let y = y0; y < SH; y++) { const f = Math.min(1, (y - y0) / span) * 16; for (let x = 0; x < SW; x++) if (B[y & 3][x & 3] < f) yx.fillRect(x, y, 1, 1); }
       }
       out.sky = tex(sky);
@@ -724,8 +729,8 @@
       const cy = c.y * U;
       this.car.pivot.position.set(this.car.center[0], cy + this.car.center[1], 0);
       this.car.pivot.rotation.z = -c.rot;
-      if (game.state === 'falling') this.car.pivot.rotation.x = Math.sin(this.time * 7) * 0.2;
-      else this.car.pivot.rotation.x = 0;
+      // a sideflip rolls the car over its long axis
+      this.car.pivot.rotation.x = (game.state === 'falling' ? Math.sin(this.time * 7) * 0.2 : 0) + (c.roll || 0);
       const spin = c.wheel * 1.6;
       this.car.wheels.forEach(w => { w.rotation.z = -spin; });
       this.car.spoiler.position.y = 1.02 + c.spoiler * 0.28;
@@ -819,7 +824,9 @@
       const sh = this.shake > 0 ? this.shake * 0.5 : 0;
       this.camera.position.set(this.camState.pos[0] + (Math.random() - 0.5) * sh, this.camState.pos[1] + (Math.random() - 0.5) * sh, this.camState.pos[2]);
       this.camera.lookAt(this.camState.look[0], this.camState.look[1], this.camState.look[2]);
-      if (Math.abs(this.camera.fov - this.camState.fov) > 0.01) { this.camera.fov = this.camState.fov; this.camera.updateProjectionMatrix(); }
+      // with a band the camera's frame is taller, so it needs a wider angle for the same picture
+      const fovFull = this.band ? 2 * Math.atan(Math.tan(this.camState.fov * Math.PI / 360) * (this.baseH + 2 * this.band) / this.baseH) * 180 / Math.PI : this.camState.fov;
+      if (Math.abs(this.camera.fov - fovFull) > 0.01) { this.camera.fov = fovFull; this.camera.updateProjectionMatrix(); }
     }
 
     dispose() {

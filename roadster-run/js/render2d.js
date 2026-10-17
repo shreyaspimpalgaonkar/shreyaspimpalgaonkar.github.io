@@ -1,5 +1,6 @@
 /* Roadster Run: the 2D pixel renderer. Draws the shared simulation into a
-   600x200 canvas that CSS scales up with nearest-neighbour filtering. */
+   600x200 canvas that CSS scales up with nearest-neighbour filtering.
+   opts.h makes the canvas taller; the extra rows are ground below the road. */
 (function (global) {
   'use strict';
   const A = global.RRArt, C = global.RRCore.CFG;
@@ -10,11 +11,12 @@
   const mk = (w, h) => { const c = document.createElement('canvas'); c.width = w; c.height = h; return c; };
 
   class Render2D {
-    constructor(canvas, catalogue) {
-      this.cv = canvas; canvas.width = W; canvas.height = H;
+    constructor(canvas, catalogue, opts) {
+      this.H = Math.max(H, (opts && opts.h) || H);
+      this.cv = canvas; canvas.width = W; canvas.height = this.H;
       this.ctx = canvas.getContext('2d');
       this.cat = catalogue;
-      this.bufA = mk(W, H); this.bufB = mk(W, H);
+      this.bufA = mk(W, this.H); this.bufB = mk(W, this.H);
       this.particles = [];
       this.shake = 0; this.camY = 0; this.time = 0; this.flash = 0;
       this.touch = false;
@@ -89,7 +91,7 @@
         case 'stunt': for (let i = 0; i < 10; i++) this.puff(car, true, 1.5); break;
         case 'crash': this.explode(car, game); break;
         case 'canister': for (let i = 0; i < 12; i++) this.spark(e.x + 4, GY - e.y - 7, 'glow', 90); break;
-        case 'boom': this.shake = 0.6; for (let i = 0; i < 30; i++) this.dust(80 + Math.random() * 220, H - 4, true); break;
+        case 'boom': this.shake = 0.6; for (let i = 0; i < 30; i++) this.dust(80 + Math.random() * 220, this.H - 4, true); break;
         case 'start': this.flash = 0; break;
       }
     }
@@ -273,13 +275,16 @@
       }
       const cim = spr[c.sprite];
       const cyTop = gy - Math.round(c.y) - A.CAR_H;
-      if (c.rot) this.rot(x, cim, C.CAR_X + A.CAR_W / 2 + sx, cyTop + A.CAR_H / 2, c.rot);
-      else x.drawImage(cim, C.CAR_X + sx, cyTop);
+      if (c.rot || c.roll) {
+        // a sideflip rolls the car over its long axis: seen from the side it squashes, turns over and comes back
+        const cr = Math.cos(c.roll || 0), sy = c.roll ? (cr < 0 ? -1 : 1) * Math.max(0.2, Math.abs(cr)) : 1;
+        this.rot(x, cim, C.CAR_X + A.CAR_W / 2 + sx, cyTop + A.CAR_H / 2, c.rot || 0, sy);
+      } else x.drawImage(cim, C.CAR_X + sx, cyTop);
 
       this.drawParticles(x, S, sx, cam + sy, 'front');
       this.speedLines(x, col, game);
 
-      if (this.flash > 0) { x.fillStyle = col.light; x.fillRect(0, 0, W, H); }
+      if (this.flash > 0) { x.fillStyle = col.light; x.fillRect(0, 0, W, this.H); }
       this.hud(x, S, game);
     }
 
@@ -297,7 +302,7 @@
       x.fillStyle = col.roadLine;
       for (let k = -1; k < W / dash + 1; k++) x.fillRect(Math.round(k * dash - off) + sx, gy + 8, 16, 2);
       x.fillStyle = col.mid; x.fillRect(0, gy + 17, W, 1);
-      x.fillStyle = col.dirt; x.fillRect(0, gy + 18, W, H - gy + cam);
+      x.fillStyle = col.dirt; x.fillRect(0, gy + 18, W, this.H - gy + cam);
       for (let k = 0; k < 60; k++) {
         const span = W + 20;
         const px = Math.floor((hash(k * 5 + 1) * span - d) % span + span) % span - 10;
@@ -305,12 +310,21 @@
         x.fillStyle = hash(k * 5 + 3) < 0.5 ? col.ink : col.mid;
         x.fillRect(px + sx, py, hash(k * 5 + 4) < 0.3 ? 2 : 1, 1);
       }
+      // a taller screen shows more ground under the road: sparse pebbles that thin out toward the bottom
+      const deep = this.H - (gy + 34);
+      for (let k = 0; deep > 0 && k < Math.round(deep * 0.9); k++) {
+        const span = W + 20, f = hash(k * 7 + 5);
+        const px = Math.floor((hash(k * 7 + 1) * span - d) % span + span) % span - 10;
+        const py = gy + 34 + Math.floor(f * f * deep);
+        x.fillStyle = hash(k * 7 + 3) < 0.35 ? col.ink : col.mid;
+        x.fillRect(px + sx, py, hash(k * 7 + 4) < 0.25 ? 2 : 1, 1);
+      }
       // canyons cut through everything
       for (const f of game.features) {
         if (f.kind !== 'canyon') continue;
         const x0 = Math.round(f.x) + sx, x1 = Math.round(f.x + f.w) + sx;
         if (x1 < 0 || x0 > W) continue;
-        const bottom = H + cam + 10;
+        const bottom = this.H + cam + 10;
         // the gorge below the road, with layered rock on the far wall
         x.fillStyle = col.canyon; x.fillRect(x0, gy, x1 - x0, bottom - gy);
         x.fillStyle = col.rock;
@@ -320,9 +334,9 @@
           for (let i = Math.max(x0, 0); i < Math.min(x1, W); i += 2) if (hash(Math.floor((i + off) / 5) * 13 + j) < 0.5) x.fillRect(i, yy, 2, 2);
         }
         // the river far below
-        x.fillStyle = col.river; x.fillRect(x0, H - 6 + cam, x1 - x0, 7);
+        x.fillStyle = col.river; x.fillRect(x0, this.H - 6 + cam, x1 - x0, 7);
         x.fillStyle = col.light;
-        for (let i = x0 + ((this.time * 40) % 14); i < x1; i += 14) x.fillRect(Math.round(i), H - 4 + cam, 5, 1);
+        for (let i = x0 + ((this.time * 40) % 14); i < x1; i += 14) x.fillRect(Math.round(i), this.H - 4 + cam, 5, 1);
         // jagged cliff faces in solid rock
         for (const [edge, dir] of [[x0, -1], [x1, 1]]) {
           for (let yy = gy; yy < bottom; yy++) {
@@ -392,8 +406,9 @@
       }
     }
 
-    rot(x, im, cx, cy, a) {
+    rot(x, im, cx, cy, a, sy) {
       x.save(); x.translate(Math.round(cx), Math.round(cy)); x.rotate(a);
+      if (sy && sy !== 1) x.scale(1, sy);
       x.drawImage(im, -Math.round(im.width / 2), -Math.round(im.height / 2));
       x.restore();
     }

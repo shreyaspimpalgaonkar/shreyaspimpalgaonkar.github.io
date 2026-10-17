@@ -17,7 +17,7 @@
     const game = new Core.Game(cat);
     const canvas = document.getElementById('game');
     const screen = document.getElementById('screen');
-    const r2d = new window.RRRender2D(canvas, cat);
+    const r2d = new window.RRRender2D(canvas, cat, { h: CONF.screenH });
     const audio = new window.RRAudio('assets/');
     const $ = id => document.getElementById(id);
 
@@ -110,21 +110,22 @@
       }
       src[which][kind] = down;
     }
-    // dir is 1 for a backflip and -1 for a frontflip
-    function flip(dir) {
+    // kind is 'back', 'front' or 'side'
+    function flip(kind) {
       audio.unlock();
       if (game.paused) { togglePause(); return; }
-      flipEdge = dir;
+      flipEdge = kind;
     }
 
     const JUMP = ['Space', 'ArrowUp', 'KeyW'], DUCK = ['ArrowDown', 'KeyS'];
-    const BACK = ['KeyZ', 'KeyA', 'ArrowLeft'], FRONT = ['KeyX', 'KeyD', 'ArrowRight'];
+    const BACK = ['KeyZ', 'KeyA', 'ArrowLeft'], FRONT = ['KeyX', 'KeyD', 'ArrowRight'], SIDE = ['KeyF'];
     window.addEventListener('keydown', e => {
       if (e.metaKey || e.ctrlKey || e.altKey) return;
       if (JUMP.includes(e.code) || e.code === 'Enter') { e.preventDefault(); if (!e.repeat) press('key', 'jump', true); }
       else if (DUCK.includes(e.code)) { e.preventDefault(); press('key', 'duck', true); }
-      else if (BACK.includes(e.code)) { e.preventDefault(); if (!e.repeat) flip(1); }
-      else if (FRONT.includes(e.code)) { e.preventDefault(); if (!e.repeat) flip(-1); }
+      else if (BACK.includes(e.code)) { e.preventDefault(); if (!e.repeat) flip('back'); }
+      else if (FRONT.includes(e.code)) { e.preventDefault(); if (!e.repeat) flip('front'); }
+      else if (SIDE.includes(e.code)) { e.preventDefault(); if (!e.repeat) flip('side'); }
       else if (e.code === 'KeyP' || e.code === 'Escape') { togglePause(); }
       else if (e.code === 'KeyM') { actions.sound(); label(); }
       else if (e.code === 'KeyC') { actions.colors(); label(); }
@@ -135,13 +136,14 @@
       else if (DUCK.includes(e.code)) press('key', 'duck', false);
     });
 
-    // Tapping the screen jumps. On touch screens the left third is the suction button.
+    // Tapping the screen jumps. On touch screens the left third is the suction button,
+    // unless the page puts its own buttons on the screen (RR_CONFIG.zones = false).
     const ptrs = new Map();
     screen.addEventListener('pointerdown', e => {
       e.preventDefault();
       screen.setPointerCapture && screen.setPointerCapture(e.pointerId);
       const r = screen.getBoundingClientRect();
-      const kind = coarse && (e.clientX - r.left) < r.width * 0.33 && game.state === 'play' ? 'duck' : 'jump';
+      const kind = coarse && CONF.zones !== false && (e.clientX - r.left) < r.width * 0.33 && game.state === 'play' ? 'duck' : 'jump';
       ptrs.set(e.pointerId, kind);
       press('ptr', kind, true);
     });
@@ -157,21 +159,22 @@
     [['btnJump', 'jump'], ['btnDuck', 'duck']].forEach(([id, kind]) => {
       const b = $(id);
       if (!b) return;
-      b.addEventListener('pointerdown', e => { e.preventDefault(); b.setPointerCapture && b.setPointerCapture(e.pointerId); b.classList.add('down'); press('btn', kind, true); });
+      // stopPropagation: a button that sits on the screen must not also count as a tap on the screen
+      b.addEventListener('pointerdown', e => { e.preventDefault(); e.stopPropagation(); b.setPointerCapture && b.setPointerCapture(e.pointerId); b.classList.add('down'); press('btn', kind, true); });
       const up = () => { b.classList.remove('down'); press('btn', kind, false); };
       b.addEventListener('pointerup', up); b.addEventListener('pointercancel', up);
       b.addEventListener('contextmenu', e => e.preventDefault());
     });
-    [['btnBack', 1], ['btnFront', -1]].forEach(([id, dir]) => {
+    [['btnBack', 'back'], ['btnFront', 'front'], ['btnSide', 'side']].forEach(([id, kind]) => {
       const b = $(id);
       if (!b) return;
-      b.addEventListener('pointerdown', e => { e.preventDefault(); b.classList.add('down'); flip(dir); });
+      b.addEventListener('pointerdown', e => { e.preventDefault(); e.stopPropagation(); b.classList.add('down'); flip(kind); });
       const up = () => b.classList.remove('down');
       b.addEventListener('pointerup', up); b.addEventListener('pointercancel', up); b.addEventListener('pointerleave', up);
       b.addEventListener('contextmenu', e => e.preventDefault());
     });
 
-    let padPause = false, padBack = false, padFront = false;
+    let padPause = false, padBack = false, padFront = false, padSide = false;
     function pollPad() {
       const pads = navigator.getGamepads ? navigator.getGamepads() : [];
       const p = [...pads].find(x => x && x.connected);
@@ -180,10 +183,11 @@
       const j = b(0) || b(12) || (p.axes[1] || 0) < -0.6, d = b(1) || b(13) || (p.axes[1] || 0) > 0.6;
       if (j !== src.pad.jump) press('pad', 'jump', j);
       if (d !== src.pad.duck) press('pad', 'duck', d);
-      const fb = b(2) || b(4) || b(14), ff = b(3) || b(5) || b(15);
-      if (fb && !padBack) flip(1);
-      if (ff && !padFront) flip(-1);
-      padBack = fb; padFront = ff;
+      const fb = b(2) || b(4) || b(14), ff = b(3) || b(5) || b(15), fs = b(6) || b(7);
+      if (fb && !padBack) flip('back');
+      if (ff && !padFront) flip('front');
+      if (fs && !padSide) flip('side');
+      padBack = fb; padFront = ff; padSide = fs;
       if (b(9) && !padPause) togglePause();
       padPause = b(9);
     }
@@ -212,7 +216,7 @@
         case 'land': audio.play('land', { vol: Math.min(0.9, e.v / 900) }); break;
         case 'flip': audio.play('jump', { vol: 0.7, rate: 0.75 }); break;
         case 'flipLand': audio.play('trick', { rate: 1 + 0.12 * Math.min(4, (e.n || 1) - 1) }); break;
-        case 'stunt': audio.play('jump', { vol: 0.6, rate: e.dir > 0 ? 1.25 : 1.4 }); break;
+        case 'stunt': audio.play('jump', { vol: 0.6, rate: { back: 1.25, front: 1.4, side: 1.33 }[e.kind] || 1.3 }); break;
         case 'airEmpty': audio.play('tick', { vol: 0.6, rate: 0.6 }); break;
         case 'canyonClear': audio.play('trick', { rate: 1.12 }); audio.play('milestone', { vol: 0.6 }); break;
         case 'canister': audio.play('canister', { vol: 0.8 }); break;

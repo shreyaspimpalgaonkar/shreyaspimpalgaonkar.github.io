@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Roadster Run</title>
-<meta name="description" content="A retro runner game like the Chrome dinosaur game. Fly the new Roadster from Tesla's October 15, 2026 demo, and do backflips and front flips over traffic.">
+<meta name="description" content="A retro runner game like the Chrome dinosaur game. Fly the new Roadster from Tesla's October 15, 2026 demo, and do backflips, front flips and sideflips over traffic.">
 <meta name="theme-color" content="#0c0e15">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
@@ -13,16 +13,16 @@
 <meta name="twitter:site" content="@sayshrey">
 <meta name="twitter:creator" content="@sayshrey">
 <meta name="twitter:title" content="Roadster Run">
-<meta name="twitter:description" content="Fly Tesla's new flying Roadster in a retro runner. Jump, hover and flip. Tap play to drive it right here.">
+<meta name="twitter:description" content="Fly Tesla's new flying Roadster in a retro runner. Jump, hover, and do backflips, frontflips and sideflips. Tap play to drive it right here.">
 <meta name="twitter:player" content="https://shreyaspimpalgaonkar.github.io/roadster-run/player.html">
 <meta name="twitter:player:width" content="640">
 <meta name="twitter:player:height" content="640">
-<meta name="twitter:image" content="https://shreyaspimpalgaonkar.github.io/roadster-run/poster.png?v=3">
+<meta name="twitter:image" content="https://shreyaspimpalgaonkar.github.io/roadster-run/poster.png?v=4">
 <meta name="twitter:image:alt" content="The Roadster Run title screen in gray pixel art, with a white Roadster parked on a desert road.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Roadster Run">
-<meta property="og:description" content="Fly Tesla's new flying Roadster in a retro runner. Jump, hover and flip.">
-<meta property="og:image" content="https://shreyaspimpalgaonkar.github.io/roadster-run/card.png?v=3">
+<meta property="og:description" content="Fly Tesla's new flying Roadster in a retro runner. Jump, hover, and do backflips, frontflips and sideflips.">
+<meta property="og:image" content="https://shreyaspimpalgaonkar.github.io/roadster-run/card.png?v=4">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://shreyaspimpalgaonkar.github.io/roadster-run/player.html">
@@ -32,8 +32,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap">
 <style>
   /* The player inside an X post. It is the same game and the same look as the
-     full version: an arcade cabinet with the screen in the middle and big pads
-     below, so it fits a square post on a phone. */
+     full version: an arcade cabinet around a taller screen. The buttons sit on
+     the screen like in a phone game, see-through, on the ground under the road. */
   :root {
     --cab: #0c0e15; --bezel: #151925; --deck: #1a1f2d; --line: #2b3246;
     --plate: #eceae3; --brass: #c9a25a; --gas: #9fd6ff; --ink: #d7dae4; --muted: #8d93a8;
@@ -45,10 +45,10 @@
   html, body { margin: 0; height: 100%; overflow: hidden; background: var(--cab); color: var(--ink); }
   body { font-family: var(--display); -webkit-text-size-adjust: 100%; user-select: none; -webkit-user-select: none; }
   button { font: inherit; color: inherit; }
-  /* In a wide frame the cabinet gets narrower, so the 3:1 screen and the pads still fit the height. */
+  /* In a wide frame the cabinet gets narrower, so the 15:8 screen still fits the height. */
   .cab {
     position: fixed; inset: 0; margin: 0 auto; box-sizing: border-box; display: flex; flex-direction: column; justify-content: center;
-    width: min(100%, calc((100vh - var(--u) * 48 - 18px) * 3 + var(--u) * 9.6));
+    width: min(100%, calc((100vh - var(--u) * 24 - 14px) * 1.875 + var(--u) * 9.6));
     gap: calc(var(--u) * 2.4); padding: calc(var(--u) * 3);
   }
   .top { display: flex; align-items: center; gap: calc(var(--u) * 2.4); }
@@ -58,12 +58,12 @@
   }
   .title { flex: 1; font-size: calc(var(--u) * 3.1); letter-spacing: 0.05em; color: var(--plate); text-shadow: 0 2px 0 var(--brass); white-space: nowrap; }
   /* arcade keys: a solid lip underneath that the key presses down into */
-  .mini, .pad, .opt {
+  .mini, .opt {
     cursor: pointer; color: var(--ink); background: linear-gradient(180deg, #232a3c, #181d2a);
     border: 2px solid var(--line); border-radius: 12px; transition: transform 0.06s, box-shadow 0.06s;
     --lip: #07080d; box-shadow: 0 3px 0 var(--lip), 0 6px 12px rgba(0, 0, 0, 0.3);
   }
-  .mini:active, .opt:active, .pad.down { transform: translateY(2px); box-shadow: 0 1px 0 var(--lip), 0 2px 6px rgba(0, 0, 0, 0.3); }
+  .mini:active, .opt:active { transform: translateY(2px); box-shadow: 0 1px 0 var(--lip), 0 2px 6px rgba(0, 0, 0, 0.3); }
   .mini { font-size: calc(var(--u) * 1.8); letter-spacing: 0.04em; border-radius: 8px; padding: 0.75em 0.9em 0.65em; }
   .mini:hover, .opt:hover { border-color: var(--brass); }
   .scores { display: flex; justify-content: flex-end; gap: 1.6em; font-size: calc(var(--u) * 2.5); letter-spacing: 0.04em; margin-top: calc(var(--u) * -0.6); }
@@ -75,7 +75,7 @@
     touch-action: none; cursor: pointer; -webkit-tap-highlight-color: transparent;
   }
   #game {
-    display: block; width: 100%; height: auto; aspect-ratio: 3 / 1; border-radius: 3px;
+    display: block; width: 100%; height: auto; aspect-ratio: 600 / 320; border-radius: 3px;
     image-rendering: pixelated; image-rendering: crisp-edges; -webkit-touch-callout: none;
   }
   .screen .view3d, .screen .hud3d {
@@ -89,15 +89,25 @@
     background: repeating-linear-gradient(to bottom, rgba(0, 0, 0, 0) 0 2px, rgba(0, 0, 0, 0.16) 2px 3px),
       radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.32) 100%);
   }
-  .pads { display: grid; grid-template-columns: 1fr 1.4fr; gap: calc(var(--u) * 2.4); }
-  .pad {
-    min-height: calc(var(--u) * 10.5); font-size: calc(var(--u) * 2.5); line-height: 1.5; padding: 0.5em; border-radius: 10px;
-    touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
+  /* on-screen buttons: placed in percent of the 600x320 game picture; the road ends at 59%,
+     so the buttons only cover the ground strip under it */
+  .ctl { position: absolute; inset: var(--pad); z-index: 3; pointer-events: none; container-type: inline-size; }
+  .tb {
+    position: absolute; transform: translate(-50%, -50%); aspect-ratio: 1; height: auto; border-radius: 50%;
+    display: grid; place-items: center; align-content: center; padding: 0; margin: 0; pointer-events: auto;
+    font-size: calc(var(--u) * 1.6); font-size: 1.75cqw; line-height: 1.35; letter-spacing: 0.04em; text-align: center; color: #fff;
+    text-shadow: 1px 0 0 rgba(0, 0, 0, 0.6), -1px 0 0 rgba(0, 0, 0, 0.6), 0 1px 0 rgba(0, 0, 0, 0.6), 0 -1px 0 rgba(0, 0, 0, 0.6);
+    background: rgba(14, 17, 27, 0.28); border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.32), inset 0 0 0 1px rgba(0, 0, 0, 0.18);
+    cursor: pointer; touch-action: none; user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent; transition: transform 0.05s, background-color 0.05s;
   }
-  .pad small { display: block; font-size: 0.62em; color: var(--muted); letter-spacing: 0.06em; margin-top: 0.2em; }
-  .pad.jump { border-color: var(--brass); --lip: #5c4820; background: linear-gradient(180deg, #2c2a2a, #1d1b1f); }
-  .pad.duck { border-color: #3d5f7a; --lip: #1b2d3c; }
-  .pad.flip { min-height: calc(var(--u) * 8.4); color: var(--gas); border-color: #36405a; --lip: #262d40; }
+  .tb span { display: block; }
+  .tb.down { background: rgba(255, 255, 255, 0.42); transform: translate(-50%, -50%) scale(0.92); }
+  .tb.jump { width: 18%; left: 88.6%; top: 80.6%; font-size: calc(var(--u) * 2.1); font-size: 2.3cqw; border-color: rgba(236, 200, 128, 0.95); }
+  .tb.duck { width: 21%; aspect-ratio: 120 / 66; border-radius: 999px; left: 12.9%; top: 83.2%; border-color: rgba(159, 214, 255, 0.92); }
+  .tb.flip { width: 12.5%; top: 83%; }
+  .tb.back { left: 36%; } .tb.side { left: 50%; } .tb.front { left: 64%; }
   button:focus-visible, a:focus-visible { outline: 2px solid var(--gas); outline-offset: 2px; }
 
   /* the options menu covers the cabinet; the game waits underneath */
@@ -133,13 +143,14 @@
   </header>
   <div class="scores" aria-live="off"><span class="hi" id="hi">HI 00000</span><span id="sc">00000</span></div>
   <div class="screen" id="screen">
-    <canvas id="game" width="600" height="200" aria-label="Roadster Run. Tap to play."></canvas>
-  </div>
-  <div class="pads">
-    <button class="pad flip" id="btnBack" type="button" aria-label="Backflip">BACKFLIP</button>
-    <button class="pad flip" id="btnFront" type="button" aria-label="Front flip">FRONTFLIP</button>
-    <button class="pad duck" id="btnDuck" type="button">SUCTION<small>HOLD</small></button>
-    <button class="pad jump" id="btnJump" type="button">JUMP<small>HOLD TO HOVER</small></button>
+    <canvas id="game" width="600" height="320" aria-label="Roadster Run. Tap to play."></canvas>
+    <div class="ctl">
+      <button class="tb duck" id="btnDuck" type="button" aria-label="Suction. Hold to duck.">SUCTION</button>
+      <button class="tb flip back" id="btnBack" type="button" aria-label="Backflip"><span>BACK</span><span>FLIP</span></button>
+      <button class="tb flip side" id="btnSide" type="button" aria-label="Sideflip"><span>SIDE</span><span>FLIP</span></button>
+      <button class="tb flip front" id="btnFront" type="button" aria-label="Front flip"><span>FRONT</span><span>FLIP</span></button>
+      <button class="tb jump" id="btnJump" type="button" aria-label="Jump. Hold to hover.">JUMP</button>
+    </div>
   </div>
 </div>
 
@@ -158,7 +169,7 @@
       <button class="opt" type="button" data-act="music" id="optMusic" aria-pressed="true">MUSIC: ON</button>
       <button class="opt" type="button" data-act="sound" id="optSound" aria-pressed="true">SOUND: ON</button>
     </div>
-    <p class="keys">Tap the screen or JUMP to jump. Keep holding to hover. Hold SUCTION or the left side of the screen to duck. Tap BACKFLIP or FRONTFLIP to flip. Flip on the way up, or hover while you flip, so the car lands on its wheels. On a keyboard, use Space, Down, Z and X. V changes the view, C the colors, M the sound and P pauses.</p>
+    <p class="keys">Tap the screen or JUMP to jump. Keep holding to hover. Hold SUCTION to duck. Tap BACK, SIDE or FRONT to flip. Flip on the way up, or hover while you flip, so the car lands on its wheels. On a keyboard, use Space, Down, Z, X and F. V changes the view, C the colors, M the sound and P pauses.</p>
     <div class="row">
       <button class="opt go" type="button" id="menuClose">RESUME</button>
       <a class="opt" href="https://shreyaspimpalgaonkar.github.io/roadster-run/" target="_blank" rel="noopener">FULL GAME</a>
@@ -167,7 +178,7 @@
 </div>
 
 <script>
-  window.RR_CONFIG = { palette: 'classic', fit: 'css' };
+  window.RR_CONFIG = { palette: 'classic', fit: 'css', screenH: 320, view3d: { w: 600, h: 320, band: 120 }, zones: false };
 </script>
 <script src="js/sprites.js"></script>
 <script src="js/core.js"></script>

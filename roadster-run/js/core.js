@@ -57,6 +57,7 @@
     }
     return false;
   }
+  const stuntKind = f => (f === 'side' || f === 'front' || f === 'back' ? f : f > 0 ? 'back' : 'front');
   const boxHit = (ax, ay, aw, ah, bx, by, bw, bh) => ax < bx + bw && ax + aw > bx && ay < by + bh && ay + ah > by;
 
   class Game {
@@ -76,7 +77,7 @@
       this.distance = 0; this.speed = 0; this.bonus = 0; this.score = 0;
       this.car = {
         y: 0, vy: 0, jumpY0: 0, onGround: true, duck: false, hover: false, held: false, buffer: 0,
-        air: 1, rot: 0, flip: null, onRamp: null, spoiler: 0, wheel: 0, frame: 0, sprite: 'car0',
+        air: 1, rot: 0, roll: 0, flip: null, onRamp: null, spoiler: 0, wheel: 0, frame: 0, sprite: 'car0',
         burst: 0, wreck: false, zeroTo60: 0, stunt: null, airFlips: 0, flipBuf: null, airT: Infinity,
       };
       this.obstacles = []; this.items = []; this.decor = []; this.features = [];
@@ -101,7 +102,8 @@
       this.emit('start');
     }
 
-    // inp: { jump: held, jumpPressed: edge, duck: held, flipPressed: +1 backflip, -1 frontflip, 0 none }
+    // inp: { jump: held, jumpPressed: edge, duck: held, flipPressed: 'back', 'front', 'side' or 0 }
+    // (the numbers 1 and -1 also work for a backflip and a frontflip)
     update(dt, inp) {
       this.t += dt; this.stateT += dt;
       this.flashT = Math.max(0, this.flashT - dt);
@@ -221,7 +223,7 @@
       }
 
       // a flip press waits a moment, so a press during a flip chains the next one
-      if (inp.flipPressed) c.flipBuf = { dir: inp.flipPressed > 0 ? 1 : -1, t: 0.2 };
+      if (inp.flipPressed) c.flipBuf = { kind: stuntKind(inp.flipPressed), t: 0.2 };
       if (c.flipBuf && (c.flipBuf.t -= dt) <= 0) c.flipBuf = null;
       const hasAir = c.air >= CFG.STUNT_AIR - 1e-6;
       if (inp.flipPressed && !hasAir) {
@@ -247,14 +249,16 @@
         // the car spins faster when it has less time before it lands, but never faster than STUNT_MIN
         const hovering = inp.jump && !inp.duck && c.air - CFG.STUNT_AIR > 0.05;
         const rem = hovering || !isFinite(h) ? Infinity : (c.vy + Math.sqrt(Math.max(0, c.vy * c.vy + 2 * G * h))) / G;
-        c.stunt = { dir: c.flipBuf.dir, t: 0, T: clamp(rem * 0.95, CFG.STUNT_MIN, CFG.STUNT_T) }; c.flipBuf = null;
+        c.stunt = { kind: c.flipBuf.kind, t: 0, T: clamp(rem * 0.95, CFG.STUNT_MIN, CFG.STUNT_T) }; c.flipBuf = null;
         c.air = Math.max(0, c.air - CFG.STUNT_AIR);
-        this.emit('stunt', { dir: c.stunt.dir });
+        this.emit('stunt', { kind: c.stunt.kind, dir: c.stunt.kind === 'front' ? -1 : 1 });
       }
       if (c.stunt) {
         c.stunt.t += dt;
-        const k = Math.min(1, c.stunt.t / c.stunt.T);
-        c.rot = -c.stunt.dir * Math.PI * 2 * ease(k);
+        const k = Math.min(1, c.stunt.t / c.stunt.T), turn = Math.PI * 2 * ease(k);
+        // backflips and frontflips pitch the car; a sideflip rolls it over its long axis
+        if (c.stunt.kind === 'side') c.roll = turn;
+        else c.rot = c.stunt.kind === 'front' ? turn : -turn;
         c.burst = Math.max(c.burst, 0.5);
         if (k >= 1) this.finishStunt();
       }
@@ -286,10 +290,14 @@
         if (wasAir && c.stunt) {
           // a flip that is nearly done still counts, a flip that has barely started gives nothing,
           // and anything in between lands on the roof
-          const a = Math.abs(c.rot);
+          const a = c.stunt.kind === 'side' ? Math.abs(c.roll) : Math.abs(c.rot);
           if (a > Math.PI * 2 - CFG.STUNT_SLOP) this.finishStunt();
-          else if (a < CFG.STUNT_SLOP || this.god) { c.stunt = null; c.rot = 0; }
-          else { c.y = gnd; c.vy = 0; c.stunt = null; c.rot = Math.PI; this.crash({ kind: 'roof', hit: false }); return; }
+          else if (a < CFG.STUNT_SLOP || this.god) { c.stunt = null; c.rot = 0; c.roll = 0; }
+          else {
+            const side = c.stunt.kind === 'side';
+            c.y = gnd; c.vy = 0; c.stunt = null; c.rot = side ? 0 : Math.PI; c.roll = side ? Math.PI : 0;
+            this.crash({ kind: 'roof', hit: false }); return;
+          }
         }
         if (wasAir) c.airFlips = 0;
         if (wasAir && c.vy < -200) this.emit('land', { v: -c.vy });
@@ -328,12 +336,12 @@
     // Each flip in one jump is worth more: 50, then 100, then 150.
     finishStunt() {
       const c = this.car, n = ++c.airFlips;
-      const name = c.stunt.dir > 0 ? 'BACKFLIP' : 'FRONTFLIP';
-      c.stunt = null; c.rot = 0;
+      const name = { back: 'BACKFLIP', front: 'FRONTFLIP', side: 'SIDEFLIP' }[c.stunt.kind];
+      c.stunt = null; c.rot = 0; c.roll = 0;
       this.stats.flips++;
       const combo = n === 2 ? 'DOUBLE ' : n === 3 ? 'TRIPLE ' : n > 3 ? n + 'X ' : '';
       this.addBonus(50 * n, combo + name + '!');
-      this.emit('flipLand', { n });
+      this.emit('flipLand', { n, kind: name });
     }
 
     checkCanyonClear(xc) {
@@ -358,7 +366,7 @@
       const c = this.car;
       const cm = this.masks[c.sprite];
       const cx = CFG.CAR_X, cy = CFG.GROUND - Math.round(c.y) - cm.h;
-      const tilted = !!c.flip || !!c.stunt || Math.abs(c.rot) > 0.05;
+      const tilted = !!c.flip || !!c.stunt || Math.abs(c.rot) > 0.05 || Math.abs(c.roll) > 0.05;
       const carTop = c.y + (cm.h - cm.top), carBottom = c.y + (cm.h - 1 - cm.bottom);
       for (const o of this.obstacles) {
         if (o.hit) continue;
