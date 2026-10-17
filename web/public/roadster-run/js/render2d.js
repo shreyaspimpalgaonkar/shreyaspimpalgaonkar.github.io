@@ -1,6 +1,7 @@
 /* Roadster Run: the 2D pixel renderer. Draws the shared simulation into a
    600x200 canvas that CSS scales up with nearest-neighbour filtering.
-   opts.h makes the canvas taller; the extra rows are ground below the road. */
+   opts.h makes the canvas taller; the extra rows are ground below the road.
+   opts.w makes it narrower, which is a closer view: the car and the traffic look bigger. */
 (function (global) {
   'use strict';
   const A = global.RRArt, C = global.RRCore.CFG;
@@ -13,10 +14,11 @@
   class Render2D {
     constructor(canvas, catalogue, opts) {
       this.H = Math.max(H, (opts && opts.h) || H);
-      this.cv = canvas; canvas.width = W; canvas.height = this.H;
+      this.W = Math.min(W, (opts && opts.w) || W);
+      this.cv = canvas; canvas.width = this.W; canvas.height = this.H;
       this.ctx = canvas.getContext('2d');
       this.cat = catalogue;
-      this.bufA = mk(W, this.H); this.bufB = mk(W, this.H);
+      this.bufA = mk(this.W, this.H); this.bufB = mk(this.W, this.H);
       this.particles = [];
       this.shake = 0; this.camY = 0; this.time = 0; this.flash = 0;
       this.touch = false;
